@@ -49,10 +49,10 @@ If no history exists, that's fine — this is the first run.
 Launch **all 4 agents in parallel** using the Agent tool in a single message. Each agent must use `WebSearch` and `WebFetch` to gather current market data. Pass each agent its sector-specific prompt from the agent-prompts file.
 
 The 4 sector agents are:
-1. **Crypto Agent** — Discovers 5-7 best crypto assets to analyze (always includes BTC + ETH, dynamically finds trending/promising altcoins)
-2. **Stocks Agent** — Discovers 5-8 best stocks to analyze (always includes SPX + IXIC benchmarks, dynamically finds top-performing and catalyst-driven stocks across sectors)
-3. **Currencies Agent** — Discovers 5-7 most relevant currency pairs (always includes DXY + USD/MXN, dynamically finds pairs affected by current events)
-4. **Materials Agent** — Discovers 5-7 best commodities to analyze (always includes Gold + Oil WTI, dynamically finds trending commodities including agricultural if relevant)
+1. **Crypto Agent** — Discovers 3-5 best crypto assets to analyze (always includes BTC + ETH, dynamically finds 1-3 trending altcoins)
+2. **Stocks Agent** — Discovers 3-5 best stocks to analyze (always includes SPX + IXIC benchmarks, dynamically finds 1-3 top-performing stocks)
+3. **Currencies Agent** — Discovers 3-5 most relevant currency pairs (always includes DXY + USD/MXN, dynamically finds 1-3 pairs affected by current events)
+4. **Materials Agent** — Discovers 3-5 best commodities to analyze (always includes Gold + Oil WTI, dynamically finds 1-3 trending commodities)
 
 Each agent MUST return a JSON block in this exact schema:
 
@@ -197,12 +197,12 @@ If `dashboard/package.json` does not exist (Node.js not set up):
 3. Create the `output/` directory if it doesn't exist.
 4. Write the populated HTML to `output/report.html`.
 
-### Step 8b: Translate Report to Spanish
+### Step 8b: Translate Report to Spanish (Inline)
 
-After writing the English report, spawn a **Translation Agent** to create a Spanish version:
+After writing the English report, translate it to Spanish **directly** (no separate agent):
 
-1. Read the English report from `dashboard/public/data/report.json`.
-2. Translate all human-readable text fields to Spanish:
+1. Take the REPORT_DATA object already in memory.
+2. Create a deep copy and translate only the human-readable text fields to Spanish:
    - `executive_summary`
    - `strategy_summary`
    - `macro_environment.summary`
@@ -214,11 +214,7 @@ After writing the English report, spawn a **Translation Agent** to create a Span
    - Per sector: `sector_summary`, `top_pick_reasoning`
    - Per asset: `reasoning`, `key_news[]`, `social_highlights[]`
 3. Do NOT translate: numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, sentiment values, recommendation values.
-4. Write the translated report to `dashboard/public/data/report-es.json`.
-
-The translation agent prompt:
-
-> You are a financial translator. Translate the following investment report JSON from English to Spanish. Translate only the human-readable text fields listed above. Preserve all numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, and enum values (like "bullish", "buy", "high") exactly as-is. Return valid JSON with the same structure.
+4. Write the translated object to `dashboard/public/data/report-es.json`.
 
 ### Step 9: Serve the Report
 
