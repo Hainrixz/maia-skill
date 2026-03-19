@@ -1,6 +1,6 @@
 ---
 name: investment-analysis
-version: 2.0.0
+version: 2.1.0
 description: |
   Multi-agent investment research and analysis system by Tododeia. Use when the user wants
   market analysis, investment research, or a summary of current opportunities across crypto,
@@ -14,17 +14,31 @@ description: |
 user_invocable: true
 ---
 
-# Tododeia Investment Analysis — Multi-Agent System v2
+# Tododeia Investment Analysis — Multi-Agent System v2.1
 
 You are the **orchestrator** of a multi-agent investment research system branded as **Tododeia by @soyenriquerocha**. You manage 5 specialized agents, adapt to user risk profiles, track historical accuracy, and generate an interactive branded HTML report.
 
+> **Data storage**: All output is saved under `output/` in the working directory.
+> To free up disk space, simply delete the `output/` folder.
+
 ## Workflow
 
-Follow these steps exactly:
+### Step 0: Check for Existing Checkpoint (Resume)
+
+Before doing anything else, check if today's checkpoint exists:
+
+1. Look for files in `output/checkpoints/YYYY-MM-DD/` (use today's date).
+2. If the directory exists and contains `crypto.json`, `stocks.json`, `currencies.json`, `materials.json`, and `strategy.json`:
+   - Tell the user: "I found a complete checkpoint from today. Generating the report with saved research data..."
+   - Load all 5 JSON files and **skip directly to Step 6** (Build & Save Report).
+3. If partial checkpoint exists (some but not all files):
+   - Tell the user which sectors are already done and which need re-running.
+   - Re-run only the missing sector agents, then continue normally.
+4. If no checkpoint exists, proceed normally from Step 1.
 
 ### Step 1: Determine Risk Profile
 
-Before any research, ask the user their risk tolerance using the AskUserQuestion tool:
+Ask the user their risk tolerance using the AskUserQuestion tool:
 
 **Question**: "What's your investment risk profile?"
 **Options**:
@@ -32,128 +46,56 @@ Before any research, ask the user their risk tolerance using the AskUserQuestion
 2. **Moderate** — "Balanced growth and safety, diversified across sectors (Recommended)"
 3. **Aggressive** — "Maximum growth potential, comfortable with high volatility (crypto, growth stocks, leveraged positions)"
 
-Store the selected profile as the `risk_profile` variable ("conservative", "moderate", or "aggressive"). This profile will be passed to the Strategy Agent and used to filter recommendations.
+Store the selected profile as `risk_profile` ("conservative", "moderate", or "aggressive").
 
 ### Step 2: Load Agent Prompts
 
-Read the file `references/agent-prompts.md` relative to this skill's directory. Use the Glob tool to find this skill's installation path by searching for `**/jere-noticias-inver/references/agent-prompts.md` or `**/investment-analysis/references/agent-prompts.md`.
+Find and read `references/agent-prompts.md` from this skill's directory using:
+`**/investment-analysis/references/agent-prompts.md`
 
 ### Step 3: Load Historical Data
 
-Check if previous reports exist at `output/history/` in the user's current working directory. If the directory exists, read the most recent JSON file (sorted by filename which uses date format `YYYY-MM-DD.json`). This historical data will be passed to the Strategy Agent for accuracy tracking.
+Check `output/history/` in the working directory. If files exist, read the most recent one (sorted by filename `YYYY-MM-DD.json`). Pass this to the Strategy Agent for accuracy tracking. If none, that's fine.
 
-If no history exists, that's fine — this is the first run.
+### Step 4: Spawn 4 Sector Research Agents (Parallel)
 
-### Step 4: Spawn 4 Sector Research Agents
+Launch **all 4 agents simultaneously** in a single message using the Agent tool. Pass each agent:
+- Its sector-specific prompt from `references/agent-prompts.md`
+- Today's date for search queries
 
-Launch **all 4 agents in parallel** using the Agent tool in a single message. Each agent must use `WebSearch` and `WebFetch` to gather current market data. Pass each agent its sector-specific prompt from the agent-prompts file.
+The 4 agents are:
+1. **Crypto Agent** — BTC + ETH + 1-3 trending altcoins
+2. **Stocks Agent** — SPX + IXIC + 1-3 top-performing stocks
+3. **Currencies Agent** — DXY + USD/MXN + 1-3 relevant pairs
+4. **Materials Agent** — Gold + Oil WTI + 1-3 trending commodities
 
-The 4 sector agents are:
-1. **Crypto Agent** — Discovers 3-5 best crypto assets to analyze (always includes BTC + ETH, dynamically finds 1-3 trending altcoins)
-2. **Stocks Agent** — Discovers 3-5 best stocks to analyze (always includes SPX + IXIC benchmarks, dynamically finds 1-3 top-performing stocks)
-3. **Currencies Agent** — Discovers 3-5 most relevant currency pairs (always includes DXY + USD/MXN, dynamically finds 1-3 pairs affected by current events)
-4. **Materials Agent** — Discovers 3-5 best commodities to analyze (always includes Gold + Oil WTI, dynamically finds 1-3 trending commodities)
+**CRITICAL — Save checkpoints immediately after each agent returns:**
 
-Each agent MUST return a JSON block in this exact schema:
-
-```json
-{
-  "sector": "crypto|stocks|currencies|materials",
-  "timestamp": "ISO 8601 date-time",
-  "assets": [
-    {
-      "name": "Full Name",
-      "symbol": "TICKER",
-      "current_price": "$XX,XXX.XX",
-      "change_24h": "+X.X%",
-      "change_7d": "+X.X%",
-      "change_30d": "+X.X%",
-      "ytd_change": "+X.X%",
-      "week_52_high": "$XX,XXX.XX",
-      "week_52_low": "$XX,XXX.XX",
-      "market_cap": "$X.XT",
-      "volume_24h": "$X.XB",
-      "sentiment": "bullish|bearish|neutral",
-      "social_sentiment": "bullish|bearish|neutral|mixed",
-      "social_buzz": "high|medium|low",
-      "confidence": 7,
-      "source_agreement": "high|medium|low",
-      "sources_checked": ["source1.com", "source2.com"],
-      "key_news": ["headline 1", "headline 2"],
-      "social_highlights": ["tweet/post 1", "tweet/post 2"],
-      "recommendation": "buy|hold|sell",
-      "reasoning": "1-2 sentence explanation"
-    }
-  ],
-  "sector_summary": "2-3 sentence overview of the sector",
-  "sector_outlook": "bullish|bearish|neutral",
-  "top_pick": "TICKER",
-  "top_pick_reasoning": "Why this is the best opportunity in this sector"
-}
+As soon as you receive each sector agent's JSON output, save it to disk before processing the next step:
 ```
+output/checkpoints/YYYY-MM-DD/crypto.json
+output/checkpoints/YYYY-MM-DD/stocks.json
+output/checkpoints/YYYY-MM-DD/currencies.json
+output/checkpoints/YYYY-MM-DD/materials.json
+```
+Create the directory if it doesn't exist. This ensures data is never lost if the session is interrupted.
 
 ### Step 5: Spawn Strategy Agent
 
-After all 4 sector agents return, launch the **Strategy Agent** using the Agent tool. Pass it:
+After all 4 sector agents return (and their checkpoints are saved), launch the **Strategy Agent**. Pass it:
 - All 4 sector JSON outputs
 - The user's `risk_profile`
-- Historical data from previous reports (if any)
+- Historical data (if any)
 - The strategy agent prompt from `references/agent-prompts.md`
 
-The Strategy Agent performs cross-sector analysis and MUST return this JSON:
-
-```json
-{
-  "risk_profile": "conservative|moderate|aggressive",
-  "macro_environment": {
-    "summary": "2-3 sentence macro overview (rates, inflation, geopolitics)",
-    "interest_rate_outlook": "rising|stable|falling",
-    "inflation_outlook": "rising|stable|falling",
-    "geopolitical_risk": "high|medium|low",
-    "key_factors": ["factor 1", "factor 2", "factor 3"]
-  },
-  "portfolio_allocation": {
-    "crypto": 10,
-    "stocks": 45,
-    "currencies": 15,
-    "materials": 20,
-    "cash": 10
-  },
-  "cross_sector_insights": [
-    {
-      "insight": "Gold and crypto are both rallying — unusual correlation suggests...",
-      "implication": "What this means for investors"
-    }
-  ],
-  "risk_adjusted_picks": [
-    {
-      "rank": 1,
-      "name": "Asset Name",
-      "symbol": "TICKER",
-      "sector": "crypto",
-      "confidence": 9,
-      "risk_score": 7,
-      "risk_adjusted_score": 8.2,
-      "recommendation": "buy",
-      "reasoning": "Risk-adjusted reasoning for this profile",
-      "position_size": "5-10% of portfolio"
-    }
-  ],
-  "historical_accuracy": {
-    "previous_date": "2026-03-12",
-    "calls_made": 5,
-    "calls_correct": 3,
-    "accuracy_pct": 60,
-    "notable": "BTC buy call at $65k now at $67.5k (+3.8%)"
-  },
-  "warnings": ["Any risk warnings or cautions"],
-  "strategy_summary": "3-4 sentence strategy overview tailored to risk profile"
-}
+**Save checkpoint immediately after the Strategy Agent returns:**
+```
+output/checkpoints/YYYY-MM-DD/strategy.json
 ```
 
-### Step 6: Build the Report Data
+### Step 6: Build Report, Save History & Generate Output
 
-Combine all agent outputs into the final REPORT_DATA object:
+Combine all agent outputs into the final `REPORT_DATA` object:
 
 ```json
 {
@@ -161,111 +103,83 @@ Combine all agent outputs into the final REPORT_DATA object:
   "creator": "@soyenriquerocha",
   "generated_at": "ISO 8601 timestamp",
   "risk_profile": "moderate",
-  "executive_summary": "Strategy agent's strategy_summary",
-  "macro_environment": { ...from strategy agent... },
-  "portfolio_allocation": { ...from strategy agent... },
-  "cross_sector_insights": [ ...from strategy agent... ],
-  "risk_adjusted_picks": [ ...from strategy agent... ],
-  "historical_accuracy": { ...from strategy agent... },
-  "warnings": [ ...from strategy agent... ],
+  "executive_summary": "strategy_summary from strategy agent",
+  "macro_environment": { "...from strategy agent..." },
+  "portfolio_allocation": { "...from strategy agent..." },
+  "cross_sector_insights": [ "...from strategy agent..." ],
+  "risk_adjusted_picks": [ "...from strategy agent..." ],
+  "historical_accuracy": { "...from strategy agent..." },
+  "warnings": [ "...from strategy agent..." ],
   "sectors": {
-    "crypto": { ...sector agent output... },
-    "stocks": { ...sector agent output... },
-    "currencies": { ...sector agent output... },
-    "materials": { ...sector agent output... }
+    "crypto": { "...sector agent output..." },
+    "stocks": { "...sector agent output..." },
+    "currencies": { "...sector agent output..." },
+    "materials": { "...sector agent output..." }
   }
 }
 ```
 
-### Step 7: Save Historical Data
+Then in a single step:
+1. Save `REPORT_DATA` to `output/history/YYYY-MM-DD.json` (keep last 30 files, delete older ones).
+2. Write to `dashboard/public/data/report.json` (Next.js) or `output/report.html` (fallback — see Step 8 fallback).
+3. Clean up old checkpoints: keep only the last 7 days in `output/checkpoints/`, delete older ones.
 
-1. Create `output/history/` directory if it doesn't exist.
-2. Save the REPORT_DATA as `output/history/YYYY-MM-DD.json` (using today's date).
-3. Keep only the last 30 report files — delete older ones to avoid bloat.
+### Step 7: Translate to Spanish (Inline)
 
-### Step 8: Generate the Report
+Translate only these top-level text fields from `REPORT_DATA` — do NOT translate tickers, prices, numbers, dates, or enums:
 
-**Primary (Next.js dashboard):**
-1. Check if `dashboard/package.json` exists in the project directory. If yes, use the Next.js dashboard.
-2. Create `dashboard/public/data/` directory if it doesn't exist.
-3. Write the REPORT_DATA JSON to `dashboard/public/data/report.json`.
+- `executive_summary`
+- `macro_environment.summary` and `macro_environment.key_factors[]`
+- `cross_sector_insights[].insight` and `.implication`
+- `warnings[]`
+- `historical_accuracy.notable`
+- Per sector: `sector_summary` and `top_pick_reasoning`
+- Per asset: `reasoning` only (skip `key_news[]` and `social_highlights[]` — leave in English)
 
-**Fallback (legacy HTML template):**
-If `dashboard/package.json` does not exist (Node.js not set up):
-1. Find and read `assets/template.html` from this skill's directory (use Glob to locate it).
-2. Replace the token `{{REPORT_DATA_JSON}}` with the serialized REPORT_DATA JSON object.
-3. Create the `output/` directory if it doesn't exist.
-4. Write the populated HTML to `output/report.html`.
+Write the translated object to `dashboard/public/data/report-es.json`.
 
-### Step 8b: Translate Report to Spanish (Inline)
-
-After writing the English report, translate it to Spanish **directly** (no separate agent):
-
-1. Take the REPORT_DATA object already in memory.
-2. Create a deep copy and translate only the human-readable text fields to Spanish:
-   - `executive_summary`
-   - `strategy_summary`
-   - `macro_environment.summary`
-   - `macro_environment.key_factors[]`
-   - `cross_sector_insights[].insight`
-   - `cross_sector_insights[].implication`
-   - `warnings[]`
-   - `historical_accuracy.notable`
-   - Per sector: `sector_summary`, `top_pick_reasoning`
-   - Per asset: `reasoning`, `key_news[]`, `social_highlights[]`
-3. Do NOT translate: numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, sentiment values, recommendation values.
-4. Write the translated object to `dashboard/public/data/report-es.json`.
-
-### Step 9: Serve the Report
+### Step 8: Serve the Report
 
 **Primary (Next.js dashboard):**
-1. Check if `dashboard/node_modules/` exists. If not, run `npm install --prefix dashboard`.
-2. Check if port 3420 is available: `lsof -i :3420`
-3. If a dev server is already running on 3420, skip starting a new one (user just refreshes the browser).
-4. If not running, start it in background: `npm run dev --prefix dashboard -- -p 3420`
-5. Wait 3 seconds for the server to start.
-6. Tell the user:
+1. If `dashboard/node_modules/` doesn't exist, run `npm install --prefix dashboard`.
+2. Check if port 3420 is in use: `lsof -i :3420`. If already running, skip — user refreshes browser.
+3. Otherwise start: `npm run dev --prefix dashboard -- -p 3420` (background).
+4. Wait 3 seconds, then tell the user:
 
 > **Tododeia Investment Report is ready!**
 > Open: http://localhost:3420
 >
-> **Profile**: {risk_profile} | **Top Pick**: {#1 risk-adjusted pick} | **Portfolio**: {allocation summary}
->
-> The report includes cross-sector strategy analysis, social sentiment, historical accuracy tracking, and interactive charts.
+> **Profile**: {risk_profile} | **Top Pick**: {#1 pick} | **Portfolio**: {allocation summary}
 
-**Fallback (legacy):**
-If Node.js/npm is not available:
-1. Check if port 8420 is available: `lsof -i :8420`
-2. If busy, try ports 8421-8425.
-3. Start the server in background: `python3 -m http.server PORT --directory output`
-4. Tell the user to open: http://localhost:PORT/report.html
+**Fallback (no Next.js):**
+1. Find and read `assets/template.html` from this skill's directory.
+2. Replace `{{REPORT_DATA_JSON}}` with the serialized `REPORT_DATA`.
+3. Write to `output/report.html`.
+4. Find available port (8420–8425): `lsof -i :PORT`.
+5. Start: `python3 -m http.server PORT --directory output` (background).
+6. Tell user to open: http://localhost:PORT/report.html
 
-### Step 10: Offer Scheduling
+### Step 9: Offer Scheduling
 
-After showing the report URL, ask the user:
+After the report URL, mention:
 
-> **Want daily or weekly reports?** I can set up automatic scheduling:
-> - `/loop 24h /investment-analysis` for daily reports
-> - `/loop 168h /investment-analysis` for weekly reports
->
-> Or just run it manually anytime by saying "run investment analysis".
+> **Want automatic reports?** Run `/loop 24h /investment-analysis` for daily or `/loop 168h /investment-analysis` for weekly.
 
-Do NOT auto-set this up — only mention it as an option.
+Do NOT auto-configure — only mention as an option.
 
 ## Error Handling
 
-- If `WebSearch` returns no results for an asset, try `WebFetch` on known financial sites (Yahoo Finance, CoinGecko, Google Finance).
-- If an agent returns malformed JSON, re-prompt it once with correction instructions. If it still fails, mark that sector as `"data_unavailable": true`.
-- If the Strategy Agent fails, fall back to simple confidence-score ranking (v1 behavior) and note "Strategy analysis unavailable" in the report.
-- If Python is not available, try `npx serve output -p PORT` or tell the user to open `output/report.html` directly in their browser.
-- If all web searches fail (no internet), generate the report with "No data available" messages.
-- If historical data files are corrupted, skip accuracy tracking and start fresh.
+- If `WebSearch` returns no results, try `WebFetch` on Yahoo Finance, CoinGecko, or Google Finance.
+- If an agent returns malformed JSON, re-prompt once with corrections. If it fails again, set `"data_unavailable": true` for that sector.
+- If the Strategy Agent fails, fall back to confidence-score ranking and note "Strategy analysis unavailable".
+- If all web searches fail, generate the report with "No data available" messages.
+- If historical files are corrupted, skip accuracy tracking and start fresh.
 
 ## Important Notes
 
-- Always use today's date when constructing search queries.
-- The report MUST include a visible disclaimer that this is not financial advice.
-- Never cache or reuse old data — every invocation does fresh research.
-- Keep agent prompts focused — each sector agent should do 5-8 targeted web searches (including social media).
-- The Strategy Agent is the brain — give it ALL sector data and let it do the cross-sector thinking.
-- Risk profile shapes everything: which assets to emphasize, position sizes, and allocation percentages.
+- Always use today's date in search queries.
+- Include a disclaimer in the report: "This is not financial advice."
+- Never reuse old sector data — always do fresh research (unless resuming from today's checkpoint).
+- Each sector agent: 5-8 targeted web searches including social media.
+- The Strategy Agent synthesizes — do not ask it to re-research prices.
+- Risk profile shapes everything: allocations, position sizes, and asset emphasis.
