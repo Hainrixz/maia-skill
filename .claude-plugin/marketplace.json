@@ -1,0 +1,19 @@
+{
+  "name": "Hainrixz",
+  "owner": {
+    "name": "Hainrixz",
+    "url": "https://github.com/Hainrixz"
+  },
+  "metadata": {
+    "description": "Hainrixz plugin marketplace — Multi-agent investment analysis skill by @soyenriquerocha"
+  },
+  "plugins": [
+    {
+      "name": "Hainrixz/maia-skill",
+      "source": {
+        "source": "github",
+        "repo": "Hainrixz/maia-skill"
+      }
+    }
+  ]
+}
