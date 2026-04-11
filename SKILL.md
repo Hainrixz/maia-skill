@@ -197,12 +197,12 @@ If `dashboard/package.json` does not exist (Node.js not set up):
 3. Create the `output/` directory if it doesn't exist.
 4. Write the populated HTML to `output/report.html`.
 
-### Step 8b: Translate Report to Spanish
+### Step 8b: Translate Report to Spanish (Inline — No Sub-Agent)
 
-After writing the English report, spawn a **Translation Agent** to create a Spanish version:
+After writing the English report, translate it to Spanish **yourself** (do NOT spawn a sub-agent):
 
-1. Read the English report from `dashboard/public/data/report.json`.
-2. Translate all human-readable text fields to Spanish:
+1. Using the REPORT_DATA you already have in memory from Step 6, create a deep copy.
+2. Translate **only** these human-readable text fields to Spanish:
    - `executive_summary`
    - `strategy_summary`
    - `macro_environment.summary`
@@ -213,12 +213,10 @@ After writing the English report, spawn a **Translation Agent** to create a Span
    - `historical_accuracy.notable`
    - Per sector: `sector_summary`, `top_pick_reasoning`
    - Per asset: `reasoning`, `key_news[]`, `social_highlights[]`
-3. Do NOT translate: numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, sentiment values, recommendation values.
-4. Write the translated report to `dashboard/public/data/report-es.json`.
+3. Do NOT translate: numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, sentiment values, recommendation values (like "bullish", "buy", "high").
+4. Write the translated JSON to `dashboard/public/data/report-es.json`.
 
-The translation agent prompt:
-
-> You are a financial translator. Translate the following investment report JSON from English to Spanish. Translate only the human-readable text fields listed above. Preserve all numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, and enum values (like "bullish", "buy", "high") exactly as-is. Return valid JSON with the same structure.
+**Important**: You already have the full report data in context — do NOT re-read `report.json` or spawn a separate agent. Translate the fields directly and write the file in a single step.
 
 ### Step 9: Serve the Report
 
