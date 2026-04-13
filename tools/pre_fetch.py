@@ -29,11 +29,13 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 
-# ─── Default watchlist ────────────────────────────────────────────────────────
-# Top mega-caps that most commonly appear in Stocks Agent discoveries.
-# The agent will use pre-fetched data for these; any newly discovered stock
-# outside this list can still do web searches for technicals.
-DEFAULT_TICKERS = [
+# ─── Watchlists ───────────────────────────────────────────────────────────────
+# DEFAULT_TICKERS is the full "all" watchlist — pre_fetch covers the entire
+# universe by default so the Stocks Agent always has a pre-screened candidate
+# list and never needs web searches for technicals.
+# Run with individual tickers or --watchlist <name> to narrow the scope.
+
+_CORE = [
     "NVDA", "AMD", "TSM", "AMZN", "MSFT", "AAPL",
     "GOOGL", "META", "AVGO", "BAC", "JPM", "PLTR",
     "TSLA", "NFLX", "KMI",
@@ -43,8 +45,8 @@ DEFAULT_TICKERS = [
 # Multiple names allowed: python3 tools/pre_fetch.py --watchlist tech financials
 # Individual tickers still work: python3 tools/pre_fetch.py INTC COIN GLD
 WATCHLISTS = {
-    # Core 15 — same as DEFAULT_TICKERS
-    "default": DEFAULT_TICKERS,
+    # Core 15
+    "default": _CORE,
 
     # Extended tech: adds semiconductors, SaaS, and recently discovered high-momentum names
     "tech": [
@@ -89,7 +91,7 @@ WATCHLISTS = {
 
     # Full extended: all of the above deduplicated (~65 tickers, ~3-4 min runtime)
     "all": sorted(set(
-        DEFAULT_TICKERS +
+        _CORE +
         ["INTC", "QCOM", "ARM", "AMAT", "ASML", "SNOW", "CRM", "NOW", "PANW"] +
         ["JPM", "BAC", "GS", "MS", "WFC", "C", "V", "MA", "PYPL", "BLK", "BX"] +
         ["GLD", "SLV", "GDX", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
@@ -97,6 +99,9 @@ WATCHLISTS = {
         ["BTC-USD", "ETH-USD", "SOL-USD", "COIN", "MSTR"]
     )),
 }
+
+# Default: full universe so the Stocks Agent always has a pre-screened list
+DEFAULT_TICKERS = WATCHLISTS["all"]
 
 MACRO_TICKERS = ["^VIX", "^TNX", "^GSPC", "^IRX"]
 
@@ -422,6 +427,66 @@ def fetch_macro() -> dict:
         devnull.close()
 
 
+# ─── Candidate filter ───────────────────────────────────────────────────────
+
+def filter_candidates(stocks: dict, top_n: int = 35) -> list[dict]:
+    """Return the top_n actionable candidates from a pre-fetched universe.
+
+    Exclusion rules (hard gates — no LLM judgment needed):
+    - RSI > 70           → overbought, skip
+    - entry_quality starts with "poor" → bad entry, skip
+
+    Ranking for the survivors:
+    1. entry_quality order: excellent < good < fair (lower index = better)
+    2. Within same quality tier: sort by RSI ascending (more oversold = first)
+
+    The returned list is injected directly into the Stocks Agent prompt as
+    SCREENED_CANDIDATES, replacing the open-ended web discovery step.
+    """
+    QUALITY_RANK = {
+        "excellent — oversold": 0,    # oversold + healthy fundamentals
+        "oversold — verify":    1,    # oversold, fundamentals unclear
+        "good":                 2,    # near support, RSI ok
+        "fair":                 3,    # no clear edge
+        "oversold — fundamentals": 4, # oversold but deteriorating — ranked last
+        "oversold":             4,    # generic fallback
+    }
+
+    candidates = []
+    for symbol, data in stocks.items():
+        tech = data.get("technicals", {})
+        rsi = tech.get("rsi", 100)
+        entry = tech.get("entry_quality", "")
+
+        if rsi > 70:
+            continue
+        if entry.startswith("poor"):
+            continue
+
+        quality_key = next((k for k in QUALITY_RANK if entry.startswith(k)), "fair")
+        candidates.append({
+            "symbol": symbol,
+            "price": data.get("price"),
+            "rsi": rsi,
+            "trend": tech.get("trend"),
+            "entry_quality": entry,
+            "forward_pe": data.get("valuation", {}).get("forward_pe"),
+            "peg": data.get("valuation", {}).get("peg"),
+            "revenue_growth_yoy": data.get("fundamentals", {}).get("revenue_growth_yoy"),
+            "fcf_margin": data.get("fundamentals", {}).get("fcf_margin"),
+            "earnings_days_away": data.get("earnings", {}).get("days_away"),
+            "beat_streak": data.get("earnings", {}).get("beat_streak"),
+            "insider_signal": data.get("insider_signal"),
+            "_sort_key": (QUALITY_RANK.get(quality_key, 2), rsi),
+        })
+
+    candidates.sort(key=lambda x: x["_sort_key"])
+    for c in candidates:
+        del c["_sort_key"]
+
+    return candidates[:top_n]
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main():
@@ -484,9 +549,15 @@ def main():
         fg_synth = f"  synthetic={macro.get('fear_greed_synthetic', '?')}" if fg_src == 'alternative.me' else ''
         print(f"VIX={macro['vix']}  F&G={macro['fear_greed_index']} ({macro['fear_greed_label']}) [{fg_src}]{fg_synth}  regime={macro['market_regime']}")
 
+    candidates = filter_candidates(stocks)
+    print(f"[pre_fetch] Screened candidates: {len(candidates)}/{len(stocks)} pass RSI+entry filter")
+    for c in candidates:
+        print(f"  {c['symbol']:<6}  RSI={c['rsi']}  {c['entry_quality']}")
+
     output = {
         "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "tickers_fetched": list(stocks.keys()),
+        "candidates": candidates,
         "stocks": stocks,
         "macro": macro,
     }

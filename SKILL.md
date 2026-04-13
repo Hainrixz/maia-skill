@@ -38,11 +38,22 @@ Store the selected profile as the `risk_profile` variable ("conservative", "mode
 
 Read the file `references/agent-prompts.md` relative to this skill's directory. Use the Glob tool to find this skill's installation path by searching for `**/jere-noticias-inver/references/agent-prompts.md` or `**/investment-analysis/references/agent-prompts.md`.
 
-### Step 3: Load Historical Data
+### Step 3: Load Historical Data + Pre-fetch Market Data
 
-Check if previous reports exist at `output/history/` in the user's current working directory. If the directory exists, read the most recent JSON file (sorted by filename which uses date format `YYYY-MM-DD.json`). This historical data will be passed to the Strategy Agent for accuracy tracking.
+**3a. Historical data**: Check if previous reports exist at `output/history/` in the user's current working directory. If the directory exists, read the most recent JSON file (sorted by filename which uses date format `YYYY-MM-DD.json`). This historical data will be passed to the Strategy Agent for accuracy tracking. If no history exists, that's fine — this is the first run.
 
-If no history exists, that's fine — this is the first run.
+**3b. Pre-fetch market data**: Run the pre-fetch script to calculate real technical indicators and fundamentals for the full ticker universe:
+
+```bash
+python3 tools/pre_fetch.py --watchlist all
+```
+
+This generates `data/market_context.json` with:
+- `macro`: VIX, real Fear & Greed index (from alternative.me), yields, market regime
+- `stocks`: per-ticker RSI, MACD, trend, support/resistance, valuation, fundamentals, earnings, insider signal
+- `candidates`: pre-filtered list sorted by entry quality (RSI<70, entry≠poor) — **pass this directly to the Stocks Agent**
+
+The script takes 4-6 minutes for the full universe. While it runs, proceed to read agent prompts. Wait for it to complete before spawning agents.
 
 ### Step 4: Spawn 4 Sector Research Agents
 
@@ -50,7 +61,7 @@ Launch **all 4 agents in parallel** using the Agent tool in a single message. Ea
 
 The 4 sector agents are:
 1. **Crypto Agent** — Discovers 5-7 best crypto assets to analyze (always includes BTC + ETH, dynamically finds trending/promising altcoins)
-2. **Stocks Agent** — Discovers 5-8 best stocks to analyze (always includes SPX + IXIC benchmarks, dynamically finds top-performing and catalyst-driven stocks across sectors)
+2. **Stocks Agent** — Uses `SCREENED_CANDIDATES` from `data/market_context.json` (pre-filtered universe, sorted by RSI+entry quality). Does NOT do web discovery for technicals — only fetches news, catalysts, and social sentiment for the top candidates.
 3. **Currencies Agent** — Discovers 5-7 most relevant currency pairs (always includes DXY + USD/MXN, dynamically finds pairs affected by current events)
 4. **Materials Agent** — Discovers 5-7 best commodities to analyze (always includes Gold + Oil WTI, dynamically finds trending commodities including agricultural if relevant)
 
