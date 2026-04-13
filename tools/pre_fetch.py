@@ -162,10 +162,27 @@ def _support_resistance(closes: pd.Series):
     return support, resistance
 
 
-def _entry_quality(rsi: float, price: float, support: float) -> str:
+def _entry_quality(
+    rsi: float,
+    price: float,
+    support: float,
+    fcf_margin: float | None = None,
+    revenue_growth: float | None = None,
+) -> str:
     pct_above = (price - support) / support * 100 if support > 0 else 0
     if rsi < 35:
-        return "excellent — oversold"
+        # Gate: check if oversold is opportunity or fundamental deterioration
+        has_data = fcf_margin is not None or revenue_growth is not None
+        if not has_data:
+            return "excellent — oversold"
+        good_fcf = fcf_margin is None or fcf_margin > 0.10
+        not_shrinking = revenue_growth is None or revenue_growth > -0.05
+        if good_fcf and not_shrinking:
+            return "excellent — oversold"
+        elif not good_fcf and revenue_growth is not None and revenue_growth < -0.05:
+            return "oversold — fundamentals deteriorating"
+        else:
+            return "oversold — verify fundamentals"
     elif rsi < 55 and pct_above < 5:
         return "good — near support"
     elif rsi > 70:
@@ -255,12 +272,12 @@ def fetch_stock(symbol: str) -> dict | None:
         macd = _macd_signal(closes)
         trend = _trend(closes)
         support, resistance = _support_resistance(closes)
-        entry = _entry_quality(rsi, price, support)
         sma50 = round(float(closes.rolling(50).mean().iloc[-1]), 2)
         sma200_val = closes.rolling(200).mean().iloc[-1]
         sma200 = round(float(sma200_val), 2) if len(closes) >= 200 and not pd.isna(sma200_val) else None
 
         # Fundamentals from .info (real data from yfinance, not estimated)
+        # Computed before entry_quality so it can use them as a quality gate
         try:
             with contextlib.redirect_stderr(devnull):
                 info = ticker.info or {}
@@ -279,6 +296,9 @@ def fetch_stock(symbol: str) -> dict | None:
         fcf = safe("freeCashflow")
         revenue = safe("totalRevenue")
         fcf_margin = round(fcf / revenue, 4) if fcf and revenue and revenue > 0 else None
+        revenue_growth = safe("revenueGrowth")
+
+        entry = _entry_quality(rsi, price, support, fcf_margin, revenue_growth)
 
         earnings = _earnings(ticker)
         insider = _insider(ticker)
@@ -308,7 +328,7 @@ def fetch_stock(symbol: str) -> dict | None:
             "price_to_fcf": safe("priceToFreeCashflows"),
         },
         "fundamentals": {
-            "revenue_growth_yoy": safe("revenueGrowth"),
+            "revenue_growth_yoy": revenue_growth,
             "gross_margin": safe("grossMargins"),
             "fcf_margin": fcf_margin,
             "debt_equity": safe("debtToEquity"),
