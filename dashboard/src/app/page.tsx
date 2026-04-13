@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react"
 import { useReportData } from "@/hooks/use-report-data"
 import { LanguageProvider, useLanguage } from "@/hooks/use-language"
-import { LanguagePicker } from "@/components/report/LanguagePicker"
 import { ReportHeader } from "@/components/report/ReportHeader"
 import { ExecutiveSummary } from "@/components/report/ExecutiveSummary"
 import { MacroEnvironment } from "@/components/report/MacroEnvironment"
@@ -62,7 +61,6 @@ function ReportContent() {
         className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px]"
         aria-hidden="true"
       />
-      <LanguagePicker />
       <main id="main-content" className="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-10">
         <ReportHeader data={data} />
         <div className="mt-6 space-y-8">

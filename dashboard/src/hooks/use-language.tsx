@@ -1,9 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react"
+import { createContext, useContext, useCallback, type ReactNode } from "react"
 import { TRANSLATIONS, type Language } from "@/lib/translations"
-
-const STORAGE_KEY = "tododeia-lang-v2"
 
 interface LanguageContextValue {
   lang: Language
@@ -16,28 +14,13 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>("en")
-  const [showPicker, setShowPicker] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const lang: Language = "en"
 
-  useEffect(() => {
-    setMounted(true)
-    const stored = localStorage.getItem(STORAGE_KEY) as Language | null
-    if (stored && (stored === "en" || stored === "es")) {
-      setLangState(stored)
-    } else {
-      setShowPicker(true)
-    }
+  const setLang = useCallback((_newLang: Language) => {
+    // Spanish removed — always English
   }, [])
 
-  const setLang = useCallback((newLang: Language) => {
-    setLangState(newLang)
-    localStorage.setItem(STORAGE_KEY, newLang)
-  }, [])
-
-  const dismissPicker = useCallback(() => {
-    setShowPicker(false)
-  }, [])
+  const dismissPicker = useCallback(() => {}, [])
 
   const t = useCallback(
     (key: string): string => {
@@ -46,11 +29,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     [lang]
   )
 
-  // Don't show picker until client mounts to avoid hydration mismatch
-  const effectiveShowPicker = mounted && showPicker
-
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t, showPicker: effectiveShowPicker, dismissPicker }}>
+    <LanguageContext.Provider value={{ lang, setLang, t, showPicker: false, dismissPicker }}>
       {children}
     </LanguageContext.Provider>
   )

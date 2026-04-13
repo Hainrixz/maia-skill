@@ -16,7 +16,15 @@ function buildSectorsFromPicks(report: ReportData): Record<string, SectorData> {
   const sectorKeys = ["crypto", "stocks", "materials"] as const
 
   for (const key of sectorKeys) {
-    const sp = picks.filter((p) => p.sector === key || p.sector === "acciones" && key === "stocks" || p.sector === "cripto" && key === "crypto" || p.sector === "materiales" && key === "materials")
+    const CRYPTO_SECTORS = ["crypto", "cripto"]
+    const MATERIALS_SECTORS = ["materials", "materiales", "commodities"]
+    const STOCK_SECTORS = ["stocks", "acciones", "energy", "technology", "healthcare", "finance", "financials", "payments", "industrials", "consumer"]
+    const sp = picks.filter((p) => {
+      if (key === "crypto") return CRYPTO_SECTORS.includes(p.sector)
+      if (key === "materials") return MATERIALS_SECTORS.includes(p.sector)
+      if (key === "stocks") return STOCK_SECTORS.includes(p.sector)
+      return p.sector === key
+    })
     if (sp.length === 0) continue
     const top = [...sp].sort((a, b) => b.risk_adjusted_score - a.risk_adjusted_score)[0]
     const buyCount = sp.filter((p) => REC_MAP[(p as any).recommendation] === "buy").length
