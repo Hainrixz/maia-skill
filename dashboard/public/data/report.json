@@ -1,87 +1,55 @@
 {
   "brand": "Tododeia",
   "creator": "@quebert",
-  "generated_at": "2026-04-12T14:00:00Z",
+  "generated_at": "2026-04-13T01:30:00Z",
   "risk_profile": "moderate",
-  "executive_summary": "US-Iran Islamabad talks collapsed Saturday night (Vance departed after 21 hours) eliminating the principal bearish catalyst for gold and BTC simultaneously. Real-time F&G is 15 (Extreme Fear) \u2014 a historically strong contrarian accumulation signal contradicted by $240M institutional BTC ETF inflows. CPI at 3.3% (22-month high) and gold/silver ratio at 62.7x (vs historical norm 50-55x) create the highest-conviction materials setup of the year. The evening portfolio expands to 7 picks and raises materials allocation to 25%, adding Silver at #4 (best R:R in portfolio at 3.8:1). Hard RSI/revenue gates correctly excluded AMD, AMZN, BAC, JPM, NFLX, AVGO, and TSLA from new positions.",
+  "executive_summary": "Trump formally announced a US Navy blockade of the Strait of Hormuz Sunday April 12 after US-Iran Islamabad talks collapsed (Vance walked out after 21 hours) — sending WTI crude +9% to $105.28. This full-universe 55-ticker run unveils three extraordinary new SaaS oversold setups: NOW (RSI=17.1, fwdPE=16.5 — the cheapest it has ever traded vs fundamentals), SNOW (RSI=16.8), and CRM (RSI=22.2). NOW is the Pick of the Run: at $83 it offers a 4.5:1 risk/reward with 10 days to a natural catalyst earnings (April 22). Real F&G=16 (Extreme Fear). BTC ETF inflows $787M/week contradict panic sentiment. All overbought tickers (13 excluded by RSI≥70 gate) and negative-revenue stocks (TSLA, XOM) filtered out. 8 picks total: 5 direct buys + 3 DCA positions.",
   "macro_environment": {
-    "summary": "Extreme Fear (F&G:15) cycle-bottom signal colliding with confirmed geopolitical premium from US-Iran talks collapse (Vance walkout Saturday April 11). CPI at 22-month high (3.3%) reinforces hard asset thesis. Positive yield curve (+72.4bps) limits recession risk. Market regime: war-suppressed correction with institutional accumulation in BTC and gold despite deep retail panic. Monday gap-up expected in XAU and BTC on Vance walkout news.",
-    "interest_rate_outlook": "stable",
-    "inflation_outlook": "rising",
-    "geopolitical_risk": "high",
+    "summary": "Hormuz blockade formally announced April 12 — new escalation beyond Saturday's failed talks. WTI crude +9% to $105.28. Gold -2% on rate cut delay fears. BTC -3% risk-off. F&G=16 (Extreme Fear) — historically the strongest contrarian buy zone. Q1 earnings season opens this week: JPM/GS/WFC/C (Apr 14), BAC/MS (Apr 15), NFLX/TSM/ASML (Apr 16). Enterprise SaaS sector in mass capitulation — NOW/SNOW/CRM at historically extreme oversold levels.",
+    "interest_rate_outlook": "hawkish — growing openness to rate hikes per Fed Apr 8 minutes",
+    "inflation_outlook": "rising — CPI +3.3% YoY (22-month high); Hormuz blockade adds supply shock",
+    "geopolitical_risk": "very high",
     "key_factors": [
-      "F&G:15 (Extreme Fear) \u2014 historically strongest contrarian BTC/gold accumulation signal; morning's cached 65.4 was stale data",
-      "US-Iran talks collapsed Saturday: Vance departed Islamabad after 21 hours; Iran refuses nuclear renouncement; Hormuz premium intact",
-      "CPI 3.3% YoY (22-month high) + central bank gold buying (China +5T, Turkey +118T March) = hard asset structural tailwind",
-      "BTC dominance 57.3% cycle-high; institutional ETF inflows $240M confirm demand despite retail panic",
-      "Earnings gauntlet begins: JPM Apr 14, BAC Apr 15, KMI Apr 15, TSM Apr 16, NFLX Apr 16 \u2014 binary risk gates applied",
-      "Gold/silver ratio 62.7x (historical norm 50-55x) = structural silver undervaluation and best catch-up setup in portfolio",
-      "Positive yield curve +72.4bps and 10Y at 4.317% \u2014 no imminent recession signal despite geopolitical drag"
+      "F&G=16 (Extreme Fear) — real value vs stale synthetic 65.4 — historically strongest contrarian accumulation signal",
+      "Trump formal Hormuz blockade (Apr 12): vessels entering/leaving Iranian ports blocked from 10am ET. New escalation beyond Islamabad collapse.",
+      "CPI +3.3% YoY (22-month high) + Central bank gold buying (China +5T, Turkey +118T March) = hard asset structural tailwind",
+      "BTC ETF weekly net inflows $787M; IBIT AUM $57.29B; Coinbase Premium flipped positive = US institutional accumulation despite panic",
+      "Enterprise SaaS decimated: NOW -60% (RSI=17.1), SNOW -56% (RSI=16.8), CRM -40% (RSI=22.2) — AI disruption panic creates historic discount to fundamentals",
+      "Q1 earnings season: NOW Apr22, GILD Apr23, MSFT Apr29, CVX May2 — 4 portfolio picks with near-term catalysts",
+      "Hard RSI gates excluded 13 overbought stocks: FCX(84.7), NEM(89.4), INTC(80.4), NFLX(80.3), AVGO(75.5), AMZN(75.3), BAC(79.0), GS(76.2), AMD(73.7), C(74.1), MS(74.6), WFC(74.1), JPM(73.7)"
     ]
   },
   "portfolio_allocation": {
     "crypto": 10,
-    "stocks": 50,
-    "materials": 25,
+    "stocks": 55,
+    "materials": 20,
     "cash": 15
   },
   "cross_sector_insights": [
     {
-      "insight": "BTC + XAU bullish simultaneously \u2014 hard asset debasement theme confirmed cross-sector",
-      "implication": "Materials raised to 25% from morning's 20%. Both assets benefit from identical catalysts: Iran premium, CPI 3.3%, dollar debasement narrative. Silver (SI) upgraded to conf:8 joins portfolio as secondary materials play alongside gold."
+      "insight": "NOW (RSI=17.1, fwdPE=16.5) is the most extraordinary setup in the 55-ticker universe",
+      "implication": "Extending the watchlist to 55 tickers reveals ServiceNow at fwdPE=16.5 — cheaper than MSFT — with 20.7% revenue growth and 37.3% FCF margin. Earnings Apr 22 in 10 days provide the natural re-rating catalyst. Dan Ives (Wedbush) explicitly called the SaaS sell-off 'overdone.' 4.5:1 risk/reward makes it the top new pick of this run."
     },
     {
-      "insight": "F&G:15 is CONTRARIAN bullish for BTC despite headline panic",
-      "implication": "Institutional ETF inflows ($240M) and MicroStrategy (766,970 BTC treasury) directly contradict retail fear signal. BTC maintained in portfolio; F&G:15 historically the strongest accumulation zone but DCA mandatory to navigate $73K resistance."
+      "insight": "Three SaaS companies at RSI < 23 simultaneously — historically rare AI disruption panic bottom",
+      "implication": "NOW(17.1), SNOW(16.8), CRM(22.2) are all in extreme oversold territory simultaneously. Goldman's software sector downgrade + AI disruption fear has created a mass capitulation event. RSI < 20 readings in quality SaaS historically produce 30-60% bounces over 3-6 months. NOW is Buy direct; CRM is DCA (data breach risk); SNOW is Wait (expensive fwdPE=49.9)."
     },
     {
-      "insight": "Silver (SI) upgraded conf:7\u21928; enters top-7 as #4 with best risk/reward in portfolio (3.8:1)",
-      "implication": "Gold/silver ratio normalization from 62.7x to historical 50-55x implies $86-95 silver with gold flat; $105+ if gold hits $5,800 target. Dual demand: monetary inflation hedge AND solar PV + defense electronics industrial consumption."
+      "insight": "Geopolitical bifurcation: oil +9%, gold -2% — diverging signals for different inflation scenarios",
+      "implication": "Hormuz blockade is inflationary (oil spike) BUT also delays Fed rate cuts (gold headwind near-term). CVX benefits directly. XAU needs DCA patience. CL (crude oil ETF) is NOT a moderate-profile trade — binary resolution risk with Trump stating 'Hormuz open fairly soon'."
     },
     {
-      "insight": "RSI hard gates blocked all overbought equities (NFLX:80.3, BAC:79.0, AVGO:75.5, JPM:73.7, AMZN:75.3) \u2014 quality filter isolates true opportunities",
-      "implication": "Only 4 stocks pass RSI + earnings proximity filters. MSFT (RSI:39.5) is the standout outlier \u2014 cheapest valuation in years, oversold, April 29 Copilot catalyst 17 days away. Real yfinance data was critical: AMD estimated RSI was 62 per LLM; real is 73.7."
+      "insight": "Healthcare deep value uncovered: GILD fwdPE=11.1 for 19.4% growth is mispriced",
+      "implication": "Full 55-ticker run reveals Gilead as the most attractively valued healthcare name. Earnings April 23 (11 days) with 4-beat streak and lenacapavir HIV prevention expansion is a clean catalyst setup. Healthcare sector -10% Q1 headwind is managed-care specific (UNH), not biotech."
     },
     {
-      "insight": "PLTR: Trump ticker endorsement + RSI:33.7 oversold is a real tactical signal \u2014 watchlist for moderate",
-      "implication": "Forward PE 68.80 and Maven/Anthropic rebuild risk disqualify for moderate profile. Re-evaluate on $100 reclaim. Aggressive profile could allocate 3-5% speculative slice."
+      "insight": "55-ticker run reveals 13 overbought stocks that default-15 would not have filtered",
+      "implication": "BAC(79.0), GS(76.2), WFC(74.1), JPM(73.7), AMD(73.7), MS(74.6), C(74.1), AMZN(75.3), AVGO(75.5), NEM(89.4), FCX(84.7), INTC(80.4), NFLX(80.3) are all overbought and entering earnings week — maximum danger zone correctly excluded."
     }
   ],
   "risk_adjusted_picks": [
     {
       "rank": 1,
-      "name": "Gold Spot",
-      "symbol": "XAU",
-      "sector": "materials",
-      "confidence": 9,
-      "risk_score": 2,
-      "risk_adjusted_score": 9.0,
-      "recommendation": "buy",
-      "entry_price": 4747.0,
-      "stop_loss": 4450.0,
-      "target_12m": 5800.0,
-      "risk_reward_ratio": "3.5:1",
-      "position_sizing": "direct",
-      "reasoning": "Cleanest long in the portfolio. Iran no-deal locks in geopolitical premium \u2014 Hormuz 95%+ closed, Vance walkout removes the only bearish catalyst. Macro trinity confirmed: CPI 3.3% (22-month high), central bank buying accelerating (China +5T, Turkey +118T in March), Fed rate-cut expectations. The -8.3% 30d pullback was healthy consolidation; 3 consecutive weekly gains resume. Monday gap-up expected on Vance walkout news. Gabelli $6,000+ target confirms long-run upside. Stop: $4,450 below consolidation floor."
-    },
-    {
-      "rank": 2,
-      "name": "NVIDIA Corporation",
-      "symbol": "NVDA",
-      "sector": "stocks",
-      "confidence": 9,
-      "risk_score": 3,
-      "risk_adjusted_score": 8.7,
-      "recommendation": "buy",
-      "entry_price": 188.63,
-      "stop_loss": 165.0,
-      "target_12m": 250.0,
-      "risk_reward_ratio": "2.6:1",
-      "position_sizing": "direct",
-      "reasoning": "Best risk/reward in equities. Forward PE 16.97 is historically cheap for an AI infrastructure near-monopoly compounding at +73.2% revenue growth. RSI 68.2 \u2014 approaching but not overbought, room to run. $58.1B FCF, 71.1% gross margin, 4-beat streak. Earnings May 20 (38 days) provides the cleanest runway in the stocks bucket \u2014 no binary event risk for 5+ weeks. Blackwell GPU demand cycle intact. Enter full position."
-    },
-    {
-      "rank": 3,
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "sector": "stocks",
@@ -90,822 +58,188 @@
       "risk_adjusted_score": 8.7,
       "recommendation": "buy",
       "entry_price": 370.87,
-      "stop_loss": 340.0,
-      "target_12m": 460.0,
-      "risk_reward_ratio": "2.9:1",
+      "stop_loss": 342.00,
+      "target_12m": 490.00,
+      "risk_reward_ratio": "3.5:1",
       "position_sizing": "direct",
-      "reasoning": "RSI 39.5 \u2014 most oversold large-cap in the portfolio. Trading $370 vs SMA200 of $472 = 21.5% discount to long-term average, deepest dislocation in years. Copilot Code Red monetization inflection approaching April 29 earnings (17 days). Forward PE 19.69 cheapest in years despite +16.7% revenue growth and $53.6B FCF. Dan Ives (Wedbush): MSFT sell-off is overdone. Azure AI consumption revenue = durable upside. Stop: $340 below key support."
+      "reasoning": "RSI=39.5 near SMA200 support ($356) — textbook contrarian re-entry for the world's most dominant enterprise AI platform. fwdPE=19.7 is historically the cheapest MSFT has traded in years. Azure cloud 25%+ growth confirmed. 'Copilot Code Red' shows Nadella forcing AI monetization urgency. Earnings April 29 with 4-beat streak (+8% avg surprise) — clean 17-day runway. Dan Ives: 'MSFT sell-off is overdone.' $53.6B FCF, 68.6% gross margin."
+    },
+    {
+      "rank": 2,
+      "name": "ServiceNow",
+      "symbol": "NOW",
+      "sector": "stocks",
+      "confidence": 9,
+      "risk_score": 4,
+      "risk_adjusted_score": 8.4,
+      "recommendation": "buy",
+      "entry_price": 83.00,
+      "stop_loss": 72.00,
+      "target_12m": 165.00,
+      "risk_reward_ratio": "4.5:1",
+      "position_sizing": "direct — 50% at $83, 30% at $78, 20% at $72",
+      "star_pick": true,
+      "reasoning": "RSI=17.1 — MOST EXTREME oversold reading across all 55 tickers. At $83, fwdPE=16.5 is CHEAPER THAN MSFT for a platform with +20.7% revenue YoY and 37.3% FCF margin ($4.95B FCF). UBS downgrade fully priced into -60% crash from $208.94 52w-high. Dan Ives: 'ServiceNow sell-off is overdone.' Earnings April 22 in 10 days with 4-beat streak — natural catalyst. Agentic AI platform uniquely positioned vs LLM disruptors. 4.5:1 risk/reward is the BEST in this portfolio."
+    },
+    {
+      "rank": 3,
+      "name": "Gilead Sciences",
+      "symbol": "GILD",
+      "sector": "stocks",
+      "confidence": 8,
+      "risk_score": 3,
+      "risk_adjusted_score": 7.7,
+      "recommendation": "buy",
+      "entry_price": 115.74,
+      "stop_loss": 104.00,
+      "target_12m": 148.00,
+      "risk_reward_ratio": "3.0:1",
+      "position_sizing": "direct",
+      "reasoning": "fwdPE=11.1 — extraordinary deep value; cheapest healthcare on forward earnings for its growth (+19.4% revenue, 82.5% gross margin, 32.6% FCF margin = $13.2B FCF). Trading above BOTH SMA50 and SMA200 — bullish technical structure unlike peers. Earnings April 23 (11 days) with 4-beat streak. Lenacapavir HIV prevention TAM expansion is multi-billion inflection point. Defensive non-correlated to oil/Iran."
     },
     {
       "rank": 4,
-      "name": "Silver Spot",
-      "symbol": "SI",
+      "name": "Gold Spot",
+      "symbol": "XAU",
       "sector": "materials",
       "confidence": 8,
       "risk_score": 3,
-      "risk_adjusted_score": 8.0,
-      "recommendation": "buy",
-      "entry_price": 75.68,
-      "stop_loss": 68.0,
-      "target_12m": 105.0,
-      "risk_reward_ratio": "3.8:1",
-      "position_sizing": "DCA",
-      "reasoning": "Best risk/reward ratio in the entire portfolio (3.8:1). Gold/silver ratio at 62.7x vs historical norm 50-55x = structural catch-up trade. Normalization to 55x implies $86-95 silver with gold flat; $105+ if gold reaches $5,800 target. Dual demand thesis: (1) monetary inflation hedge \u2014 same Iran + CPI drivers as gold; (2) solar PV + defense electronics industrial consumption accelerating on war economy. -11.7% 30d pullback absorbed. Already outperforming gold on 7d basis (+4.2% vs +2.0%). DCA: $75.68 / $72 / $69 with stop at $68."
+      "risk_adjusted_score": 7.7,
+      "recommendation": "dca",
+      "entry_price": 4657.00,
+      "stop_loss": 4200.00,
+      "target_12m": 5800.00,
+      "risk_reward_ratio": "4.2:1",
+      "position_sizing": "DCA — T1 at $4,650-4,700, T2 at $4,400-4,500",
+      "reasoning": "Structural bull case accelerating: central banks buying record pace (China +5T, Turkey +118T March), BRICS+ de-dollarization, Gabelli $6,000+/oz and Goldman $5,800 targets. DCA not direct because Hormuz blockade creates near-term rate cut delay → gold headwind. Gold -17% from $5,608 52w-high creates attractive accumulation zone. CPI +3.3% structural. Thesis fully intact despite today's -2% dip."
     },
     {
       "rank": 5,
-      "name": "Alphabet Inc.",
-      "symbol": "GOOGL",
+      "name": "NVIDIA Corporation",
+      "symbol": "NVDA",
       "sector": "stocks",
       "confidence": 8,
       "risk_score": 4,
       "risk_adjusted_score": 7.4,
       "recommendation": "buy",
-      "entry_price": 317.24,
-      "stop_loss": 288.0,
-      "target_12m": 400.0,
-      "risk_reward_ratio": "2.8:1",
-      "position_sizing": "direct",
-      "reasoning": "RSI 60.1 \u2014 fair entry, not overbought. Forward PE 23.62 reasonable for +18% revenue growth. Waymo Nashville expansion and Google-Intel AI partnership are near-term catalysts. April 29 earnings (17 days) with 4-beat streak and last surprise +40% creates strong setup. Cheapest Mag7 forward PE. Risk score :4 reflects concurrent April 29 earnings timing with MSFT."
+      "entry_price": 188.63,
+      "stop_loss": 175.00,
+      "target_12m": 260.00,
+      "risk_reward_ratio": "3.3:1",
+      "position_sizing": "moderate — RSI=68.2 approaching 70 gate; position at 70% of full",
+      "reasoning": "fwdPE=17.0 cheapest in Magnificent 7 for the company growing +73.2% revenue YoY. RSI=68.2 still below 70 hard gate — technically valid. CoreWeave/Anthropic $20B AI cloud deal confirms structural GPU demand. Blackwell ramp + $300B+ hyperscaler capex intact. $58.1B FCF, 71.1% gross margin. Longest winning streak since 2023. Earnings May 20 provides 38-day runway. Sized at 70% given RSI proximity to gate."
     },
     {
       "rank": 6,
+      "name": "Chevron Corporation",
+      "symbol": "CVX",
+      "sector": "stocks",
+      "confidence": 8,
+      "risk_score": 4,
+      "risk_adjusted_score": 7.4,
+      "recommendation": "buy",
+      "entry_price": 164.00,
+      "stop_loss": 150.00,
+      "target_12m": 210.00,
+      "risk_reward_ratio": "3.1:1",
+      "position_sizing": "direct",
+      "reasoning": "RSI=34.9 'excellent-oversold' entry ABOVE SMA200 support ($152.42). fwdPE=14.4 based on STALE oil assumptions — WTI at $105.28 creates MASSIVE earnings upside vs embedded estimates. Hormuz blockade keeps oil premium elevated. EV/EBITDA=8.5x sector discount. Earnings May 2 — consensus will be upgraded with $100+ oil. Chevron $10.7B FCF + Buffett-quality dividend."
+    },
+    {
+      "rank": 7,
       "name": "Bitcoin",
       "symbol": "BTC",
       "sector": "crypto",
       "confidence": 7,
-      "risk_score": 5,
-      "risk_adjusted_score": 6.5,
-      "recommendation": "buy",
-      "entry_price": 72825.0,
-      "stop_loss": 63000.0,
-      "target_12m": 95000.0,
-      "risk_reward_ratio": "2.3:1",
-      "position_sizing": "DCA",
-      "reasoning": "F&G:15 (Extreme Fear) is historically the strongest contrarian BTC accumulation zone \u2014 morning's stale 65.4 reading was noise; real sentiment is deeply bearish which is the buy signal. Institutional demand confirmed: $240M ETF inflows, MicroStrategy 766,970 BTC, Morgan Stanley spot ETF live. Iran no-deal reinforces digital gold/fiat debasement narrative. 57.3% BTC dominance shows capital choosing BTC over altcoins. CRITICAL: $73K resistance has capped 6 consecutive rallies \u2014 mandatory DCA at $71,700/$68,500/$65,000. Stop: $63,000. Moderate profile -1 penalty applied."
+      "risk_score": 7,
+      "risk_adjusted_score": 5.5,
+      "recommendation": "dca",
+      "entry_price": 70607.00,
+      "stop_loss": 58000.00,
+      "target_12m": 100000.00,
+      "risk_reward_ratio": "3.8:1",
+      "position_sizing": "DCA — 40% at $70-72K, 35% at $66-68K, 25% at $61-64K",
+      "reasoning": "F&G=16 (Extreme Fear) historically strongest contrarian zone. BUT Hormuz blockade = active risk-off — DCA not single-entry. BTC ETF inflows $787M/week; IBIT $57.29B AUM; Coinbase Premium flipped positive = institutional accumulation in real-time. Strategy holds 766,970 BTC. BTC outperforming gold/equities/bonds since Iran conflict — digital gold narrative validating. BTC dominance 56.9% = safest crypto in risk-off."
     },
     {
-      "rank": 7,
-      "name": "Kinder Morgan Inc.",
-      "symbol": "KMI",
+      "rank": 8,
+      "name": "Salesforce",
+      "symbol": "CRM",
       "sector": "stocks",
       "confidence": 6,
       "risk_score": 6,
-      "risk_adjusted_score": 5.8,
-      "recommendation": "buy",
-      "entry_price": 32.68,
-      "stop_loss": 29.5,
-      "target_12m": 40.0,
-      "risk_reward_ratio": "2.3:1",
-      "position_sizing": "DCA",
-      "reasoning": "Confidence penalized 8\u21926 due to earnings April 15 (3 DAYS \u2014 hard binary event). Underlying thesis intact: RSI 47.7 (healthiest in stocks), near-support entry at SMA50 ($32.62), +13.1% revenue growth, AI data center natural gas demand structural tailwind. Pipeline infrastructure is direct beneficiary of sustained elevated oil prices from Iran-Hormuz disruption. EXECUTION: enter 50% now ($32.68), add remaining 50% post-April-15 earnings confirmation. Allocation reduced to 7% of portfolio (vs standard 10%) to reflect binary risk. Saudi Arabia restoring East-West pipeline = energy sector stabilizing, supportive backdrop."
+      "risk_adjusted_score": 4.8,
+      "recommendation": "dca",
+      "entry_price": 228.04,
+      "stop_loss": 178.00,
+      "target_12m": 310.00,
+      "risk_reward_ratio": "2.7:1",
+      "position_sizing": "DCA — 40% at $228, 35% at $210, 25% at $195",
+      "reasoning": "RSI=22.2 extreme oversold, fwdPE=22.0 reasonable, $10B FCF, 77.4% gross margin. DCA not direct: (1) Data breach quantification still pending; (2) 4,000 AI-driven job cuts = execution risk; (3) 9% revenue growth slowest in list; (4) No catalyst until ~May 28. Dan Ives calls sell-off overdone. Long-term thesis: Agentforce AI pivot."
+    }
+  ],
+  "watchlist": [
+    {
+      "symbol": "SNOW",
+      "name": "Snowflake",
+      "decision": "wait",
+      "current_price": 121.11,
+      "rsi": 16.8,
+      "note": "RSI=16.8 extreme oversold but fwdPE=49.9 elevated even post -56% crash. No near-term earnings (~May-June). Negative EV/EBITDA. Wait for $95-108 zone before DCA entry."
+    },
+    {
+      "symbol": "COIN",
+      "name": "Coinbase Global",
+      "decision": "wait",
+      "current_price": 196.79,
+      "rsi": 29.1,
+      "note": "RSI=29.1 oversold, +89% revenue growth — compelling. But BTC downtrend + bearish MACD + Hormuz risk-off = premature. Wait for BTC > $75K stabilization + MACD confirmation."
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies",
+      "decision": "wait",
+      "current_price": 128.06,
+      "rsi": 33.7,
+      "note": "RSI=33.7 oversold, +70% revenue growth, 82% gross margin. fwdPE=68.8 incompatible with moderate profile. Wait for $88.55 key support test."
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Google/Alphabet",
+      "decision": "watchlist — hold prior position",
+      "current_price": 317.24,
+      "rsi": 60.1,
+      "note": "RSI=60.1 fair, fwdPE=23.6, $72.5B FCF. Earnings Apr 29 strong catalyst. Hold existing position from prior run. Not in top-8 today — replaced by NOW/GILD/CVX."
     }
   ],
   "historical_accuracy": {
-    "previous_date": "2026-04-12",
-    "calls_made": 6,
-    "calls_correct": 0,
-    "accuracy_pct": 0,
-    "notable": "Morning run picks (XAU#1, NVDA#2, MSFT#3, KMI#4, GOOGL#5, BTC#6) at identical prices \u2014 market closed Sunday April 12. True P&L tracking begins Monday April 13 open. Evening run adds SI at #4 (upgraded conf:8, R:R 3.8:1), expands to 7 picks, raises materials 20%\u219225%, adjusts BTC target $115K\u2192$95K, GOOGL target $395\u2192$400. KMI moves to #7 on earnings binary risk penalty. F&G correction: real=15 (Extreme Fear), stale cached=65.4."
+    "previous_report": "2026-04-12-pm",
+    "previous_timestamp": "2026-04-12T14:00:00Z",
+    "tracking_period_hours": 12,
+    "market_note": "US equity markets closed Sat-Sun. Only crypto and commodities moved overnight via Hormuz blockade formal announcement.",
+    "picks_tracking": [
+      {"symbol": "XAU", "entry_price": 4747.0, "current_price": 4657.0, "change_pct": -1.9, "status": "active — DCA reiterated", "note": "Hormuz → inflation fears → rate cut delay → gold -2%. Structural thesis intact."},
+      {"symbol": "NVDA", "entry_price": 188.63, "current_price": 188.63, "change_pct": 0.0, "status": "active — Buy reiterated", "note": "Market closed. +2.55% Friday. AI thesis intact."},
+      {"symbol": "MSFT", "entry_price": 370.87, "current_price": 370.87, "change_pct": 0.0, "status": "active — Buy reiterated #1", "note": "Market closed. Near SMA200 support."},
+      {"symbol": "SI", "entry_price": 75.68, "current_price": 73.35, "change_pct": -3.1, "status": "monitor — downgraded to Wait", "note": "Silver -3.1% overnight. Higher beta risk-off. Moved to Watch today."},
+      {"symbol": "GOOGL", "entry_price": 317.24, "current_price": 317.24, "change_pct": 0.0, "status": "watchlist — hold prior position", "note": "Market closed. Demoted to watchlist, better setups found."},
+      {"symbol": "BTC", "entry_price": 72825.0, "current_price": 70607.0, "change_pct": -3.0, "status": "active — DCA reiterated", "note": "BTC -3% on Hormuz blockade. F&G=16. Institutional accumulation intact."},
+      {"symbol": "KMI", "entry_price": 32.68, "current_price": 32.68, "change_pct": 0.0, "status": "monitor — not in today's top-8", "note": "Market closed. CVX offers better energy R/R today."}
+    ]
   },
-  "warnings": [
-    "KMI EARNINGS BINARY (Apr 15, 3 days): enter max 50% pre-earnings; deploy remainder only on post-earnings confirmation above $32",
-    "BTC $73K RESISTANCE: 6 consecutive weekly rejections confirmed \u2014 mandatory DCA, do NOT chase gap-ups above $74K; Polymarket 70.5% probability BTC below $75K at April close",
-    "MSFT + GOOGL earnings April 29 (17 days): moderate timing risk; all stops set before earnings binary",
-    "TSM: DO NOT ENTER \u2014 earnings April 16 (4 days) near $386 resistance; wait post-earnings for re-entry below $370 on any pullback",
-    "IRAN BINARY RISK: Any de-escalation, deal, or Hormuz reopening announcement compresses geopolitical premium in XAU/BTC/SI simultaneously; Monday gap-ups should be sold into, not chased",
-    "F&G:15 SEQUENCING: stagger entries across Monday\u2013Wednesday sessions; do not deploy full allocation in a single extreme-fear session",
-    "PLTR watchlist only for moderate profile: RSI 33.7 + Trump catalyst are real but fwdPE 68.80 + Maven/Anthropic rebuild risk disqualify; reconsider on $100 reclaim",
-    "INTC +51% in 8 days (Barron's 'Renewed Lease on Life'): likely extreme overbought, no MARKET_CONTEXT data \u2014 watchlist only; monitor post-spike washout for entry opportunity"
-  ],
-  "sectors": {
-    "crypto": {
-      "sector": "crypto",
-      "timestamp": "2026-04-12T14:00:00Z",
-      "sector_summary": "Crypto market in Extreme Fear (F&G:15) recovery from Feb 2026 lows. BTC dominance 57.3% (cycle-high) \u2014 institutional capital concentrating in BTC via ETFs ($240M single-session inflows) while retail panics. US-Iran Islamabad talks collapsed Saturday night, reinforcing digital inflation-hedge narrative. ETH shows strong fundamental accumulation (Cumberland -$59.5M CEX withdrawal) but dependent on BTC clearing $73K. SOL impacted by Drift Protocol $275M exploit and Circle controversy. The morning's cached F&G of 65.4 was stale \u2014 real market sentiment is deep Extreme Fear.",
-      "sector_outlook": "neutral",
-      "top_pick": "BTC",
-      "top_pick_reasoning": "BTC is the only asset with confirmed multi-source institutional demand alignment: $240M single-day ETF inflows, MicroStrategy 766,970 BTC treasury, Morgan Stanley new spot ETF, BTC dominance at cycle-high 57.3%,  and F&G:15 contrarian accumulation zone. Iran no-deal reinforces digital gold thesis. ETH and SOL face ecosystem-specific headwinds.",
-      "assets": [
-        {
-          "name": "Bitcoin",
-          "symbol": "BTC",
-          "current_price": "$72,825",
-          "change_24h": "+1.6%",
-          "change_7d": "+8.8%",
-          "change_30d": "+9.7%",
-          "ytd_change": "+4.8%",
-          "week_52_high": "$109,800",
-          "week_52_low": "$62,400",
-          "market_cap": "$1.46T",
-          "volume_24h": "$35.8B",
-          "sentiment": "cautiously_bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "high",
-          "confidence": 7,
-          "source_agreement": "high",
-          "sources_checked": [
-            "coingecko.com",
-            "crypto.news",
-            "beincrypto.com",
-            "coindesk.com"
-          ],
-          "key_news": [
-            "BTC hit 6-week high $73,300 Friday on $240M ETF inflows including Morgan Stanley spot ETF",
-            "MicroStrategy treasury now 766,970 BTC",
-            "US-Iran Islamabad talks collapsed Saturday \u2014 BTC shed -1.5% to ~$71,700 Sunday afternoon",
-            "$73K resistance has capped every rally for 6 consecutive weeks",
-            "BTC dominance 57.3% \u2014 highest since late 2024",
-            "Iran studying Bitcoin-denominated tolls for Strait of Hormuz passage",
-            "F&G real-time: 15 (Extreme Fear) \u2014 historically strongest BTC accumulation zone",
-            "Polymarket: 70.5% probability BTC stays below $75K at April close"
-          ],
-          "social_highlights": [
-            "F&G:15 contrarian signal widely discussed on crypto Twitter \u2014 'institutions buying what retail is panic selling'",
-            "Iran/Bitcoin toll narrative going viral \u2014 geopolitical legitimization of BTC as reserve asset",
-            "CoinGecko community: 82% bullish despite Extreme Fear index reading"
-          ],
-          "recommendation": "buy",
-          "reasoning": "BTC at intersection of Extreme Fear (F&G:15) contrarian buy signal and confirmed institutional accumulation. $240M ETF inflows on Friday directly contradict retail panic. Iran no-deal = digital inflation hedge thesis reinforced. Mandatory DCA: $71,700 / $68,500 / $65,000. Hard stop: $63,000."
-        },
-        {
-          "name": "Ethereum",
-          "symbol": "ETH",
-          "current_price": "$2,235",
-          "change_24h": "+2.3%",
-          "change_7d": "+8.8%",
-          "change_30d": "+11.8%",
-          "ytd_change": "+10.1%",
-          "week_52_high": "$3,850",
-          "week_52_low": "$1,760",
-          "market_cap": "$269.8B",
-          "volume_24h": "$14.7B",
-          "sentiment": "neutral",
-          "social_sentiment": "bullish",
-          "social_buzz": "medium",
-          "confidence": 5,
-          "source_agreement": "medium",
-          "sources_checked": [
-            "coingecko.com",
-            "crypto.news",
-            "newsbtc.com"
-          ],
-          "key_news": [
-            "Cumberland withdrew 26,500 ETH ($59.5M) from CEXs \u2014 strong institutional accumulation",
-            "Ethereum Foundation sold 5,000 ETH for $11.1M DAI \u2014 routine sell-side pressure",
-            "Sunday Iran news hit altcoins harder: ETH -0.8%",
-            "ETH needs BTC >$75K to challenge $3,000 resistance"
-          ],
-          "social_highlights": [
-            "CoinGecko community: 88% bullish \u2014 highest of the three assets",
-            "ETH staking narrative building for corporate treasuries"
-          ],
-          "recommendation": "hold",
-          "reasoning": "Strong institutional accumulation (Cumberland $59.5M) but ETH is range-bound until BTC clears $73K. ETH Foundation selling adds overhead. Hold; add on BTC breakout confirmation."
-        },
-        {
-          "name": "Solana",
-          "symbol": "SOL",
-          "current_price": "$84.31",
-          "change_24h": "+1.4%",
-          "change_7d": "+5.1%",
-          "change_30d": "+1.5%",
-          "ytd_change": "+1.2%",
-          "week_52_high": "$220.00",
-          "week_52_low": "$65.50",
-          "market_cap": "$48.4B",
-          "volume_24h": "$2.8B",
-          "sentiment": "neutral",
-          "social_sentiment": "cautiously_bullish",
-          "social_buzz": "medium",
-          "confidence": 4,
-          "source_agreement": "low",
-          "sources_checked": [
-            "coingecko.com",
-            "crypto.news",
-            "panewslab.com"
-          ],
-          "key_news": [
-            "Drift Protocol $275M exploit ongoing \u2014 Circle declined to freeze stolen USDC",
-            "Sunday Iran news hit SOL hardest: -2.2% intraday",
-            "SOL ETF AUM crosses $1B; Alchemy $20M developer fund",
-            "ZachXBT criticism of Circle/Solana USDC handling trending"
-          ],
-          "social_highlights": [
-            "Ecosystem trust concerns post-Drift exploit",
-            "Alchemy fund viewed as 'vote of confidence' by bulls"
-          ],
-          "recommendation": "hold",
-          "reasoning": "Drift exploit overhang + Sunday Iran selloff worst of the three (-2.2%). Do not add until $80 support clearly defended and Drift situation resolved."
-        }
-      ]
-    },
-    "stocks": {
-      "sector": "stocks",
-      "timestamp": "2026-04-12T14:00:00Z",
-      "sector_summary": "S&P 500 at 6,816.89 has recovered nearly all US-Iran war losses. VIX 19.23, F&G:15 (Extreme Fear from crypto but equity sentiment slightly higher). Earnings season opens this week: JPM (Apr 14), Goldman Sachs (Apr 14), BAC (Apr 15), KMI (Apr 15), TSM (Apr 16), NFLX (Apr 16). Real-data RSI gates excluded: AMD(73.7), AMZN(75.3), AVGO(75.5), BAC(79.0), JPM(73.7), NFLX(80.3). TSLA excluded on -3.1% negative revenue growth. Key new discovery: INTC +51% in 8 days (Barron's). PLTR: Trump Truth Social endorsement created political floor.",
-      "sector_outlook": "bullish",
-      "top_pick": "MSFT",
-      "top_pick_reasoning": "MSFT trades at RSI 39.5 (oversold), $370 vs SMA200 $472 (-21.5% dislocation). Forward PE 19.69 multi-year low. Copilot Code Red catalyst. Dan Ives (Wedbush) bullish. April 29 earnings 17 days away. Best risk/reward in quality large-cap equities.",
-      "assets": [
-        {
-          "name": "S&P 500",
-          "symbol": "SPX",
-          "current_price": "$6,816.89",
-          "change_24h": "-0.11%",
-          "change_7d": "+1.8%",
-          "change_30d": "-0.8%",
-          "ytd_change": "+15.5%",
-          "week_52_high": "~$7,100",
-          "week_52_low": "~$5,800",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "mixed",
-          "social_sentiment": "cautiously bullish",
-          "social_buzz": "high",
-          "confidence": 7,
-          "source_agreement": "high",
-          "sources_checked": [
-            "reuters.com",
-            "finance.yahoo.com"
-          ],
-          "key_news": [
-            "SPX recovered nearly all Iran war losses (less than 1% below pre-war levels)",
-            "Q1 earnings season opens: +14% growth expected for S&P 500, tech sector +40%",
-            "Fed minutes show growing openness to rate hikes \u2014 hawkish headwind",
-            "White House confirms Warsh to lead Fed in May \u2014 policy shift risk"
-          ],
-          "social_highlights": [
-            "WSB cautiously bullish on ceasefire, watching earnings quality"
-          ],
-          "recommendation": "hold",
-          "reasoning": "SPX near pre-war highs with earnings gauntlet ahead. Hawkish Fed signals and elevated oil create risk. Select individual names over broad index exposure."
-        },
-        {
-          "name": "NASDAQ Composite",
-          "symbol": "IXIC",
-          "current_price": "$22,902.89",
-          "change_24h": "+0.35%",
-          "change_7d": "+2.1%",
-          "change_30d": "-1.2%",
-          "ytd_change": "+18%",
-          "week_52_high": "~$23,500",
-          "week_52_low": "~$17,800",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "high",
-          "confidence": 7,
-          "source_agreement": "high",
-          "sources_checked": [
-            "reuters.com",
-            "finance.yahoo.com"
-          ],
-          "key_news": [
-            "IXIC +0.35% \u2014 outperformed Dow on ceasefire/tech rally",
-            "Tech sector Q1 earnings expected +40% YoY \u2014 strongest driver",
-            "Agentic AI identified as next big wave: NVDA, AVGO primary beneficiaries",
-            "Dan Ives: 'the bottom in tech may already be behind us'"
-          ],
-          "social_highlights": [
-            "AI demand moving from experimentation to deployment"
-          ],
-          "recommendation": "hold",
-          "reasoning": "Selective single-name (NVDA, MSFT, GOOGL) favored over broad QQQ exposure."
-        },
-        {
-          "name": "NVIDIA Corporation",
-          "symbol": "NVDA",
-          "current_price": "$188.63",
-          "change_24h": "+2.55%",
-          "change_7d": "+6.8%",
-          "change_30d": "+4.2%",
-          "ytd_change": "+12%",
-          "week_52_high": "$207.02",
-          "week_52_low": "~$120",
-          "market_cap": "~$4.61T",
-          "volume_24h": "#1 most active stock",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "very high",
-          "confidence": 9,
-          "source_agreement": "high",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "reuters.com",
-            "24/7 Wall St.",
-            "Motley Fool"
-          ],
-          "key_news": [
-            "NVDA +2.55% \u2014 longest winning streak since 2023 (24/7 Wall St.)",
-            "Iran ceasefire 'best stocks to buy now' articles cite NVDA as top pick",
-            "Agentic AI cited as next big wave \u2014 NVDA primary infrastructure beneficiary",
-            "Earnings May 20 (38 days) \u2014 beat streak 4, last surprise +8%"
-          ],
-          "social_highlights": [
-            "#1 most active stock; unanimously bullish post-ceasefire"
-          ],
-          "recommendation": "buy",
-          "reasoning": "RSI 68.2 fair entry. Forward PE 16.97 with +73.2% revenue growth. $58.1B FCF. 38 days to earnings \u2014 no binary risk. Best equities setup.",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 68.2,
-            "macd": "bullish",
-            "sma_50": 182.07,
-            "sma_200": 180.72,
-            "key_support": 182.07,
-            "key_resistance": 207.02,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": 38.5,
-            "forward_pe": 16.97,
-            "peg": null,
-            "ev_ebitda": 34.02,
-            "verdict": "attractive \u2014 fwd PE 16.97 is historically cheap for AI infrastructure monopoly compounding at +73.2%"
-          },
-          "fundamentals": {
-            "revenue_growth": "+73.2% YoY",
-            "gross_margin": "71.1%",
-            "fcf_margin": "26.9%",
-            "debt_equity": 7.255,
-            "verdict": "exceptional \u2014 $58.1B FCF, best margins in semiconductor sector"
-          }
-        },
-        {
-          "name": "Microsoft Corporation",
-          "symbol": "MSFT",
-          "current_price": "$370.87",
-          "change_24h": "-0.59%",
-          "change_7d": "-3.5%",
-          "change_30d": "-12%",
-          "ytd_change": "-21.5%",
-          "week_52_high": "$539.83",
-          "week_52_low": "~$356",
-          "market_cap": "~$2.76T",
-          "volume_24h": "high",
-          "sentiment": "mixed \u2014 oversold narrative building",
-          "social_sentiment": "cautiously bullish",
-          "social_buzz": "very high",
-          "confidence": 9,
-          "source_agreement": "high",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "benzinga.com",
-            "reuters.com"
-          ],
-          "key_news": [
-            "Copilot Code Red: CEO Nadella deploys emergency AI overhaul to compete with Anthropic",
-            "Dan Ives (Wedbush): 'Microsoft sell-off is overdone \u2014 AI demand accelerating in 2026'",
-            "Citi downgrades 3 software stocks; Goldman Sachs 'bombshell' on software sector",
-            "Earnings April 29 (17 days): beat streak 4, last surprise +4%"
-          ],
-          "social_highlights": [
-            "Dan Ives thesis widely circulated: 'software sell-off was macro fear, not demand reality'",
-            "Bulls: 'MSFT at forward PE 19 hasn't been this cheap since 2020'"
-          ],
-          "recommendation": "buy",
-          "reasoning": "RSI 39.5 \u2014 most oversold large-cap. -21.5% YTD dislocation at multi-year support band. Forward PE 19.69 cheapest in years. April 29 earnings (17 days) clean runway.",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 39.5,
-            "macd": "bullish",
-            "sma_50": 393.62,
-            "sma_200": 472.59,
-            "key_support": 356.39,
-            "key_resistance": 539.83,
-            "entry_quality": "good \u2014 near support"
-          },
-          "valuation": {
-            "pe": 23.21,
-            "forward_pe": 19.69,
-            "peg": null,
-            "ev_ebitda": 15.91,
-            "verdict": "very attractive \u2014 forward PE 19.69 cheapest in years for highest-quality cloud+AI franchise"
-          },
-          "fundamentals": {
-            "revenue_growth": "+16.7% YoY",
-            "gross_margin": "68.6%",
-            "fcf_margin": "17.6%",
-            "debt_equity": 31.54,
-            "verdict": "strong \u2014 $53.6B FCF; Azure AI consumption driving durable revenue"
-          }
-        },
-        {
-          "name": "Alphabet Inc.",
-          "symbol": "GOOGL",
-          "current_price": "$317.24",
-          "change_24h": "+1.1%",
-          "change_7d": "+3.2%",
-          "change_30d": "+5%",
-          "ytd_change": "+18%",
-          "week_52_high": "$343.45",
-          "week_52_low": "~$220",
-          "market_cap": "~$3.87T",
-          "volume_24h": "high",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "high",
-          "confidence": 8,
-          "source_agreement": "high",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "reuters.com",
-            "Motley Fool"
-          ],
-          "key_news": [
-            "Waymo cited as having 'solved autonomy' vs Tesla FSD doubts \u2014 AI credibility",
-            "2 AI stocks to buy: GOOG cited alongside NVDA (Motley Fool)",
-            "Earnings April 29 (17 days): beat streak 4, last surprise +40%",
-            "Google-Intel AI partnership; Walmart Gemini deal"
-          ],
-          "social_highlights": [
-            "Strong Waymo sentiment vs Tesla; Gemini monetization buzz"
-          ],
-          "recommendation": "buy",
-          "reasoning": "RSI 60.1 fair entry. Cheapest Mag7 forward PE (23.62). Last earnings surprise +40%. April 29 earnings with clean runway.",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 60.1,
-            "macd": "bullish",
-            "sma_50": 308.23,
-            "sma_200": 268.25,
-            "key_support": 308.23,
-            "key_resistance": 343.45,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": 29.32,
-            "forward_pe": 23.62,
-            "peg": null,
-            "ev_ebitda": 25.16,
-            "verdict": "fair \u2014 cheapest Mag7 forward PE; last +40% earnings beat creates positive revision path"
-          },
-          "fundamentals": {
-            "revenue_growth": "+18.0% YoY",
-            "gross_margin": "59.7%",
-            "fcf_margin": "9.5%",
-            "debt_equity": 16.13,
-            "verdict": "solid \u2014 Waymo optionality + Search+GCP not fully priced"
-          }
-        },
-        {
-          "name": "Kinder Morgan Inc.",
-          "symbol": "KMI",
-          "current_price": "$32.68",
-          "change_24h": "+0.2%",
-          "change_7d": "+0.8%",
-          "change_30d": "+3.5%",
-          "ytd_change": "+8%",
-          "week_52_high": "$34.07",
-          "week_52_low": "~$27",
-          "market_cap": "~$73B",
-          "volume_24h": "moderate",
-          "sentiment": "bullish",
-          "social_sentiment": "quietly bullish",
-          "social_buzz": "low-moderate",
-          "confidence": 6,
-          "source_agreement": "high",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "reuters.com"
-          ],
-          "key_news": [
-            "KMI confirmed earnings April 15 (3 days) \u2014 binary risk",
-            "AI data center natural gas demand structural thesis intact",
-            "Saudi Arabia restoring East-West pipeline \u2014 energy sector stabilizing",
-            "Beat streak 2, last surprise +5%"
-          ],
-          "social_highlights": [
-            "Income investors: 5.5% yield + AI gas infrastructure rerating"
-          ],
-          "recommendation": "buy",
-          "reasoning": "RSI 47.7 healthiest in equities. SMA50 support at $32.62. AI data center gas demand. Confidence penalized to 6 for April 15 earnings binary. Enter 50% now, 50% post-earnings.",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 47.7,
-            "macd": "unknown",
-            "sma_50": 32.62,
-            "sma_200": 31.14,
-            "key_support": 32.62,
-            "key_resistance": 34.07,
-            "entry_quality": "good \u2014 near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 22.4,
-            "peg": null,
-            "ev_ebitda": null,
-            "verdict": "fair \u2014 forward PE 22.40 reasonable; ~5.5% dividend yield provides income floor"
-          },
-          "fundamentals": {
-            "revenue_growth": "+13.1% YoY",
-            "gross_margin": "N/A (pipeline)",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "stable pipeline EBITDA; AI data center gas demand adds secular growth to infrastructure"
-          }
-        },
-        {
-          "name": "Palantir Technologies",
-          "symbol": "PLTR",
-          "current_price": "$128.06",
-          "change_24h": "-1.90%",
-          "change_7d": "-12%",
-          "change_30d": "-18%",
-          "ytd_change": "-35%",
-          "week_52_high": "$207.18",
-          "week_52_low": "$88.55",
-          "market_cap": "~$271B",
-          "volume_24h": "#2 most active",
-          "sentiment": "mixed",
-          "social_sentiment": "polarized",
-          "social_buzz": "very high",
-          "confidence": 6,
-          "source_agreement": "medium",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "moneywise.com"
-          ],
-          "key_news": [
-            "BREAKING: Trump endorses PLTR by ticker on Truth Social: 'PLTR has proven great war fighting capabilities' \u2014 first president to endorse stock by ticker",
-            "Stock was -16% on week before tweet; reversed to -1.9% close (+$10B market cap in minutes)",
-            "Root cause: Anthropic Claude Mythos ARR $9B\u2192$30B; Pentagon blacklisted Anthropic; PLTR forced to rebuild Maven Smart System",
-            "Reuters: Maven rebuild exposes single-provider dependency risk in core defense business"
-          ],
-          "social_highlights": [
-            "Trump endorsement: 'the floor is now Trump's ego'",
-            "Senator Warner: 'Is this another blatant example of Trump manipulating markets?'"
-          ],
-          "recommendation": "buy",
-          "reasoning": "WATCHLIST for moderate profile (fwdPE 68.80 too high). RSI 33.7 excellent oversold. Trump political floor. Maven rebuild = 6-month pain not existential. Re-evaluate on $100 reclaim for moderate portfolio.",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 33.7,
-            "macd": "unknown",
-            "sma_50": null,
-            "sma_200": null,
-            "key_support": 88.55,
-            "key_resistance": 207.18,
-            "entry_quality": "excellent \u2014 oversold"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 68.8,
-            "peg": null,
-            "ev_ebitda": null,
-            "verdict": "expensive \u2014 fwdPE 68.80 disqualifies for moderate; +70% revenue growth and Trump floor create asymmetric setup for aggressive profile"
-          },
-          "fundamentals": {
-            "revenue_growth": "+70.0% YoY",
-            "gross_margin": "N/A",
-            "fcf_margin": "25.0%",
-            "debt_equity": null,
-            "verdict": "strong top-line + FCF; Maven rebuild is the known risk"
-          }
-        },
-        {
-          "name": "Taiwan Semiconductor",
-          "symbol": "TSM",
-          "current_price": "$370.60",
-          "change_24h": "+2.1%",
-          "change_7d": "+5%",
-          "change_30d": "+8%",
-          "ytd_change": "+26%",
-          "week_52_high": "$386.64",
-          "week_52_low": "~$230",
-          "market_cap": "~$1.87T",
-          "volume_24h": "high",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "high",
-          "confidence": 7,
-          "source_agreement": "high",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "reuters.com"
-          ],
-          "key_news": [
-            "Earnings April 16 (4 days) \u2014 beat streak 4, last surprise +11%",
-            "NVDA winning streak bullish for TSM as primary fab partner",
-            "Featured in Barron's Today's Movers"
-          ],
-          "social_highlights": [
-            "'picks and shovels of AI gold rush'"
-          ],
-          "recommendation": "hold",
-          "reasoning": "Structurally compelling but EARNINGS IN 4 DAYS at resistance $386. Wait for post-earnings reaction. Support at $349 SMA50 = re-entry if beats.",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 68.7,
-            "macd": "bullish",
-            "sma_50": 349.93,
-            "sma_200": 292.59,
-            "key_support": 349.93,
-            "key_resistance": 386.64,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": 35.46,
-            "forward_pe": 20.3,
-            "peg": null,
-            "ev_ebitda": 2.93,
-            "verdict": "very attractive \u2014 EV/EBITDA 2.93 for best-in-class foundry monopoly"
-          },
-          "fundamentals": {
-            "revenue_growth": "+20.5% YoY",
-            "gross_margin": "59.9%",
-            "fcf_margin": "16.9%",
-            "debt_equity": 19.57,
-            "verdict": "strong \u2014 only 3nm/2nm foundry; AI chip orders driving record capex"
-          }
-        },
-        {
-          "name": "Tesla Inc.",
-          "symbol": "TSLA",
-          "current_price": "$348.95",
-          "change_24h": "+0.98%",
-          "change_7d": "-8%",
-          "change_30d": "-15%",
-          "ytd_change": "-28%",
-          "week_52_high": "$489.88",
-          "week_52_low": "~$215",
-          "market_cap": "~$1.12T",
-          "volume_24h": "high",
-          "sentiment": "bearish",
-          "social_sentiment": "negative",
-          "social_buzz": "very high",
-          "confidence": 8,
-          "source_agreement": "high",
-          "sources_checked": [
-            "finance.yahoo.com",
-            "reuters.com",
-            "Benzinga"
-          ],
-          "key_news": [
-            "Revenue growth -3.1% (NEGATIVE) \u2014 hard gate triggered",
-            "Bearish insider signal \u2014 only stock in coverage with this flag",
-            "8-week slide: Q1 delivery miss + robotaxi doubts",
-            "Gary Black: 'EVs still 70% of TSLA revenue; robotaxi is years away'",
-            "Tesla FSD Netherlands approval \u2014 first European (positive but minor)",
-            "Earnings April 22 (10 days): beat streak 1, forward PE 127.69"
-          ],
-          "social_highlights": [
-            "WSB deeply divided: Musk cult vs fundamental bears"
-          ],
-          "recommendation": "hold",
-          "reasoning": "AVOID. Multiple hard gates: -3.1% negative revenue growth + bearish insider + fwdPE 127.69. Earnings Apr 22 (10d) with beat streak 1. SMA50 at $227.50 is real structural support \u2014 price at $349 is 53% above that floor. Stop at $300 for existing holders.",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 42.0,
-            "macd": "bearish",
-            "sma_50": 227.5,
-            "sma_200": 316.87,
-            "key_support": 227.5,
-            "key_resistance": 489.88,
-            "entry_quality": "poor \u2014 extended"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 127.69,
-            "peg": null,
-            "ev_ebitda": null,
-            "verdict": "extreme \u2014 fwdPE 127.69 with negative revenue growth is indefensible without robotaxi execution"
-          },
-          "fundamentals": {
-            "revenue_growth": "-3.1% YoY (NEGATIVE)",
-            "gross_margin": "declining",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "deteriorating \u2014 negative growth + margin pressure + Q1 delivery miss"
-          }
-        }
-      ]
-    },
-    "materials": {
-      "sector": "materials",
-      "timestamp": "2026-04-12T14:00:00Z",
-      "sector_summary": "Materials sector enters the week of April 14 with dramatically shifted risk picture. Islamabad nuclear talks collapsed Saturday night \u2014 gold and silver gap-up expected Monday. CPI 3.3% (22-month high) + central bank buying (China +5T, Turkey +118T March) provide structural floor. Gold/silver ratio at 62.7x (historical norm 50-55x) = best catch-up trade in portfolio. Hormuz 95%+ closed but 3 VLCCs transited Saturday via bypass route \u2014 crude oil binary two-way trade. Net view: BULLISH on precious metals, NEUTRAL on crude oil pending Monday gap-resolve.",
-      "sector_outlook": "bullish",
-      "top_pick": "XAU",
-      "top_pick_reasoning": "Gold fires on every cylinder: Iran premium reinstated, CPI 3.3%, central bank buying, dollar debasement. -8.3% 30d pullback was healthy consolidation; Monday gap-up expected on Vance walkout. Gabelli $6,000+ target. Cleanest risk/reward in portfolio.",
-      "assets": [
-        {
-          "name": "Gold Spot",
-          "symbol": "XAU",
-          "current_price": "$4,747",
-          "change_24h": "-0.38%",
-          "change_7d": "+2.0%",
-          "change_30d": "-8.3%",
-          "ytd_change": "+46.8%",
-          "week_52_high": "$5,178",
-          "week_52_low": "$3,164",
-          "market_cap": "N/A",
-          "volume_24h": "$118B",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "very high",
-          "confidence": 9,
-          "source_agreement": "high",
-          "sources_checked": [
-            "kitco.com",
-            "tradingeconomics.com",
-            "reuters.com",
-            "cnbc.com"
-          ],
-          "key_news": [
-            "Vance departed Islamabad without deal Saturday night after 21 hours \u2014 Iran refuses nuclear renouncement",
-            "Hormuz 95%+ closed; IRGC warns military vessels face 'strong response'",
-            "US Navy mine-clearing underway but Iran counter-threatening",
-            "CPI March: +3.3% YoY (22-month high), +0.9% MoM",
-            "Central banks: China +5T, Turkey +118T gold in March",
-            "Gabelli: 'Gold will become primary alternative to USD; price headed above $6,000'",
-            "X/Twitter: '#VanceWalkout = gold gap-up Monday' trending"
-          ],
-          "social_highlights": [
-            "Post-midnight: '#VanceWalkout = gold gap-up Monday guaranteed' \u2014 trending US + EU",
-            "Reddit r/investing: 'removes the only bear case for gold'",
-            "Kitco forums: 'central banks buying every dip \u2014 follow sovereign money'"
-          ],
-          "recommendation": "buy",
-          "reasoning": "Iran no-deal + CPI 3.3% + central bank buying = triple macro catalyst confirming gold structural uptrend. -8.3% pullback was healthy. 3 consecutive weekly gains resuming. Stop: $4,450."
-        },
-        {
-          "name": "Silver Spot",
-          "symbol": "SI",
-          "current_price": "$75.68",
-          "change_24h": "+0.48%",
-          "change_7d": "+4.2%",
-          "change_30d": "-11.7%",
-          "ytd_change": "+134.6%",
-          "week_52_high": "$87.20",
-          "week_52_low": "$29.85",
-          "market_cap": "N/A",
-          "volume_24h": "$21B",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "high",
-          "confidence": 8,
-          "source_agreement": "high",
-          "sources_checked": [
-            "kitco.com",
-            "tradingeconomics.com",
-            "cnbc.com"
-          ],
-          "key_news": [
-            "Gold/silver ratio 62.7x \u2014 historically elevated (norm 50-55x); silver 14-25% undervalued vs gold",
-            "Silver +4.2% last week \u2014 outperforming gold's +2.0% on 7d basis",
-            "Solar PV + defense electronics structural demand accelerating on war economy",
-            "Vance walkout = same bullish catalyst as gold for monetary properties",
-            "X/Twitter: '$100 silver before end of 2026' trending post-Vance news"
-          ],
-          "social_highlights": [
-            "Reddit r/Silverbugs: 'GSR at 62x is a decade-level generational signal'",
-            "Kitco: 'industrial silver demand not going away \u2014 solar + defense + EVs all accelerating'"
-          ],
-          "recommendation": "buy",
-          "reasoning": "Best R:R in portfolio (3.8:1). Ratio normalization: 55x = $86-95 with gold flat; $105+ with gold at $5,800. Dual monetary + industrial thesis. Outperforming gold already. DCA: $75.68/$72/$69, stop $68."
-        },
-        {
-          "name": "Crude Oil WTI",
-          "symbol": "CL",
-          "current_price": "$96.57",
-          "change_24h": "-1.33%",
-          "change_7d": "-10.5%",
-          "change_30d": "+10.7%",
-          "ytd_change": "+57.0%",
-          "week_52_high": "$118.75",
-          "week_52_low": "$58.40",
-          "market_cap": "N/A",
-          "volume_24h": "$47B",
-          "sentiment": "neutral",
-          "social_sentiment": "mixed",
-          "social_buzz": "very high",
-          "confidence": 7,
-          "source_agreement": "medium",
-          "sources_checked": [
-            "tradingeconomics.com",
-            "reuters.com",
-            "cnbc.com"
-          ],
-          "key_news": [
-            "WTI -10.5% week \u2014 largest decline in 9 months \u2014 on ceasefire optimism",
-            "Vance walkout should trigger Monday gap-up reversal",
-            "BUT: 3 supertankers exited Gulf via bypass route Saturday \u2014 first since Feb 28",
-            "US Navy mine-clearing underway; Trump: 'We'll have Hormuz open fairly soon'",
-            "SPR second release (8.5M bbl) caps upside",
-            "Iran IRGC threatens military vessel transit",
-            "Risk matrix: $70 if deal / $120+ if ceasefire collapses"
-          ],
-          "social_highlights": [
-            "Traders split 60/40 bull/bear: 'war premium not fully rebuilt despite -10.5% flush'",
-            "Bloomberg: 'the $50 premium will leak out over 6 months'"
-          ],
-          "recommendation": "hold",
-          "reasoning": "Binary two-way trade with three countervailing forces: Iran no-deal (bullish), tanker bypass route opening (bearish), SPR release (bearish). Wide risk matrix prevents clean directional position. Hold existing longs with stop $88; no new entries."
-        }
-      ]
-    }
-  }
+  "upcoming_catalysts": [
+    {"ticker": "JPM", "event": "Q1 Earnings", "date": "2026-04-14", "days_away": 1, "action": "AVOID — RSI=73.7 overbought + earnings binary"},
+    {"ticker": "GS", "event": "Q1 Earnings", "date": "2026-04-14", "days_away": 1, "action": "AVOID — RSI=76.2 overbought"},
+    {"ticker": "WFC", "event": "Q1 Earnings", "date": "2026-04-14", "days_away": 1, "action": "AVOID — RSI=74.1 overbought"},
+    {"ticker": "C", "event": "Q1 Earnings", "date": "2026-04-14", "days_away": 1, "action": "AVOID — RSI=74.1 overbought"},
+    {"ticker": "BAC", "event": "Q1 Earnings", "date": "2026-04-15", "days_away": 2, "action": "AVOID — RSI=79.0 extreme overbought"},
+    {"ticker": "MS", "event": "Q1 Earnings", "date": "2026-04-15", "days_away": 2, "action": "AVOID — RSI=74.6 overbought"},
+    {"ticker": "NFLX", "event": "Q1 Earnings", "date": "2026-04-16", "days_away": 3, "action": "AVOID — RSI=80.3 extreme overbought"},
+    {"ticker": "TSM", "event": "Q1 Earnings", "date": "2026-04-16", "days_away": 3, "action": "AVOID — earnings binary risk"},
+    {"ticker": "NOW", "event": "Q1 FY2027 Earnings", "date": "2026-04-22", "days_away": 9, "action": "IN PORTFOLIO — key catalyst; 4-beat streak"},
+    {"ticker": "GILD", "event": "Q1 Earnings", "date": "2026-04-23", "days_away": 10, "action": "IN PORTFOLIO — lenacapavir expansion catalyst"},
+    {"ticker": "MSFT", "event": "Q3 FY26 Earnings", "date": "2026-04-29", "days_away": 16, "action": "IN PORTFOLIO — Azure + Copilot monetization"},
+    {"ticker": "NVDA", "event": "Q1 FY27 Earnings", "date": "2026-05-20", "days_away": 37, "action": "IN PORTFOLIO — Blackwell ramp + data center"},
+    {"ticker": "CVX", "event": "Q1 Earnings", "date": "2026-05-02", "days_away": 19, "action": "IN PORTFOLIO — $105 WTI vs stale estimates"}
+  ]
 }
