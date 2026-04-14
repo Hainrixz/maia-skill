@@ -22,9 +22,13 @@ import sys
 import os
 import json
 import glob
+import warnings
 import contextlib
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Suppress yfinance/urllib3/pandas warnings globally (thread-safe)
+warnings.filterwarnings("ignore")
 
 import urllib.request
 import yfinance as yf
@@ -263,11 +267,12 @@ def _insider(ticker_obj) -> str:
 # ─── Per-stock fetch ──────────────────────────────────────────────────────────
 
 def fetch_stock(symbol: str) -> dict | None:
-    devnull = open(os.devnull, "w")
+    # Note: redirect_stderr is NOT used here — it modifies a global (sys.stderr)
+    # and is not safe inside ThreadPoolExecutor workers. yfinance warnings are
+    # suppressed by the warnings module filter set at module level instead.
     try:
-        with contextlib.redirect_stderr(devnull):
-            ticker = yf.Ticker(symbol)
-            hist = ticker.history(period="1y", interval="1d")
+        ticker = yf.Ticker(symbol)
+        hist = ticker.history(period="1y", interval="1d")
 
         if hist.empty:
             return None
@@ -286,8 +291,7 @@ def fetch_stock(symbol: str) -> dict | None:
         # Fundamentals from .info (real data from yfinance, not estimated)
         # Computed before entry_quality so it can use them as a quality gate
         try:
-            with contextlib.redirect_stderr(devnull):
-                info = ticker.info or {}
+            info = ticker.info or {}
         except Exception:
             info = {}
 
@@ -312,8 +316,6 @@ def fetch_stock(symbol: str) -> dict | None:
 
     except Exception:
         return None
-    finally:
-        devnull.close()
 
     return {
         "price": price,
@@ -350,10 +352,8 @@ def fetch_stock(symbol: str) -> dict | None:
 # ─── Macro fetch ──────────────────────────────────────────────────────────────
 
 def fetch_macro() -> dict:
-    devnull = open(os.devnull, "w")
     try:
-        with contextlib.redirect_stderr(devnull):
-            data = yf.download(
+        data = yf.download(
                 MACRO_TICKERS, period="6mo", interval="1d", progress=False
             )
 
@@ -425,8 +425,6 @@ def fetch_macro() -> dict:
         }
     except Exception as e:
         return {"error": str(e)}
-    finally:
-        devnull.close()
 
 
 # ─── Candidate filter ───────────────────────────────────────────────────────
