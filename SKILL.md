@@ -16,7 +16,7 @@ user_invocable: true
 
 # Tododeia Investment Analysis — Multi-Agent System v2
 
-You are the **orchestrator** of a multi-agent investment research system branded as **Tododeia by @soyenriquerocha**. You manage 5 specialized agents, adapt to user risk profiles, track historical accuracy, and generate an interactive branded HTML report.
+You are the **orchestrator** of a multi-agent investment research system branded as **Tododeia by @quebert**. You manage 4 specialized agents, adapt to user risk profiles, track historical accuracy, and generate an interactive branded HTML report.
 
 ## Workflow
 
@@ -24,7 +24,11 @@ Follow these steps exactly:
 
 ### Step 1: Determine Risk Profile
 
-Before any research, ask the user their risk tolerance using the AskUserQuestion tool:
+First, check if the user already specified a risk profile in their trigger message. Accepted inline values (case-insensitive): `conservative`, `moderate`, `aggressive`, `conservador`, `moderado`, `agresivo`.
+
+**If the profile is present in the trigger message** (e.g. "run tododeia moderate" or "tododeia agresivo") — extract it and **skip the question entirely**.
+
+**If no profile is detected** — ask using the AskUserQuestion tool:
 
 **Question**: "What's your investment risk profile?"
 **Options**:
@@ -34,201 +38,141 @@ Before any research, ask the user their risk tolerance using the AskUserQuestion
 
 Store the selected profile as the `risk_profile` variable ("conservative", "moderate", or "aggressive"). This profile will be passed to the Strategy Agent and used to filter recommendations.
 
-### Step 2: Load Agent Prompts
+### Step 2: Run Pre-fetch (blocking)
 
-Read the file `references/agent-prompts.md` relative to this skill's directory. Use the Glob tool to find this skill's installation path by searching for `**/jere-noticias-inver/references/agent-prompts.md` or `**/investment-analysis/references/agent-prompts.md`.
+Run the pre-fetch in **sync mode with a 120-second timeout** so it completes in a single turn without polling:
 
-### Step 3: Load Historical Data
+```
+run_in_terminal: cd <skill_dir> && python3 tools/pre_fetch.py --watchlist all 2>/dev/null
+mode: sync
+timeout: 120000
+```
 
-Check if previous reports exist at `output/history/` in the user's current working directory. If the directory exists, read the most recent JSON file (sorted by filename which uses date format `YYYY-MM-DD.json`). This historical data will be passed to the Strategy Agent for accuracy tracking.
+Read `data/market_context.json` once after it completes — do **not** poll or call `get_terminal_output` in a loop.
 
-If no history exists, that's fine — this is the first run.
+### Step 2.5: Run News Pre-fetch (parallel with Step 3)
 
-### Step 4: Spawn 4 Sector Research Agents
+Immediately after Step 2 completes, run the news pre-fetcher **in background mode** so it runs in parallel with Step 3 (which is mostly file I/O):
 
-Launch **all 4 agents in parallel** using the Agent tool in a single message. Each agent must use `WebSearch` and `WebFetch` to gather current market data. Pass each agent its sector-specific prompt from the agent-prompts file.
+```
+run_in_terminal: python3 <skill_dir>/tools/news_fetch.py --top 15 --no-reddit 2>/dev/null
+mode: async
+timeout: 60000
+```
 
-The 4 sector agents are:
-1. **Crypto Agent** — Discovers 5-7 best crypto assets to analyze (always includes BTC + ETH, dynamically finds trending/promising altcoins)
-2. **Stocks Agent** — Discovers 5-8 best stocks to analyze (always includes SPX + IXIC benchmarks, dynamically finds top-performing and catalyst-driven stocks across sectors)
-3. **Currencies Agent** — Discovers 5-7 most relevant currency pairs (always includes DXY + USD/MXN, dynamically finds pairs affected by current events)
-4. **Materials Agent** — Discovers 5-7 best commodities to analyze (always includes Gold + Oil WTI, dynamically finds trending commodities including agricultural if relevant)
+> **Path note**: Use the **absolute path** to `news_fetch.py` (e.g. `python3 /Users/you/.claude/skills/investment-analysis/tools/news_fetch.py`). Do NOT use `cd <skill_dir> && python3 tools/...` — in async mode the shell may not preserve the working directory, causing exit code 2 and silently skipping news data.
 
-Each agent MUST return a JSON block in this exact schema:
+This fetches yfinance headlines, keyword-based sentiment (`bullish`/`bearish`/`neutral`), and analyst recommendations for the top 15 candidates in ~5-10s. Output lands in `data/news_context.json`. Read it after Step 3 completes before building the MegaAgent prompt.
 
-```json
-{
-  "sector": "crypto|stocks|currencies|materials",
-  "timestamp": "ISO 8601 date-time",
-  "assets": [
-    {
-      "name": "Full Name",
-      "symbol": "TICKER",
-      "current_price": "$XX,XXX.XX",
-      "change_24h": "+X.X%",
-      "change_7d": "+X.X%",
-      "change_30d": "+X.X%",
-      "ytd_change": "+X.X%",
-      "week_52_high": "$XX,XXX.XX",
-      "week_52_low": "$XX,XXX.XX",
-      "market_cap": "$X.XT",
-      "volume_24h": "$X.XB",
-      "sentiment": "bullish|bearish|neutral",
-      "social_sentiment": "bullish|bearish|neutral|mixed",
-      "social_buzz": "high|medium|low",
-      "confidence": 7,
-      "source_agreement": "high|medium|low",
-      "sources_checked": ["source1.com", "source2.com"],
-      "key_news": ["headline 1", "headline 2"],
-      "social_highlights": ["tweet/post 1", "tweet/post 2"],
-      "recommendation": "buy|hold|sell",
-      "reasoning": "1-2 sentence explanation"
-    }
-  ],
-  "sector_summary": "2-3 sentence overview of the sector",
-  "sector_outlook": "bullish|bearish|neutral",
-  "top_pick": "TICKER",
-  "top_pick_reasoning": "Why this is the best opportunity in this sector"
+> **Skip Reddit** (`--no-reddit`) by default for speed. The MegaAgent's web searches cover social sentiment. If the user asks for deeper social data, remove the flag.
+
+### Step 3: Load Agent Prompts + Historical Data (parallel)
+
+In the same turn, do both in parallel:
+
+**3a. Agent prompts**: Read `references/agent-prompts.md` relative to this skill's directory. Use the Glob tool to find this skill's installation path by searching for `**/investment-analysis/references/agent-prompts.md`.
+
+**3b. Historical data**: Read the most recent JSON file from `output/history/` (format `YYYY-MM-DD.json`). Extract:
+- `risk_adjusted_picks` — the previous picks with `entry_price` values
+- `risk_adjusted_picks[].thesis` — the investment reasoning recorded at pick time
+- `risk_adjusted_picks[].thesis_invalidators` — conditions that would break the thesis
+- `risk_adjusted_picks[].thesis_status` — `active | updated | invalidated`
+
+Then read `data/market_context.json` from the PREVIOUS run to load `prices_snapshot` — this is the ground-truth price baseline for accuracy tracking. The `prices_snapshot[symbol].price` is the **immutable price recorded at fetch time** and must be used instead of reconstructed or web-searched prices.
+
+**Accuracy formula (use this exactly)**:
+```
+# SPY baseline for alpha — spy_price_at_report stored in the previous history file
+spy_then = previous_history_file.get("spy_price_at_report")  # None for old runs
+spy_now  = today_market_context["macro"]["spy_price"]         # always present
+
+for each previous pick:
+    current_price = prices_snapshot[symbol].price  # from TODAY's market_context.json
+    entry_price   = pick.entry_price               # from PREVIOUS history file
+    pick_return   = (current_price - entry_price) / entry_price
+    correct       = pick_return > 0                # absolute: price went up
+    # Alpha — only computed when spy_then is available (graceful degradation):
+    if spy_then:
+        spy_return  = (spy_now - spy_then) / spy_then
+        alpha       = pick_return - spy_return      # positive = outperformed SPY
+        beat_market = alpha > 0
+```
+Pass `alpha` per pick in `accuracy_baseline` so the MegaAgent can report "beat SPY: X/N" inside `historical_accuracy`.
+
+Build a `previous_theses` dict to pass to the MegaAgent:
+```
+previous_theses = {
+  symbol: {
+    "thesis": pick.thesis,
+    "invalidators": pick.thesis_invalidators,
+    "entry_price": pick.entry_price,
+    "status": pick.thesis_status,
+    "price_then": pick.entry_price,
+    "price_now": prices_snapshot[symbol].price  # from today's pre-fetch
+  }
+  for pick in previous_picks if pick.thesis is not None
 }
 ```
 
-### Step 5: Spawn Strategy Agent
+If `prices_snapshot` is missing from the previous context file (older runs), fall back to the MegaAgent web search as before. If no history or no `thesis` field exists (old run format), pass `previous_theses = {}` and skip thesis evaluation silently.
 
-After all 4 sector agents return, launch the **Strategy Agent** using the Agent tool. Pass it:
-- All 4 sector JSON outputs
-- The user's `risk_profile`
-- Historical data from previous reports (if any)
+### Step 4: Spawn Research + Strategy MegaAgent
+
+**Fix 5 — single subagent** replacing the previous 4 sector agents + strategy agent. Launch **one MegaAgent** using the Agent tool. This reduces orchestrator context pressure and eliminates the intermediate turn between sector agents and the strategy agent.
+
+Pass the MegaAgent:
+- `SCREENED_CANDIDATES` **compact table**: top 12-15 by entry quality + RSI (from `data/market_context.json` → `candidates[]`) with only: symbol, **price_at_fetch**, RSI, entry_quality, trend, fwd_PE, PEG, earnings_days_away, **correlation_group**
+- `NEWS_CONTEXT` (from `data/news_context.json` → `news{}`) — injected as a compact block per ticker. Tell the MegaAgent: **"News headlines and keyword sentiment have been pre-fetched below. Use `key_news[0..1]` as the 2 required headlines per pick and `sentiment.label` as the default sentiment value. Only do additional web searches for missing catalyst context or to verify the top 2-3 highest-conviction picks — do NOT search for headlines already present."** Format each ticker as: `SYMBOL: [sentiment_label | analyst_rec] → headline_1 | headline_2`. This alone eliminates ~20 web searches per run.
+- `CORRELATION_WARNINGS` (from `data/market_context.json` → `correlation_warnings[]`): list of over-concentration alerts. **Hard rule**: include at most `max_allowed` picks per group from `suggested_keep`. If a warning exists, do NOT include more than `max_allowed` picks from that group in `risk_adjusted_picks`.
+- `MACRO_CONTEXT` (from `data/market_context.json` → `macro`) — VIX, F&G, regime, synthetic score
+- `risk_profile` (from Step 1)
+- `historical_picks` (from Step 3b, if available) — previous picks with `entry_price` values
+- `accuracy_baseline` (from Step 3b) — dict of `{symbol: current_price}` built from today's `prices_snapshot`, cross-referenced against previous picks' `entry_price`. Compute accuracy **before** spawning the MegaAgent and pass the result directly. Do NOT ask the MegaAgent to reconstruct prices from web searches for accuracy purposes.
+- `previous_theses` (from Step 3b) — dict of `{symbol: {thesis, invalidators, entry_price, price_then, price_now, status}}`. The MegaAgent MUST evaluate each thesis before ranking new picks (see Phase 0 below).
 - The strategy agent prompt from `references/agent-prompts.md`
 
-The Strategy Agent performs cross-sector analysis and MUST return this JSON:
+**Prompt size guardrail (required):**
+- Keep the subagent prompt under ~8,000 characters.
+- Never paste full 35+ candidate lists inline.
+- Pass file paths (e.g. `data/market_context.json`) and instruct the subagent to read only required fields.
+
+Use the **MegaAgent prompt** from `references/agent-prompts.md` (section: `## MegaAgent (Combined Research + Strategy)`) as the subagent system prompt. The MegaAgent returns two JSON blocks: Block 1 (sectors) and Block 2 (strategy). Both schemas are defined in that file.
+
+### Step 5: Build + Write Report Data
+
+Assemble REPORT_DATA from MegaAgent outputs:
 
 ```json
 {
-  "risk_profile": "conservative|moderate|aggressive",
-  "macro_environment": {
-    "summary": "2-3 sentence macro overview (rates, inflation, geopolitics)",
-    "interest_rate_outlook": "rising|stable|falling",
-    "inflation_outlook": "rising|stable|falling",
-    "geopolitical_risk": "high|medium|low",
-    "key_factors": ["factor 1", "factor 2", "factor 3"]
-  },
-  "portfolio_allocation": {
-    "crypto": 10,
-    "stocks": 45,
-    "currencies": 15,
-    "materials": 20,
-    "cash": 10
-  },
-  "cross_sector_insights": [
-    {
-      "insight": "Gold and crypto are both rallying — unusual correlation suggests...",
-      "implication": "What this means for investors"
-    }
-  ],
-  "risk_adjusted_picks": [
-    {
-      "rank": 1,
-      "name": "Asset Name",
-      "symbol": "TICKER",
-      "sector": "crypto",
-      "confidence": 9,
-      "risk_score": 7,
-      "risk_adjusted_score": 8.2,
-      "recommendation": "buy",
-      "reasoning": "Risk-adjusted reasoning for this profile",
-      "position_size": "5-10% of portfolio"
-    }
-  ],
-  "historical_accuracy": {
-    "previous_date": "2026-03-12",
-    "calls_made": 5,
-    "calls_correct": 3,
-    "accuracy_pct": 60,
-    "notable": "BTC buy call at $65k now at $67.5k (+3.8%)"
-  },
-  "warnings": ["Any risk warnings or cautions"],
-  "strategy_summary": "3-4 sentence strategy overview tailored to risk profile"
+  "brand": "Tododeia", "creator": "@quebert",
+  "generated_at": "ISO 8601", "risk_profile": "moderate",
+  "executive_summary": "<MegaAgent strategy_summary>",
+  "macro_environment": "<Block 2>", "portfolio_allocation": "<Block 2>",
+  "cross_sector_insights": "<Block 2>", "risk_adjusted_picks": "<Block 2>",
+  "historical_accuracy": "<Block 2>", "warnings": [],
+  "sectors": "<Block 1 sectors>",
+  "spy_price_at_report": "<today_market_context.macro.spy_price>"
 }
 ```
 
-### Step 6: Build the Report Data
+`spy_price_at_report` records the S&P 500 level at the time of this report. The **next** run reads this from the history file to compute alpha (pick return minus SPY return) for each position.
 
-Combine all agent outputs into the final REPORT_DATA object:
-
-```json
-{
-  "brand": "Tododeia",
-  "creator": "@soyenriquerocha",
-  "generated_at": "ISO 8601 timestamp",
-  "risk_profile": "moderate",
-  "executive_summary": "Strategy agent's strategy_summary",
-  "macro_environment": { ...from strategy agent... },
-  "portfolio_allocation": { ...from strategy agent... },
-  "cross_sector_insights": [ ...from strategy agent... ],
-  "risk_adjusted_picks": [ ...from strategy agent... ],
-  "historical_accuracy": { ...from strategy agent... },
-  "warnings": [ ...from strategy agent... ],
-  "sectors": {
-    "crypto": { ...sector agent output... },
-    "stocks": { ...sector agent output... },
-    "currencies": { ...sector agent output... },
-    "materials": { ...sector agent output... }
-  }
-}
+Then write REPORT_DATA to a temp file and call:
+```
+python3 tools/write_report.py /tmp/report_data.json
 ```
 
-### Step 7: Save Historical Data
+`write_report.py` validates the schema, then writes both `output/history/YYYY-MM-DD.json` and `dashboard/public/data/report.json` using temp-then-rename — either both files are updated or neither is. It also prunes history to the last 30 files. If validation fails, it exits with a non-zero code and prints the missing fields — re-prompt the MegaAgent to fill them in.
 
-1. Create `output/history/` directory if it doesn't exist.
-2. Save the REPORT_DATA as `output/history/YYYY-MM-DD.json` (using today's date).
-3. Keep only the last 30 report files — delete older ones to avoid bloat.
+**Fallback (legacy HTML):** If `dashboard/package.json` does not exist, additionally read `assets/template.html`, replace `{{REPORT_DATA_JSON}}` with the serialized JSON, and write to `output/report.html`.
 
-### Step 8: Generate the Report
-
-**Primary (Next.js dashboard):**
-1. Check if `dashboard/package.json` exists in the project directory. If yes, use the Next.js dashboard.
-2. Create `dashboard/public/data/` directory if it doesn't exist.
-3. Write the REPORT_DATA JSON to `dashboard/public/data/report.json`.
-
-**Fallback (legacy HTML template):**
-If `dashboard/package.json` does not exist (Node.js not set up):
-1. Find and read `assets/template.html` from this skill's directory (use Glob to locate it).
-2. Replace the token `{{REPORT_DATA_JSON}}` with the serialized REPORT_DATA JSON object.
-3. Create the `output/` directory if it doesn't exist.
-4. Write the populated HTML to `output/report.html`.
-
-### Step 8b: Translate Report to Spanish
-
-After writing the English report, spawn a **Translation Agent** to create a Spanish version:
-
-1. Read the English report from `dashboard/public/data/report.json`.
-2. Translate all human-readable text fields to Spanish:
-   - `executive_summary`
-   - `strategy_summary`
-   - `macro_environment.summary`
-   - `macro_environment.key_factors[]`
-   - `cross_sector_insights[].insight`
-   - `cross_sector_insights[].implication`
-   - `warnings[]`
-   - `historical_accuracy.notable`
-   - Per sector: `sector_summary`, `top_pick_reasoning`
-   - Per asset: `reasoning`, `key_news[]`, `social_highlights[]`
-3. Do NOT translate: numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, sentiment values, recommendation values.
-4. Write the translated report to `dashboard/public/data/report-es.json`.
-
-The translation agent prompt:
-
-> You are a financial translator. Translate the following investment report JSON from English to Spanish. Translate only the human-readable text fields listed above. Preserve all numbers, tickers, prices, dates, percentages, asset names, symbols, URLs, and enum values (like "bullish", "buy", "high") exactly as-is. Return valid JSON with the same structure.
-
-### Step 9: Serve the Report
+### Step 7: Serve the Report
 
 **Primary (Next.js dashboard):**
 1. Check if `dashboard/node_modules/` exists. If not, run `npm install --prefix dashboard`.
-2. Check if port 3420 is available: `lsof -i :3420`
-3. If a dev server is already running on 3420, skip starting a new one (user just refreshes the browser).
-4. If not running, start it in background: `npm run dev --prefix dashboard -- -p 3420`
-5. Wait 3 seconds for the server to start.
-6. Tell the user:
+2. Check if port 3420 is in use: `lsof -i :3420`. If already running, skip — user just refreshes.
+3. If not running: `npm run dev --prefix dashboard -- -p 3420` (background).
+4. Tell the user:
 
 > **Tododeia Investment Report is ready!**
 > Open: http://localhost:3420
@@ -237,24 +181,7 @@ The translation agent prompt:
 >
 > The report includes cross-sector strategy analysis, social sentiment, historical accuracy tracking, and interactive charts.
 
-**Fallback (legacy):**
-If Node.js/npm is not available:
-1. Check if port 8420 is available: `lsof -i :8420`
-2. If busy, try ports 8421-8425.
-3. Start the server in background: `python3 -m http.server PORT --directory output`
-4. Tell the user to open: http://localhost:PORT/report.html
-
-### Step 10: Offer Scheduling
-
-After showing the report URL, ask the user:
-
-> **Want daily or weekly reports?** I can set up automatic scheduling:
-> - `/loop 24h /investment-analysis` for daily reports
-> - `/loop 168h /investment-analysis` for weekly reports
->
-> Or just run it manually anytime by saying "run investment analysis".
-
-Do NOT auto-set this up — only mention it as an option.
+**Fallback (legacy):** `python3 -m http.server PORT --directory output` on port 8420-8425.
 
 ## Error Handling
 
