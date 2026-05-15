@@ -58,7 +58,7 @@ export function LanguagePicker() {
             </div>
 
             <p className="mt-6 text-center text-[10px] text-[#8B8B85]">
-              Investment research by @soyenriquerocha
+              Investment research by @quebert
             </p>
           </motion.div>
         </motion.div>

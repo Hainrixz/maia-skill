@@ -61,6 +61,7 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "table.ytd": "Score",
     "table.52w": "Conf / Risk",
     "table.sources": "Sources",
+    "table.piotroski": "Piotroski",
     "table.social": "Social",
     "table.signal": "Signal",
 
@@ -197,6 +198,7 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     "table.ytd": "Score",
     "table.52w": "Conf / Riesgo",
     "table.sources": "Fuentes",
+    "table.piotroski": "Piotroski",
     "table.social": "Social",
     "table.signal": "Señal",
 

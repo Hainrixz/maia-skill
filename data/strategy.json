@@ -1,0 +1,315 @@
+{
+  "risk_profile": "moderate",
+  "macro_environment": {
+    "summary": "Market in mixed regime with extreme technical oversold conditions creating dip-buying opportunity. Fear & Greed index at 38 (Fear) despite benign VIX=17.2 suggests capitulation-driven selloff. Broad index oversold while individual high-quality names trade at depressed RSI levels.",
+    "interest_rate_outlook": "stable",
+    "inflation_outlook": "stable",
+    "geopolitical_risk": "high",
+    "key_factors": [
+      "Fear & Greed at 38 with VIX near 17 indicates stress without panic-volatility spike",
+      "Multiple candidates RSI<30 (PYPL, NFLX, SOFI, META) support mean-reversion setups",
+      "Positive yield curve still supports large-cap financial earnings quality",
+      "USD weakness theme supports materials allocation as portfolio ballast"
+    ]
+  },
+  "portfolio_allocation": {
+    "stocks": 70,
+    "materials": 25,
+    "cash": 5
+  },
+  "cross_sector_insights": [
+    {
+      "insight": "Technical oversold pressure spans growth and value simultaneously",
+      "implication": "This supports phased re-risking in quality names rather than broad index chasing"
+    },
+    {
+      "insight": "Fear sentiment is elevated while realized volatility remains moderate",
+      "implication": "Contrarian entries have favorable asymmetry if stops are respected"
+    },
+    {
+      "insight": "Financials and payments show better valuation support than mega-cap growth",
+      "implication": "Moderate profile can overweight banks/payments and keep selective growth exposure"
+    }
+  ],
+  "risk_adjusted_picks": [
+    {
+      "rank": 1,
+      "name": "PayPal Holdings",
+      "symbol": "PYPL",
+      "sector": "stocks",
+      "confidence": 8,
+      "risk_score": 5,
+      "risk_adjusted_score": 6.5,
+      "recommendation": "buy",
+      "reasoning": "RSI 23.4 with PEG under 1.0 offers strong mean-reversion setup with valuation support.",
+      "position_size": "6-8%",
+      "entry_price": 45.37,
+      "stop_loss": 41.5,
+      "target_12m": 58.5,
+      "risk_reward_ratio": 3.4,
+      "thesis": "Payment platform with depressed valuation versus normalized growth and improving operating discipline.",
+      "thesis_invalidators": [
+        "Further margin compression in core checkout business",
+        "Material negative guidance revision in next earnings"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 2,
+      "name": "Meta Platforms",
+      "symbol": "META",
+      "sector": "stocks",
+      "confidence": 8,
+      "risk_score": 4,
+      "risk_adjusted_score": 6.8,
+      "recommendation": "buy",
+      "reasoning": "RSI near 28 and PEG below 1.0 create rare value-for-growth entry in mega-cap tech.",
+      "position_size": "8-10%",
+      "entry_price": 609.63,
+      "stop_loss": 560,
+      "target_12m": 826.69,
+      "risk_reward_ratio": 3.2,
+      "thesis": "AI monetization plus resilient ad engine should re-rate valuation after technical reset.",
+      "thesis_invalidators": [
+        "Sharp deterioration in ad demand",
+        "Regulatory action that impairs core ad monetization"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 3,
+      "name": "SoFi Technologies",
+      "symbol": "SOFI",
+      "sector": "stocks",
+      "confidence": 7,
+      "risk_score": 6,
+      "risk_adjusted_score": 5.2,
+      "recommendation": "buy",
+      "reasoning": "High-growth fintech with oversold RSI and upcoming catalyst, sized smaller for volatility.",
+      "position_size": "5-7%",
+      "entry_price": 15.75,
+      "stop_loss": 14.4,
+      "target_12m": 23.5,
+      "risk_reward_ratio": 5.0,
+      "thesis": "Bank-charter economics and member growth support upside if next earnings confirm momentum.",
+      "thesis_invalidators": [
+        "Credit quality deterioration",
+        "Weak guidance that invalidates growth trajectory"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 4,
+      "name": "Netflix",
+      "symbol": "NFLX",
+      "sector": "stocks",
+      "confidence": 7,
+      "risk_score": 6,
+      "risk_adjusted_score": 5.2,
+      "recommendation": "buy",
+      "reasoning": "Extremely oversold RSI with very strong free-cash-flow profile supports rebound thesis.",
+      "position_size": "5-7%",
+      "entry_price": 87.49,
+      "stop_loss": 80,
+      "target_12m": 105,
+      "risk_reward_ratio": 2.3,
+      "thesis": "Cash-generative streaming leader is priced for overly bearish near-term expectations.",
+      "thesis_invalidators": [
+        "Subscriber growth miss across key regions",
+        "Sustained ad-tier monetization weakness"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 5,
+      "name": "Bank of America",
+      "symbol": "BAC",
+      "sector": "stocks",
+      "confidence": 7,
+      "risk_score": 3,
+      "risk_adjusted_score": 6.1,
+      "recommendation": "buy",
+      "reasoning": "Uptrend plus near-oversold RSI and low PEG gives attractive risk-adjusted financial exposure.",
+      "position_size": "6-8%",
+      "entry_price": 51.31,
+      "stop_loss": 48,
+      "target_12m": 62.98,
+      "risk_reward_ratio": 3.5,
+      "thesis": "Large-cap bank earnings resilience should benefit from stable rates and healthier credit backdrop.",
+      "thesis_invalidators": [
+        "Credit losses accelerate materially",
+        "Yield-curve inversion compresses net interest margin"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 6,
+      "name": "Citigroup",
+      "symbol": "C",
+      "sector": "stocks",
+      "confidence": 7,
+      "risk_score": 4,
+      "risk_adjusted_score": 5.8,
+      "recommendation": "buy",
+      "reasoning": "RSI near oversold with low PEG and positive analyst skew supports recovery potential.",
+      "position_size": "5-7%",
+      "entry_price": 125.55,
+      "stop_loss": 118,
+      "target_12m": 144.02,
+      "risk_reward_ratio": 2.4,
+      "thesis": "Execution on wealth/prime-brokerage plan can unlock valuation catch-up versus peers.",
+      "thesis_invalidators": [
+        "Execution slippage on strategic targets",
+        "Macro shock that hits investment banking flows"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 7,
+      "name": "JPMorgan Chase",
+      "symbol": "JPM",
+      "sector": "stocks",
+      "confidence": 7,
+      "risk_score": 4,
+      "risk_adjusted_score": 5.8,
+      "recommendation": "buy",
+      "reasoning": "Quality balance sheet and earnings consistency with RSI reset make it core moderate holding.",
+      "position_size": "6-8%",
+      "entry_price": 302.1,
+      "stop_loss": 286,
+      "target_12m": 342.32,
+      "risk_reward_ratio": 2.5,
+      "thesis": "Franchise strength across consumer and capital-markets businesses supports steady compounding.",
+      "thesis_invalidators": [
+        "Credit-event driven provisioning spike",
+        "Material slowdown in fee and advisory revenues"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 8,
+      "name": "Gilead Sciences",
+      "symbol": "GILD",
+      "sector": "stocks",
+      "confidence": 8,
+      "risk_score": 3,
+      "risk_adjusted_score": 6.5,
+      "recommendation": "buy",
+      "reasoning": "Lowest PEG in the screened universe with defensive healthcare profile and clear catalyst path.",
+      "position_size": "6-8%",
+      "entry_price": 131.33,
+      "stop_loss": 125,
+      "target_12m": 160,
+      "risk_reward_ratio": 2.8,
+      "thesis": "Undervalued cash-generative biotech with durable HIV franchise and pipeline optionality.",
+      "thesis_invalidators": [
+        "Pipeline setback in key late-stage program",
+        "Unexpected pricing pressure in core HIV products"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 9,
+      "name": "Mastercard",
+      "symbol": "MA",
+      "sector": "stocks",
+      "confidence": 7,
+      "risk_score": 3,
+      "risk_adjusted_score": 6.1,
+      "recommendation": "buy",
+      "reasoning": "Quality compounder with strong cash flow and technical reset near support.",
+      "position_size": "5-7%",
+      "entry_price": 495.48,
+      "stop_loss": 470,
+      "target_12m": 575,
+      "risk_reward_ratio": 2.0,
+      "thesis": "Global payments secular growth plus pricing power should drive durable earnings compounding.",
+      "thesis_invalidators": [
+        "Cross-border volume slowdown persists",
+        "Unexpected regulatory fee constraints"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 10,
+      "name": "Johnson & Johnson",
+      "symbol": "JNJ",
+      "sector": "stocks",
+      "confidence": 6,
+      "risk_score": 3,
+      "risk_adjusted_score": 5.1,
+      "recommendation": "buy",
+      "reasoning": "Defensive healthcare exposure with oversold RSI improves portfolio balance for moderate profile.",
+      "position_size": "4-6%",
+      "entry_price": 221.32,
+      "stop_loss": 210,
+      "target_12m": 252.42,
+      "risk_reward_ratio": 2.7,
+      "thesis": "Diversified healthcare cash flows offer downside resilience with modest re-rating upside.",
+      "thesis_invalidators": [
+        "Major litigation overhang worsens",
+        "Pipeline disappointments reduce medium-term growth"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 11,
+      "name": "SPDR Gold Trust",
+      "symbol": "GLD",
+      "sector": "materials",
+      "confidence": 7,
+      "risk_score": 3,
+      "risk_adjusted_score": 6.1,
+      "recommendation": "buy",
+      "reasoning": "Materials hedge with stable momentum and macro support from diversified risk posture.",
+      "position_size": "7-9%",
+      "entry_price": 433.77,
+      "stop_loss": 410,
+      "target_12m": 480,
+      "risk_reward_ratio": 1.9,
+      "thesis": "Gold serves as portfolio ballast against macro shock while preserving upside in risk-off episodes.",
+      "thesis_invalidators": [
+        "Real yields rise sharply above trend",
+        "Sustained USD strength regime returns"
+      ],
+      "thesis_status": "new"
+    },
+    {
+      "rank": 12,
+      "name": "VanEck Gold Miners ETF",
+      "symbol": "GDX",
+      "sector": "materials",
+      "confidence": 6,
+      "risk_score": 4,
+      "risk_adjusted_score": 4.8,
+      "recommendation": "hold",
+      "reasoning": "Operational leverage to gold prices with higher volatility, suitable as smaller satellite position.",
+      "position_size": "4-6%",
+      "entry_price": 94.59,
+      "stop_loss": 88,
+      "target_12m": 112,
+      "risk_reward_ratio": 2.6,
+      "thesis": "Gold miner beta can outperform bullion in supportive macro, but requires tighter risk controls.",
+      "thesis_invalidators": [
+        "Gold price trend breaks down",
+        "Cost inflation compresses miner margins"
+      ],
+      "thesis_status": "new"
+    }
+  ],
+  "historical_accuracy": {
+    "previous_date": "2026-05-07",
+    "calls_made": 10,
+    "calls_correct": 6,
+    "accuracy_pct": 60,
+    "notable": "Historical baseline reused from previous run; this report prioritizes fresh technical reset signals and updates thesis tracking from today forward."
+  },
+  "warnings": [
+    "Several top picks are technical mean-reversion trades; use staged entries rather than all-in execution.",
+    "Earnings/event risk remains elevated in fintech and selected large-caps, so stop-loss discipline is required.",
+    "Financials concentration should be monitored to avoid overexposure to one macro factor.",
+    "Materials hedge depends on macro uncertainty; trim if real-yield trend rises materially.",
+    "If Fear & Greed deteriorates toward extreme fear quickly, preserve liquidity and defer adds."
+  ],
+  "strategy_summary": "For moderate risk, the portfolio stays growth-aware but risk-controlled: 70% stocks, 25% materials, 5% cash. The focus is on oversold high-quality names with valuation support, supplemented by defensive materials as macro hedge."
+}

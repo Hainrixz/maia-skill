@@ -2,6 +2,20 @@
 
 import { useState, useEffect, useCallback } from "react"
 
+export interface SoldEntry {
+  id: string
+  symbol: string
+  name: string
+  sector: string
+  buyPrice: number
+  buyDate: string
+  quantity: number
+  salePrice: number
+  saleDate: string
+  pnlAmount: number
+  pnlPct: number
+}
+
 export interface PortfolioEntry {
   id: string
   symbol: string
@@ -10,35 +24,63 @@ export interface PortfolioEntry {
   buyPrice: number
   quantity: number
   buyDate: string // ISO 8601
+  // Enriched by portfolio_fetch.py
+  currentPrice?: number | null
+  pnlPct?: number | null
+  pnlAmount?: number | null
+  rsi?: number | null
+  trend?: string | null
+  change1d?: number | null
+  change7d?: number | null
+  change30d?: number | null
+  analystTarget?: number | null
+  analystUpside?: number | null
+  forwardPe?: number | null
+  weekHigh52?: number | null
+  weekLow52?: number | null
+  updatedAt?: string | null
 }
 
-const STORAGE_KEY = "tododeia_portfolio"
-
-function loadFromStorage(): PortfolioEntry[] {
-  if (typeof window === "undefined") return []
+async function fetchPortfolio(): Promise<PortfolioEntry[]> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return []
-    return JSON.parse(raw) as PortfolioEntry[]
+    const res = await fetch("/api/portfolio", { cache: "no-store" })
+    if (!res.ok) return []
+    return res.json()
   } catch {
     return []
   }
 }
 
-function saveToStorage(entries: PortfolioEntry[]) {
+async function fetchSold(): Promise<SoldEntry[]> {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries))
+    const res = await fetch("/api/portfolio-sold", { cache: "no-store" })
+    if (!res.ok) return []
+    return res.json()
   } catch {
-    // storage quota exceeded or private mode — fail silently
+    return []
+  }
+}
+
+async function persistPortfolio(entries: PortfolioEntry[]) {
+  try {
+    await fetch("/api/portfolio", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(entries),
+    })
+  } catch {
+    // fail silently — data already in React state
   }
 }
 
 export function usePortfolio() {
   const [entries, setEntries] = useState<PortfolioEntry[]>([])
+  const [soldEntries, setSoldEntries] = useState<SoldEntry[]>([])
 
-  // Load once on mount (client-side only)
+  // Load from server on mount
   useEffect(() => {
-    setEntries(loadFromStorage())
+    fetchPortfolio().then(setEntries)
+    fetchSold().then(setSoldEntries)
   }, [])
 
   const addEntry = useCallback(
@@ -58,7 +100,7 @@ export function usePortfolio() {
       }
       setEntries((prev) => {
         const updated = [...prev, newEntry]
-        saveToStorage(updated)
+        persistPortfolio(updated)
         return updated
       })
     },
@@ -68,14 +110,56 @@ export function usePortfolio() {
   const removeEntry = useCallback((id: string) => {
     setEntries((prev) => {
       const updated = prev.filter((e) => e.id !== id)
-      saveToStorage(updated)
+      persistPortfolio(updated)
       return updated
     })
   }, [])
 
+  const sellEntry = useCallback(
+    (id: string, salePrice: number, sellQty: number) => {
+      setEntries((prev) => {
+        const entry = prev.find((e) => e.id === id)
+        if (!entry) return prev
+        const qty = Math.min(Math.max(1, sellQty), entry.quantity)
+        const pnlAmount = (salePrice - entry.buyPrice) * qty
+        const pnlPct = ((salePrice - entry.buyPrice) / entry.buyPrice) * 100
+        const soldRecord: SoldEntry = {
+          id: entry.id,
+          symbol: entry.symbol,
+          name: entry.name,
+          sector: entry.sector,
+          buyPrice: entry.buyPrice,
+          buyDate: entry.buyDate,
+          quantity: qty,
+          salePrice,
+          saleDate: new Date().toISOString(),
+          pnlAmount: Math.round(pnlAmount * 100) / 100,
+          pnlPct: Math.round(pnlPct * 100) / 100,
+        }
+        fetch("/api/portfolio-sold", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(soldRecord),
+        }).catch(() => {})
+        setSoldEntries((s) => [...s, soldRecord])
+        let updated: PortfolioEntry[]
+        if (qty >= entry.quantity) {
+          updated = prev.filter((e) => e.id !== id)
+        } else {
+          updated = prev.map((e) =>
+            e.id === id ? { ...e, quantity: e.quantity - qty } : e
+          )
+        }
+        persistPortfolio(updated)
+        return updated
+      })
+    },
+    []
+  )
+
   const clearAll = useCallback(() => {
     setEntries([])
-    saveToStorage([])
+    persistPortfolio([])
   }, [])
 
   const hasSymbol = useCallback(
@@ -91,5 +175,5 @@ export function usePortfolio() {
     [entries]
   )
 
-  return { entries, addEntry, removeEntry, clearAll, hasSymbol, countForSymbol }
+  return { entries, soldEntries, addEntry, removeEntry, sellEntry, clearAll, hasSymbol, countForSymbol }
 }

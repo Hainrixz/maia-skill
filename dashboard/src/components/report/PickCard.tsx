@@ -88,6 +88,27 @@ export function PickCard({ pick, sectors }: PickCardProps) {
       </div>
       <p className="mt-3 text-sm leading-relaxed text-[#4D4A44]">{pick.reasoning}</p>
 
+      {/* TP / SL pills */}
+      {(pick.stop_loss != null || pick.target_12m != null) && (
+        <div className="mt-3 flex flex-wrap gap-2 border-t border-[#F0F0ED] pt-3">
+          {pick.target_12m != null && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-green-200 bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700">
+              🎯 ${pick.target_12m.toLocaleString()}
+            </span>
+          )}
+          {pick.stop_loss != null && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-red-200 bg-red-50 px-2.5 py-0.5 text-xs font-semibold text-red-700">
+              🛑 ${pick.stop_loss.toLocaleString()}
+            </span>
+          )}
+          {pick.risk_reward_ratio != null && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-[#E6E6E4] bg-[#F7F7F5] px-2.5 py-0.5 text-xs text-[#4D4A44]">
+              R/R {pick.risk_reward_ratio}x
+            </span>
+          )}
+        </div>
+      )}
+
       {/* Portfolio section */}
       {priceNum != null && (
         <div className="mt-4 border-t border-[#F0F0ED] pt-3">

@@ -39,6 +39,20 @@ export interface RiskAdjustedPick {
   recommendation: "buy" | "hold" | "sell"
   reasoning: string
   position_size: string
+  entry_price?: number
+  stop_loss?: number
+  target_12m?: number
+  risk_reward_ratio?: number
+  thesis?: string
+  thesis_invalidators?: string[]
+  thesis_status?: "new" | "active" | "updated" | "invalidated"
+  financial_health?: {
+    altman_z?: number | null
+    altman_zone?: string | null
+    piotroski?: number | null
+    piotroski_strength?: string | null
+    health_note?: string | null
+  }
 }
 
 export interface HistoricalAccuracy {
@@ -82,4 +96,7 @@ export interface Asset {
   social_highlights: string[]
   recommendation: "buy" | "hold" | "sell"
   reasoning: string
+  // Optional, hydrated client-side from portfolio_market.json when available
+  piotroski_score?: number | null
+  piotroski_strength?: "strong" | "neutral" | "weak" | null
 }

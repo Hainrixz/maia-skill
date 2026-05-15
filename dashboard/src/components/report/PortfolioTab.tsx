@@ -1,8 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
-import { usePortfolio, type PortfolioEntry } from "@/hooks/use-portfolio"
+import { usePortfolio, type PortfolioEntry, type SoldEntry } from "@/hooks/use-portfolio"
 import type { ReportData } from "@/types/report"
 import { SECTOR_COLORS } from "@/lib/constants"
 
@@ -48,8 +49,18 @@ interface RowPnL {
 }
 
 function computeRowPnL(entry: PortfolioEntry, data: ReportData): RowPnL {
-  const currentPrice = getCurrentPrice(entry.symbol, data)
   const totalCost = entry.buyPrice * entry.quantity
+
+  // Prefer pre-fetched fields stored directly in portfolio.json
+  if (entry.currentPrice != null) {
+    const currentPrice = entry.currentPrice
+    const pnlAmount = (currentPrice - entry.buyPrice) * entry.quantity
+    const pnlPct = ((currentPrice - entry.buyPrice) / entry.buyPrice) * 100
+    return { currentPrice, pnlAmount, pnlPct, totalCost }
+  }
+
+  // Fallback: look up in today's report sectors (covers tickers screened today)
+  const currentPrice = getCurrentPrice(entry.symbol, data)
   if (currentPrice == null) return { currentPrice: null, pnlAmount: null, pnlPct: null, totalCost }
   const pnlAmount = (currentPrice - entry.buyPrice) * entry.quantity
   const pnlPct = ((currentPrice - entry.buyPrice) / entry.buyPrice) * 100
@@ -58,7 +69,9 @@ function computeRowPnL(entry: PortfolioEntry, data: ReportData): RowPnL {
 
 export function PortfolioTab({ data }: PortfolioTabProps) {
   const { t } = useLanguage()
-  const { entries, removeEntry, clearAll } = usePortfolio()
+  const { entries, soldEntries, removeEntry, sellEntry, clearAll } = usePortfolio()
+  const [sellOpenId, setSellOpenId] = useState<string | null>(null)
+  const [sellQty, setSellQty] = useState(1)
 
   const rowData = entries.map((e) => ({ entry: e, ...computeRowPnL(e, data) }))
   const totalCost = rowData.reduce((s, r) => s + r.totalCost, 0)
@@ -172,16 +185,70 @@ export function PortfolioTab({ data }: PortfolioTabProps) {
                         <td className={`px-4 py-3 text-right font-semibold ${pnlPct == null ? "text-[#8B8B85]" : positive ? "text-green-600" : "text-red-600"}`}>
                           {pnlPct == null ? "—" : `${positive ? "+" : ""}${pnlPct.toFixed(2)}%`}
                         </td>
-                        <td className="px-4 py-3 text-right">
-                          <button
-                            onClick={() => removeEntry(entry.id)}
-                            aria-label="Remove position"
-                            className="rounded p-1 text-[#C0C0BB] transition-colors hover:bg-red-50 hover:text-red-400"
-                          >
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                              <path d="M1 3h12M5 3V2h4v1M2 3l1 9h8l1-9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </button>
+                        <td className="px-4 py-3">
+                          <div className="flex items-center justify-end gap-1">
+                            {sellOpenId === entry.id ? (
+                              <>
+                                <button
+                                  onClick={() => setSellQty((q) => Math.max(1, q - 1))}
+                                  className="flex h-6 w-6 items-center justify-center rounded border border-[#E6E6E4] bg-white text-xs font-bold text-[#252420] hover:bg-[#F7F7F5]"
+                                >−</button>
+                                <input
+                                  type="number"
+                                  min={1}
+                                  max={entry.quantity}
+                                  value={sellQty}
+                                  onChange={(e) => {
+                                    const v = parseInt(e.target.value)
+                                    if (!isNaN(v)) setSellQty(Math.min(Math.max(1, v), entry.quantity))
+                                  }}
+                                  className="w-10 rounded border border-[#E6E6E4] bg-white px-1 py-0.5 text-center text-xs font-medium text-[#252420] focus:border-[#37352F] focus:outline-none"
+                                />
+                                <button
+                                  onClick={() => setSellQty((q) => Math.min(q + 1, entry.quantity))}
+                                  className="flex h-6 w-6 items-center justify-center rounded border border-[#E6E6E4] bg-white text-xs font-bold text-[#252420] hover:bg-[#F7F7F5]"
+                                >+</button>
+                                {currentPrice != null && (
+                                  <button
+                                    onClick={() => {
+                                      sellEntry(entry.id, currentPrice, sellQty)
+                                      setSellOpenId(null)
+                                      setSellQty(1)
+                                    }}
+                                    className="rounded bg-green-500 px-2 py-0.5 text-[11px] font-semibold text-white hover:bg-green-600"
+                                  >OK</button>
+                                )}
+                                <button
+                                  onClick={() => { setSellOpenId(null); setSellQty(1) }}
+                                  className="rounded px-1 py-0.5 text-xs text-[#8B8B85] hover:text-[#252420]"
+                                >✕</button>
+                              </>
+                            ) : (
+                              <>
+                                {currentPrice != null && (
+                                  <button
+                                    onClick={() => { setSellOpenId(entry.id); setSellQty(1) }}
+                                    aria-label="Sell position"
+                                    className="rounded p-1 text-[#C0C0BB] transition-colors hover:bg-green-50 hover:text-green-500"
+                                  >
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                      <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
+                                      <path d="M7 4v6M5 8.5l2 2 2-2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                  </button>
+                                )}
+                                <button
+                                  onClick={() => removeEntry(entry.id)}
+                                  aria-label="Remove position"
+                                  className="rounded p-1 text-[#C0C0BB] transition-colors hover:bg-red-50 hover:text-red-400"
+                                >
+                                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M1 3h12M5 3V2h4v1M2 3l1 9h8l1-9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </button>
+                              </>
+                            )}
+                          </div>
                         </td>
                       </motion.tr>
                     )
@@ -190,6 +257,59 @@ export function PortfolioTab({ data }: PortfolioTabProps) {
               </tbody>
             </table>
           </div>
+
+          {/* Sold history */}
+          {soldEntries.length > 0 && (
+            <div className="mt-8">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#8B8B85]">Historial de Ventas</h3>
+              <div className="overflow-x-auto rounded-xl border border-[#E6E6E4]">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-[#E6E6E4] bg-[#F7F7F5]">
+                      <th className="px-4 py-3 text-left text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">Activo</th>
+                      <th className="px-4 py-3 text-left text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">Fecha Compra</th>
+                      <th className="px-4 py-3 text-left text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">Fecha Venta</th>
+                      <th className="px-4 py-3 text-right text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">Cant.</th>
+                      <th className="px-4 py-3 text-right text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">P. Compra</th>
+                      <th className="px-4 py-3 text-right text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">P. Venta</th>
+                      <th className="px-4 py-3 text-right text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">P&L $</th>
+                      <th className="px-4 py-3 text-right text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85]">P&L %</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {soldEntries.map((sold: SoldEntry) => {
+                      const positive = sold.pnlAmount >= 0
+                      const sectorColor = SECTOR_COLORS[sold.sector] ?? "#8B8B85"
+                      return (
+                        <tr key={`${sold.id}-${sold.saleDate}`} className="border-b border-[#F0F0ED] bg-[#FCFCFB] last:border-0">
+                          <td className="px-4 py-3">
+                            <div className="flex items-center gap-2">
+                              <span className="h-2 w-2 rounded-full shrink-0" style={{ backgroundColor: sectorColor }} />
+                              <div>
+                                <p className="font-semibold text-[#252420]">{sold.symbol}</p>
+                                <p className="text-[11px] text-[#8B8B85] truncate max-w-[120px]">{sold.name}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-[#4D4A44]">{formatDate(sold.buyDate)}</td>
+                          <td className="px-4 py-3 text-[#4D4A44]">{formatDate(sold.saleDate)}</td>
+                          <td className="px-4 py-3 text-right font-medium text-[#252420]">{sold.quantity}</td>
+                          <td className="px-4 py-3 text-right text-[#4D4A44]">{formatCurrency(sold.buyPrice)}</td>
+                          <td className="px-4 py-3 text-right text-[#4D4A44]">{formatCurrency(sold.salePrice)}</td>
+                          <td className={`px-4 py-3 text-right font-semibold ${positive ? "text-green-600" : "text-red-600"}`}>
+                            {positive ? "+" : ""}{formatCurrency(sold.pnlAmount)}
+                          </td>
+                          <td className={`px-4 py-3 text-right font-semibold ${positive ? "text-green-600" : "text-red-600"}`}>
+                            {positive ? "+" : ""}{sold.pnlPct.toFixed(2)}%
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </>
       )}
     </motion.section>

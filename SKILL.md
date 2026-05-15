@@ -3,8 +3,8 @@ name: investment-analysis
 version: 2.0.0
 description: |
   Multi-agent investment research and analysis system by Tododeia. Use when the user wants
-  market analysis, investment research, or a summary of current opportunities across crypto,
-  stocks, forex, and commodities. Spawns 5 specialized research agents (4 sector + 1 strategy),
+  market analysis, investment research, or a summary of current opportunities across
+  stocks and commodities. Spawns specialized research agents (sector + strategy),
   adapts to user risk profile, tracks historical accuracy, and generates a branded interactive
   HTML report served locally.
   Trigger phrases: "investment analysis", "market research", "analyze markets",
@@ -66,6 +66,24 @@ This fetches yfinance headlines, keyword-based sentiment (`bullish`/`bearish`/`n
 
 > **Skip Reddit** (`--no-reddit`) by default for speed. The MegaAgent's web searches cover social sentiment. If the user asks for deeper social data, remove the flag.
 
+### Step 2.6: Run SEC Risk Pre-fetch (parallel with Step 3)
+
+Immediately after Step 2 completes, run the SEC risk pre-fetcher in background mode so it runs in parallel with Step 3:
+
+```
+run_in_terminal: python3 <skill_dir>/tools/sec_risk_fetch.py --top 15 2>/dev/null
+mode: async
+timeout: 60000
+```
+
+This fetches Item 1A risk-factor text from the latest annual SEC filing (10-K / 20-F / 40-F) per ticker and writes:
+
+```
+data/sec_risk_context.json
+```
+
+Use this as the canonical source for filing-backed risk bullets. Do not spend web searches extracting 10-K risk language when this file is available.
+
 ### Step 3: Load Agent Prompts + Historical Data (parallel)
 
 In the same turn, do both in parallel:
@@ -116,41 +134,63 @@ previous_theses = {
 
 If `prices_snapshot` is missing from the previous context file (older runs), fall back to the MegaAgent web search as before. If no history or no `thesis` field exists (old run format), pass `previous_theses = {}` and skip thesis evaluation silently.
 
-### Step 4: Spawn Research + Strategy MegaAgent
+### Step 4a: Build Sectors (deterministic, no LLM)
+
+Run immediately after news_fetch completes:
+
+```bash
+python3 tools/build_sectors.py --out /tmp/sectors.json
+```
+
+This generates Block 1 (sectors JSON with all screened stock and materials assets, technicals, valuation, and fundamentals from the pre-fetched candidates) in ~1 second. No LLM required. The script reads `data/market_context.json` and `data/news_context.json` directly.
+
+### Step 4b: Spawn Strategy MegaAgent (Block 2 only)
 
 **Fix 5 — single subagent** replacing the previous 4 sector agents + strategy agent. Launch **one MegaAgent** using the Agent tool. This reduces orchestrator context pressure and eliminates the intermediate turn between sector agents and the strategy agent.
 
 Pass the MegaAgent:
 - `SCREENED_CANDIDATES` **compact table**: top 12-15 by entry quality + RSI (from `data/market_context.json` → `candidates[]`) with only: symbol, **price_at_fetch**, RSI, entry_quality, trend, fwd_PE, PEG, earnings_days_away, **correlation_group**
 - `NEWS_CONTEXT` (from `data/news_context.json` → `news{}`) — injected as a compact block per ticker. Tell the MegaAgent: **"News headlines and keyword sentiment have been pre-fetched below. Use `key_news[0..1]` as the 2 required headlines per pick and `sentiment.label` as the default sentiment value. Only do additional web searches for missing catalyst context or to verify the top 2-3 highest-conviction picks — do NOT search for headlines already present."** Format each ticker as: `SYMBOL: [sentiment_label | analyst_rec] → headline_1 | headline_2`. This alone eliminates ~20 web searches per run.
+- `SEC_RISK_CONTEXT` (from `data/sec_risk_context.json` → `results[]`) — filing-backed risk bullets from SEC Item 1A. Tell the MegaAgent: **"Use these risks as primary `key_risks`; only do additional web research when SEC extraction is missing for that ticker."**
 - `CORRELATION_WARNINGS` (from `data/market_context.json` → `correlation_warnings[]`): list of over-concentration alerts. **Hard rule**: include at most `max_allowed` picks per group from `suggested_keep`. If a warning exists, do NOT include more than `max_allowed` picks from that group in `risk_adjusted_picks`.
 - `MACRO_CONTEXT` (from `data/market_context.json` → `macro`) — VIX, F&G, regime, synthetic score
 - `risk_profile` (from Step 1)
 - `historical_picks` (from Step 3b, if available) — previous picks with `entry_price` values
 - `accuracy_baseline` (from Step 3b) — dict of `{symbol: current_price}` built from today's `prices_snapshot`, cross-referenced against previous picks' `entry_price`. Compute accuracy **before** spawning the MegaAgent and pass the result directly. Do NOT ask the MegaAgent to reconstruct prices from web searches for accuracy purposes.
 - `previous_theses` (from Step 3b) — dict of `{symbol: {thesis, invalidators, entry_price, price_then, price_now, status}}`. The MegaAgent MUST evaluate each thesis before ranking new picks (see Phase 0 below).
-- The strategy agent prompt from `references/agent-prompts.md`
+- The MegaAgent prompt from `references/agent-prompts.md`
 
 **Prompt size guardrail (required):**
 - Keep the subagent prompt under ~8,000 characters.
 - Never paste full 35+ candidate lists inline.
 - Pass file paths (e.g. `data/market_context.json`) and instruct the subagent to read only required fields.
 
-Use the **MegaAgent prompt** from `references/agent-prompts.md` (section: `## MegaAgent (Combined Research + Strategy)`) as the subagent system prompt. The MegaAgent returns two JSON blocks: Block 1 (sectors) and Block 2 (strategy). Both schemas are defined in that file.
+Use the **MegaAgent prompt** from `references/agent-prompts.md` (section: `## MegaAgent (Combined Research + Strategy)`) as the subagent system prompt. The MegaAgent returns **only Block 2** (strategy JSON). Block 1 (sectors) was already built by Step 4a. The Block 2 schema is defined in that file.
 
 ### Step 5: Build + Write Report Data
 
-Assemble REPORT_DATA from MegaAgent outputs:
+Assemble REPORT_DATA from Step 4a (sectors) and Step 4b (MegaAgent Block 2):
 
-```json
-{
+```python
+import json
+
+sectors   = json.load(open("/tmp/sectors.json"))      # built by Step 4a
+strategy  = <MegaAgent Block 2 JSON>                  # from Step 4b
+
+# Optionally enrich sectors with MegaAgent picks:
+# python3 tools/build_sectors.py --out /tmp/sectors.json --enrich-picks /tmp/picks.json
+
+report_data = {
   "brand": "Tododeia", "creator": "@quebert",
-  "generated_at": "ISO 8601", "risk_profile": "moderate",
-  "executive_summary": "<MegaAgent strategy_summary>",
-  "macro_environment": "<Block 2>", "portfolio_allocation": "<Block 2>",
-  "cross_sector_insights": "<Block 2>", "risk_adjusted_picks": "<Block 2>",
-  "historical_accuracy": "<Block 2>", "warnings": [],
-  "sectors": "<Block 1 sectors>",
+  "generated_at": "ISO 8601", "risk_profile": strategy["risk_profile"],
+  "executive_summary": strategy["strategy_summary"],
+  "macro_environment": strategy["macro_environment"],
+  "portfolio_allocation": strategy["portfolio_allocation"],
+  "cross_sector_insights": strategy["cross_sector_insights"],
+  "risk_adjusted_picks": strategy["risk_adjusted_picks"],
+  "historical_accuracy": strategy["historical_accuracy"],
+  "warnings": strategy.get("warnings", []),
+  "sectors": sectors,
   "spy_price_at_report": "<today_market_context.macro.spy_price>"
 }
 ```

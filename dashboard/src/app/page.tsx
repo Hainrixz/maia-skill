@@ -19,8 +19,9 @@ import { Disclaimer } from "@/components/report/Disclaimer"
 import { Footer } from "@/components/report/Footer"
 import { LoadingSkeleton } from "@/components/report/LoadingSkeleton"
 import { PortfolioTab } from "@/components/report/PortfolioTab"
+import { PortfolioAnalysisTab } from "@/components/report/PortfolioAnalysisTab"
 
-type ActiveTab = "report" | "portfolio"
+type ActiveTab = "report" | "portfolio" | "analysis"
 
 function ReportContent() {
   const { lang } = useLanguage()
@@ -100,6 +101,16 @@ function ReportContent() {
               </span>
             )}
           </button>
+          <button
+            onClick={() => setActiveTab("analysis")}
+            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+              activeTab === "analysis"
+                ? "bg-[#37352F] text-white"
+                : "border border-[#E6E6E4] bg-white text-[#4D4A44] hover:border-[#D0D0CE] hover:text-[#252420]"
+            }`}
+          >
+            Analysis
+          </button>
         </div>
 
         <div className="mt-6 space-y-8">
@@ -132,8 +143,10 @@ function ReportContent() {
               />
               <Disclaimer />
             </>
-          ) : (
+          ) : activeTab === "portfolio" ? (
             <PortfolioTab data={data} />
+          ) : (
+            <PortfolioAnalysisTab />
           )}
         </div>
         <Footer generatedAt={data.generated_at} />

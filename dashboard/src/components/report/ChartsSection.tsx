@@ -37,7 +37,9 @@ function RiskBubbleChart({ picks }: { picks: RiskAdjustedPick[] }) {
 
 function AllocationDoughnut({ allocation }: { allocation: PortfolioAllocation }) {
   const { t } = useLanguage()
-  const data = Object.entries(allocation).filter(([, v]) => v > 0).map(([key, value]) => ({ name: t(`sector.${key}.short`), value, color: SECTOR_COLORS[key] ?? "#8B8B85" }))
+  const data = Object.entries(allocation)
+    .filter(([key, value]) => key !== "currencies" && value > 0)
+    .map(([key, value]) => ({ name: t(`sector.${key}.short`), value, color: SECTOR_COLORS[key] ?? "#8B8B85" }))
   return <ResponsiveContainer width="100%" height={260}><PieChart><Pie data={data} cx="50%" cy="50%" innerRadius={55} outerRadius={90} paddingAngle={2} dataKey="value" strokeWidth={2}>{data.map(e => <Cell key={e.name} fill={`${e.color}80`} stroke={e.color} />)}</Pie><Tooltip content={({ payload }) => { if (!payload?.[0]) return null; const d = payload[0].payload; return <div className="rounded-lg border border-[#E6E6E4] bg-white px-3 py-2 text-xs shadow-md"><span style={{ color: d.color }}>{d.name}</span>: {d.value}%</div> }} /><Legend layout="vertical" align="right" verticalAlign="middle" wrapperStyle={{ fontSize: 11 }} iconType="rect" iconSize={10} /></PieChart></ResponsiveContainer>
 }
 

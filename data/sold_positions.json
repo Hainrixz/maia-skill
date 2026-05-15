@@ -1,0 +1,28 @@
+[
+  {
+    "id": "AMD-1001",
+    "symbol": "AMD",
+    "name": "Advanced Micro Devices",
+    "sector": "big_tech",
+    "buyPrice": 140.9,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 9,
+    "salePrice": 410.57,
+    "saleDate": "2026-05-15T08:55:00.000Z",
+    "pnlAmount": 2426.97,
+    "pnlPct": 191.4
+  },
+  {
+    "id": "INTC-1001",
+    "symbol": "INTC",
+    "name": "Intel Corp",
+    "sector": "big_tech",
+    "buyPrice": 24.5,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 15,
+    "salePrice": 112.11,
+    "saleDate": "2026-05-15T08:55:00.000Z",
+    "pnlAmount": 1314.15,
+    "pnlPct": 357.58
+  }
+]
