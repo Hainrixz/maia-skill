@@ -75,6 +75,26 @@ WATCHLISTS = {
         "BABA", "MELI",
     ],
 
+    # Consumer staples: defensive, lower-beta names that reduce tech concentration
+    "staples": [
+        "WMT", "COST", "PG", "KO", "PEP",
+    ],
+
+    # Industrials / logistics / aerospace
+    "industrials": [
+        "CAT", "HON", "UPS", "BA",
+    ],
+
+    # Telecom / communications
+    "telecom": [
+        "T", "VZ",
+    ],
+
+    # REITs / real assets
+    "reits": [
+        "O", "PLD", "AMT", "MPW",
+    ],
+
     # Materials & energy: precious metals ETFs + oil & gas
     "materials": [
         "GLD", "SLV", "GDX", "GDXJ",
@@ -105,7 +125,9 @@ WATCHLISTS = {
         ["GLD", "SLV", "GDX", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
         ["LLY", "UNH", "JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN"] +
         # New additions (May 2026)
-        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX", "IBM"]
+        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX", "IBM",
+         "WMT", "COST", "PG", "KO", "PEP", "CAT", "HON", "UPS", "BA", "T", "VZ",
+         "O", "PLD", "AMT", "MPW", "ORCL"]
     )),
 }
 
@@ -133,9 +155,13 @@ CORRELATION_GROUPS: dict[str, list[str]] = {
     "financials":            ["JPM", "BAC", "GS", "MS", "WFC", "C"],
     "payments":              ["V", "MA", "PYPL"],
     "healthcare":            ["JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "LLY", "UNH"],
+    "staples":               ["WMT", "COST", "PG", "KO", "PEP"],
+    "industrials":           ["CAT", "HON", "UPS", "BA"],
+    "telecom":               ["T", "VZ"],
     "energy":                ["XOM", "CVX", "COP", "OXY", "KMI"],
     "base_metals":           ["FCX"],
     "saas":                  ["CRM", "NOW", "SNOW", "PANW"],
+    "enterprise_software":   ["ORCL", "IBM"],
     "asset_managers":        ["BLK", "BX"],
     # New groups added May 2026
     "ev":                    ["TSLA", "RIVN"],
@@ -143,6 +169,7 @@ CORRELATION_GROUPS: dict[str, list[str]] = {
     "ecommerce_global":      ["BABA", "MELI"],
     "fintech":               ["NU", "SOFI"],
     "consumer_discretionary": ["HD", "SBUX"],
+    "reits":                 ["O", "PLD", "AMT", "MPW"],
 }
 
 # Reverse lookup: symbol → group name (built once at import time)
