@@ -1,0 +1,13 @@
+{
+  "symbol": "GDX",
+  "financial_health": {
+    "altman_z": null,
+    "altman_zone": "N/A",
+    "piotroski": null,
+    "piotroski_strength": "N/A"
+  },
+  "beat_streak": 0,
+  "last_surprise_pct": null,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:25Z"
+}

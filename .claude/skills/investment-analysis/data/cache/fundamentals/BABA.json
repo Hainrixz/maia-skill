@@ -1,0 +1,13 @@
+{
+  "symbol": "BABA",
+  "financial_health": {
+    "altman_z": 1.62,
+    "altman_zone": "distress",
+    "piotroski": 3,
+    "piotroski_strength": "neutral"
+  },
+  "beat_streak": 0,
+  "last_surprise_pct": -0.05,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:24Z"
+}

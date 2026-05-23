@@ -207,6 +207,84 @@ def update_active_positions(data: dict, date_str: str, skill_dir: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Portfolio health summary (supplementary — not schema-validated)
+# ---------------------------------------------------------------------------
+
+def build_portfolio_health(skill_dir: str) -> dict | None:
+    """Compute portfolio-level P&L and sector allocation from portfolio_market.json.
+
+    This data is injected into the final report JSON as `portfolio_health`.
+    It is computed in Python (not by the LLM) for accuracy.
+    """
+    # portfolio_market.json lives at project root data/, not in skill_dir/data/
+    proj_root = os.path.dirname(os.path.dirname(os.path.dirname(skill_dir)))
+    pm_path = os.path.join(proj_root, "data", "portfolio_market.json")
+    if not os.path.exists(pm_path):
+        return None
+    try:
+        with open(pm_path, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:
+        return None
+    # Support both {"positions": [...]} dict and bare list formats
+    if isinstance(raw, dict):
+        positions = raw.get("positions") or []
+        total_cost = raw.get("total_cost", 0) or 0
+        total_value = raw.get("total_current_value", 0) or 0
+        total_pnl_amount = total_value - total_cost
+        total_pnl_pct = round(raw.get("total_pnl_pct", 0) or 0, 2)
+    elif isinstance(raw, list):
+        positions = raw
+        total_cost = sum((p.get("cost_basis") or 0) for p in positions if isinstance(p, dict))
+        total_value = sum(
+            (p.get("current_price") or 0) * (p.get("quantity") or 0)
+            for p in positions if isinstance(p, dict)
+        )
+        total_pnl_amount = total_value - total_cost
+        total_pnl_pct = round((total_pnl_amount / total_cost * 100), 2) if total_cost else 0
+    else:
+        return None
+    if not positions:
+        return None
+
+    sector_alloc: dict[str, float] = {}
+    for p in positions:
+        if not isinstance(p, dict):
+            continue
+        sec = p.get("sector", "other")
+        val = (p.get("cost_basis") or 0) + (p.get("pnl_amount") or 0)
+        sector_alloc[sec] = sector_alloc.get(sec, 0) + val
+
+    sector_pct = {
+        sec: round(val / total_value * 100, 1) if total_value else 0
+        for sec, val in sorted(sector_alloc.items(), key=lambda x: -x[1])
+    }
+
+    # Top 5 performers and bottom 3 by P&L%
+    valid = [p for p in positions if isinstance(p, dict) and p.get("symbol")]
+    sorted_by_pnl = sorted(valid, key=lambda x: (x.get("pnl_pct") or 0), reverse=True)
+    top_performers = [
+        {"symbol": p["symbol"], "pnl_pct": round(p.get("pnl_pct") or 0, 2)}
+        for p in sorted_by_pnl[:5]
+    ]
+    bottom_performers = [
+        {"symbol": p["symbol"], "pnl_pct": round(p.get("pnl_pct") or 0, 2)}
+        for p in sorted_by_pnl[-3:]
+    ]
+
+    return {
+        "positions_count": len(valid),
+        "total_cost_basis": round(total_cost, 2),
+        "total_current_value": round(total_value, 2),
+        "total_pnl_amount": round(total_pnl_amount, 2),
+        "total_pnl_pct": total_pnl_pct,
+        "sector_allocation_pct": sector_pct,
+        "top_performers": top_performers,
+        "bottom_performers": bottom_performers,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -266,6 +344,17 @@ def main() -> None:
 
     # Persist active positions for carry-forward injection in next run
     update_active_positions(data, date_str, skill_dir)
+
+    # Enrich report with portfolio health summary (computed from portfolio_market.json)
+    health = build_portfolio_health(skill_dir)
+    if health:
+        data["portfolio_health"] = health
+        serialized = json.dumps(data, indent=2, ensure_ascii=False)
+        # Overwrite both files with the enriched data
+        try:
+            write_both(history_path, report_path, serialized)
+        except Exception as exc:
+            print(f"WARN: portfolio_health re-write failed — {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":

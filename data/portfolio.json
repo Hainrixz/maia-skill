@@ -207,29 +207,6 @@
     "updatedAt": "2026-05-09T06:54:56Z"
   },
   {
-    "id": "NKE-1011",
-    "symbol": "NKE",
-    "name": "Nike Inc",
-    "sector": "consumer_discretionary",
-    "buyPrice": 74.05,
-    "quantity": 35,
-    "buyDate": "2024-01-01T00:00:00.000Z",
-    "currentPrice": 44.14,
-    "pnlPct": -40.39,
-    "pnlAmount": -1046.85,
-    "rsi": 39,
-    "trend": "downtrend",
-    "change1d": -0.61,
-    "change7d": -0.5,
-    "change30d": -14.07,
-    "analystTarget": 61.07879,
-    "analystUpside": 38.38,
-    "forwardPe": 24.188156,
-    "weekHigh52": 77.8138,
-    "weekLow52": 42.62,
-    "updatedAt": "2026-05-09T06:54:56Z"
-  },
-  {
     "id": "SOFI-1012",
     "symbol": "SOFI",
     "name": "SoFi Technologies",
@@ -552,29 +529,6 @@
     "updatedAt": "2026-05-09T06:54:56Z"
   },
   {
-    "id": "LULU-1026",
-    "symbol": "LULU",
-    "name": "Lululemon Athletica",
-    "sector": "consumer_discretionary",
-    "buyPrice": 205.15,
-    "quantity": 4,
-    "buyDate": "2024-01-01T00:00:00.000Z",
-    "currentPrice": 131.18,
-    "pnlPct": -36.06,
-    "pnlAmount": -295.88,
-    "rsi": 31.8,
-    "trend": "downtrend",
-    "change1d": -1.8,
-    "change7d": -4.73,
-    "change30d": -10.06,
-    "analystTarget": 179.3636,
-    "analystUpside": 36.73,
-    "forwardPe": 9.909246,
-    "weekHigh52": 335.19,
-    "weekLow52": 128.98,
-    "updatedAt": "2026-05-09T06:54:56Z"
-  },
-  {
     "id": "URA-1027",
     "symbol": "URA",
     "name": "Global X Uranium ETF",
@@ -811,5 +765,32 @@
     "buyPrice": 1579.56,
     "quantity": 1,
     "buyDate": "2026-05-15T14:54:46.472Z"
+  },
+  {
+    "id": "MELI-1779468815111",
+    "symbol": "MELI",
+    "name": "MercadoLibre",
+    "sector": "Consumer/FinTech",
+    "buyPrice": 1651.89,
+    "quantity": 1,
+    "buyDate": "2026-05-22T16:53:35.111Z"
+  },
+  {
+    "id": "PYPL-1779468828712",
+    "symbol": "PYPL",
+    "name": "PayPal Holdings",
+    "sector": "Technology/Payments",
+    "buyPrice": 44.22,
+    "quantity": 3,
+    "buyDate": "2026-05-22T16:53:48.712Z"
+  },
+  {
+    "id": "BAC-1779468872214",
+    "symbol": "BAC",
+    "name": "Bank of America",
+    "sector": "Financials",
+    "buyPrice": 51.99,
+    "quantity": 5,
+    "buyDate": "2026-05-22T16:54:32.214Z"
   }
 ]

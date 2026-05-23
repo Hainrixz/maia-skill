@@ -1,0 +1,13 @@
+{
+  "symbol": "BAC",
+  "financial_health": {
+    "altman_z": null,
+    "altman_zone": "N/A (financial)",
+    "piotroski": 5,
+    "piotroski_strength": "neutral"
+  },
+  "beat_streak": 4,
+  "last_surprise_pct": 0.04,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:25Z"
+}

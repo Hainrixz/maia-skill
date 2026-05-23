@@ -24,5 +24,57 @@
     "saleDate": "2026-05-15T08:55:00.000Z",
     "pnlAmount": 1314.15,
     "pnlPct": 357.58
+  },
+  {
+    "id": "NKE-1011",
+    "symbol": "NKE",
+    "name": "Nike Inc",
+    "sector": "consumer_discretionary",
+    "buyPrice": 74.05,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 35,
+    "salePrice": 44.14,
+    "saleDate": "2026-05-18T14:57:27.740Z",
+    "pnlAmount": -1046.85,
+    "pnlPct": -40.39
+  },
+  {
+    "id": "NKE-1011",
+    "symbol": "NKE",
+    "name": "Nike Inc",
+    "sector": "consumer_discretionary",
+    "buyPrice": 74.05,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 35,
+    "salePrice": 44.14,
+    "saleDate": "2026-05-18T14:57:27.741Z",
+    "pnlAmount": -1046.85,
+    "pnlPct": -40.39
+  },
+  {
+    "id": "LULU-1026",
+    "symbol": "LULU",
+    "name": "Lululemon Athletica",
+    "sector": "consumer_discretionary",
+    "buyPrice": 205.15,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 4,
+    "salePrice": 131.18,
+    "saleDate": "2026-05-18T14:58:11.786Z",
+    "pnlAmount": -295.88,
+    "pnlPct": -36.06
+  },
+  {
+    "id": "LULU-1026",
+    "symbol": "LULU",
+    "name": "Lululemon Athletica",
+    "sector": "consumer_discretionary",
+    "buyPrice": 205.15,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 4,
+    "salePrice": 131.18,
+    "saleDate": "2026-05-18T14:58:11.787Z",
+    "pnlAmount": -295.88,
+    "pnlPct": -36.06
   }
 ]

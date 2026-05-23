@@ -1,0 +1,13 @@
+{
+  "symbol": "V",
+  "financial_health": {
+    "altman_z": null,
+    "altman_zone": "N/A (financial)",
+    "piotroski": 6,
+    "piotroski_strength": "neutral"
+  },
+  "beat_streak": 4,
+  "last_surprise_pct": 0.05,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:31Z"
+}

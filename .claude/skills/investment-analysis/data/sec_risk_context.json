@@ -1,39 +1,25 @@
 {
-  "generated_at": "2026-05-15T14:33:00Z",
+  "generated_at": "2026-05-23T01:43:28Z",
   "source": "SEC EDGAR",
   "top": 15,
   "symbols": [
-    "NU",
     "PYPL",
-    "META",
-    "WFC",
-    "SOFI",
-    "BAC",
-    "RIVN",
-    "HD",
-    "MELI",
-    "C",
+    "PLTR",
+    "NEM",
     "REGN",
-    "AMGN",
-    "CRM",
+    "TSM",
+    "AVGO",
+    "GILD",
+    "GOOGL",
     "MA",
-    "BX"
+    "AMZN",
+    "CRM",
+    "XOM",
+    "ASML",
+    "MSFT",
+    "DIS"
   ],
   "results": [
-    {
-      "symbol": "NU",
-      "cik": null,
-      "form": "20-F",
-      "filing_date": "2026-04-08",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001691493/000129281426002166/nuform20f_2025.htm",
-      "risk_factors": [
-        "You should not rely upon forward-looking statements as predictions of future events.",
-        "We have based the forward-looking statements contained in this annual report primarily on our current expectations and projections about future events and trends that we believe may affect our business, financial condition, results of operations, and prospects.",
-        "The outcome of the events described in these forward-looking statements is subject to risks, uncertainties, and other factors, including those described in “Item 3.",
-        "New risks and uncertainties emerge from time to time and it is not possible for us to predict all risks and uncertainties that could have an impact on the forward-looking statements contained in this annual report."
-      ],
-      "error": null
-    },
     {
       "symbol": "PYPL",
       "cik": null,
@@ -49,114 +35,30 @@
       "error": null
     },
     {
-      "symbol": "META",
+      "symbol": "PLTR",
       "cik": null,
       "form": "10-K",
-      "filing_date": "2026-01-29",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001326801/000162828026003942/meta-20251231.htm",
+      "filing_date": "2025-02-18",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001321655/000132165525000022/pltr-20241231.htm",
       "risk_factors": [
-        "It is not possible for our management to predict all risks, nor can we assess the impact of all factors on our business or the extent to which any factor, or combination of factors, may cause actual results to differ materially from those contained in any forward-looking statements we may make.",
-        "In light of these risks, uncertainties and assumptions, the future events and trends discussed in this Annual Report on Form 10-K may not occur and actual results could differ materially and adversely from those anticipated or implied in the forward-looking statements.",
-        "We undertake no obligation to revise or publicly release the results of any revision to these forward-looking statements, except as required by law.",
-        "Given these risks and uncertainties, readers are cautioned not to place undue reliance on such forward‑looking statements."
+        "You should carefully consider the risks and uncertainties described below, together with all of the other information in this Annual Report on Form 10-K, including the section titled “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and our consolidated financial statements and...",
+        "Our business, financial condition, results of operations, or prospects could also be harmed by risks and uncertainties not currently known to us or that we currently do not believe are material.",
+        "If any of the risks actually occur, our business, financial condition, results of operations, and prospects could be adversely affected.",
+        "In that event, the trading price of our Class A common stock could decline, and you could lose part or all of your investment."
       ],
       "error": null
     },
     {
-      "symbol": "WFC",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-02-24",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000072971/000007297126000133/wfc-20251231_d2.htm",
-      "risk_factors": [
-        "In addition to these restrictions on the ability of our subsidiary banks to pay dividends to us, the FRB requires large BHCs, including Wells Fargo, to submit annual capital plans describing planned capital distributions, such as the payment of dividends and share repurchases.",
-        "Large BHCs, like Wells Fargo, and their insured depository institutions also must comply with various capital requirements, including the reforms known as Basel III, as well as rules that establish leverage and supplementary leverage ratio requirements.",
-        "We are also subject to the FRB's rule implementing an additional capital surcharge on those U.S.",
-        "banking organizations, such as the Company, that are designated as global systemically important banks (G-SIBs)."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "SOFI",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-02-17",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001818874/000181887426000013/sofi-20251231.htm",
-      "risk_factors": [
-        "or global banking industry, including bank failures and liquidity concerns, which could cause economic and market volatility, and regulatory responses thereto; • our ability to manage our growth effectively and execute our strategy with respect to the development and expansion of our business, including through cont...",
-        "TABLE OF CONTENTS • our ability to realize the benefits of our strategy, including what we refer to as our Financial Services Productivity Loop, and achieve scale in our Financial Services segment; • our ability to successfully operate as a bank holding company, and to operate SoFi Bank; • our ability to make accura...",
-        "Forward-looking statements are based on information available as of the date of this Annual Report on Form 10-K and reflect current expectations, forecasts and assumptions, and involve a number of judgments, risks and uncertainties.",
-        "New risks and uncertainties emerge from time to time and it is not possible for us to predict all risks and uncertainties that could have an impact on the forward-looking statements contained in this Annual Report on Form 10-K."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "BAC",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2023-02-22",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000070858/000007085823000092/bac-20221231.htm",
-      "risk_factors": [
-        "Capital, Liquidity and Operational Requirements As a financial holding company, we and our bank subsidiaries are subject to the regulatory capital and liquidity rules issued by the Federal Reserve and other U.S.",
-        "and international regulatory authorities propose and enact amendments to these rules.",
-        "The Corporation seeks to manage its capital position to maintain sufficient capital to satisfy these regulatory rules and to support our business activities.",
-        "These continually evolving rules are likely to influence our planning processes and may require additional regulatory capital and liquidity, as well as impose additional operational and compliance costs on the Corporation."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "RIVN",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-02-12",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001874178/000187417826000008/rivn-20251231.htm",
-      "risk_factors": [
-        "The forward-looking statements in this Form 10-K are based upon information available to us as of the date of this Form 10-K, and while we believe such information forms a reasonable basis for such statements, such information may be limited or incomplete, and our statements should not be read to indicate that we ha...",
-        "These statements are inherently uncertain and investors are cautioned not to unduly rely upon these statements.",
-        "You should read this Form 10-K and the documents that we reference in this Form 10-K and have filed as exhibits to this Form 10-K with the understanding that our actual future results, performance, and achievements may be materially different from what we expect.",
-        "We qualify all of our forward-looking statements by these cautionary statements."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "HD",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-03-18",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000354950/000162828026019436/hd-20260201.htm",
-      "risk_factors": [
-        "At the Board level, cybersecurity is overseen by the Board and the Audit Committee , which has primary responsibility for overseeing data protection, cybersecurity and privacy matters.",
-        "In fiscal 2025, our Board held a session dedicated to cybersecurity and business continuity.",
-        "In addition, since the beginning of fiscal 2025, the Board and/or the Audit Committee have received reports on data protection, cybersecurity and/or privacy matters from senior information technology (“IT”) leaders, including our Chief Information Officer (“CIO”), CISO, Chief Privacy Officer, and the Chair of our Da...",
-        "Periodically, our Board receives presentations on these matters from third-party experts."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "MELI",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-02-25",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001099590/000109959026000006/meli-20251231.htm",
-      "risk_factors": [
-        "To prevent disclosure of our proprietary information to unauthorized parties, we have also entered into non-disclosure agreements with our employees, strategic partners and suppliers.",
-        "We have licensed certain proprietary rights, such as trademarks or copyrights, to third parties in the past and expect to continue to license such rights in the future.",
-        "While we seek to ensure that our licensees maintain the quality of the Mercado Libre brand, they may take actions that could adversely affect the value of our proprietary rights or our reputation, which could have a material adverse effect on our business, results of operations and financial condition.",
-        "We could potentially face claims alleging that our technologies infringe the property rights of others.” Offices We are a Delaware corporation incorporated on October 15, 1999."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "C",
+      "symbol": "NEM",
       "cik": null,
       "form": "10-K",
       "filing_date": "2025-02-21",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000831001/000083100125000067/c-20241231.htm",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001164727/000116472725000011/nem-20241231.htm",
       "risk_factors": [
-        "Citigroup is a global diversified financial services holding company whose businesses provide consumers, corporations, governments and institutions with a broad, yet focused, range of financial products and services, including consumer banking and credit, corporate and investment banking, securities brokerage, trade...",
-        "Citi’s vision is to be the preeminent banking partner for institutions with cross-border needs, a global leader in wealth management and a valued personal bank in the U.S.",
-        "At December 31, 2024, Citi had approximately 229,000 full-time employees, compared to approximately 239,000 at December 31, 2023.",
-        "Throughout this report, “Citigroup,” “Citi” and “the Company” refer to Citigroup Inc."
+        "Forward-Looking Statements The foregoing discussion and analysis, as well as certain information contained elsewhere in this Annual Report, contain “forward-looking statements” within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amen...",
+        "Non-GAAP Financial Measures Non-GAAP financial measures are intended to provide additional information only and do not have any standard meaning prescribed by GAAP.",
+        "These measures should not be considered in isolation or as a substitute for measures of performance prepared in accordance with GAAP.",
+        "Unless otherwise noted, we present the non-GAAP financial measures of our continuing operations in the tables below."
       ],
       "error": null
     },
@@ -175,16 +77,76 @@
       "error": null
     },
     {
-      "symbol": "AMGN",
+      "symbol": "TSM",
+      "cik": null,
+      "form": null,
+      "filing_date": null,
+      "source_url": null,
+      "risk_factors": [],
+      "error": "no_annual_filing_found"
+    },
+    {
+      "symbol": "AVGO",
       "cik": null,
       "form": "10-K",
-      "filing_date": "2025-02-14",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000318154/000031815425000010/amgn-20241231.htm",
+      "filing_date": "2025-12-18",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001730168/000173016825000121/avgo-20251102.htm",
       "risk_factors": [
-        "8 The following table reflects our significant competitors for our principal products and is not exhaustive.",
-        "Product Territory Competitor-marketed product Competitors Prolia (1) U.S., Europe & Asia Pacific Bisphosphonates, including generics Various ENBREL U.S.",
-        "& Europe Zoledronate generics Various Repatha U.S., Europe & Asia Pacific PRALUENT Regeneron Sanofi U.S.",
-        "Bisphosphonates, including generics Various Japan Teribone Asahi Kasei Pharma KYPROLIS U.S."
+        "At the “Investor Center” page on this website, we promptly make available free of charge the reports we file or furnish pursuant to Section 13(a) or 15(d) of the Securities Exchange Act of 1934 (the “Exchange Act”) with the Securities and Exchange Commission (the “SEC”), as well as our proxy statements.",
+        "Such periodic reports, proxy statements and other information are also available at the SEC’s website at www.sec.gov.",
+        "The information posted on our website is not incorporated into this Annual Report on Form 10-K.",
+        "Information About Our Executive Officers The following table provides information regarding our executive officers as of December 18, 2025: Name and Title Age Position and Offices Hock E."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "GILD",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2026-02-24",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000882095/000088209526000006/gild-20251231.htm",
+      "risk_factors": [
+        "and EMA and EC in the EU, as well as the national authorities of the EU member states, must approve a drug before it can be sold in the respective country or countries.",
+        "Many other countries, including individual countries within the EU, have similar regulatory structures.",
+        "Drug Development Preclinical Testing Before we can test a drug candidate in humans, we must study the drug in laboratory experiments and in animals to generate data to support the drug candidate’s potential benefits and safety.",
+        "We submit this data to FDA in an Investigational New Drug (“IND”) application seeking its approval to test the compound in humans."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "GOOGL",
+      "cik": null,
+      "form": null,
+      "filing_date": null,
+      "source_url": null,
+      "risk_factors": [],
+      "error": "no_annual_filing_found"
+    },
+    {
+      "symbol": "MA",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2025-02-12",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001141391/000114139125000011/ma-20241231.htm",
+      "risk_factors": [
+        "We face competition in the ACH and real-time account-based payments space from providers of infrastructure, applications and services.",
+        "As these real-time account-based propositions mature, we face a possible increase in competition for our existing domestic person-to-merchant (“P2M”) and person-to-person (“P2P”) transaction market share.",
+        "Similarly, as interlinking of these infrastructures is further explored, they could disrupt our existing cross-border P2M and P2P market share.",
+        "Also, several industry initiatives are experimenting with the concept of account-based global schemes, which could lead to a disruption of the clearing and settlement options utilized in various currencies."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "AMZN",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2026-02-06",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231.htm",
+      "risk_factors": [
+        "We are guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking.",
+        "In each of our segments, we serve our primary customer sets, consisting of consumers, sellers, developers, enterprises, content creators, advertisers, and employees.",
+        "We have organized our operations into three segments: North America, International, and Amazon Web Services (“AWS”).",
+        "These segments reflect the way the Company evaluates its business performance and manages its operations."
       ],
       "error": null
     },
@@ -203,25 +165,58 @@
       "error": null
     },
     {
-      "symbol": "MA",
-      "cik": null,
-      "form": null,
-      "filing_date": null,
-      "source_url": null,
-      "risk_factors": [],
-      "error": "no_annual_filing_found"
-    },
-    {
-      "symbol": "BX",
+      "symbol": "XOM",
       "cik": null,
       "form": "10-K",
-      "filing_date": "2026-02-27",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001393818/000119312526082531/d48618d10k.htm",
+      "filing_date": "2025-02-19",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000034088/000003408825000010/xom-20241231.htm",
       "risk_factors": [
-        "Such allocations are typically realized at the end of the measurement period and, once realized, are typically not subject to clawback or reversal.",
-        "In particular, our ability to generate and realize these amounts is an important element of our business.",
-        "Such allocations in certain of our Perpetual Capital strategies contribute a significant and growing portion to our overall revenues.",
-        "The following is a general description of the Performance Revenues earned by Blackstone in structures other than carry funds: • The general partners of certain open-ended BPP and BIP funds are entitled to an incentive fee allocation generally between 7% and 12.5% of net profit, subject to a hurdle amount generally o..."
+        "This means ExxonMobil’s operations and earnings may be significantly affected by changes in oil, gas, and petrochemical prices and by changes in margins on refined products.",
+        "Oil, gas, petrochemical, and product prices and margins in turn depend on local, regional, and global events or conditions that affect supply and demand for the relevant commodity or product.",
+        "Any material decline in oil or natural gas prices could have a material adverse effect on the Company’s operations, financial condition, and proved reserves, especially in the Upstream segment.",
+        "On the other hand, a material increase in oil or natural gas prices could have a material adverse effect on the Company’s operations, especially in the Energy Products, Chemical Products, and Specialty Products segments."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "ASML",
+      "cik": null,
+      "form": "20-F",
+      "filing_date": "2026-02-25",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000937966/000162828026011378/asml-20251231.htm",
+      "risk_factors": [
+        "Corporate governance Corporate governance 76 Corporate governance at a glance 78 Board of Management 80 Supervisory Board 83 Other Board-related matters 85 AGM and share capital 88 Financial reporting and audit 90 Compliance with corporate governance requirements Supervisory Board report 91 In conversation with the...",
+        "Sustainability statements 139 Limited assurance report of the independent auditors on the Sustainability statements General disclosures 142 Basis for preparation 144 ESG sustainability governance 146 ESG sustainability at a glance 147 Value chain and ecosystem overview 148 Environmental and human rights due diligenc...",
+        "Financial statements Consolidated financial statements 274 Reports of independent registered public accounting firms 277 Consolidated statements of operations 278 Consolidated statements of comprehensive income 279 Consolidated balance sheets 280 Consolidated statements of shareholders’ equity 282 Consolidated state...",
+        "This report comprises regulated information within the meaning of articles 1:1 and 5:25c of the Dutch Financial Markets Supervision Act (Wet op het Financieel Toezicht)."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "MSFT",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2024-07-30",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000789019/000095017024087843/msft-20240630.htm",
+      "risk_factors": [
+        "These forward-looking statements generally are identified by the words “believe,” “project,” “expect,” “anticipate,” “estimate,” “intend,” “strategy,” “future,” “opportunity,” “plan,” “may,” “should,” “will,” “would,” “will be,” “will continue,” “will likely result,” and similar expressions.",
+        "Forward-looking statements are based on current expectations and assumptions that are subject to risks and uncertainties that may cause actual results to differ materially.",
+        "Readers are cautioned not to place undue reliance on forward-looking statements, which speak only as of the date they are made.",
+        "We undertake no obligation to update or revise publicly any forward-looking statements, whether because of new information, future events, or otherwise."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "DIS",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2025-11-13",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001744489/000174448925000155/dis-20250927.htm",
+      "risk_factors": [
+        "In addition to the factors affecting specific business operations identified in connection with the description of these operations and the financial results of these operations elsewhere in our filings with the SEC, the most significant factors affecting our business include the following: RISKS RELATED TO OUR BUSI...",
+        "Declines in U.S., global and regional economic conditions, such as recessions, other less severe slowdowns in economic activity and/or inflationary conditions typically adversely affect demand for our products and services and/or costs to operate our businesses, reducing our revenue and earnings.",
+        "While a number of different factors affect the demand for our products and services, actual or perceived declines in economic conditions typically have impacts across our businesses, including, among others, lower attendance and spending at our parks and experiences businesses, fees received for our cable programmin...",
+        "Even when inflationary pressures moderate, we expect certain costs, such as for labor, to remain elevated."
       ],
       "error": null
     }

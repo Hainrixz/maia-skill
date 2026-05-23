@@ -1,0 +1,13 @@
+{
+  "symbol": "ABBV",
+  "financial_health": {
+    "altman_z": 2.07,
+    "altman_zone": "gray",
+    "piotroski": 7,
+    "piotroski_strength": "strong"
+  },
+  "beat_streak": 3,
+  "last_surprise_pct": 0.02,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:24Z"
+}

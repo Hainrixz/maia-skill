@@ -19,6 +19,10 @@ import sys
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).parent.parent
+# Project root: maia-skill/ (3 levels above investment-analysis/)
+PROJ_ROOT = SKILL_DIR.parent.parent.parent
+# Portfolio data lives at project root data/, not in SKILL_DIR/data/
+PORTFOLIO_DIR = PROJ_ROOT / "data"
 
 
 def load_json(path: str | Path) -> dict | list:
@@ -232,6 +236,148 @@ def build_carry_forward_block(candidates: list, prices_snapshot: dict) -> list[s
     return lines
 
 
+def build_portfolio_block(skill_dir: Path) -> list[str]:
+    """Inject current portfolio holdings so MegaAgent can make ADD/TRIM/HOLD recommendations
+    for existing positions and avoid over-concentrating sectors already heavy in the portfolio."""
+    pm_path = PORTFOLIO_DIR / "portfolio_market.json"
+    if not pm_path.exists():
+        return []
+    try:
+        raw = json.loads(pm_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    # Support both {"positions": [...]} dict and bare list formats
+    if isinstance(raw, dict):
+        positions = raw.get("positions") or []
+        total_cost = raw.get("total_cost", 0) or 0
+        total_value = raw.get("total_current_value", 0) or 0
+        total_pnl_pct = raw.get("total_pnl_pct", 0) or 0
+    elif isinstance(raw, list):
+        positions = raw
+        total_cost = sum((p.get("cost_basis") or 0) for p in positions if isinstance(p, dict))
+        total_value = sum(
+            (p.get("current_price") or 0) * (p.get("quantity") or 0)
+            for p in positions if isinstance(p, dict)
+        )
+        total_pnl_pct = ((total_value - total_cost) / total_cost * 100) if total_cost else 0
+    else:
+        return []
+    if not positions:
+        return []
+
+    # Sector breakdown by current value (cost_basis + pnl_amount ≈ current value)
+    sector_alloc: dict[str, float] = {}
+    for p in positions:
+        if not isinstance(p, dict):
+            continue
+        sec = p.get("sector", "other")
+        val = (p.get("cost_basis") or 0) + (p.get("pnl_amount") or 0)
+        sector_alloc[sec] = sector_alloc.get(sec, 0) + val
+
+    sector_parts = []
+    for sec, val in sorted(sector_alloc.items(), key=lambda x: -x[1]):
+        pct = val / total_value * 100 if total_value else 0
+        sector_parts.append(f"{sec}:{pct:.0f}%")
+
+    held_syms = [p.get("symbol") for p in positions if isinstance(p, dict) and p.get("symbol")]
+
+    # Overbought positions (RSI > 70) — candidates to trim
+    overbought = [
+        p.get("symbol") for p in positions
+        if isinstance(p, dict) and (p.get("rsi_14") or 0) > 70
+    ]
+
+    # Deep losers (P&L < -10%) — near stop territory
+    losers = [
+        f"{p.get('symbol')}({p.get('pnl_pct', 0):+.1f}%)"
+        for p in positions
+        if isinstance(p, dict) and (p.get("pnl_pct") or 0) < -10
+    ]
+
+    # Analyst upside > 15% on held positions — candidates for ADD
+    add_candidates = sorted(
+        [p for p in positions if isinstance(p, dict)
+         and (p.get("analyst_upside") or 0) > 15
+         and (p.get("pnl_pct") or 0) > -5],
+        key=lambda x: -(x.get("analyst_upside") or 0)
+    )[:3]
+    add_parts = [f"{p.get('symbol')}(+{p.get('analyst_upside'):.0f}%↑)" for p in add_candidates]
+
+    lines = [
+        f"CURRENT_PORTFOLIO: {len(held_syms)} positions | "
+        f"cost={total_cost:,.0f} value={total_value:,.0f} pnl={total_pnl_pct:+.1f}%",
+        f"  sectors: {' '.join(sector_parts)}",
+        f"  held: {','.join(held_syms)}",
+    ]
+    if overbought:
+        lines.append(f"  overbought(RSI>70): {','.join(overbought)} — consider TRIM if picked")
+    if losers:
+        lines.append(f"  losers(<-10%pnl): {','.join(losers)} — near stop territory")
+    if add_parts:
+        lines.append(f"  ADD candidates(analyst upside>15%): {','.join(add_parts)}")
+    lines.append(
+        "  RULE: For symbols in 'held' use recommendation ADD|TRIM|HOLD (not buy|sell). "
+        "Do not create picks that push any sector above 50% of total portfolio."
+    )
+    return lines
+
+
+def build_invalidator_warnings(skill_dir: Path) -> list[str]:
+    """Check objective risk conditions against held positions.
+
+    Flags positions with: overbought RSI, bearish news, deep P&L loss,
+    Altman distress zone, or weak Piotroski score. Emits a pre-LLM warning
+    block so the MegaAgent can confirm or dismiss each flag with context.
+    """
+    pm_path = PORTFOLIO_DIR / "portfolio_market.json"
+    if not pm_path.exists():
+        return []
+    try:
+        raw = json.loads(pm_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    positions = raw.get("positions") if isinstance(raw, dict) else raw
+    if not positions or not isinstance(positions, list):
+        return []
+
+    flagged = []
+    for p in positions:
+        if not isinstance(p, dict):
+            continue
+        sym = p.get("symbol", "?")
+        flags = []
+
+        rsi = p.get("rsi_14")
+        if rsi and rsi > 75:
+            flags.append(f"RSI={rsi:.0f}(overbought)")
+
+        if p.get("news_sentiment") == "bearish":
+            flags.append("news=bearish")
+
+        pnl = p.get("pnl_pct")
+        if pnl is not None and pnl < -12:
+            flags.append(f"pnl={pnl:.1f}%(near_stop)")
+
+        z = p.get("altman_z") or {}
+        if isinstance(z, dict) and z.get("zone") == "distress":
+            flags.append(f"Z={z.get('score', '?')}(distress)")
+
+        pio = p.get("piotroski") or {}
+        if isinstance(pio, dict) and isinstance(pio.get("score"), (int, float)) and pio["score"] <= 2:
+            flags.append(f"Piotroski={pio['score']}/9(weak)")
+
+        if flags:
+            flagged.append(f"  {sym}: {' | '.join(flags)}")
+
+    if not flagged:
+        return []
+
+    lines = ["INVALIDATOR_WARNINGS (held positions with risk flags — confirm or dismiss):"]
+    lines.extend(flagged)
+    lines.append("  NOTE: Use your research to confirm or dismiss each flag. Only invalidate if thesis is broken.")
+    return lines
+
+
 def build_theses_block(prev_path: str, prices_snapshot: dict) -> list[str]:
     if not prev_path:
         return []
@@ -301,6 +447,12 @@ def main():
 
     # 7. Carry-forward: active positions not in today's screened list
     blocks.extend(build_carry_forward_block(candidates, prices_snapshot))
+
+    # 8. Current portfolio holdings (enables ADD/TRIM/HOLD recommendations)
+    blocks.extend(build_portfolio_block(SKILL_DIR))
+
+    # 9. Invalidator warnings from objective risk conditions on held positions
+    blocks.extend(build_invalidator_warnings(SKILL_DIR))
 
     output = "\n".join(blocks)
 

@@ -1,0 +1,13 @@
+{
+  "symbol": "OXY",
+  "financial_health": {
+    "altman_z": 1.51,
+    "altman_zone": "distress",
+    "piotroski": 4,
+    "piotroski_strength": "neutral"
+  },
+  "beat_streak": 4,
+  "last_surprise_pct": 0.25,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:29Z"
+}

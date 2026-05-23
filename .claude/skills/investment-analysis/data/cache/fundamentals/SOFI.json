@@ -1,0 +1,13 @@
+{
+  "symbol": "SOFI",
+  "financial_health": {
+    "altman_z": null,
+    "altman_zone": "N/A (financial)",
+    "piotroski": 2,
+    "piotroski_strength": "weak"
+  },
+  "beat_streak": 3,
+  "last_surprise_pct": 0.45,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-23T01:37:31Z"
+}

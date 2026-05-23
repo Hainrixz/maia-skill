@@ -278,6 +278,19 @@ If `previous_theses` is non-empty, evaluate each previous pick's thesis:
 - If `altman_z.zone == "safe"` AND `piotroski.strength == "strong"` (score ≥ 7) → boost confidence by +1 (max 10). Note as "strong balance sheet" in `reasoning`.
 - ETFs (VOO, URA, etc.) will have `altman_z: null` and `piotroski: null` — skip the overlay for those.
 
+**Portfolio context (use when `CURRENT_PORTFOLIO` and `INVALIDATOR_WARNINGS` blocks are present):**
+
+`CURRENT_PORTFOLIO` shows the user's real holdings with their actual entry prices and P&L. Use this to:
+- For any symbol listed in `held`: use `recommendation: "add"` (buy more of an existing position), `"trim"` (reduce), or `"hold"` (keep as-is) instead of `"buy"` / `"sell"`. These are the only valid values for held symbols.
+- Avoid picks that push any sector above 50% of portfolio value. If `sectors` shows e.g. `big_tech:42%`, do not add 3 more tech picks without explicitly noting the concentration risk.
+- Symbols in `ADD candidates` have analyst upside > 15% on positions already held — they are natural ADD candidates if fundamentals and thesis support it.
+- Symbols in `overbought(RSI>70)` are candidates to recommend `"trim"` if they appear in today's picks.
+
+`INVALIDATOR_WARNINGS` lists held positions with objective risk flags (high RSI, bearish news, deep P&L loss, Altman distress, weak Piotroski). For each flagged symbol:
+- Use your research to confirm or dismiss the flag.
+- If confirmed: set `thesis_status: "invalidated"` and use `recommendation: "sell"` or `"trim"`.
+- If dismissed with good reason: note the dismissal in `reasoning` and keep the position.
+
 ### Phase 1 — Market Research (use WebSearch + WebFetch)
 
 - Research the top 10-15 candidates from `SCREENED_CANDIDATES`: news, catalysts, earnings updates, analyst ratings
