@@ -197,8 +197,8 @@ def main() -> None:
         help="Watchlist names or tickers to pass through to pre_fetch.py (default: all)",
     )
     parser.add_argument("--out-dir", default=str(DEFAULT_OUT_DIR), help="Output directory for temp pipeline artifacts")
-    parser.add_argument("--news-top", type=int, default=15, help="Top N candidates to send to news_fetch.py")
-    parser.add_argument("--sec-top", type=int, default=15, help="Top N candidates to send to sec_risk_fetch.py")
+    parser.add_argument("--news-top", type=int, default=12, help="Top N candidates to send to news_fetch.py")
+    parser.add_argument("--sec-top", type=int, default=12, help="Top N candidates to send to sec_risk_fetch.py")
     parser.add_argument("--verbose", action="store_true", help="Print full subprocess output")
     args = parser.parse_args()
 
@@ -282,7 +282,7 @@ def main() -> None:
     mega_context_text = mega_context_path.read_text(encoding="utf-8") if mega_context_path.exists() else ""
     mega_context_chars = len(mega_context_text)
 
-    if mega_context_chars > 8000:
+    if mega_context_chars > 6000:
         print(f"[pipeline] WARN mega_context exceeds guardrail: {mega_context_chars} chars", file=sys.stderr)
 
     meta = {
@@ -299,7 +299,7 @@ def main() -> None:
         "sectors_path": str(sectors_path),
         "mega_context_path": str(mega_context_path),
         "mega_context_chars": mega_context_chars,
-        "mega_context_guardrail_ok": mega_context_chars <= 8000,
+        "mega_context_guardrail_ok": mega_context_chars <= 6000,
         "accuracy_note": accuracy_note,
         "accuracy_baseline": accuracy,
         "accuracy_notable": accuracy.get("notable", "No historical data available"),

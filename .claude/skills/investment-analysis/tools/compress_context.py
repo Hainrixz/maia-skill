@@ -90,9 +90,9 @@ def fmt_altman_zone(raw: str | None) -> str:
 
 def build_candidates_table(candidates: list) -> list[str]:
     lines = [
-        "SCREENED_CANDIDATES (top 15 | sym|score|price|rsi|entry|trend|fpe|peg|earn_d|corr_grp|atr|z|piof)"
+        "SCREENED_CANDIDATES (top 12 | sym|score|price|rsi|entry|trend|fpe|peg|earn_d|corr_grp|atr|z|piof)"
     ]
-    for c in candidates[:15]:
+    for c in candidates[:12]:
         sym = c.get("symbol", "?")
         score = c.get("composite_score")
         score_s = f"{score:.0f}" if score is not None else "?"
@@ -135,8 +135,8 @@ def build_corr_warnings(warnings: list) -> list[str]:
 
 def build_news_block(news_map: dict, candidates: list) -> list[str]:
     # Only emit news for candidates in the screened list
-    syms = {c["symbol"] for c in candidates[:15]}
-    lines = ["NEWS (sym:[sentiment|rec $target] → h1 | h2 | kw)"]
+    syms = {c["symbol"] for c in candidates[:12]}
+    lines = ["NEWS (sym:[sentiment|rec $target] → h1 | kw)"]
     for sym, n in news_map.items():
         if sym not in syms:
             continue
@@ -145,20 +145,19 @@ def build_news_block(news_map: dict, candidates: list) -> list[str]:
         tgt_raw = n.get("analyst_target")
         tgt = f"${tgt_raw:.0f}" if tgt_raw else "—"
         headlines = n.get("key_news", [])
-        h1 = truncate(headlines[0].get("title", "—") if headlines else "—", 58)
-        h2 = truncate(headlines[1].get("title", "—") if len(headlines) > 1 else "—", 58)
+        h1 = truncate(headlines[0].get("title", "—") if headlines else "—", 60)
         kw_raw = n.get("sentiment", {}).get("keywords", []) if isinstance(n.get("sentiment"), dict) else []
         kw = ",".join(k.get("word", "") for k in kw_raw[:3])
-        lines.append(f"  {sym}:[{sent}|{rec} {tgt}] → {h1} | {h2} | [{kw}]")
+        lines.append(f"  {sym}:[{sent}|{rec} {tgt}] → {h1} | [{kw}]")
     return lines
 
 
 def build_sec_block(sec_results: list, candidates: list) -> list[str]:
-    syms = {c["symbol"] for c in candidates[:15]}
+    syms = {c["symbol"] for c in candidates[:12]}
     # Index by symbol for fast lookup
     sec_map = {r["symbol"]: r for r in sec_results if isinstance(r, dict)}
-    lines = ["SEC_RISKS (sym: filing | risk1 ; risk2)"]
-    for sym in [c["symbol"] for c in candidates[:15]]:
+    lines = ["SEC_RISKS (sym: filing | risk1)"]
+    for sym in [c["symbol"] for c in candidates[:12]]:
         if sym not in syms:
             continue
         r = sec_map.get(sym)
@@ -184,9 +183,8 @@ def build_sec_block(sec_results: list, candidates: list) -> list[str]:
             if len(f) > 80
             and not any(bp in f.lower() for bp in _BOILERPLATE)
         ]
-        b1 = truncate(relevant[0], 80) if relevant else "—"
-        b2 = truncate(relevant[1], 80) if len(relevant) > 1 else "—"
-        lines.append(f"  {sym}: {form} {filing_date} | {b1} ; {b2}")
+        b1 = truncate(relevant[0], 90) if relevant else "—"
+        lines.append(f"  {sym}: {form} {filing_date} | {b1}")
     return lines
 
 
@@ -194,11 +192,11 @@ def build_carry_forward_block(candidates: list, prices_snapshot: dict) -> list[s
     """Inject active positions that are NOT in today's screened candidates.
 
     These are picks from prior sessions whose theses are still valid but fell
-    out of the top-15 screened list (RSI normalized, score dropped, etc.).
+    out of the top-12 screened list (RSI normalized, score dropped, etc.).
     The MegaAgent MUST include them in the report unless a thesis invalidator
     has explicitly been triggered.
 
-    Max 5 carries to keep context overhead minimal (~400-600 chars).
+    Max 3 carries to keep context overhead minimal (~250-350 chars).
     """
     active_path = SKILL_DIR / "data" / "active_positions.json"
     if not active_path.exists():
@@ -210,17 +208,17 @@ def build_carry_forward_block(candidates: list, prices_snapshot: dict) -> list[s
     if not active:
         return []
 
-    screened_syms = {c.get("symbol") for c in candidates[:15]}
+    screened_syms = {c.get("symbol") for c in candidates[:12]}
     carries = [v for k, v in active.items() if k not in screened_syms]
     if not carries:
         return []
 
     lines = [
-        "CARRY_FORWARD — Active positions NOT in today's screened top-15.",
+        "CARRY_FORWARD — Active positions NOT in today's screened top-12.",
         "RULE: KEEP these in the report unless a thesis_invalidator has been triggered.",
         "  sym|entry|now|ret%|status|position_size|thesis[:80]",
     ]
-    for c in carries[:5]:
+    for c in carries[:3]:
         sym = c.get("symbol", "?")
         entry = c.get("entry_price")
         entry_s = f"{entry:.2f}" if entry else "?"

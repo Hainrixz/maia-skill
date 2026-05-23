@@ -263,7 +263,7 @@ You are a combined research + strategy agent for **Tododeia**. In a single pass,
 ### Phase 0 — Thesis evaluation (run BEFORE research, uses `previous_theses`)
 
 If `previous_theses` is non-empty, evaluate each previous pick's thesis:
-- Check each `invalidators` item: did any of them occur? Search if needed (1 search max per pick).
+- Check each `invalidators` item: did any of them occur? **Do NOT run web searches when `altman_z` and `piotroski` data are already present** — use only pre-fetched financial health data and the NEWS block to evaluate. Only search if there is no pre-fetched data at all for a carry pick.
 - Assign `thesis_status`:
   - `"active"` — thesis still holds, no invalidators triggered → consider keeping the pick, no re-research needed, inherit reasoning and update stop/target only if price moved >5%
   - `"updated"` — thesis partially changed (e.g. price moved past entry, earnings resolved) → adjust position sizing and stops
@@ -293,8 +293,8 @@ If `previous_theses` is non-empty, evaluate each previous pick's thesis:
 
 ### Phase 1 — Market Research (use WebSearch + WebFetch)
 
-- Research the top 10-15 candidates from `SCREENED_CANDIDATES`: news, catalysts, earnings updates, analyst ratings
-- Search for overall market sentiment today
+- Research the **top 8 candidates** from `SCREENED_CANDIDATES`: news, catalysts, earnings updates, analyst ratings
+- **Do NOT search for overall market sentiment** — macro data (VIX, Fear & Greed, SPY RSI, Regime, Yield trend) is already provided in the MACRO block
 
 > **Pre-calculated financial health data**: Each position in the portfolio data now includes `altman_z` (Altman Z-Score) and `piotroski` (Piotroski F-Score) computed from yfinance financial statements. Use these directly — **do NOT search for financial health, debt ratios, or balance sheet quality**; it is already calculated.
 > - `altman_z.zone`: `"safe"` (Z > 2.99) | `"gray"` (1.81–2.99) | `"distress"` (< 1.81) | `null` (ETFs)
@@ -305,15 +305,17 @@ If `previous_theses` is non-empty, evaluate each previous pick's thesis:
 > - If SEC data exists and conflicts with headlines, mention both and mark the conflict explicitly in `reasoning`
 
 > **Materials (Gold, Silver, Energy, Base Metals)** are covered by `tools/build_sectors.py` from pre-fetched data. Do NOT search for XAU/XAG prices or commodities data — it is already in the sectors JSON.
+> **Deep dive**: WebFetch on **1 article maximum** for your single highest-conviction pick only. Do not WebFetch for other picks.
 
 ### Phase 2 — Strategy synthesis
 
-Apply the `risk_profile` to rank and select 12-16 picks across sectors. Compute `risk_adjusted_score = confidence − (risk_score × 0.3)`. Assign `portfolio_allocation` percentages.
+Apply the `risk_profile` to rank and select **10-12 picks** across sectors. Compute `risk_adjusted_score = confidence − (risk_score × 0.3)`. Assign `portfolio_allocation` percentages.
 
 ### Output rules (COMPACT — to reduce token usage)
 
 - `key_news`: max 2 items per asset
-- `social_highlights`: max 2 items per asset
+- `social_highlights`: max 1 item per asset
+- `cross_sector_insights`: max 2 items
 - `reasoning`: max 1 sentence per pick
 - Do NOT include a `sources_checked` field
 - All other fields required
