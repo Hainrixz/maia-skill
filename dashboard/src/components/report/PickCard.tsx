@@ -6,6 +6,7 @@ import { useLanguage } from "@/hooks/use-language"
 import { usePortfolio } from "@/hooks/use-portfolio"
 import type { RiskAdjustedPick, SectorData } from "@/types/report"
 import { SECTOR_COLORS } from "@/lib/constants"
+import { GlossaryModal } from "@/components/ui/GlossaryModal"
 
 interface PickCardProps { pick: RiskAdjustedPick; sectors: Record<string, SectorData> }
 
@@ -40,6 +41,7 @@ export function PickCard({ pick, sectors }: PickCardProps) {
   const [formOpen, setFormOpen] = useState(false)
   const [quantity, setQuantity] = useState(1)
   const [confirmed, setConfirmed] = useState(false)
+  const [glossaryOpen, setGlossaryOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const alreadyOwned = hasSymbol(pick.symbol)
@@ -67,7 +69,16 @@ export function PickCard({ pick, sectors }: PickCardProps) {
 
   return (
     <motion.div layout initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.97 }} transition={{ duration: 0.2 }} className="group relative rounded-xl border border-[#E6E6E4] bg-[#FCFCFB] p-5 transition-all hover:border-[#D0D0CE] hover:shadow-md">
-      <div className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#37352F] text-xs font-bold text-white">#{pick.rank}</div>
+      <div className="absolute right-4 top-4 flex items-center gap-1.5">
+        <button
+          onClick={() => setGlossaryOpen(true)}
+          className="flex h-6 w-6 items-center justify-center rounded-full border border-[#E6E6E4] bg-white text-[10px] text-[#8B8B85] transition-colors hover:border-[#37352F] hover:text-[#252420]"
+          title="Ver glosario de términos"
+          aria-label="Ver glosario de términos"
+        >ⓘ</button>
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#37352F] text-xs font-bold text-white">#{pick.rank}</div>
+      </div>
+      <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
       <span className="mb-2 inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider" style={{ backgroundColor: `${SECTOR_COLORS[pick.sector]}15`, color: SECTOR_COLORS[pick.sector] }}>
         {t(`sector.${pick.sector}.short`)}
       </span>

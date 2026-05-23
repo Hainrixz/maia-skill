@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { GlossaryModal } from "@/components/ui/GlossaryModal"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -128,6 +129,7 @@ function piotroskiTone(strength?: string | null): string {
 
 function AttentionCard({ pos }: { pos: PortfolioPosition }) {
   const [expanded, setExpanded] = useState(false)
+  const [glossaryOpen, setGlossaryOpen] = useState(false)
   const action = ACTION_CONFIG[pos.action] ?? ACTION_CONFIG.HOLD
   const health = HEALTH_CONFIG[pos.position_health] ?? HEALTH_CONFIG.neutral
   const urgency = URGENCY_CONFIG[pos.urgency] ?? URGENCY_CONFIG.low
@@ -149,6 +151,12 @@ function AttentionCard({ pos }: { pos: PortfolioPosition }) {
           </div>
         </div>
         <div className="flex flex-col items-end gap-1.5">
+          <button
+            onClick={() => setGlossaryOpen(true)}
+            className="mb-0.5 flex h-6 w-6 items-center justify-center self-end rounded-full border border-[#E6E6E4] bg-white text-[10px] text-[#8B8B85] transition-colors hover:border-[#37352F] hover:text-[#252420]"
+            title="Ver glosario de términos"
+            aria-label="Ver glosario de términos"
+          >ⓘ</button>
           <span className={`rounded-full px-3 py-1 text-xs font-bold border ${action.bg} ${action.text} ${action.border}`}>
             {action.label}
           </span>
@@ -218,6 +226,8 @@ function AttentionCard({ pos }: { pos: PortfolioPosition }) {
       >
         {expanded ? "▲ Less detail" : "▼ More detail"}
       </button>
+
+      <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
 
       <AnimatePresence>
         {expanded && (

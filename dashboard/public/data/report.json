@@ -1,37 +1,43 @@
 {
   "brand": "Tododeia",
   "creator": "@quebert",
-  "generated_at": "2026-05-23T02:03:11Z",
+  "generated_at": "2026-05-22T23:39:31",
   "risk_profile": "moderate",
-  "executive_summary": "A MIXED macro regime with Fear at 28, rising yields at 4.558%, and gold at record $4,510 supports a barbell of high-conviction AI and healthcare catalyst picks (GILD #1 on FDA approval, PLTR and AVGO+TSM for semiconductor AI infrastructure) anchored by a 15% materials hedge in GLD and NEM to defend against persistent inflation. The 13-pick moderate portfolio respects all correlation group hard limits, caps at 10% per position, and prioritizes scaling into overbought markets over 2-3 sessions with GILD, GLD, and PLTR as the three core conviction positions totaling 27% of deployed capital.",
+  "executive_summary": "In a mixed regime with SPY overbought (RSI=71.1) and Fear&Greed at 28, the optimal posture is selective quality accumulation in oversold catalysts (PYPL, REGN), AI infrastructure leaders (AVGO, TSM, PLTR), defensive FCF compounders (GILD, NEM, XOM), and streaming recovery (DIS), while aggressively pruning distressed balance sheets (SOFI, RIVN, BIDU, AAL) and overbought positions (FTNT). Portfolio concentration at 15% cash buffer and strict correlation limits provides downside protection if SPY mean-reverts.",
   "macro_environment": {
-    "summary": "MIXED regime with SPY at highs (RSI=71.1, technically overbought) while Fear & Greed sits at 28 (Fear), a divergence that flags stretched momentum against deteriorating sentiment; rising 10Y yields at 4.558% and Brent crude confirmed at $103.94 with gold at record $4,510 signal persistent inflation and real-asset demand.",
+    "summary": "Mixed regime with SPY RSI=71.1 signaling near-term overbought conditions; Fear&Greed=28 creates selective entry opportunities in quality names while elevated 10y yield (4.558, rising) pressures long-duration growth multiples.",
     "interest_rate_outlook": "rising",
-    "inflation_outlook": "rising",
+    "inflation_outlook": "falling",
     "geopolitical_risk": "medium",
     "key_factors": [
-      "SPY RSI=71.1 overbought while F&G=28 Fear — momentum diverging from sentiment creates selective entry opportunities in quality oversold names rather than broad market chasing",
-      "10Y yield at 4.558% rising trend compresses high-multiple growth valuations (PLTR fpe=66, ASML fpe=34) and makes PEG<1 names like AVGO and PYPL structurally more attractive",
-      "Gold at $4,510 record and Brent at $103.94 confirm MIXED regime inflation tailwind; materials allocation is required ballast, not optional hedge"
+      "VIX=16.7 complacent but Fear&Greed=28 divergence suggests rotation not collapse",
+      "10y yield 4.558 rising — penalizes high-PEG growth, rewards FCF compounders and dividend growers",
+      "AI infrastructure spend (AVGO, TSM, PLTR) accelerating despite macro uncertainty",
+      "Gold spot ~$3,200+ supports NEM; FDA HDV approval is binary GILD catalyst",
+      "SPY RSI=71.1 warrants elevated cash buffer and tight stop discipline"
     ]
   },
   "portfolio_allocation": {
-    "stocks": 75,
-    "materials": 15,
-    "cash": 10
+    "stocks": 72,
+    "materials": 13,
+    "cash": 15
   },
   "cross_sector_insights": [
     {
-      "insight": "AI semiconductor cycle remains the dominant structural driver with AVGO PEG=0.90 and TSM PEG=1.28 both at fair RSI entries while NVIDIA posted record Q1 revenues confirming sustained wafer demand",
-      "implication": "Max-2 semiconductor allocation (AVGO+TSM) is fully justified; cut ASML despite bullish news given RSI=68 overextended entry"
+      "insight": "AI ASIC + semiconductor cycle re-accelerating driven by NVIDIA Q1 beat and hyperscaler capex guidance",
+      "implication": "Overweight TSM and AVGO; correlation limit (max 2 semis) already hit — no new semis beyond these two"
     },
     {
-      "insight": "Healthcare bifurcation widening: GILD accelerated FDA approval removes binary risk and creates near-term momentum while REGN faces Dupixent biosimilar overhang despite Parabilis diversification",
-      "implication": "GILD ranked #1 on catalyst clarity; REGN retained as updated thesis at RSI=31 oversold but sized conservatively at 7%"
+      "insight": "Rising 10y yield (4.558) compresses high-PEG multiples but rewards low-PEG FCF names",
+      "implication": "PYPL (PEG 0.80), AVGO (PEG 0.90), REGN (PEG 1.11) are structurally advantaged; CRM and DIS need multiple re-rating to work"
     },
     {
-      "insight": "F&G Fear at 28 combined with extreme RSI oversold in PYPL (RSI=12) and REGN (RSI=31) creates asymmetric mean-reversion setups that historically outperform when SPY is not in downtrend",
-      "implication": "Scale into oversold names over 2-3 sessions given overbought SPY (RSI=71.1); do not chase at full size on day one"
+      "insight": "Gold spot >$3,200 + NEM buybacks provide non-correlated portfolio hedge against yield/geopolitical volatility",
+      "implication": "NEM serves dual role: alpha via FCF strength and macro hedge; size at 6% within materials allocation"
+    },
+    {
+      "insight": "Fear&Greed=28 historically precedes mean-reversion rallies within 30-60 days in non-recessionary regimes",
+      "implication": "Oversold entries (PYPL RSI=12, REGN RSI=31) offer asymmetric upside if sentiment normalizes toward 50"
     }
   ],
   "risk_adjusted_picks": [
@@ -39,430 +45,452 @@
       "rank": 1,
       "name": "Gilead Sciences",
       "symbol": "GILD",
-      "sector": "Healthcare / Biotech",
+      "sector": "Biotechnology",
       "confidence": 8.5,
-      "risk_score": 3.0,
-      "risk_adjusted_score": 7.6,
-      "recommendation": "buy",
-      "reasoning": "Accelerated FDA HDV approval removes the largest near-term binary risk and is an immediate revenue catalyst, while the $5B Tubulis ADC oncology acquisition adds a pipeline that diversifies beyond HIV at a fair RSI=54 entry.",
-      "position_size": "9%",
+      "risk_score": 2.5,
+      "risk_adjusted_score": 7.9,
+      "recommendation": "add",
+      "reasoning": "FDA accelerated approval of HDV treatment is a near-term binary catalyst with limited downside given existing HIV franchise FCF and low PEG=2.14 relative to biotech peers.",
+      "position_size": "7%",
       "entry_price": 134.36,
-      "stop_loss": 121.0,
-      "target_12m": 158.0,
-      "risk_reward_ratio": 1.78,
-      "key_news": [
-        "GILD Stock Jumps After Winning Accelerated FDA Approval For HDV Treatment",
-        "Gilead Sciences completes Tubulis acquisition for $5bn"
-      ],
-      "thesis": "FDA accelerated HDV approval converts a binary risk into a confirmed revenue driver while Tubulis adds an antibody-drug conjugate platform that could become a $2B+ oncology segment by 2029; at fpe=14.0 and PEG=2.14, Gilead is meaningfully cheaper than its biotech peers with a cleaner catalyst stack.",
+      "stop_loss": 120.9,
+      "target_12m": 168.0,
+      "risk_reward_ratio": 2.49,
+      "thesis": "FDA HDV approval expands TAM beyond core HIV while Lenacapavir long-acting injectable pipeline sustains multi-year growth; valuation at FPE=14.0 is undemanding for a catalyst-rich franchise.",
       "thesis_invalidators": [
-        "FDA rescinds or restricts HDV accelerated approval following confirmatory trial failure",
-        "EMA/EU regulatory divergence blocks European HDV launch beyond 2027"
+        "FDA rejection or clinical hold on HDV",
+        "HIV pricing legislation (IRA expansion)",
+        "Pipeline safety signal on Lenacapavir"
       ],
-      "thesis_status": "new",
+      "thesis_status": "active — FDA approval confirmed, catalyst intact",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 3.8,
         "altman_zone": "safe",
         "piotroski": 8,
         "piotroski_strength": "strong",
-        "health_note": "Piotroski=8 and Altman safe zone confirm balance sheet strength capable of absorbing the $5B Tubulis acquisition without credit risk."
+        "health_note": "Strong FCF generation, low leverage, Piotroski=8 signals improving fundamentals"
       }
     },
     {
       "rank": 2,
-      "name": "SPDR Gold Shares",
-      "symbol": "GLD",
-      "sector": "Materials / Gold ETF",
-      "confidence": 8.0,
-      "risk_score": 2.5,
-      "risk_adjusted_score": 7.25,
+      "name": "PayPal Holdings",
+      "symbol": "PYPL",
+      "sector": "Fintech / Payments",
+      "confidence": 8.2,
+      "risk_score": 3.0,
+      "risk_adjusted_score": 7.7,
       "recommendation": "buy",
-      "reasoning": "MIXED regime confirmed, F&G=28 Fear, rising yields, and gold at record $4,510 make GLD the highest-conviction non-correlated ballast in the portfolio; previous active thesis at -1.1% with zero invalidators triggered.",
-      "position_size": "10%",
-      "entry_price": 413.82,
-      "stop_loss": 382.0,
-      "target_12m": 480.0,
-      "risk_reward_ratio": 2.08,
-      "key_news": [
-        "Gold confirmed at $4,510 — record level driven by central bank accumulation and inflation hedge demand",
-        "Rising 10Y yield at 4.558% has not suppressed gold, confirming structural demand shift"
-      ],
-      "thesis": "Goldo resilience at $4,510 despite rising real yields confirms a structural regime shift in central bank reserve allocation away from Treasuries; MIXED macro regime with VIX=16.7 and Fear at 28 historically produces the best gold risk-adjusted returns.",
+      "reasoning": "RSI=12 and FPE=7.7 with PEG=0.80 represent extreme technical and fundamental undervaluation; deep mean-reversion trade with defined risk above $40 support.",
+      "position_size": "6%",
+      "entry_price": 44.23,
+      "stop_loss": 39.8,
+      "target_12m": 62.0,
+      "risk_reward_ratio": 3.93,
+      "thesis": "PYPL trades at a 55% discount to fintech peer group on PEG basis; branded checkout monetization recovery and Venmo monetization represent underappreciated earnings drivers into 2027.",
       "thesis_invalidators": [
-        "Fed restarts rate hike cycle targeting >5.5%",
-        "Fear & Greed Index rises above 65"
+        "Accelerating market share loss to Apple Pay / Google Pay",
+        "Regulatory action on BNPL expansion",
+        "CFO-level guidance cut below consensus"
       ],
-      "thesis_status": "active",
+      "thesis_status": "active — no new negative catalysts; excl-oversold entry confirmed",
       "financial_health": {
         "altman_z": null,
-        "altman_zone": "N/A",
-        "piotroski": null,
-        "piotroski_strength": "N/A",
-        "health_note": "ETF structure — no balance sheet metrics applicable; backed by physical gold bullion."
+        "altman_zone": "N/A (financial sector model)",
+        "piotroski": 8,
+        "piotroski_strength": "strong",
+        "health_note": "Financial sector Z-score not applicable; Piotroski=8 indicates healthy cash flow and balance sheet metrics"
       }
     },
     {
       "rank": 3,
-      "name": "Palantir Technologies",
-      "symbol": "PLTR",
-      "sector": "AI / Defense Software",
-      "confidence": 8.0,
-      "risk_score": 4.5,
-      "risk_adjusted_score": 6.65,
+      "name": "Broadcom Inc.",
+      "symbol": "AVGO",
+      "sector": "Semiconductors",
+      "confidence": 8.2,
+      "risk_score": 2.8,
+      "risk_adjusted_score": 7.7,
       "recommendation": "buy",
-      "reasoning": "RSI=36 pullback to fair entry with $184 analyst target and active thesis intact at +1.6%; AIP is the only deployed enterprise AI platform with classified-clearance capability — a structural moat no competitor can replicate quickly.",
-      "position_size": "8%",
-      "entry_price": 136.88,
-      "stop_loss": 118.0,
-      "target_12m": 184.0,
-      "risk_reward_ratio": 2.49,
-      "key_news": [
-        "Salesforce, Other Software Stocks Are Scraping Themselves Off the Floor",
-        "Palo Alto Networks Is Beating Palantir by 60% This Year"
-      ],
-      "thesis": "PLTR's AIP platform operates in a category of one for classified-clearance enterprise AI deployments; RSI=36 consolidation provides a technically sound re-entry while the AI/defense spending cycle is structurally accelerating.",
+      "reasoning": "AI ASIC revenues accelerating with hyperscaler custom silicon deals provides multi-year visibility; PEG=0.90 is remarkably low for a secular AI beneficiary.",
+      "position_size": "7%",
+      "entry_price": 414.14,
+      "stop_loss": 364.0,
+      "target_12m": 520.0,
+      "risk_reward_ratio": 2.12,
+      "thesis": "AVGO is the dominant merchant AI ASIC designer for Google TPU and Meta MTIA — custom silicon is a $60B+ TAM growing >40% YoY; VMware integration margin expansion provides earnings floor.",
       "thesis_invalidators": [
-        "US government AI budget cuts exceed 20%",
-        "Commercial revenue growth decelerates below 30% YoY for two consecutive quarters"
+        "Hyperscaler in-house ASIC builds reducing AVGO share",
+        "VMware integration costs exceed guidance",
+        "Export control expansion to key Asian customers"
       ],
-      "thesis_status": "active",
+      "thesis_status": "new — AI ASIC revenue acceleration confirmed Q1",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 3.5,
         "altman_zone": "safe",
-        "piotroski": 7,
+        "piotroski": 8,
         "piotroski_strength": "strong",
-        "health_note": "Cash-rich, zero-debt balance sheet in safe Altman zone; Piotroski=7 strong supports the high fpe=66 premium."
+        "health_note": "Post-VMware leverage normalizing; FCF yield remains strong at >8%"
       }
     },
     {
       "rank": 4,
-      "name": "Newmont Corporation",
-      "symbol": "NEM",
-      "sector": "Materials / Gold Mining",
-      "confidence": 7.5,
-      "risk_score": 3.5,
-      "risk_adjusted_score": 6.45,
+      "name": "Regeneron Pharmaceuticals",
+      "symbol": "REGN",
+      "sector": "Biotechnology",
+      "confidence": 8.0,
+      "risk_score": 3.0,
+      "risk_adjusted_score": 7.4,
       "recommendation": "buy",
-      "reasoning": "Gold at $4,510 generates exceptional NEM margins and the buyback program is highly accretive at current prices; RSI=49 fair entry with $144 analyst target and Piotroski=9 maximum quality score.",
+      "reasoning": "RSI=31 oversold + FPE=11.9 / PEG=1.11 is historically undervalued for a best-in-class dupilumab/oncology platform; Dupixent pipeline expansions in COPD and alopecia areata provide 2026-27 growth catalysts.",
       "position_size": "5%",
-      "entry_price": 107.64,
-      "stop_loss": 95.0,
-      "target_12m": 144.0,
-      "risk_reward_ratio": 2.88,
-      "key_news": [
-        "Gina Rinehart Invests $97 Million in US Defense Stocks — gold sector capital flows remain elevated",
-        "Is Aura Minerals Positioned for Stronger GEO Growth in 2026?"
-      ],
-      "thesis": "At gold spot $4,510 versus NEM all-in sustaining costs of ~$1,400/oz, the company generates over $3,100/oz operating margin — among the highest in its history; the buyback program at $107 is materially accretive.",
+      "entry_price": 638.88,
+      "stop_loss": 575.0,
+      "target_12m": 800.0,
+      "risk_reward_ratio": 2.52,
+      "thesis": "Dupixent approaching $15B annualized revenue with 8+ new indications in late-stage trials; VEGF bispecific antibody Eylea HD lifecycle extension and oncology pipeline (Libtayo) provide diversified growth optionality.",
       "thesis_invalidators": [
-        "Gold spot falls below $3,800/oz sustained for 30+ consecutive days",
-        "Operational cost overruns drive AISC above $1,700/oz in two consecutive quarters"
+        "IRA drug price negotiation targeting Dupixent (post-2028 risk)",
+        "FDA rejection of COPD indication",
+        "Biosimilar Eylea erosion faster than modeled"
       ],
-      "thesis_status": "new",
+      "thesis_status": "updated — excl-oversold entry; oncology thesis intact",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 4.2,
         "altman_zone": "safe",
-        "piotroski": 9,
-        "piotroski_strength": "strong",
-        "health_note": "Maximum Piotroski=9 reflects exceptional financial quality; safe Altman zone."
+        "piotroski": 4,
+        "piotroski_strength": "moderate",
+        "health_note": "Piotroski=4 reflects R&D spend drag on near-term ROA metrics; balance sheet remains net-cash"
       }
     },
     {
       "rank": 5,
-      "name": "Broadcom Inc.",
-      "symbol": "AVGO",
-      "sector": "Semiconductors / AI Infrastructure",
-      "confidence": 7.5,
+      "name": "Taiwan Semiconductor",
+      "symbol": "TSM",
+      "sector": "Semiconductors",
+      "confidence": 7.8,
       "risk_score": 3.5,
-      "risk_adjusted_score": 6.45,
-      "recommendation": "buy",
-      "reasoning": "PEG=0.90 makes AVGO the best-valued AI infrastructure semiconductor at fair RSI=49 entry; custom ASIC demand from hyperscalers provides predictable revenue.",
-      "position_size": "8%",
-      "entry_price": 414.14,
-      "stop_loss": 370.0,
-      "target_12m": 480.0,
-      "risk_reward_ratio": 1.49,
-      "key_news": [
-        "A Once-in-a-Generation Opportunity: 5 AI Stocks Primed for Growth",
-        "Broadcom Rides on Accelerating Semiconductor Revenues"
-      ],
-      "thesis": "AVGO's custom AI ASIC partnerships with Google and Meta provide multi-year contracted visibility; PEG=0.90 is the lowest in the semiconductor group, making it the most attractive risk-adjusted entry in the AI infrastructure buildout.",
+      "risk_adjusted_score": 7.1,
+      "recommendation": "add",
+      "reasoning": "NVIDIA Q1 record earnings and semicap ETF surge confirm N3/N2 demand acceleration; geopolitical tail risk is the primary discount not a near-term catalyst.",
+      "position_size": "6%",
+      "entry_price": 404.52,
+      "stop_loss": 356.0,
+      "target_12m": 500.0,
+      "risk_reward_ratio": 1.98,
+      "thesis": "TSM's N2 node ramp in 2026 drives ASP expansion and share gains from Intel/Samsung; Arizona fab operationalization reduces geopolitical discount over 18-24 months.",
       "thesis_invalidators": [
-        "Top-2 AI chip customers reduce ASIC orders by more than 30%",
-        "VMware integration charges materially exceed guidance for two consecutive quarters"
+        "Taiwan Strait military escalation",
+        "NVIDIA/AMD major capacity shift to Samsung",
+        "US CHIPS Act compliance issues at Arizona fab"
       ],
-      "thesis_status": "new",
+      "thesis_status": "new — NVIDIA record Q1 confirms demand thesis",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 4.1,
         "altman_zone": "safe",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Piotroski=8 strong with safe Altman zone; elevated but manageable leverage from VMware acquisition."
+        "piotroski": 9,
+        "piotroski_strength": "very strong",
+        "health_note": "Exceptional Piotroski=9; world-class capex efficiency and ROIC>25%"
       }
     },
     {
       "rank": 6,
-      "name": "Taiwan Semiconductor",
-      "symbol": "TSM",
-      "sector": "Semiconductors / Advanced Foundry",
-      "confidence": 7.5,
-      "risk_score": 4.0,
-      "risk_adjusted_score": 6.3,
+      "name": "Newmont Corporation",
+      "symbol": "NEM",
+      "sector": "Gold Mining / Materials",
+      "confidence": 7.8,
+      "risk_score": 3.2,
+      "risk_adjusted_score": 7.0,
       "recommendation": "buy",
-      "reasoning": "NVIDIA record Q1 revenues directly confirm sustained N3/N2 wafer demand flowing to TSM; RSI=51 fair entry with strong buy $468 target and Piotroski=9.",
-      "position_size": "7%",
-      "entry_price": 404.52,
-      "stop_loss": 360.0,
-      "target_12m": 468.0,
-      "risk_reward_ratio": 1.43,
-      "key_news": [
-        "Buy These ETFs as NVIDIA Posts Record Q1 Revenues",
-        "SMH vs SOXX: Which Semiconductor ETF Should You Buy in 2026?"
-      ],
-      "thesis": "TSM's monopoly on sub-3nm node manufacturing makes it irreplaceable in the AI compute buildout; Arizona fab ramp reduces geopolitical risk premium while near-term demand from NVIDIA, Apple, and AMD remains at record levels.",
+      "reasoning": "Gold spot >$3,200 with rising geopolitical risk and yield uncertainty provides strong realized price tailwind; FPE=9.4 and active buyback program at this gold price is deeply discounted to NAV.",
+      "position_size": "6%",
+      "entry_price": 107.64,
+      "stop_loss": 96.9,
+      "target_12m": 138.0,
+      "risk_reward_ratio": 2.83,
+      "thesis": "NEM trades at a 35-40% discount to NAV at $3,200 gold with FCF yield >7%; buyback acceleration signals management confidence in cost structure normalization post-Newcrest integration.",
       "thesis_invalidators": [
-        "China military escalation triggers US sanctions forcing customer diversification",
-        "NVIDIA revenue guidance miss signals AI capex slowdown reducing wafer orders by >20%"
+        "Gold spot drops below $2,800 on USD strength/Fed pivot",
+        "Operational disruptions at Tanami or Peñasquito mines",
+        "Cost inflation re-acceleration exceeding gold price gains"
       ],
-      "thesis_status": "new",
+      "thesis_status": "new — gold momentum intact, buyback confirms thesis",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 3.6,
         "altman_zone": "safe",
         "piotroski": 9,
-        "piotroski_strength": "strong",
-        "health_note": "Maximum Piotroski=9; no US 10-K (ADR), balance sheet publicly confirmed strong."
+        "piotroski_strength": "very strong",
+        "health_note": "Piotroski=9 top-tier; FCF positive at current gold prices, improving balance sheet post-acquisition"
       }
     },
     {
       "rank": 7,
-      "name": "Regeneron Pharmaceuticals",
-      "symbol": "REGN",
-      "sector": "Healthcare / Biotech",
-      "confidence": 7.0,
-      "risk_score": 3.5,
-      "risk_adjusted_score": 5.95,
-      "recommendation": "buy",
-      "reasoning": "Updated thesis with Parabilis $2.32B oncology deal diversifies away from Dupixent dependence at RSI=31 near oversold; strong buy $833 target represents 30%+ upside.",
-      "position_size": "7%",
-      "entry_price": 638.88,
-      "stop_loss": 575.0,
-      "target_12m": 833.0,
-      "risk_reward_ratio": 3.04,
-      "key_news": [
-        "Jim Cramer on Regeneron: There Could Be Some More Downgrades",
-        "ATS 2026: Mixed results for Sanofi/Regeneron itepekimab COPD prospects"
-      ],
-      "thesis": "Parabilis acquisition replaces the invalidated melanoma thesis with next-generation antibody engineering; at fpe=11.9 with $2B+ annual FCF, REGN is materially undervalued versus biotech peers and RSI=31 provides a technically sound entry.",
+      "name": "Palantir Technologies",
+      "symbol": "PLTR",
+      "sector": "AI / Defense Technology",
+      "confidence": 7.5,
+      "risk_score": 4.5,
+      "risk_adjusted_score": 6.7,
+      "recommendation": "add",
+      "reasoning": "Trump endorsement and record AI government contract wins validate the AIP commercial + gov dual-track thesis; RSI=36 offers rare pullback entry in a momentum name.",
+      "position_size": "6%",
+      "entry_price": 136.88,
+      "stop_loss": 109.5,
+      "target_12m": 175.0,
+      "risk_reward_ratio": 1.39,
+      "thesis": "PLTR AIP platform is entrenching in both US DoD (Maven Smart System) and enterprise Fortune 500 — government contract backlog provides earnings visibility while commercial ARR is accelerating >40% YoY.",
       "thesis_invalidators": [
-        "Dupixent biosimilar receives FDA approval before 2028",
-        "Parabilis Phase 1 oncology milestone failure across two or more programs"
+        "Administration defense spending cuts or PLTR contract deselection",
+        "Commercial AIP churn exceeds 15% annually",
+        "PEG=1.97 compression if revenue growth decelerates below 30%"
       ],
-      "thesis_status": "updated",
+      "thesis_status": "active — gov contract momentum confirmed, RSI pullback creates add opportunity",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 3.9,
         "altman_zone": "safe",
-        "piotroski": 4,
-        "piotroski_strength": "neutral",
-        "health_note": "Safe Altman zone but Piotroski=4 neutral reflects near-term cash deployment from Parabilis acquisition; monitor FCF recovery."
+        "piotroski": 7,
+        "piotroski_strength": "strong",
+        "health_note": "Net cash balance sheet, no debt; Piotroski=7 reflects positive operating leverage trajectory"
       }
     },
     {
       "rank": 8,
-      "name": "Exxon Mobil",
-      "symbol": "XOM",
-      "sector": "Energy / Integrated Oil & Gas",
-      "confidence": 7.0,
-      "risk_score": 3.5,
-      "risk_adjusted_score": 5.95,
-      "recommendation": "buy",
-      "reasoning": "Brent confirmed at $103.94 with uptrend intact generates exceptional XOM cash flow supporting $35B+ buybacks; good RSI=53 entry with $168 analyst target.",
-      "position_size": "7%",
-      "entry_price": 154.92,
-      "stop_loss": 140.0,
-      "target_12m": 175.0,
-      "risk_reward_ratio": 1.35,
-      "key_news": [
-        "More Gas Per Barrel of Oil: A Growth Lever for Permian Operators",
-        "Egypt to ship Cypriot gas to Europe in QatarEnergy deal"
-      ],
-      "thesis": "At Brent $103.94, XOM generates FCF that exceeds its entire annual capex program; the Permian gas-per-barrel growth lever and European LNG demand via QatarEnergy deal add incremental revenue not priced into consensus.",
+      "name": "Walt Disney Company",
+      "symbol": "DIS",
+      "sector": "Entertainment / Media",
+      "confidence": 7.2,
+      "risk_score": 3.8,
+      "risk_adjusted_score": 6.6,
+      "recommendation": "add",
+      "reasoning": "Streaming profitability inflection with Disney+ reaching EBITDA positive + parks resilience make FPE=13.7 reasonable; Canada content rules are manageable near-term.",
+      "position_size": "5%",
+      "entry_price": 103.0,
+      "stop_loss": 92.7,
+      "target_12m": 128.0,
+      "risk_reward_ratio": 2.43,
+      "thesis": "DIS is in early innings of a streaming monetization cycle — ad-tier subscriber mix shift and password-sharing enforcement drive ARPU expansion; ESPN direct-to-consumer launch in 2025-26 is a significant underappreciated catalyst.",
       "thesis_invalidators": [
-        "Brent crude falls below $75/bbl sustained for 30+ consecutive days",
-        "Permian production guidance cut by more than 10%"
+        "Streaming ARPU growth stalls amid competition from Netflix/Amazon",
+        "Parks attendance decline in macro slowdown",
+        "Canada content regulation materially restricts Disney+ catalog"
       ],
-      "thesis_status": "new",
+      "thesis_status": "new — streaming recovery thesis intact; Canada rules manageable",
       "financial_health": {
-        "altman_z": null,
-        "altman_zone": "safe",
-        "piotroski": 5,
-        "piotroski_strength": "neutral",
-        "health_note": "Safe Altman zone with investment-grade balance sheet; Piotroski=5 neutral reflects commodity-cycle earnings variability."
+        "altman_z": 2.1,
+        "altman_zone": "gray",
+        "piotroski": 8,
+        "piotroski_strength": "strong",
+        "health_note": "Gray zone Z reflects legacy media debt load from Fox acquisition; Piotroski=8 shows operational improvement — monitor debt reduction cadence"
       }
     },
     {
       "rank": 9,
-      "name": "PayPal Holdings",
-      "symbol": "PYPL",
-      "sector": "Fintech / Digital Payments",
+      "name": "Amazon.com",
+      "symbol": "AMZN",
+      "sector": "E-Commerce / Cloud",
       "confidence": 7.0,
-      "risk_score": 4.0,
-      "risk_adjusted_score": 5.8,
-      "recommendation": "buy",
-      "reasoning": "RSI=12 extreme oversold combined with fpe=7.7 and PEG=0.80 represents one of the most historically asymmetric mean-reversion setups in large-cap fintech; Burry institutional accumulation provides a floor.",
-      "position_size": "6%",
-      "entry_price": 44.23,
-      "stop_loss": 38.0,
-      "target_12m": 53.0,
-      "risk_reward_ratio": 1.41,
-      "key_news": [
-        "American Express vs. PayPal: Which Fintech Stock Has More Upside?",
-        "Should You Forget PayPal and Buy Visa Instead?"
-      ],
-      "thesis": "At fpe=7.7 and PEG=0.80, PYPL trades at a 50%+ discount to comparable payments peers; RSI=12 indicates capitulation selling, not fundamental deterioration, and institutional accumulation by value managers confirms the market is pricing in an irrationally severe bear case.",
+      "risk_score": 3.2,
+      "risk_adjusted_score": 6.5,
+      "recommendation": "hold",
+      "reasoning": "AWS reacceleration and advertising segment margin expansion support FPE=27 at current growth rates; no near-term catalyst to add aggressively but thesis intact.",
+      "position_size": "5%",
+      "entry_price": 266.32,
+      "stop_loss": 234.0,
+      "target_12m": 325.0,
+      "risk_reward_ratio": 1.82,
+      "thesis": "AMZN is a 3-engine compounder (AWS, Ads, Retail margin) with Project Kuiper optionality; AI inference workloads on AWS Trainium2 create a competitive moat against Azure/GCP.",
       "thesis_invalidators": [
-        "Apple Pay BNPL market share acceleration beyond 15% of total checkout volume",
-        "Consumer credit delinquency spike prompts management to cut payment volume guidance"
+        "AWS growth decelerates below 15% YoY",
+        "Antitrust breakup of marketplace/logistics",
+        "Retail margin contraction from Temu/Shein competition"
       ],
-      "thesis_status": "active",
+      "thesis_status": "new — AWS + ads thesis active; no invalidators triggered",
       "financial_health": {
-        "altman_z": null,
-        "altman_zone": "N/A",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Financial company — Altman Z not applicable; Piotroski=8 strong confirms healthy operating fundamentals despite depressed stock price."
+        "altman_z": 3.7,
+        "altman_zone": "safe",
+        "piotroski": 5,
+        "piotroski_strength": "moderate",
+        "health_note": "Piotroski=5 reflects heavy capex cycle; FCF trajectory strongly positive on AWS margin expansion"
       }
     },
     {
       "rank": 10,
-      "name": "Amazon.com",
-      "symbol": "AMZN",
-      "sector": "E-Commerce / Cloud (AWS)",
-      "confidence": 6.5,
+      "name": "Exxon Mobil",
+      "symbol": "XOM",
+      "sector": "Energy",
+      "confidence": 6.8,
       "risk_score": 3.5,
-      "risk_adjusted_score": 5.45,
-      "recommendation": "buy",
-      "reasoning": "RSI=43 fair entry with strong buy $313 analyst target; AWS AI infrastructure momentum confirmed and Vuzix smart glasses integration signals ambient computing positioning.",
-      "position_size": "6%",
-      "entry_price": 266.32,
-      "stop_loss": 235.0,
-      "target_12m": 313.0,
+      "risk_adjusted_score": 6.1,
+      "recommendation": "hold",
+      "reasoning": "Brent elevated and Permian/Guyana volume growth support FPE=14.9; natural gas LNG export capacity coming online in 2026-27 provides medium-term upside.",
+      "position_size": "4%",
+      "entry_price": 154.92,
+      "stop_loss": 139.4,
+      "target_12m": 178.0,
       "risk_reward_ratio": 1.49,
-      "key_news": [
-        "Vuzix Will Begin Shipping Its New Smart Glasses to Amazon This Quarter",
-        "S&P 500 Posts Eighth Consecutive Weekly Gain"
-      ],
-      "thesis": "AWS's margin profile funds the entire Amazon enterprise while e-commerce margins recover post-restructuring; smart glasses integration positions AMZN in the ambient computing layer at a PEG=1.83 that undervalues AWS standalone growth rate.",
+      "thesis": "XOM's Pioneer acquisition fully integrated and synergy realization on track; LNG Canada and Golden Pass LNG provide 2026-28 volume/earnings step-up while $35/bbl breakeven provides downside protection.",
       "thesis_invalidators": [
-        "AWS revenue growth decelerates below 15% for two consecutive quarters",
-        "FTC antitrust action forces marketplace structural separation"
+        "Brent drops below $65/bbl on demand destruction",
+        "Pioneer integration cost overruns",
+        "Accelerated energy transition policy (carbon tax)"
       ],
-      "thesis_status": "new",
+      "thesis_status": "new — neutral news, energy thesis holds at current Brent levels",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 3.4,
         "altman_zone": "safe",
         "piotroski": 5,
-        "piotroski_strength": "neutral",
-        "health_note": "Safe Altman zone with strong and accelerating FCF; Piotroski=5 neutral reflects reinvestment-cycle suppression of near-term profit metrics."
+        "piotroski_strength": "moderate",
+        "health_note": "Strong FCF yield ~6%; Piotroski=5 reflects commodity cycle working capital volatility, not structural weakness"
       }
     },
     {
       "rank": 11,
       "name": "Mastercard",
       "symbol": "MA",
-      "sector": "Fintech / Payment Network",
+      "sector": "Payments Network",
       "confidence": 6.5,
-      "risk_score": 4.0,
-      "risk_adjusted_score": 5.3,
-      "recommendation": "buy",
-      "reasoning": "Good RSI=45 entry with strong buy $647 analyst target representing 30%+ upside; JD.com Asia-Pacific partnership thesis intact despite regulatory headline noise.",
-      "position_size": "5%",
+      "risk_score": 3.8,
+      "risk_adjusted_score": 5.9,
+      "recommendation": "hold",
+      "reasoning": "Network effects and cross-border volume recovery are durable but European/UK regulatory headwinds on interchange fees create near-term multiple compression risk — hold, do not add.",
+      "position_size": "4%",
       "entry_price": 498.54,
-      "stop_loss": 450.0,
-      "target_12m": 647.0,
-      "risk_reward_ratio": 3.06,
-      "key_news": [
-        "Market Chatter: Mastercard Asks Brazil Payment Processors to Help Pay for Banco Master",
-        "Should Visa & Mastercard Investors Worry About UK & Europe Moves?"
-      ],
-      "thesis": "Mastercard's JD.com Asia-Pacific partnership unlocks access to the world's largest e-commerce payment flow at a moment when digital payment penetration in Asia is structurally accelerating; RSI=45 consolidation provides a clean entry.",
+      "stop_loss": 448.0,
+      "target_12m": 580.0,
+      "risk_reward_ratio": 1.6,
+      "thesis": "MA's two-sided network is near-impossible to replicate; FX-neutral revenue growth ~14% driven by cross-border recovery and emerging market penetration; regulatory risk is manageable long-term but near-term overhang.",
       "thesis_invalidators": [
-        "US consumer credit delinquency rises above 3.5%",
-        "Brazil and UK regulatory actions mandate interchange fee caps"
+        "EU interchange fee cap expanded to Mastercard network",
+        "UK PSR interchange ruling adverse beyond estimates",
+        "Real-time payment rails (FedNow/Pix) accelerating displacement"
       ],
-      "thesis_status": "active",
+      "thesis_status": "active — regulatory headwinds bearish flag; downgrade from add to hold",
       "financial_health": {
         "altman_z": null,
-        "altman_zone": "N/A",
+        "altman_zone": "N/A (financial sector model)",
         "piotroski": 8,
         "piotroski_strength": "strong",
-        "health_note": "Financial company — Altman Z not applicable; Piotroski=8 strong reflects consistent earnings quality and disciplined capital returns."
+        "health_note": "Financial sector Z not applicable; Piotroski=8, asset-light model with 45%+ net margins"
       }
     },
     {
       "rank": 12,
-      "name": "The Walt Disney Company",
-      "symbol": "DIS",
-      "sector": "Streaming / Entertainment",
-      "confidence": 6.5,
-      "risk_score": 4.0,
-      "risk_adjusted_score": 5.3,
-      "recommendation": "buy",
-      "reasoning": "Good RSI=53 entry with strong buy $129 target; Canada 15% streaming content mandate structurally favors IP-rich platforms like Disney+ over pure-play streamers.",
-      "position_size": "5%",
-      "entry_price": 103.0,
-      "stop_loss": 90.0,
-      "target_12m": 129.0,
-      "risk_reward_ratio": 2.0,
-      "key_news": [
-        "Canada Raises Streaming Content Requirement to 15% for Netflix, Disney, Amazon",
-        "Dow Jones Futures: Stock Market Rebounds To Highs"
-      ],
-      "thesis": "Disney's dual-revenue model of Parks + Streaming is structurally recovering while regulatory content mandates in Canada and Europe favor IP-rich platforms; at fpe=13.7, the stock is meaningfully below historical multiples with Parks segment optionality not fully priced in.",
+      "name": "Salesforce",
+      "symbol": "CRM",
+      "sector": "Enterprise SaaS",
+      "confidence": 5.8,
+      "risk_score": 4.5,
+      "risk_adjusted_score": 5.2,
+      "recommendation": "hold",
+      "reasoning": "pnl=-23.9% near stop but Agentforce early traction and FPE=12.0/PEG=0.98 argue against capitulating at the low — hold with tight stop, no new capital added.",
+      "position_size": "3%",
+      "entry_price": 180.07,
+      "stop_loss": 162.0,
+      "target_12m": 225.0,
+      "risk_reward_ratio": 2.49,
+      "thesis": "Agentforce AI agent platform represents a $50B+ TAM opportunity that could re-rate CRM from a mature SaaS multiple to AI-growth multiple; FPE=12 provides floor but AI rotation risk is real.",
       "thesis_invalidators": [
-        "Streaming subscriber growth misses below 3% QoQ for two consecutive quarters",
-        "Global economic slowdown drives Parks segment revenue decline greater than 15%"
+        "Agentforce adoption metrics miss at Dreamforce 2026",
+        "AI trade rotation accelerates outflows from legacy SaaS",
+        "pnl breaches -25% stop — execute stop-loss discipline"
       ],
-      "thesis_status": "new",
+      "thesis_status": "new — near stop; hold pending Agentforce adoption data; ALERT: stop at $162",
       "financial_health": {
-        "altman_z": null,
+        "altman_z": 2.4,
         "altman_zone": "gray",
-        "piotroski": 8,
+        "piotroski": 7,
         "piotroski_strength": "strong",
-        "health_note": "Gray Altman zone reflects elevated leverage from content and Parks capex; Piotroski=8 strong mitigates concern."
+        "health_note": "Gray zone Z reflects acquisition-heavy balance sheet (Slack, Tableau); Piotroski=7 shows solid operating metrics"
       }
     },
     {
       "rank": 13,
-      "name": "Salesforce",
-      "symbol": "CRM",
-      "sector": "SaaS / Enterprise AI",
-      "confidence": 6.5,
-      "risk_score": 4.5,
-      "risk_adjusted_score": 5.15,
-      "recommendation": "buy",
-      "reasoning": "PEG=0.96 offers enterprise AI growth at an attractive price with earnings catalyst in ~5 days; Agentforce platform positions CRM ahead of the enterprise AI automation wave.",
-      "position_size": "5%",
-      "entry_price": 180.07,
-      "stop_loss": 158.0,
-      "target_12m": 262.0,
-      "risk_reward_ratio": 3.71,
-      "key_news": [
-        "AI trade: Investors may want to look outside infrastructure, Nvidia",
-        "S&P 500 Posts Eighth Consecutive Weekly Gain"
-      ],
-      "thesis": "Agentforce positions Salesforce to monetize the enterprise AI automation cycle at scale across its 150,000+ customer base; PEG=0.96 means current AI monetization optionality is essentially free relative to base CRM business growth.",
+      "name": "Fortinet",
+      "symbol": "FTNT",
+      "sector": "Cybersecurity",
+      "confidence": 5.0,
+      "risk_score": 5.5,
+      "risk_adjusted_score": 4.2,
+      "recommendation": "trim",
+      "reasoning": "RSI=87 is severely overbought — trim 30-40% of position to lock gains and reset entry for potential re-add on RSI normalization to 50-60.",
+      "position_size": "2%",
+      "entry_price": null,
+      "stop_loss": null,
+      "target_12m": null,
+      "risk_reward_ratio": null,
+      "thesis": "FTNT cybersecurity platform thesis remains intact long-term but technical exhaustion at RSI=87 historically precedes 10-15% mean-reversion pullbacks; reduce exposure and re-enter on weakness.",
       "thesis_invalidators": [
-        "Agentforce fails to accelerate total revenue growth above 10% YoY",
-        "Enterprise AI spending shifts to point-solution competitors"
+        "Major cyber incident driving sector re-rating upward",
+        "Competitor breach validating FTNT moat"
       ],
-      "thesis_status": "new",
+      "thesis_status": "active — overbought signal; trim action required",
       "financial_health": {
-        "altman_z": null,
-        "altman_zone": "gray",
+        "altman_z": 3.2,
+        "altman_zone": "safe",
         "piotroski": 7,
         "piotroski_strength": "strong",
-        "health_note": "Gray Altman zone reflects M&A-heavy balance sheet; Piotroski=7 strong confirms operating fundamentals healthy."
+        "health_note": "Healthy FCF and strong retention metrics; trim is tactical not fundamental"
       }
+    }
+  ],
+  "priority_attention": [
+    {
+      "symbol": "SOFI",
+      "reason": "Altman Z=0.34 deep distress zone + Piotroski=2 weak — dual confirmation of financial fragility",
+      "action": "SELL / exit position — distress signals confirmed, outside moderate risk mandate"
+    },
+    {
+      "symbol": "BABA",
+      "reason": "Altman Z=1.79 distress + geopolitical ADR delisting risk + Chinese regulatory overhang",
+      "action": "TRIM or EXIT — reduce to 0-1% maximum; monitor delisting risk"
+    },
+    {
+      "symbol": "NU",
+      "reason": "Altman Z=0.82 distress + bearish news — Brazilian fintech faces credit cycle headwinds",
+      "action": "TRIM to minimal position — Z=0.82 distress; await credit quality improvement"
+    },
+    {
+      "symbol": "OXY",
+      "reason": "Altman Z=1.52 distress — CrownRock leverage elevated; Brent below $70 would stress FCF",
+      "action": "HOLD with STOP — exit if Brent drops below $70 sustained"
+    },
+    {
+      "symbol": "BA",
+      "reason": "Altman Z=1.56 distress — 737 MAX delays, DOJ compliance, negative FCF through 2026",
+      "action": "HOLD minimum position only — await FCF positive quarter"
+    },
+    {
+      "symbol": "RIVN",
+      "reason": "Altman Z=-1.51 deep distress (negative Z) — severe cash burn without profitability path",
+      "action": "EXIT — negative Z is critical flag; outside moderate risk mandate"
+    },
+    {
+      "symbol": "AAL",
+      "reason": "Altman Z=0.67 distress — post-COVID balance sheet stressed; fuel/labor headwinds",
+      "action": "EXIT or TRIM to 0% — no near-term catalyst; airline cycle risk elevated"
+    },
+    {
+      "symbol": "C",
+      "reason": "Altman Z=0.20 extreme distress — Citigroup transformation still in progress",
+      "action": "HOLD with caution — monitor Tier 1 capital ratio; no add"
+    },
+    {
+      "symbol": "BIDU",
+      "reason": "Altman Z=1.26 distress + Piotroski=2 weak + ADR geopolitical risk — triple flag",
+      "action": "EXIT — trifecta of distress+weak fundamentals+geopolitical exceeds moderate threshold"
+    },
+    {
+      "symbol": "NVO",
+      "reason": "pnl=-31.6% near stop + bearish news — GLP-1 competitive pressure eroding Ozempic/Wegovy moat",
+      "action": "EXECUTE STOP-LOSS — thesis broken by competitive pipeline; exit and reassess in 90 days"
+    },
+    {
+      "symbol": "CRM",
+      "reason": "pnl=-23.9% approaching -25% stop threshold — Agentforce ramp uncertainty",
+      "action": "STOP at $162 — pre-set stop-loss; if triggered, exit without hesitation"
+    },
+    {
+      "symbol": "FTNT",
+      "reason": "RSI=87 severe overbought — technical exhaustion signal",
+      "action": "TRIM 30-40% immediately — lock partial gains; re-entry at RSI 50-60"
     }
   ],
   "historical_accuracy": {
@@ -490,19 +518,28 @@
       "beat_spy": 0,
       "alpha_avg_pct": null
     },
-    "notable": "1d: 50% (7/11 beat SPY) | 5d: 70% | 30d: 60%. Phase 0: 10/11 theses ACTIVE. OXY +26.9% thesis ACTIVE (Brent $103.94 > $60 invalidator cleared). NFLX -91.7% flagged as DATA ANOMALY (likely 12:1 split). WFC, MELI, PLTR, MA, AMGN, PYPL, GLD, BAC all active with zero invalidators triggered. REGN UPDATED (Parabilis deal intact)."
+    "notable": "1d:50%(7/11 beat SPY,2026-05-20)|5d:70%(7/11,2026-05-14)|30d:60%(0/12,2026-04-17). Phase 0: GILD FDA catalyst confirmed; PLTR gov contracts validated; NEM gold>$3,200 confirms timing; AVGO AI ASIC beat consensus; REGN oversold entry pending; PYPL RSI=12 extreme oversold; CRM near stop — thesis at risk; FTNT RSI=87 overbought — trim signal active. 30d all picks underperformed SPY — avoid momentum-chasing at SPY RSI>70."
   },
   "warnings": [
-    "SPY RSI=71.1 technically overbought — scale into all new positions over 2-3 sessions; avoid full-size same-day entries until SPY RSI recedes below 65",
-    "CRM earnings in ~5 days (earn_d=+5) — binary catalyst; hold at 5% max position and resize post-earnings; do not add ahead of print",
-    "Rising 10Y yield at 4.558% trending higher — PLTR (fpe=66) and AVGO (fpe=22.7) most exposed to a yield spike above 4.75%; set yield alert",
-    "NFLX price data anomaly detected (1062.50 → 88.60, -91.7%) — ratio of ~12x strongly suggests a 12:1 stock split; verify split-adjusted cost basis before any re-entry or tracking",
-    "Gold at record $4,510 and GLD+NEM at 15% combined allocation introduces materials concentration; if gold mean-reverts sharply (>10% drawdown), rebalance NEM first as the levered vehicle"
+    "SOFI: Altman Z=0.34 deep distress + Piotroski=2 — dual confirmed distress; RECOMMENDED EXIT",
+    "BABA: Altman Z=1.79 distress + ADR delisting risk + Chinese regulatory overhang — TRIM/EXIT recommended",
+    "NU: Altman Z=0.82 distress + bearish news — Brazilian consumer credit cycle deteriorating; TRIM recommended",
+    "OXY: Altman Z=1.52 distress — CrownRock leverage elevated; FCF covenant stress if Brent <$70; HOLD with stop",
+    "BA: Altman Z=1.56 distress — 737 MAX delays + DOJ compliance + negative FCF; HOLD minimum only",
+    "RIVN: Altman Z=-1.51 CRITICAL distress (negative Z) — severe cash burn; EXIT recommended",
+    "AAL: Altman Z=0.67 distress — stressed balance sheet + fuel/labor headwinds; EXIT recommended",
+    "C: Altman Z=0.20 extreme distress (financial model) — monitor Tier 1 capital; HOLD with caution, no add",
+    "BIDU: Altman Z=1.26 distress + Piotroski=2 weak + ADR geopolitical — triple flag; EXIT recommended",
+    "NVO: pnl=-31.6% near stop + bearish competitive news (oral GLP-1 competition) — EXECUTE STOP-LOSS",
+    "FTNT: RSI=87 severe overbought — TRIM 30-40% immediately to lock gains",
+    "CRM: pnl=-23.9% approaching -25% stop — PRE-SET STOP at $162; Agentforce thesis uncertain",
+    "SPY RSI=71.1 OVERBOUGHT: Elevated cash buffer (15%) warranted; prioritize oversold quality entries (PYPL RSI=12, REGN RSI=31)",
+    "CORRELATION LIMITS ACTIVE: payments[PYPL+MA]=2/2 at limit; big_tech[PLTR+AMZN]=2/2 at limit; healthcare[REGN+GILD]=2/2 at limit; semis[TSM+AVGO]=2/2 at limit — NO additional names in any group"
   ],
   "sectors": {
     "stocks": {
       "sector": "stocks",
-      "timestamp": "2026-05-23T01:44:42Z",
+      "timestamp": "2026-05-23T05:22:31Z",
       "sector_summary": "US equities screened from the 31-candidate universe. Regime: MIXED. VIX=16.7, Fear&Greed=28 (Fear). SPY RSI=0 — oversold — index dip opportunity. Top entry opportunities by RSI oversold + fundamental quality shown below.",
       "sector_outlook": "neutral",
       "top_pick": "PYPL",
@@ -547,7 +584,7 @@
           "valuation": {
             "pe": null,
             "forward_pe": 7.6565,
-            "peg": 0.7968,
+            "peg": 0.7971,
             "ev_ebitda": null,
             "verdict": "PEG=0.80"
           },
@@ -578,8 +615,8 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Palo Alto Networks Is Beating Palantir by 60% This Year. Is a Rebalancing Immine",
-            "Salesforce, Other Software Stocks Are Scraping Themselves Off the Floor"
+            "Trump Praises Palantir (PLTR) on Truth Social after Buying the Company’s Stock, ",
+            "Palo Alto Networks Is Beating Palantir by 60% This Year. Is a Rebalancing Immine"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -598,9 +635,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 65.9892,
-            "peg": 1.9773,
+            "peg": 1.9696,
             "ev_ebitda": null,
-            "verdict": "PEG=1.98"
+            "verdict": "PEG=1.97"
           },
           "fundamentals": {
             "revenue_growth": "84.7%",
@@ -649,9 +686,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 11.8819,
-            "peg": 1.1187,
+            "peg": 1.1123,
             "ev_ebitda": null,
-            "verdict": "PEG=1.12"
+            "verdict": "PEG=1.11"
           },
           "fundamentals": {
             "revenue_growth": "19.0%",
@@ -700,9 +737,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 20.7268,
-            "peg": 1.2757,
+            "peg": 1.2619,
             "ev_ebitda": null,
-            "verdict": "PEG=1.28"
+            "verdict": "PEG=1.26"
           },
           "fundamentals": {
             "revenue_growth": "35.1%",
@@ -725,8 +762,8 @@
           "week_52_low": "$231.92",
           "market_cap": "N/A",
           "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
+          "sentiment": "bullish",
+          "social_sentiment": "bullish",
           "social_buzz": "medium",
           "confidence": 7,
           "source_agreement": "high",
@@ -751,7 +788,7 @@
           "valuation": {
             "pe": null,
             "forward_pe": 22.6814,
-            "peg": 0.9019,
+            "peg": 0.901,
             "ev_ebitda": null,
             "verdict": "PEG=0.90"
           },
@@ -834,7 +871,7 @@
           "source_agreement": "high",
           "key_news": [
             "Maybe investors can wait to buy SpaceX after IPO: Lee Munson",
-            "Bank of America resets Google stock forecast after key event"
+            "Alphabet’s Missouri Data Center Push Recasts AI Growth And Risk Story"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -853,9 +890,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 26.5006,
-            "peg": 1.5263,
+            "peg": 1.5079,
             "ev_ebitda": null,
-            "verdict": "PEG=1.53"
+            "verdict": "PEG=1.51"
           },
           "fundamentals": {
             "revenue_growth": "21.8%",
@@ -904,7 +941,7 @@
           "valuation": {
             "pe": null,
             "forward_pe": 21.8999,
-            "peg": 1.5946,
+            "peg": 1.5911,
             "ev_ebitda": null,
             "verdict": "PEG=1.59"
           },
@@ -936,7 +973,7 @@
           "source_agreement": "high",
           "key_news": [
             "Maybe investors can wait to buy SpaceX after IPO: Lee Munson",
-            "Vuzix (VUZI) Will Begin Shipping Its New Smart Glasses to Amazon This Quarter"
+            "In India, You Can Get Milk Delivered Faster Than It Takes to Make Coffee"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -980,8 +1017,8 @@
           "week_52_low": "$167.74",
           "market_cap": "N/A",
           "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
+          "sentiment": "bearish",
+          "social_sentiment": "bearish",
           "social_buzz": "medium",
           "confidence": 7,
           "source_agreement": "high",
@@ -1006,9 +1043,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 12.0301,
-            "peg": 0.9566,
+            "peg": 0.977,
             "ev_ebitda": null,
-            "verdict": "PEG=0.96"
+            "verdict": "PEG=0.98"
           },
           "fundamentals": {
             "revenue_growth": "12.1%",
@@ -1031,14 +1068,14 @@
           "week_52_low": "$816.45",
           "market_cap": "N/A",
           "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
           "social_buzz": "medium",
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "SMH vs SOXX: Which Semiconductor ETF Should You Buy in 2026?",
-            "Dow Jones Futures: Stock Market Rebounds To Highs; Tesla, These Five AI Plays Ar"
+            "Dow Jones Futures: Stock Market Rebounds To Highs; Tesla, These Five AI Plays Ar",
+            "SMH vs SOXX: Which Semiconductor ETF Should You Buy in 2026?"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -1057,65 +1094,14 @@
           "valuation": {
             "pe": null,
             "forward_pe": 34.3287,
-            "peg": 2.393,
+            "peg": 2.4507,
             "ev_ebitda": null,
-            "verdict": "PEG=2.39"
+            "verdict": "PEG=2.45"
           },
           "fundamentals": {
             "revenue_growth": "13.2%",
             "gross_margin": "N/A",
             "fcf_margin": "24.5%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Microsoft",
-          "symbol": "MSFT",
-          "watchlist": "big_tech",
-          "current_price": "$418.57",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$490.35",
-          "week_52_low": "$346.79",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "AI trade: Investors may want to look outside infrastructure, Nvidia",
-            "SpaceX, OpenAI, Anthropic: Investors are 'better off' waiting for IPOs"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 55.1,
-            "macd": "N/A",
-            "key_support": 346.79,
-            "key_resistance": 490.35,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 21.6453,
-            "peg": 1.292,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.29"
-          },
-          "fundamentals": {
-            "revenue_growth": "18.3%",
-            "gross_margin": "N/A",
-            "fcf_margin": "11.6%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
@@ -1159,14 +1145,65 @@
           "valuation": {
             "pe": null,
             "forward_pe": 13.7434,
-            "peg": 2.6259,
+            "peg": 2.6112,
             "ev_ebitda": null,
-            "verdict": "PEG=2.63"
+            "verdict": "PEG=2.61"
           },
           "fundamentals": {
             "revenue_growth": "6.5%",
             "gross_margin": "N/A",
             "fcf_margin": "3.9%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Microsoft",
+          "symbol": "MSFT",
+          "watchlist": "big_tech",
+          "current_price": "$418.57",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$490.35",
+          "week_52_low": "$346.79",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "AI trade: Investors may want to look outside infrastructure, Nvidia",
+            "SpaceX, OpenAI, Anthropic: Investors are 'better off' waiting for IPOs"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 55.1,
+            "macd": "N/A",
+            "key_support": 346.79,
+            "key_resistance": 490.35,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 21.6453,
+            "peg": 1.2904,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.29"
+          },
+          "fundamentals": {
+            "revenue_growth": "18.3%",
+            "gross_margin": "N/A",
+            "fcf_margin": "11.6%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
@@ -1210,9 +1247,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 26.7998,
-            "peg": 1.4503,
+            "peg": 1.4666,
             "ev_ebitda": null,
-            "verdict": "PEG=1.45"
+            "verdict": "PEG=1.47"
           },
           "fundamentals": {
             "revenue_growth": "11.4%",
@@ -1261,9 +1298,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 22.1454,
-            "peg": 1.73,
+            "peg": 1.7078,
             "ev_ebitda": null,
-            "verdict": "PEG=1.73"
+            "verdict": "PEG=1.71"
           },
           "fundamentals": {
             "revenue_growth": "17.1%",
@@ -1312,9 +1349,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 10.9442,
-            "peg": 0.7745,
+            "peg": 0.7492,
             "ev_ebitda": null,
-            "verdict": "PEG=0.77"
+            "verdict": "PEG=0.75"
           },
           "fundamentals": {
             "revenue_growth": "43.7%",
@@ -1363,7 +1400,7 @@
           "valuation": {
             "pe": null,
             "forward_pe": 15.7277,
-            "peg": 1.9912,
+            "peg": 1.9901,
             "ev_ebitda": null,
             "verdict": "PEG=1.99"
           },
@@ -1413,10 +1450,10 @@
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 10.2735,
-            "peg": 0.9204,
+            "forward_pe": 10.2585,
+            "peg": 0.9259,
             "ev_ebitda": null,
-            "verdict": "PEG=0.92"
+            "verdict": "PEG=0.93"
           },
           "fundamentals": {
             "revenue_growth": "8.1%",
@@ -1465,9 +1502,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 17.0279,
-            "peg": 0.6967,
+            "peg": 0.6635,
             "ev_ebitda": null,
-            "verdict": "PEG=0.70"
+            "verdict": "PEG=0.66"
           },
           "fundamentals": {
             "revenue_growth": "85.2%",
@@ -1515,10 +1552,10 @@
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 19.4226,
-            "peg": 1.8101,
+            "forward_pe": 19.4307,
+            "peg": 1.7651,
             "ev_ebitda": null,
-            "verdict": "PEG=1.81"
+            "verdict": "PEG=1.77"
           },
           "fundamentals": {
             "revenue_growth": "4.8%",
@@ -1567,9 +1604,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 20.3206,
-            "peg": 0.9672,
+            "peg": 0.9908,
             "ev_ebitda": null,
-            "verdict": "PEG=0.97"
+            "verdict": "PEG=0.99"
           },
           "fundamentals": {
             "revenue_growth": "22.1%",
@@ -1618,9 +1655,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 169.7461,
-            "peg": 5.7535,
+            "peg": 5.8659,
             "ev_ebitda": null,
-            "verdict": "PEG=5.75"
+            "verdict": "PEG=5.87"
           },
           "fundamentals": {
             "revenue_growth": "15.8%",
@@ -1669,65 +1706,14 @@
           "valuation": {
             "pe": null,
             "forward_pe": 14.4524,
-            "peg": 2.2301,
+            "peg": 2.2426,
             "ev_ebitda": null,
-            "verdict": "PEG=2.23"
+            "verdict": "PEG=2.24"
           },
           "fundamentals": {
             "revenue_growth": "5.8%",
             "gross_margin": "N/A",
             "fcf_margin": "20.0%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "MercadoLibre",
-          "symbol": "MELI",
-          "watchlist": "ecommerce_global",
-          "current_price": "$1664.42",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$1755.96",
-          "week_52_low": "$1572.88",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 38.7,
-            "macd": "N/A",
-            "key_support": 1572.88,
-            "key_resistance": 1755.96,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 28.1282,
-            "peg": 1.0342,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.03"
-          },
-          "fundamentals": {
-            "revenue_growth": "49.0%",
-            "gross_margin": "N/A",
-            "fcf_margin": "-12.9%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
@@ -1771,7 +1757,7 @@
           "valuation": {
             "pe": null,
             "forward_pe": 13.2904,
-            "peg": 0.5913,
+            "peg": 0.5946,
             "ev_ebitda": null,
             "verdict": "PEG=0.59"
           },
@@ -1779,6 +1765,57 @@
             "revenue_growth": "12.4%",
             "gross_margin": "N/A",
             "fcf_margin": "33.1%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "MercadoLibre",
+          "symbol": "MELI",
+          "watchlist": "ecommerce_global",
+          "current_price": "$1664.42",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$1755.96",
+          "week_52_low": "$1572.88",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 38.7,
+            "macd": "N/A",
+            "key_support": 1572.88,
+            "key_resistance": 1755.96,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 28.1282,
+            "peg": 1.0259,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.03"
+          },
+          "fundamentals": {
+            "revenue_growth": "49.0%",
+            "gross_margin": "N/A",
+            "fcf_margin": "-12.9%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
@@ -1822,9 +1859,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 34.0674,
-            "peg": 1.7522,
+            "peg": 1.7351,
             "ev_ebitda": null,
-            "verdict": "PEG=1.75"
+            "verdict": "PEG=1.74"
           },
           "fundamentals": {
             "revenue_growth": "8.8%",
@@ -1872,10 +1909,10 @@
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 9.723,
-            "peg": 1.348,
+            "forward_pe": 9.672,
+            "peg": 1.3565,
             "ev_ebitda": null,
-            "verdict": "PEG=1.35"
+            "verdict": "PEG=1.36"
           },
           "fundamentals": {
             "revenue_growth": "5.7%",
@@ -1924,9 +1961,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 18.4374,
-            "peg": 3.0118,
+            "peg": 3.0457,
             "ev_ebitda": null,
-            "verdict": "PEG=3.01"
+            "verdict": "PEG=3.05"
           },
           "fundamentals": {
             "revenue_growth": "9.9%",
@@ -1974,10 +2011,10 @@
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 13.0181,
-            "peg": 1.6084,
+            "forward_pe": 13.0088,
+            "peg": 1.6264,
             "ev_ebitda": null,
-            "verdict": "PEG=1.61"
+            "verdict": "PEG=1.63"
           },
           "fundamentals": {
             "revenue_growth": "12.7%",
@@ -2025,8 +2062,8 @@
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 10.01,
-            "peg": 0.6962,
+            "forward_pe": 9.9838,
+            "peg": 0.6955,
             "ev_ebitda": null,
             "verdict": "PEG=0.70"
           },
@@ -2077,9 +2114,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 17.6931,
-            "peg": 1.35,
+            "peg": 1.3618,
             "ev_ebitda": null,
-            "verdict": "PEG=1.35"
+            "verdict": "PEG=1.36"
           },
           "fundamentals": {
             "revenue_growth": "27.0%",
@@ -2093,7 +2130,7 @@
     },
     "materials": {
       "sector": "materials",
-      "timestamp": "2026-05-23T01:44:42Z",
+      "timestamp": "2026-05-23T05:22:31Z",
       "sector_summary": "Commodities and materials equities screened from the pre-fetch universe. Gold/energy/base-metals candidates with RSI and valuation data from yfinance. Regime: MIXED. Macro signal: mixed regime — sector-selective approach recommended.",
       "sector_outlook": "neutral",
       "top_pick": "NEM",
@@ -2189,7 +2226,7 @@
           "valuation": {
             "pe": null,
             "forward_pe": 14.865,
-            "peg": 1.4341,
+            "peg": 1.4307,
             "ev_ebitda": null,
             "verdict": "PEG=1.43"
           },
@@ -2240,9 +2277,9 @@
           "valuation": {
             "pe": null,
             "forward_pe": 16.6266,
-            "peg": 4.196,
+            "peg": 4.1744,
             "ev_ebitda": null,
-            "verdict": "PEG=4.20"
+            "verdict": "PEG=4.17"
           },
           "fundamentals": {
             "revenue_growth": "8.8%",
