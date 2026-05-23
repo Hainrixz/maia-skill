@@ -32,156 +32,20 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 
-# ─── Watchlists ───────────────────────────────────────────────────────────────
-# DEFAULT_TICKERS is the full "all" watchlist — pre_fetch covers the entire
-# universe by default so the Stocks Agent always has a pre-screened candidate
-# list and never needs web searches for technicals.
-# Run with individual tickers or --watchlist <name> to narrow the scope.
-
-_CORE = [
-    "NVDA", "AMD", "TSM", "AMZN", "MSFT", "AAPL",
-    "GOOGL", "META", "AVGO", "BAC", "JPM", "PLTR",
-    "TSLA", "NFLX", "KMI",
-]
-
-# Named watchlists — use with: python3 tools/pre_fetch.py --watchlist <name>
-# Multiple names allowed: python3 tools/pre_fetch.py --watchlist tech financials
-# Individual tickers still work: python3 tools/pre_fetch.py INTC COIN GLD
-WATCHLISTS = {
-    # Core 15
-    "default": _CORE,
-
-    # Extended tech: adds semiconductors, SaaS, and recently discovered high-momentum names
-    "tech": [
-        "NVDA", "AMD", "TSM", "INTC", "QCOM", "ARM",
-        "MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM",
-        "AVGO", "AMAT", "ASML", "ASLM",
-        "PLTR", "SNOW", "CRM", "NOW", "PANW",
-        "NFLX", "TSLA", "RIVN", "SONY",
-    ],
-
-    # Financials: banks, payment networks, asset managers, fintech
-    "financials": [
-        "JPM", "BAC", "GS", "MS", "WFC", "C",
-        "V", "MA", "PYPL",
-        "BLK", "BX",
-        "NU", "SOFI",
-    ],
-
-    # Consumer: entertainment, retail, restaurants, global ecommerce
-    "consumer": [
-        "DIS", "NFLX",
-        "HD", "SBUX",
-        "BABA", "MELI",
-    ],
-
-    # Consumer staples: defensive, lower-beta names that reduce tech concentration
-    "staples": [
-        "WMT", "COST", "PG", "KO", "PEP",
-    ],
-
-    # Industrials / logistics / aerospace
-    "industrials": [
-        "CAT", "HON", "UPS", "BA",
-    ],
-
-    # Telecom / communications
-    "telecom": [
-        "T", "VZ",
-    ],
-
-    # REITs / real assets
-    "reits": [
-        "O", "PLD", "AMT", "MPW",
-    ],
-
-    # Materials & energy: precious metals ETFs + oil & gas
-    "materials": [
-        "GLD", "SLV", "GDX", "GDXJ",
-        "XOM", "CVX", "COP", "KMI", "OXY",
-        "FCX", "NEM",
-    ],
-
-    # Healthcare & biotech
-    "healthcare": [
-        "LLY", "UNH", "JNJ", "ABBV", "MRK",
-        "AMGN", "GILD", "REGN", "MRNA", "PFE",
-    ],
-
-    # Indices & macro proxies (use for macro context alongside stocks)
-    "macro": [
-        "SPY", "QQQ", "IWM", "DIA",
-        "TLT", "GLD", "USO", "UUP",
-    ],
-
-    # Crypto proxies — removed (no longer tracked)
-    # "crypto": ["BTC-USD", "ETH-USD", "SOL-USD", "COIN", "MSTR", "MARA", "RIOT"],
-
-    # Full extended: all of the above deduplicated (~65 tickers, ~3-4 min runtime)
-    "all": sorted(set(
-        _CORE +
-        ["INTC", "QCOM", "ARM", "AMAT", "ASML", "ASLM", "SNOW", "CRM", "NOW", "PANW"] +
-        ["JPM", "BAC", "GS", "MS", "WFC", "C", "V", "MA", "PYPL", "BLK", "BX"] +
-        ["GLD", "SLV", "GDX", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
-        ["LLY", "UNH", "JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN"] +
-        # New additions (May 2026)
-        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX", "IBM",
-         "WMT", "COST", "PG", "KO", "PEP", "CAT", "HON", "UPS", "BA", "T", "VZ",
-         "O", "PLD", "AMT", "MPW", "ORCL"]
-    )),
-}
+# ─── Shared constants (single source of truth) ───────────────────────────────
+# constants.py lives in the same directory; it is always on sys.path when this
+# script runs (Python appends the script's own directory automatically).
+from constants import (
+    _CORE,
+    WATCHLISTS,
+    MACRO_TICKERS,
+    CORRELATION_GROUPS,
+    _SYMBOL_TO_GROUP,
+    MAX_PICKS_PER_GROUP,
+)
 
 # Default: full universe so the Stocks Agent always has a pre-screened list
 DEFAULT_TICKERS = WATCHLISTS["all"]
-
-MACRO_TICKERS = ["^VIX", "^TNX", "^GSPC", "^IRX"]
-
-# ─── Correlation groups ───────────────────────────────────────────────────────
-# Assets within the same group tend to move together (high beta correlation).
-# Used to detect over-concentration in picks and generate warnings.
-# Rule enforced downstream: max MAX_PICKS_PER_GROUP picks per group.
-#
-# Design notes:
-# - A ticker can belong to only ONE group (primary driver wins).
-# - "precious_metals" covers GLD+SLV+GDX+NEM — all gold/silver proxies.
-# - "semiconductors" is separate from "big_tech" because chip cycles diverge.
-# - FCX is "base_metals" not "precious_metals" (copper-driven, not gold).
-# - COIN/MSTR are "crypto_equity" — they track crypto but add equity risk.
-
-CORRELATION_GROUPS: dict[str, list[str]] = {
-    "precious_metals":       ["GLD", "SLV", "GDX", "NEM"],
-    "semiconductors":        ["NVDA", "AMD", "INTC", "QCOM", "TSM", "ARM", "AMAT", "ASML", "AVGO"],
-    "big_tech":              ["MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM", "PLTR", "SONY"],
-    "financials":            ["JPM", "BAC", "GS", "MS", "WFC", "C"],
-    "payments":              ["V", "MA", "PYPL"],
-    "healthcare":            ["JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "LLY", "UNH"],
-    "staples":               ["WMT", "COST", "PG", "KO", "PEP"],
-    "industrials":           ["CAT", "HON", "UPS", "BA"],
-    "telecom":               ["T", "VZ"],
-    "energy":                ["XOM", "CVX", "COP", "OXY", "KMI"],
-    "base_metals":           ["FCX"],
-    "saas":                  ["CRM", "NOW", "SNOW", "PANW"],
-    "enterprise_software":   ["ORCL", "IBM"],
-    "asset_managers":        ["BLK", "BX"],
-    # New groups added May 2026
-    "ev":                    ["TSLA", "RIVN"],
-    "streaming":             ["NFLX", "DIS"],
-    "ecommerce_global":      ["BABA", "MELI"],
-    "fintech":               ["NU", "SOFI"],
-    "consumer_discretionary": ["HD", "SBUX"],
-    "reits":                 ["O", "PLD", "AMT", "MPW"],
-}
-
-# Reverse lookup: symbol → group name (built once at import time)
-_SYMBOL_TO_GROUP: dict[str, str] = {
-    sym: group
-    for group, symbols in CORRELATION_GROUPS.items()
-    for sym in symbols
-}
-
-# Maximum picks allowed per correlation group in a single report.
-# Enforced as a warning (not a hard cut) so the MegaAgent has final judgment.
-MAX_PICKS_PER_GROUP = 2
 
 SKILL_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_PATH = os.path.join(SKILL_ROOT, "data", "market_context.json")
@@ -372,10 +236,17 @@ def _financial_health(ticker_obj) -> dict:
         # Skip financials (banks/insurance) — Altman Z not applicable
         sector = info.get("sector", "")
         is_financial = sector in ("Financial Services", "Finance")
+        # Manufacturing/industrial sectors use original Altman Z (1968).
+        # All other sectors (Technology, Healthcare, Consumer, etc.) use
+        # Altman Z'' (2000), which omits X5 (asset turnover) — more appropriate
+        # for asset-light companies where high revenue/assets would artificially
+        # inflate the original score.
+        is_manufacturing = sector in ("Industrials", "Basic Materials", "Energy")
 
         altman_z = None
         altman_zone = "N/A"
-        if not is_financial and all(v is not None and v != 0 for v in [total_assets, total_liab, market_cap, revenue, ebit]):
+        if not is_financial and is_manufacturing and all(v is not None and v != 0 for v in [total_assets, total_liab, market_cap, revenue, ebit]):
+            # Original Altman Z (1968) — manufacturing firms
             wc = (current_assets or 0) - (current_liab or 0)
             X1 = wc / total_assets
             X2 = (retained_earn or 0) / total_assets
@@ -385,6 +256,21 @@ def _financial_health(ticker_obj) -> dict:
             z = 1.2*X1 + 1.4*X2 + 3.3*X3 + 0.6*X4 + 1.0*X5
             altman_z = round(z, 2)
             altman_zone = "safe" if z > 2.99 else "gray" if z > 1.81 else "distress"
+        elif not is_financial and not is_manufacturing and all(v is not None and v != 0 for v in [total_assets, total_liab, ebit]):
+            # Altman Z'' (2000) — non-manufacturing, asset-light, and emerging market firms
+            # Z'' = 6.56·X1 + 3.26·X2 + 6.72·X3 + 1.05·X4'
+            # X4' = book_equity / total_liabilities (NOT market_cap, to avoid
+            #        inflating the score for high-P/B tech companies)
+            # Zones: > 2.6 = safe, 1.1–2.6 = gray, < 1.1 = distress
+            book_equity = (total_assets - total_liab)  # both guaranteed non-None above
+            wc = (current_assets or 0) - (current_liab or 0)
+            X1 = wc / total_assets
+            X2 = (retained_earn or 0) / total_assets
+            X3 = ebit / total_assets
+            X4p = book_equity / total_liab
+            zpp = 6.56*X1 + 3.26*X2 + 6.72*X3 + 1.05*X4p
+            altman_z = round(zpp, 2)
+            altman_zone = "safe" if zpp > 2.6 else "gray" if zpp > 1.1 else "distress"
         elif is_financial:
             altman_zone = "N/A (financial)"
 
@@ -748,6 +634,7 @@ def fetch_stock(symbol: str) -> dict | None:
             "entry_quality": entry,
             "volume_ratio": volume_ratio,
             "range_52w_pct": range_52w_pct,
+            "roc_20d": round((float(closes.iloc[-1]) / float(closes.iloc[-21]) - 1) * 100, 2) if len(closes) >= 21 else None,
         },
         "valuation": {
             "pe": safe("trailingPE"),
@@ -869,8 +756,12 @@ def _composite_score(c: dict) -> float:
         Piotroski F-Score          20%  — fundamental quality (0–9)
         Altman Z zone              15%  — bankruptcy risk
         Insider signal             15%  — insider conviction
-        Earnings beat streak       10%  — execution consistency (0–4 quarters)
-        Volume ratio               10%  — move confirmation
+        Earnings beat streak        5%  — execution consistency (0–4 quarters)
+        Volume ratio                5%  — move confirmation
+
+    Momentum penalty (applied after weighting):
+        roc_20d < -15%  → score × 0.85  (sharp downtrend = value trap risk)
+        roc_20d < -25%  → score × 0.70  (freefall — hard penalisation)
 
     All components are normalised to [0, 1] before weighting.
     N/A values (ETFs, financials) default to 0.5 (neutral — no penalty/bonus).
@@ -895,14 +786,26 @@ def _composite_score(c: dict) -> float:
     vol = float(c.get("volume_ratio") or 1.0)
     vol_score = min(max(vol, 0.0) / 3.0, 1.0)
 
-    return round((
+    score = (
         0.30 * rsi_score    +
         0.20 * piof_score   +
         0.15 * altman_score +
         0.15 * insider_score+
-        0.10 * beat_score   +
-        0.10 * vol_score
-    ) * 100, 1)
+        0.05 * beat_score   +
+        0.05 * vol_score
+    )
+
+    # Momentum penalty: stocks in sustained downtrend are potential value traps.
+    # RSI alone can't distinguish "oversold and recovering" from "in freefall".
+    roc = c.get("roc_20d")
+    if roc is not None:
+        roc_f = float(roc)
+        if roc_f < -25:
+            score *= 0.70   # freefall — hard penalisation
+        elif roc_f < -15:
+            score *= 0.85   # sharp downtrend — moderate penalisation
+
+    return round(score * 100, 1)
 
 
 # ─── Candidate filter ───────────────────────────────────────────────────────
@@ -969,6 +872,7 @@ def filter_candidates(stocks: dict, top_n: int = 35) -> list[dict]:
             "short_ratio": data.get("short_interest", {}).get("short_ratio"),
             "short_float_pct": data.get("short_interest", {}).get("short_float_pct"),
             "atr_14": data.get("atr_14"),
+            "roc_20d": data.get("technicals", {}).get("roc_20d"),
             "altman_z": data.get("financial_health", {}).get("altman_z"),
             "altman_zone": data.get("financial_health", {}).get("altman_zone"),
             "piotroski": data.get("financial_health", {}).get("piotroski"),

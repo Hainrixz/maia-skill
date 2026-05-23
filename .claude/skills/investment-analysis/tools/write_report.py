@@ -321,7 +321,16 @@ def main() -> None:
     skill_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     date_str = datetime.now().strftime("%Y-%m-%d")
 
-    history_path = os.path.join(skill_dir, "output", "history", f"{date_str}.json")
+    # If a history file for today already exists (e.g. a second run the same day),
+    # use an HHmm suffix so both runs are preserved for accuracy tracking.
+    # parse_date() strips any suffix after the first 10 chars, so windows still work.
+    history_dir_path = os.path.join(skill_dir, "output", "history")
+    base_history = os.path.join(history_dir_path, f"{date_str}.json")
+    if os.path.exists(base_history):
+        time_suffix = datetime.now().strftime("%H%M")
+        history_path = os.path.join(history_dir_path, f"{date_str}-{time_suffix}.json")
+    else:
+        history_path = base_history
     report_path = os.path.join(skill_dir, "dashboard", "public", "data", "report.json")
 
     serialized = json.dumps(data, indent=2, ensure_ascii=False)

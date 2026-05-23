@@ -207,7 +207,7 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     pre_fetch_cmd = [sys.executable, str(TOOLS_DIR / "pre_fetch.py"), "--watchlist", *args.watchlist]
-    news_cmd = [sys.executable, str(TOOLS_DIR / "news_fetch.py"), "--top", str(args.news_top), "--no-reddit"]
+    news_cmd = [sys.executable, str(TOOLS_DIR / "news_fetch.py"), "--top", str(args.news_top)]
     sec_cmd = [sys.executable, str(TOOLS_DIR / "sec_risk_fetch.py"), "--top", str(args.sec_top)]
     accuracy_path = out_dir / "accuracy.json"
     sectors_path = out_dir / "sectors.json"

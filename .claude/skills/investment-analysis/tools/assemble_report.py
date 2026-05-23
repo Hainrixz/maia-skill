@@ -28,7 +28,7 @@ TOOLS_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SKILL_DIR.parent.parent.parent
 DATA_DIR = SKILL_DIR / "data"
 DEFAULT_OUT_DIR = Path("/tmp/tododeia")
-MAX_PICKS_PER_GROUP = 2
+from constants import MAX_PICKS_PER_GROUP  # single source of truth: tools/constants.py
 
 
 def now_utc() -> str:

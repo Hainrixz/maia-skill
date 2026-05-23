@@ -23,15 +23,19 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
+import numpy as np
+
 SKILL_DIR = Path(__file__).parent.parent
 HISTORY_DIR = SKILL_DIR / "output" / "history"
 MARKET_CTX  = SKILL_DIR / "data" / "market_context.json"
 
-# Aproximaciones en días de calendario
-WINDOW_CALENDAR_DAYS = {
-    "1d":  2,    # ayer (1-2 días naturales para cubrir fines de semana)
-    "5d":  8,    # ~5 días hábiles ≈ 1 semana natural
-    "30d": 35,   # ~22 días hábiles ≈ 30-35 días naturales
+# Ventanas en días HÁBILES exactos (numpy.busday_offset, calendario NYSE).
+# Antes usábamos días naturales fijos, lo que sobreestimaba la ventana en
+# semanas con festivos (ej. Thanksgiving → 1d medía 4 días reales).
+WINDOW_BIZ_DAYS = {
+    "1d":  1,   # 1 día hábil = ayer
+    "5d":  5,   # 1 semana bursátil
+    "30d": 22,  # ~1 mes bursátil
 }
 
 
@@ -66,14 +70,19 @@ def get_history_files() -> list[tuple[date, Path]]:
 
 
 def find_file_for_window(history_files: list[tuple[date, Path]], today: date, window_key: str) -> tuple[date, Path] | None:
-    """Encuentra el archivo más cercano a (today - WINDOW_CALENDAR_DAYS[window_key]).
-    Excluye el archivo de hoy (índice 0)."""
-    target_date = today - timedelta(days=WINDOW_CALENDAR_DAYS[window_key])
+    """Encuentra el archivo más cercano a (today - WINDOW_BIZ_DAYS[window_key] días hábiles).
+    Usa numpy.busday_offset para calcular la fecha exacta excluyendo fines de semana.
+    Excluye el archivo de hoy."""
+    biz_days = WINDOW_BIZ_DAYS[window_key]
+    # np.busday_offset retorna la fecha laboral N días hábiles antes de today
+    # roll="forward" → si today es finde, avanza al lunes
+    target_np = np.busday_offset(today.isoformat(), -biz_days, roll="forward")
+    target_date = date.fromisoformat(str(target_np))
     # Excluir el archivo de hoy
     candidates = [(d, p) for d, p in history_files if d < today]
     if not candidates:
         return None
-    # Encontrar el más cercano al target (puede ser antes o después del target)
+    # Encontrar el más cercano al target (puede ser antes o después)
     best = min(candidates, key=lambda x: abs((x[0] - target_date).days))
     return best
 

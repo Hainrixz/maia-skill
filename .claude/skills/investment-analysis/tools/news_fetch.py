@@ -30,6 +30,17 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+# VADER — handles negation, intensifiers, and punctuation ("not strong" ≠ "strong").
+# Installed via: pip install vaderSentiment
+# Falls back to keyword-based scoring if not available.
+try:
+    from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as _VaderAnalyzer
+    _vader = _VaderAnalyzer()
+    _VADER_AVAILABLE = True
+except ImportError:
+    _vader = None
+    _VADER_AVAILABLE = False
+
 # Suppress yfinance noise globally (safe for threads)
 logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 warnings.filterwarnings("ignore")
@@ -74,32 +85,59 @@ def _score_title(title: str) -> float:
 def analyze_sentiment(news_list: list) -> dict:
     """
     Analyze sentiment of a news list.
+    Primary: VADER (handles negation, punctuation, intensifiers — "not strong" scores as
+    bearish, "GREAT!!!" scores higher than "great").
+    Fallback: keyword-based scoring when vaderSentiment is not installed.
     Returns score (-1..1), label, and detected keywords.
-    Adapted from spectral-galileo advanced_sentiment_analysis().
     """
     if not news_list:
         return {"score": 0.0, "label": "neutral", "keywords": []}
 
-    scores = []
+    # Always collect keywords for context (independent of scoring method)
     keywords = []
-    n = len(news_list)
-
-    for i, item in enumerate(news_list[:15]):
-        title = item.get("title", "")
-        if not title:
+    for item in news_list[:15]:
+        t = (item.get("title") or "").lower()
+        if not t:
             continue
-        score = _score_title(title)
-        # Recency weight: most recent (i=0) → 1.0, decreases linearly
-        weight = max(0.3, 1.0 - (i * 0.7 / n))
-        scores.append(score * weight)
-
-        t = title.lower()
         for kw in _POSITIVE_KW:
             if kw in t and (kw, "positive") not in keywords:
                 keywords.append((kw, "positive"))
         for kw in _NEGATIVE_KW:
             if kw in t and (kw, "negative") not in keywords:
                 keywords.append((kw, "negative"))
+
+    if _VADER_AVAILABLE:
+        # VADER: compound score per headline with recency weighting
+        n = len(news_list)
+        weighted_scores = []
+        for i, item in enumerate(news_list[:15]):
+            title = item.get("title", "")
+            if not title:
+                continue
+            compound = _vader.polarity_scores(title)["compound"]
+            weight = max(0.3, 1.0 - (i * 0.7 / n))  # most recent → weight=1.0
+            weighted_scores.append(compound * weight)
+
+        if weighted_scores:
+            avg = sum(weighted_scores) / len(weighted_scores)
+            label = "bullish" if avg > 0.05 else "bearish" if avg < -0.05 else "neutral"
+            return {
+                "score": round(avg, 3),
+                "label": label,
+                "keywords": [{"word": kw, "type": t} for kw, t in keywords[:6]],
+                "method": "vader",
+            }
+
+    # Fallback: original keyword-based scoring
+    scores = []
+    n = len(news_list)
+    for i, item in enumerate(news_list[:15]):
+        title = item.get("title", "")
+        if not title:
+            continue
+        score = _score_title(title)
+        weight = max(0.3, 1.0 - (i * 0.7 / n))
+        scores.append(score * weight)
 
     avg = sum(scores) / len(scores) if scores else 0.0
     if avg > 0.1:
@@ -113,6 +151,7 @@ def analyze_sentiment(news_list: list) -> dict:
         "score": round(avg, 3),
         "label": label,
         "keywords": [{"word": kw, "type": t} for kw, t in keywords[:6]],
+        "method": "keywords",
     }
 
 # ---------------------------------------------------------------------------
