@@ -264,13 +264,15 @@ def main():
                     all_symbols.add(p["symbol"])
     current_prices = fetch_missing_prices(list(all_symbols), base_prices)
 
-    # Compute each window
+    # Compute each window — output keys use window_* prefix to match dashboard schema
+    _KEY_MAP = {"1d": "window_1d", "5d": "window_5d", "30d": "window_30d"}
     results: dict[str, dict | None] = {}
     for wk, wf in window_files.items():
+        out_key = _KEY_MAP.get(wk, wk)
         if wf:
-            results[wk] = compute_window(wf[0], wf[1], current_prices, today_spy)
+            results[out_key] = compute_window(wf[0], wf[1], current_prices, today_spy)
         else:
-            results[wk] = None
+            results[out_key] = None
 
     # Add a single-line summary for the MegaAgent
     results["notable"] = build_notable_summary(
