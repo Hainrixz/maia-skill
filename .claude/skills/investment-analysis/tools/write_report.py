@@ -143,6 +143,70 @@ def prune_history(history_dir: str, keep: int = 30) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Active positions carry-forward
+# ---------------------------------------------------------------------------
+
+_ACTIVE_STATUSES = {"active", "updated", "new"}
+
+
+def update_active_positions(data: dict, date_str: str, skill_dir: str) -> None:
+    """Merge today's picks into data/active_positions.json.
+
+    - Adds/updates picks whose thesis_status is in {active, updated, new}
+      and recommendation is not 'sell'.
+    - Removes picks whose recommendation is 'sell' OR thesis_status is
+      'invalidated'.
+    - Preserves positions from prior sessions that were not in today's report
+      (carry-forward: they remain until explicitly invalidated).
+    """
+    active_path = os.path.join(skill_dir, "data", "active_positions.json")
+
+    # Load existing active positions (keyed by symbol)
+    existing: dict = {}
+    if os.path.exists(active_path):
+        try:
+            with open(active_path, encoding="utf-8") as f:
+                existing = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            existing = {}
+
+    picks = data.get("risk_adjusted_picks", [])
+    for pick in picks:
+        sym = pick.get("symbol")
+        if not sym:
+            continue
+        status = pick.get("thesis_status", "new")
+        rec = (pick.get("recommendation") or "").lower()
+
+        if rec == "sell" or status == "invalidated":
+            existing.pop(sym, None)
+        elif status in _ACTIVE_STATUSES:
+            existing[sym] = {
+                "symbol": sym,
+                "name": pick.get("name", sym),
+                "entry_price": pick.get("entry_price"),
+                "stop_loss": pick.get("stop_loss"),
+                "target_12m": pick.get("target_12m"),
+                "thesis": pick.get("thesis"),
+                "thesis_status": status,
+                "thesis_invalidators": pick.get("thesis_invalidators", []),
+                "recommendation": rec,
+                "position_size": pick.get("position_size"),
+                "last_seen_date": date_str,
+                "last_rank": pick.get("rank"),
+            }
+
+    try:
+        os.makedirs(os.path.dirname(os.path.abspath(active_path)), exist_ok=True)
+        with open(active_path, "w", encoding="utf-8") as f:
+            json.dump(existing, f, indent=2, ensure_ascii=False)
+        active_count = len(existing)
+        print(f"OK  active   → {active_path}  ({active_count} position(s))")
+    except OSError as exc:
+        print(f"WARN: Could not write active_positions.json — {exc}", file=sys.stderr)
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -199,6 +263,9 @@ def main() -> None:
     print(f"OK  report   → {report_path}")
     if pruned:
         print(f"    Pruned {pruned} old history file(s)")
+
+    # Persist active positions for carry-forward injection in next run
+    update_active_positions(data, date_str, skill_dir)
 
 
 if __name__ == "__main__":

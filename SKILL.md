@@ -96,29 +96,24 @@ In the same turn, do both in parallel:
 - `risk_adjusted_picks[].thesis_invalidators` — conditions that would break the thesis
 - `risk_adjusted_picks[].thesis_status` — `active | updated | invalidated`
 
-Then read `data/market_context.json` from the PREVIOUS run to load `prices_snapshot` — this is the ground-truth price baseline for accuracy tracking. The `prices_snapshot[symbol].price` is the **immutable price recorded at fetch time** and must be used instead of reconstructed or web-searched prices.
+**Multi-window accuracy (run before Step 4b):**
 
-**Accuracy formula (use this exactly)**:
+```bash
+python3 tools/accuracy_windows.py --out /tmp/accuracy.json
 ```
-# SPY baseline for alpha — spy_price_at_report stored in the previous history file
-spy_then = previous_history_file.get("spy_price_at_report")  # None for old runs
-spy_now  = today_market_context["macro"]["spy_price"]         # always present
 
-for each previous pick:
-    current_price = prices_snapshot[symbol].price  # from TODAY's market_context.json
-    entry_price   = pick.entry_price               # from PREVIOUS history file
-    pick_return   = (current_price - entry_price) / entry_price
-    correct       = pick_return > 0                # absolute: price went up
-    # Alpha — only computed when spy_then is available (graceful degradation):
-    if spy_then:
-        spy_return  = (spy_now - spy_then) / spy_then
-        alpha       = pick_return - spy_return      # positive = outperformed SPY
-        beat_market = alpha > 0
-```
-Pass `alpha` per pick in `accuracy_baseline` so the MegaAgent can report "beat SPY: X/N" inside `historical_accuracy`.
+This computes accuracy for 3 windows simultaneously using existing history files — no network required:
+- **1d**: picks from the most recent previous session (~1-2 days ago)
+- **5d**: picks from ~5 trading days ago (~1 week)
+- **30d**: picks from ~30 calendar days ago (~22 trading days)
 
-Build a `previous_theses` dict to pass to the MegaAgent:
+For each window it computes: accuracy % (buy/sell calls only), beat_spy count, alpha average, best/worst picks. Picks with `|return| > 85%` are flagged as outliers and excluded (data quality guard for stale prices, splits, crypto).
+
+Pass the content of `/tmp/accuracy.json` to the MegaAgent as `accuracy_baseline`. The MegaAgent uses `accuracy_baseline.notable` (pre-built 1-line summary) for `historical_accuracy.notable` and the window data to populate the full `historical_accuracy` block.
+
+**Previous theses dict** (still needed for Phase 0 thesis evaluation — build from the 1d history file):
 ```
+most_recent_history = json.load(open(accuracy_baseline["1d"]["source_date"] ... ))  # use source_date to find file
 previous_theses = {
   symbol: {
     "thesis": pick.thesis,
@@ -126,13 +121,13 @@ previous_theses = {
     "entry_price": pick.entry_price,
     "status": pick.thesis_status,
     "price_then": pick.entry_price,
-    "price_now": prices_snapshot[symbol].price  # from today's pre-fetch
+    "price_now": accuracy_baseline["1d"]["picks"][symbol]["now"]
   }
   for pick in previous_picks if pick.thesis is not None
 }
 ```
 
-If `prices_snapshot` is missing from the previous context file (older runs), fall back to the MegaAgent web search as before. If no history or no `thesis` field exists (old run format), pass `previous_theses = {}` and skip thesis evaluation silently.
+If no history or no `thesis` field exists (old run format), pass `previous_theses = {}` and skip thesis evaluation silently.
 
 ### Step 4a: Build Sectors (deterministic, no LLM)
 
@@ -148,22 +143,36 @@ This generates Block 1 (sectors JSON with all screened stock and materials asset
 
 **Fix 5 — single subagent** replacing the previous 4 sector agents + strategy agent. Launch **one MegaAgent** using the Agent tool. This reduces orchestrator context pressure and eliminates the intermediate turn between sector agents and the strategy agent.
 
-Pass the MegaAgent:
-- `SCREENED_CANDIDATES` **compact table**: top 12-15 by entry quality + RSI (from `data/market_context.json` → `candidates[]`) with only: symbol, **price_at_fetch**, RSI, entry_quality, trend, fwd_PE, PEG, earnings_days_away, **correlation_group**
-- `NEWS_CONTEXT` (from `data/news_context.json` → `news{}`) — injected as a compact block per ticker. Tell the MegaAgent: **"News headlines and keyword sentiment have been pre-fetched below. Use `key_news[0..1]` as the 2 required headlines per pick and `sentiment.label` as the default sentiment value. Only do additional web searches for missing catalyst context or to verify the top 2-3 highest-conviction picks — do NOT search for headlines already present."** Format each ticker as: `SYMBOL: [sentiment_label | analyst_rec] → headline_1 | headline_2`. This alone eliminates ~20 web searches per run.
-- `SEC_RISK_CONTEXT` (from `data/sec_risk_context.json` → `results[]`) — filing-backed risk bullets from SEC Item 1A. Tell the MegaAgent: **"Use these risks as primary `key_risks`; only do additional web research when SEC extraction is missing for that ticker."**
-- `CORRELATION_WARNINGS` (from `data/market_context.json` → `correlation_warnings[]`): list of over-concentration alerts. **Hard rule**: include at most `max_allowed` picks per group from `suggested_keep`. If a warning exists, do NOT include more than `max_allowed` picks from that group in `risk_adjusted_picks`.
-- `MACRO_CONTEXT` (from `data/market_context.json` → `macro`) — VIX, F&G, regime, synthetic score
+**Step 4b — first: update trailing stops + generate the compressed context block (required):**
+
+```bash
+# 1. Update ATR-based trailing stops for active picks
+python3 tools/update_stops.py
+# Output: data/trailing_stops.json  (stops only move UP — safe to run every time)
+
+# 2. Compress all context data into a single compact block
+python3 tools/compress_context.py \
+  --prev output/history/YYYY-MM-DD.json \
+  --out /tmp/mega_context.txt
+```
+
+Replace `YYYY-MM-DD` with the most recent history file date (Step 3b). If no history exists, omit `--prev`. The script reads `data/market_context.json`, `data/news_context.json`, and `data/sec_risk_context.json` and writes a compact, pipe-delimited text block to `/tmp/mega_context.txt`. It also prints the character count to stderr — abort and re-check the data files if the count exceeds 8,000.
+
+The SCREENED_CANDIDATES table now includes `atr|z|piof` columns (ATR-14, Altman Z zone, Piotroski score). The `z` values are: `safe` (Z>2.99), `gray` (1.81–2.99), `dist` (distress, Z<1.81), `fin` (financial sector — Altman not applicable), `N/A` (ETF or no data). A `piof` ≥ 7 = strong, ≤ 2 = weak.
+
+**Then pass the MegaAgent:**
+- The full content of `/tmp/mega_context.txt` as the `DATA_CONTEXT` block — this replaces all manual inline data blocks (candidates, news, SEC, theses, macro, correlation warnings). Do NOT additionally inline any data from the raw JSON files.
 - `risk_profile` (from Step 1)
-- `historical_picks` (from Step 3b, if available) — previous picks with `entry_price` values
-- `accuracy_baseline` (from Step 3b) — dict of `{symbol: current_price}` built from today's `prices_snapshot`, cross-referenced against previous picks' `entry_price`. Compute accuracy **before** spawning the MegaAgent and pass the result directly. Do NOT ask the MegaAgent to reconstruct prices from web searches for accuracy purposes.
-- `previous_theses` (from Step 3b) — dict of `{symbol: {thesis, invalidators, entry_price, price_then, price_now, status}}`. The MegaAgent MUST evaluate each thesis before ranking new picks (see Phase 0 below).
+- `accuracy_baseline` (from Step 3b) — computed before spawning the agent, passed as a single-line summary: `"Accuracy: N/M correct, beat SPY K/M. Top winner: SYM +X%. Top miss: SYM -Y%."`
 - The MegaAgent prompt from `references/agent-prompts.md`
 
-**Prompt size guardrail (required):**
-- Keep the subagent prompt under ~8,000 characters.
-- Never paste full 35+ candidate lists inline.
-- Pass file paths (e.g. `data/market_context.json`) and instruct the subagent to read only required fields.
+**Instructions to include with DATA_CONTEXT:**
+> "News headlines and keyword sentiment have been pre-fetched in DATA_CONTEXT. Use them as the primary source for `key_news` and `sentiment`. Only do additional web searches for missing catalyst context or to verify the top 2–3 highest-conviction picks. Use SEC risk bullets in DATA_CONTEXT as primary `key_risks`. CORRELATION_LIMITS in DATA_CONTEXT are hard rules — never exceed `max=N` picks per group."
+
+**Prompt size guardrail (enforced by compress_context.py):**
+- Target: ≤ 7,500 characters for DATA_CONTEXT. The script warns to stderr if exceeded.
+- Never paste raw JSON arrays inline — always use the compressed output.
+- Never paste the Block 2 output schema inline — it is already in `references/agent-prompts.md`.
 
 Use the **MegaAgent prompt** from `references/agent-prompts.md` (section: `## MegaAgent (Combined Research + Strategy)`) as the subagent system prompt. The MegaAgent returns **only Block 2** (strategy JSON). Block 1 (sectors) was already built by Step 4a. The Block 2 schema is defined in that file.
 

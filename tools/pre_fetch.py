@@ -54,7 +54,7 @@ WATCHLISTS = {
     # Extended tech: adds semiconductors, SaaS, and recently discovered high-momentum names
     "tech": [
         "NVDA", "AMD", "TSM", "INTC", "QCOM", "ARM",
-        "MSFT", "AAPL", "GOOGL", "META", "AMZN",
+        "MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM",
         "AVGO", "AMAT", "ASML",
         "PLTR", "SNOW", "CRM", "NOW", "PANW",
         "NFLX", "TSLA", "RIVN", "SONY",
@@ -105,7 +105,7 @@ WATCHLISTS = {
         ["GLD", "SLV", "GDX", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
         ["LLY", "UNH", "JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN"] +
         # New additions (May 2026)
-        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX"]
+        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX", "IBM"]
     )),
 }
 
@@ -129,7 +129,7 @@ MACRO_TICKERS = ["^VIX", "^TNX", "^GSPC", "^IRX"]
 CORRELATION_GROUPS: dict[str, list[str]] = {
     "precious_metals":       ["GLD", "SLV", "GDX", "NEM"],
     "semiconductors":        ["NVDA", "AMD", "INTC", "QCOM", "TSM", "ARM", "AMAT", "ASML", "AVGO"],
-    "big_tech":              ["MSFT", "AAPL", "GOOGL", "META", "AMZN", "PLTR", "SONY"],
+    "big_tech":              ["MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM", "PLTR", "SONY"],
     "financials":            ["JPM", "BAC", "GS", "MS", "WFC", "C"],
     "payments":              ["V", "MA", "PYPL"],
     "healthcare":            ["JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "LLY", "UNH"],

@@ -228,21 +228,21 @@ function AttentionCard({ pos }: { pos: PortfolioPosition }) {
             className="overflow-hidden"
           >
             <div className="mt-3 grid grid-cols-2 gap-3">
-              {pos.key_risks.length > 0 && (
+              {(pos.key_risks?.length ?? 0) > 0 && (
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-red-500 mb-1">Key Risks</p>
                   <ul className="space-y-0.5">
-                    {pos.key_risks.map((r, i) => (
+                    {(pos.key_risks ?? []).map((r, i) => (
                       <li key={i} className="text-[11px] text-[#4D4A44] flex gap-1"><span>•</span>{r}</li>
                     ))}
                   </ul>
                 </div>
               )}
-              {pos.key_catalysts.length > 0 && (
+              {(pos.key_catalysts?.length ?? 0) > 0 && (
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-green-600 mb-1">Catalysts</p>
                   <ul className="space-y-0.5">
-                    {pos.key_catalysts.map((c, i) => (
+                    {(pos.key_catalysts ?? []).map((c, i) => (
                       <li key={i} className="text-[11px] text-[#4D4A44] flex gap-1"><span>•</span>{c}</li>
                     ))}
                   </ul>

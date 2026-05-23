@@ -54,7 +54,7 @@ WATCHLISTS = {
     # Extended tech: adds semiconductors, SaaS, and recently discovered high-momentum names
     "tech": [
         "NVDA", "AMD", "TSM", "INTC", "QCOM", "ARM",
-        "MSFT", "AAPL", "GOOGL", "META", "AMZN",
+        "MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM",
         "AVGO", "AMAT", "ASML", "ASLM",
         "PLTR", "SNOW", "CRM", "NOW", "PANW",
         "NFLX", "TSLA", "RIVN", "SONY",
@@ -105,7 +105,7 @@ WATCHLISTS = {
         ["GLD", "SLV", "GDX", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
         ["LLY", "UNH", "JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN"] +
         # New additions (May 2026)
-        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX"]
+        ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX", "IBM"]
     )),
 }
 
@@ -129,7 +129,7 @@ MACRO_TICKERS = ["^VIX", "^TNX", "^GSPC", "^IRX"]
 CORRELATION_GROUPS: dict[str, list[str]] = {
     "precious_metals":       ["GLD", "SLV", "GDX", "NEM"],
     "semiconductors":        ["NVDA", "AMD", "INTC", "QCOM", "TSM", "ARM", "AMAT", "ASML", "AVGO"],
-    "big_tech":              ["MSFT", "AAPL", "GOOGL", "META", "AMZN", "PLTR", "SONY"],
+    "big_tech":              ["MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM", "PLTR", "SONY"],
     "financials":            ["JPM", "BAC", "GS", "MS", "WFC", "C"],
     "payments":              ["V", "MA", "PYPL"],
     "healthcare":            ["JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "LLY", "UNH"],
@@ -158,6 +158,51 @@ MAX_PICKS_PER_GROUP = 2
 
 SKILL_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_PATH = os.path.join(SKILL_ROOT, "data", "market_context.json")
+
+# Fundamentals cache: balance-sheet, income-stmt, cashflow, earnings history,
+# and insider transactions are expensive yfinance calls that change quarterly.
+# FUND_CACHE_TTL_DAYS = how many days before a cache entry is considered stale.
+# Set to 0 to disable caching (forces full re-fetch every run).
+CACHE_DIR = os.path.join(SKILL_ROOT, "data", "cache", "fundamentals")
+FUND_CACHE_TTL_DAYS = 5
+
+
+# ─── Fundamentals cache helpers ───────────────────────────────────────────────
+
+def _load_fund_cache(symbol: str) -> dict | None:
+    """Load cached heavy fundamentals for symbol.
+
+    Returns the cached dict if it exists and is not older than
+    FUND_CACHE_TTL_DAYS. Returns None on cache miss, expiry, or read error.
+    """
+    if FUND_CACHE_TTL_DAYS <= 0:
+        return None
+    path = os.path.join(CACHE_DIR, f"{symbol}.json")
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path) as f:
+            cached = json.load(f)
+        fetched_str = cached.get("fetched_at", "2000-01-01T00:00:00Z")
+        fetched = datetime.strptime(fetched_str, "%Y-%m-%dT%H:%M:%SZ")
+        age_days = (datetime.utcnow() - fetched).total_seconds() / 86400
+        if age_days > FUND_CACHE_TTL_DAYS:
+            return None
+        return cached
+    except Exception:
+        return None
+
+
+def _save_fund_cache(symbol: str, data: dict) -> None:
+    """Persist heavy fundamentals to the per-symbol cache file."""
+    try:
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        data["fetched_at"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        path = os.path.join(CACHE_DIR, f"{symbol}.json")
+        with open(path, "w") as f:
+            json.dump(data, f, indent=2, default=str)
+    except Exception:
+        pass  # cache write failure is non-fatal
 
 
 # ─── Technical indicators (pure pandas/numpy — no external deps) ──────────────
@@ -218,6 +263,185 @@ def _support_resistance(closes: pd.Series):
     return support, resistance
 
 
+def _atr(hist: pd.DataFrame, window: int = 14) -> float | None:
+    """Average True Range over `window` days."""
+    try:
+        high = hist["High"]
+        low  = hist["Low"]
+        close_prev = hist["Close"].shift(1)
+        tr = pd.concat([
+            high - low,
+            (high - close_prev).abs(),
+            (low  - close_prev).abs(),
+        ], axis=1).max(axis=1)
+        return round(float(tr.rolling(window).mean().iloc[-1]), 4)
+    except Exception:
+        return None
+
+
+def _financial_health(ticker_obj) -> dict:
+    """Compute Altman Z-Score and Piotroski F-Score from yfinance statements.
+
+    Returns a dict with keys: altman_z, altman_zone, piotroski, piotroski_strength.
+    Returns null values when data is insufficient (ETFs, financials, no statements).
+
+    Altman Z (non-financial companies, Altman 1968):
+        Z = 1.2*X1 + 1.4*X2 + 3.3*X3 + 0.6*X4 + 1.0*X5
+        X1 = working_capital / total_assets
+        X2 = retained_earnings / total_assets
+        X3 = EBIT / total_assets
+        X4 = market_cap / total_liabilities
+        X5 = revenue / total_assets
+        Zones: > 2.99 = safe, 1.81-2.99 = gray, < 1.81 = distress
+
+    Piotroski F-Score (0-9 binary checks):
+        Profitability (4): ROA>0, CFO>0, delta_ROA>0, CFO>NI (accruals)
+        Leverage (3): delta_LTD<0, delta_CR>0, no share dilution
+        Efficiency (2): delta_gross_margin>0, delta_asset_turnover>0
+    """
+    null_result = {
+        "altman_z": None, "altman_zone": "N/A",
+        "piotroski": None, "piotroski_strength": "N/A",
+    }
+    try:
+        info = ticker_obj.info or {}
+        quote_type = info.get("quoteType", "")
+        # Skip ETFs, funds, and indices — no meaningful balance sheet
+        if quote_type in ("ETF", "MUTUALFUND", "INDEX", "FUTURE", "CURRENCY"):
+            return null_result
+
+        bs  = ticker_obj.get_balance_sheet()
+        inc = ticker_obj.get_income_stmt()
+        cf  = ticker_obj.get_cash_flow()
+
+        if bs is None or inc is None or bs.empty or inc.empty:
+            return null_result
+
+        def g(df, *keys, col=0):
+            """Safely get a value from a statement DataFrame (rows=items, cols=periods)."""
+            for key in keys:
+                # Case-insensitive row match
+                matches = [i for i in df.index if str(i).lower() == key.lower()]
+                if matches:
+                    val = df.loc[matches[0]].iloc[col]
+                    try:
+                        v = float(val)
+                        return v if not (pd.isna(v) or v in (float('inf'), float('-inf'))) else None
+                    except (TypeError, ValueError):
+                        return None
+            return None
+
+        # ── Altman Z-Score inputs ───────────────────────────────────────────
+        total_assets  = g(bs, "TotalAssets", "Total Assets")
+        total_liab    = g(bs, "TotalLiabilitiesNetMinorityInterest", "Total Liabilities",
+                          "TotalLiabilities", "TotalLiabilitiesNetMinority")
+        current_assets = g(bs, "CurrentAssets", "Total Current Assets")
+        current_liab   = g(bs, "CurrentLiabilities", "Total Current Liabilities")
+        retained_earn  = g(bs, "RetainedEarnings", "Retained Earnings")
+        ebit           = g(inc, "EBIT", "Ebit", "OperatingIncome", "Operating Income")
+        revenue        = g(inc, "TotalRevenue", "Total Revenue", "Revenue")
+        market_cap     = float(info.get("marketCap") or 0) or None
+
+        # Skip financials (banks/insurance) — Altman Z not applicable
+        sector = info.get("sector", "")
+        is_financial = sector in ("Financial Services", "Finance")
+
+        altman_z = None
+        altman_zone = "N/A"
+        if not is_financial and all(v is not None and v != 0 for v in [total_assets, total_liab, market_cap, revenue, ebit]):
+            wc = (current_assets or 0) - (current_liab or 0)
+            X1 = wc / total_assets
+            X2 = (retained_earn or 0) / total_assets
+            X3 = ebit / total_assets
+            X4 = market_cap / total_liab
+            X5 = revenue / total_assets
+            z = 1.2*X1 + 1.4*X2 + 3.3*X3 + 0.6*X4 + 1.0*X5
+            altman_z = round(z, 2)
+            altman_zone = "safe" if z > 2.99 else "gray" if z > 1.81 else "distress"
+        elif is_financial:
+            altman_zone = "N/A (financial)"
+
+        # ── Piotroski F-Score ───────────────────────────────────────────────
+        piotroski = None
+        piotroski_strength = "N/A"
+        try:
+            bs1 = ticker_obj.get_balance_sheet()   # most recent period
+            inc1 = ticker_obj.get_income_stmt()
+            cf1  = ticker_obj.get_cash_flow()
+
+            if bs1 is not None and not bs1.empty and bs1.shape[1] >= 2:
+                # Helpers for period 0 (current) and period 1 (prior year)
+                def g0(df, *k): return g(df, *k, col=0)
+                def g1(df, *k): return g(df, *k, col=1)
+
+                ta0 = g0(bs1, "TotalAssets", "Total Assets")
+                ta1 = g1(bs1, "TotalAssets", "Total Assets")
+                if not ta0 or not ta1 or ta0 == 0 or ta1 == 0:
+                    raise ValueError("Missing total assets")
+
+                ni0   = g0(inc1, "NetIncome", "Net Income")
+                roa0  = (ni0 / ta0) if ni0 is not None else None
+                ni1   = g1(inc1, "NetIncome", "Net Income")
+                roa1  = (ni1 / ta1) if ni1 is not None else None
+
+                cfo0  = g0(cf1,  "OperatingCashFlow", "Operating Cash Flow",
+                           "CashFlowFromOperations", "NetCashFromOperatingActivities")
+
+                ltd0  = g0(bs1, "LongTermDebt", "Long Term Debt")
+                ltd1  = g1(bs1, "LongTermDebt", "Long Term Debt")
+
+                ca0   = g0(bs1, "CurrentAssets", "Total Current Assets")
+                cl0   = g0(bs1, "CurrentLiabilities", "Total Current Liabilities")
+                ca1   = g1(bs1, "CurrentAssets", "Total Current Assets")
+                cl1   = g1(bs1, "CurrentLiabilities", "Total Current Liabilities")
+                cr0   = (ca0 / cl0) if (ca0 and cl0 and cl0 != 0) else None
+                cr1   = (ca1 / cl1) if (ca1 and cl1 and cl1 != 0) else None
+
+                shares0 = g0(bs1, "OrdinarySharesNumber", "CommonStock", "SharesOutstanding")
+                shares1 = g1(bs1, "OrdinarySharesNumber", "CommonStock", "SharesOutstanding")
+
+                rev0  = g0(inc1, "TotalRevenue", "Total Revenue", "Revenue")
+                rev1  = g1(inc1, "TotalRevenue", "Total Revenue", "Revenue")
+                gp0   = g0(inc1, "GrossProfit", "Gross Profit")
+                gp1   = g1(inc1, "GrossProfit", "Gross Profit")
+                gm0   = (gp0 / rev0) if (gp0 and rev0 and rev0 != 0) else None
+                gm1   = (gp1 / rev1) if (gp1 and rev1 and rev1 != 0) else None
+                at0   = (rev0 / ta0) if (rev0 and ta0 != 0) else None
+                at1   = (rev1 / ta1) if (rev1 and ta1 != 0) else None
+
+                checks = [
+                    # Profitability
+                    int(roa0 is not None and roa0 > 0),                           # F1: ROA > 0
+                    int(cfo0 is not None and cfo0 > 0),                           # F2: CFO > 0
+                    int(roa0 is not None and roa1 is not None and roa0 > roa1),   # F3: delta ROA > 0
+                    int(cfo0 is not None and ni0 is not None and cfo0 > ni0),     # F4: CFO > NI (accruals)
+                    # Leverage
+                    int(ltd0 is not None and ltd1 is not None and ltd0 < ltd1),   # F5: LTD decreased
+                    int(cr0 is not None and cr1 is not None and cr0 > cr1),       # F6: CR improved
+                    int(shares0 is not None and shares1 is not None and shares0 <= shares1),  # F7: no dilution
+                    # Efficiency
+                    int(gm0 is not None and gm1 is not None and gm0 > gm1),      # F8: GM improved
+                    int(at0 is not None and at1 is not None and at0 > at1),      # F9: asset turnover up
+                ]
+                piotroski = sum(checks)
+                piotroski_strength = (
+                    "strong" if piotroski >= 7 else
+                    "weak"   if piotroski <= 2 else
+                    "neutral"
+                )
+        except Exception:
+            pass
+
+        return {
+            "altman_z": altman_z,
+            "altman_zone": altman_zone,
+            "piotroski": piotroski,
+            "piotroski_strength": piotroski_strength,
+        }
+    except Exception:
+        return null_result
+
+
 def _entry_quality(
     rsi: float,
     price: float,
@@ -250,6 +474,21 @@ def _entry_quality(
 
 
 # ─── Earnings ─────────────────────────────────────────────────────────────────
+
+def _earnings_next(info: dict) -> dict:
+    """Extract next earnings date from a pre-fetched info dict (no extra API call)."""
+    result = {"next_date": None, "days_away": None,
+              "last_surprise_pct": None, "beat_streak": 0}
+    try:
+        ts = info.get("earningsTimestamp")
+        if ts:
+            dt = pd.to_datetime(ts, unit="s")
+            result["next_date"] = dt.strftime("%Y-%m-%d")
+            result["days_away"] = int((dt - pd.Timestamp.now()).days)
+    except Exception:
+        pass
+    return result
+
 
 def _earnings(ticker_obj):
     result = {"next_date": None, "days_away": None, "last_surprise_pct": None, "beat_streak": 0}
@@ -309,6 +548,43 @@ def _insider(ticker_obj) -> str:
         return "neutral"
 
 
+# ─── Split detection ────────────────────────────────────────────────────────
+
+def _detect_recent_split(ticker_obj, days: int = 60) -> dict | None:
+    """Return split info if a stock split occurred in the last `days` days.
+
+    yfinance .actions returns a DataFrame with columns [Dividends, Stock Splits].
+    A split ratio of 12.0 means a 12:1 forward split — the share count increases
+    and historic prices are retroactively adjusted, invalidating entry_price
+    comparisons across the split date.
+
+    Returns None if no recent split or if data is unavailable.
+    """
+    try:
+        actions = ticker_obj.actions
+        if actions is None or actions.empty:
+            return None
+        if "Stock Splits" not in actions.columns:
+            return None
+        splits = actions[actions["Stock Splits"] > 0]["Stock Splits"]
+        if splits.empty:
+            return None
+        # Normalise index timezone for comparison
+        idx = splits.index
+        if idx.tz is None:
+            idx = idx.tz_localize("UTC")
+        cutoff = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=days)
+        recent = splits[idx >= cutoff]
+        if recent.empty:
+            return None
+        ratio = float(recent.iloc[-1])
+        split_date = recent.index[-1].strftime("%Y-%m-%d")
+        ratio_str = f"{int(ratio)}:1" if ratio == int(ratio) else f"{ratio}:1"
+        return {"split_date": split_date, "ratio": ratio_str}
+    except Exception:
+        return None
+
+
 # ─── Per-stock fetch ──────────────────────────────────────────────────────────
 
 def fetch_stock(symbol: str) -> dict | None:
@@ -321,6 +597,32 @@ def fetch_stock(symbol: str) -> dict | None:
 
         closes = hist["Close"]
         price = round(float(closes.iloc[-1]), 2)
+
+        # ── Split detection (early exit — stale prices invalidate comparisons) ──
+        split_info = _detect_recent_split(ticker)
+        if split_info:
+            return {
+                "price": price,
+                "split_detected": True,
+                "split_info": split_info,
+                "technicals": {
+                    "rsi": 50, "trend": "mixed", "macd": "neutral",
+                    "sma_50": price, "sma_200": None,
+                    "key_support": 0, "key_resistance": price,
+                    "entry_quality": "split_detected",
+                    "volume_ratio": None, "range_52w_pct": None,
+                },
+                "valuation": {}, "fundamentals": {},
+                "earnings": {"next_date": None, "days_away": None,
+                              "last_surprise_pct": None, "beat_streak": 0},
+                "insider_signal": "neutral",
+                "short_interest": {"short_ratio": None, "short_float_pct": None},
+                "atr_14": None,
+                "financial_health": {
+                    "altman_z": None, "altman_zone": "N/A",
+                    "piotroski": None, "piotroski_strength": "N/A",
+                },
+            }
 
         rsi = _rsi(closes)
         macd = _macd_signal(closes)
@@ -372,8 +674,36 @@ def fetch_stock(symbol: str) -> dict | None:
 
         entry = _entry_quality(rsi, price, support, fcf_margin, revenue_growth)
 
-        earnings = _earnings(ticker)
-        insider = _insider(ticker)
+        atr_14 = _atr(hist)
+
+        # Earnings next_date/days_away: always fresh from the info dict already fetched.
+        earnings = _earnings_next(info)
+
+        # ── Cache-backed heavy computations ──────────────────────────────────
+        # These three yfinance calls (get_balance_sheet, get_income_stmt,
+        # get_cash_flow, get_earnings_history, get_insider_transactions) are
+        # expensive and return data that changes at most quarterly.
+        # On a cache hit we skip all five calls — ~60% runtime reduction for
+        # warm runs (same-day or same-week repeated executions).
+        cached_fund = _load_fund_cache(symbol)
+        if cached_fund is not None:
+            financial_health = cached_fund["financial_health"]
+            earnings["beat_streak"]       = cached_fund.get("beat_streak", 0)
+            earnings["last_surprise_pct"] = cached_fund.get("last_surprise_pct")
+            insider                        = cached_fund.get("insider_signal", "neutral")
+        else:
+            financial_health   = _financial_health(ticker)
+            earnings_hist      = _earnings(ticker)         # full call incl. history
+            earnings["beat_streak"]       = earnings_hist.get("beat_streak", 0)
+            earnings["last_surprise_pct"] = earnings_hist.get("last_surprise_pct")
+            insider = _insider(ticker)
+            _save_fund_cache(symbol, {
+                "symbol":           symbol,
+                "financial_health": financial_health,
+                "beat_streak":      earnings["beat_streak"],
+                "last_surprise_pct": earnings["last_surprise_pct"],
+                "insider_signal":   insider,
+            })
 
     except Exception:
         return None
@@ -413,6 +743,8 @@ def fetch_stock(symbol: str) -> dict | None:
             "short_ratio": short_ratio,
             "short_float_pct": short_float_pct,
         },
+        "atr_14": atr_14,
+        "financial_health": financial_health,
     }
 
 
@@ -496,6 +828,56 @@ def fetch_macro() -> dict:
         return {"error": str(e)}
 
 
+# ─── Composite scoring ───────────────────────────────────────────────────────
+
+def _composite_score(c: dict) -> float:
+    """Return a 0–100 composite ranking score for a pre-screened candidate.
+
+    Replaces the old (entry_quality_rank, rsi) two-key sort with a weighted
+    multi-factor signal that incorporates fundamental quality alongside
+    technical timing.
+
+    Weights:
+        RSI proximity to oversold  30%  — primary entry-timing signal
+        Piotroski F-Score          20%  — fundamental quality (0–9)
+        Altman Z zone              15%  — bankruptcy risk
+        Insider signal             15%  — insider conviction
+        Earnings beat streak       10%  — execution consistency (0–4 quarters)
+        Volume ratio               10%  — move confirmation
+
+    All components are normalised to [0, 1] before weighting.
+    N/A values (ETFs, financials) default to 0.5 (neutral — no penalty/bonus).
+    Higher score = better candidate.
+    """
+    rsi = float(c.get("rsi") or 50)
+    # RSI: best signal near 20-30, worst above 65.  (65-rsi)/65 → [0,1]
+    rsi_score = max(0.0, (65.0 - rsi) / 65.0)
+
+    piof = c.get("piotroski")
+    piof_score = (float(piof) / 9.0) if piof is not None else 0.5
+
+    zone = (c.get("altman_zone") or "").lower()
+    altman_score = 1.0 if "safe" in zone else 0.0 if "distress" in zone else 0.5
+
+    insider = (c.get("insider_signal") or "neutral").lower()
+    insider_score = {"bullish": 1.0, "neutral": 0.5, "bearish": 0.0}.get(insider, 0.5)
+
+    beat = int(c.get("beat_streak") or 0)
+    beat_score = min(beat, 4) / 4.0
+
+    vol = float(c.get("volume_ratio") or 1.0)
+    vol_score = min(max(vol, 0.0) / 3.0, 1.0)
+
+    return round((
+        0.30 * rsi_score    +
+        0.20 * piof_score   +
+        0.15 * altman_score +
+        0.15 * insider_score+
+        0.10 * beat_score   +
+        0.10 * vol_score
+    ) * 100, 1)
+
+
 # ─── Candidate filter ───────────────────────────────────────────────────────
 
 def filter_candidates(stocks: dict, top_n: int = 35) -> list[dict]:
@@ -531,6 +913,8 @@ def filter_candidates(stocks: dict, top_n: int = 35) -> list[dict]:
             continue
         if entry.startswith("poor"):
             continue
+        if data.get("split_detected"):
+            continue
 
         quality_key = next((k for k in QUALITY_RANK if entry.startswith(k)), "fair")
         candidates.append({
@@ -557,12 +941,22 @@ def filter_candidates(stocks: dict, top_n: int = 35) -> list[dict]:
             "range_52w_pct": data.get("technicals", {}).get("range_52w_pct"),
             "short_ratio": data.get("short_interest", {}).get("short_ratio"),
             "short_float_pct": data.get("short_interest", {}).get("short_float_pct"),
+            "atr_14": data.get("atr_14"),
+            "altman_z": data.get("financial_health", {}).get("altman_z"),
+            "altman_zone": data.get("financial_health", {}).get("altman_zone"),
+            "piotroski": data.get("financial_health", {}).get("piotroski"),
+            "piotroski_strength": data.get("financial_health", {}).get("piotroski_strength"),
             "_sort_key": (QUALITY_RANK.get(quality_key, 2), rsi),
         })
 
-    candidates.sort(key=lambda x: x["_sort_key"])
+    # Compute composite score for every survivor, then sort descending.
+    # _sort_key (quality+RSI) is kept as a tiebreaker reference but not used
+    # for the final sort — composite_score replaces it.
     for c in candidates:
+        c["composite_score"] = _composite_score(c)
         del c["_sort_key"]
+
+    candidates.sort(key=lambda x: -x["composite_score"])
 
     return candidates[:top_n]
 
@@ -662,7 +1056,11 @@ def main():
         for future in as_completed(futures):
             symbol = futures[future]
             result = future.result()
-            if result:
+            if result and result.get("split_detected"):
+                si = result["split_info"]
+                print(f"  {symbol:<6} SPLIT — {si['ratio']} on {si['split_date']} — excluded from candidates")
+                stocks[symbol] = result  # kept in prices_snapshot, excluded from candidates
+            elif result:
                 t = result["technicals"]
                 v = result["valuation"]
                 print(f"  {symbol:<6} RSI={t['rsi']}  {t['trend']:<10}  PEG={v['peg']}  entry={t['entry_quality']}")
@@ -682,7 +1080,9 @@ def main():
     candidates = filter_candidates(stocks)
     print(f"[pre_fetch] Screened candidates: {len(candidates)}/{len(stocks)} pass RSI+entry filter")
     for c in candidates:
-        print(f"  {c['symbol']:<6}  RSI={c['rsi']}  {c['entry_quality']}")
+        score = c.get('composite_score', 0)
+        cache_tag = "[C]" if _load_fund_cache(c['symbol']) else "   "
+        print(f"  {cache_tag} {c['symbol']:<6}  RSI={c['rsi']}  score={score:>5.1f}  {c['entry_quality']}")
 
     correlation_warnings = build_correlation_warnings(candidates)
     if correlation_warnings:

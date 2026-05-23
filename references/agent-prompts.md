@@ -233,11 +233,10 @@ Return a single JSON code block:
     }
   ],
   "historical_accuracy": {
-    "previous_date": "2026-03-12",
-    "calls_made": 5,
-    "calls_correct": 3,
-    "accuracy_pct": 60,
-    "notable": "BTC buy call at $65,000 now at $67,500 (+3.8%) — correct"
+    "window_1d":  { "source_date": "2026-03-12", "calls_made": 5, "calls_correct": 3, "accuracy_pct": 60, "beat_spy": 3, "alpha_avg_pct": 0.4 },
+    "window_5d":  { "source_date": "2026-03-07", "calls_made": 8, "calls_correct": 6, "accuracy_pct": 75, "beat_spy": 5, "alpha_avg_pct": 1.2 },
+    "window_30d": { "source_date": "2026-02-10", "calls_made": 7, "calls_correct": 5, "accuracy_pct": 71, "beat_spy": 4, "alpha_avg_pct": 2.1 },
+    "notable": "1 sentence: best pick, worst pick, thesis status notes from Phase 0"
   },
   "warnings": [
     "High correlation between top picks — a market downturn would hit all simultaneously"
@@ -270,6 +269,8 @@ If `previous_theses` is non-empty, evaluate each previous pick's thesis:
   - `"updated"` — thesis partially changed (e.g. price moved past entry, earnings resolved) → adjust position sizing and stops
   - `"invalidated"` — at least one invalidator triggered → drop the pick from new recommendations
 - Briefly note the thesis status for each previous pick in the `historical_accuracy.notable` field.
+
+> **Multi-window accuracy data**: The orchestrator pre-computes accuracy across 3 horizons (1d/5d/30d) via `tools/accuracy_windows.py` and passes the result as `accuracy_baseline`. Use `accuracy_baseline.window_1d`, `.window_5d`, `.window_30d` directly to populate `historical_accuracy` — **do NOT recompute returns from web-searched prices**. Use `accuracy_baseline.notable` as the starting text for `historical_accuracy.notable` and append thesis status notes from Phase 0 evaluation.
 
 **Financial health overlay (use when `altman_z` and `piotroski` are present in position data):**
 - If `altman_z.zone == "distress"` → treat as a **soft invalidator**: flag the pick, tighten stop-loss, reduce position size. Only keep if thesis explicitly accounts for the distress zone (turnaround play).
@@ -356,9 +357,10 @@ Return this JSON block:
     }
   ],
   "historical_accuracy": {
-    "previous_date": "2026-04-14",
-    "calls_made": 14, "calls_correct": 10, "accuracy_pct": 71,
-    "notable": "1 sentence summary including thesis status notes from Phase 0"
+    "window_1d":  { "source_date": "2026-04-14", "calls_made": 13, "calls_correct": 8,  "accuracy_pct": 62, "beat_spy": 6, "alpha_avg_pct": -0.3 },
+    "window_5d":  { "source_date": "2026-04-09", "calls_made": 11, "calls_correct": 8,  "accuracy_pct": 73, "beat_spy": 7, "alpha_avg_pct": 1.1 },
+    "window_30d": { "source_date": "2026-03-14", "calls_made": 9,  "calls_correct": 7,  "accuracy_pct": 78, "beat_spy": 5, "alpha_avg_pct": 2.4 },
+    "notable": "1 sentence: best/worst pick names + returns, thesis status summary from Phase 0"
   },
   "warnings": [
     "Auto-generate a warning for every position where altman_z.zone == 'distress'. Format: '{SYMBOL}: Altman Z={score} (distress zone) — {brief implication}'",
