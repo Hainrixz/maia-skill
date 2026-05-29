@@ -1,0 +1,13 @@
+{
+  "symbol": "BA",
+  "financial_health": {
+    "altman_z": 1.59,
+    "altman_zone": "distress",
+    "piotroski": 6,
+    "piotroski_strength": "neutral"
+  },
+  "beat_streak": 3,
+  "last_surprise_pct": 0.02,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-28T14:22:04Z"
+}

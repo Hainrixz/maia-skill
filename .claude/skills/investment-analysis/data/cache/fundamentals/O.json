@@ -1,0 +1,13 @@
+{
+  "symbol": "O",
+  "financial_health": {
+    "altman_z": 1.16,
+    "altman_zone": "gray",
+    "piotroski": 5,
+    "piotroski_strength": "neutral"
+  },
+  "beat_streak": 0,
+  "last_surprise_pct": -0.45,
+  "insider_signal": "neutral",
+  "fetched_at": "2026-05-28T14:22:21Z"
+}

@@ -1,7 +1,7 @@
 {
   "symbol": "RIVN",
   "financial_health": {
-    "altman_z": -1.41,
+    "altman_z": -4.79,
     "altman_zone": "distress",
     "piotroski": 5,
     "piotroski_strength": "neutral"
@@ -9,5 +9,5 @@
   "beat_streak": 2,
   "last_surprise_pct": -0.25,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:30Z"
+  "fetched_at": "2026-05-28T14:22:24Z"
 }

@@ -1,13 +1,13 @@
 {
   "symbol": "UNH",
   "financial_health": {
-    "altman_z": 3.0,
-    "altman_zone": "safe",
+    "altman_z": 1.41,
+    "altman_zone": "gray",
     "piotroski": 6,
     "piotroski_strength": "neutral"
   },
   "beat_streak": 3,
   "last_surprise_pct": -0.08,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:31Z"
+  "fetched_at": "2026-05-28T14:22:28Z"
 }

@@ -1,7 +1,7 @@
 {
   "symbol": "MRK",
   "financial_health": {
-    "altman_z": 4.05,
+    "altman_z": 4.23,
     "altman_zone": "safe",
     "piotroski": 4,
     "piotroski_strength": "neutral"
@@ -9,5 +9,5 @@
   "beat_streak": 4,
   "last_surprise_pct": 0.05,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:28Z"
+  "fetched_at": "2026-05-28T14:22:18Z"
 }

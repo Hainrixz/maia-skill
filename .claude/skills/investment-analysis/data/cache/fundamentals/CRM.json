@@ -1,13 +1,13 @@
 {
   "symbol": "CRM",
   "financial_health": {
-    "altman_z": 2.48,
+    "altman_z": 1.83,
     "altman_zone": "gray",
     "piotroski": 7,
     "piotroski_strength": "strong"
   },
   "beat_streak": 4,
-  "last_surprise_pct": 0.01,
+  "last_surprise_pct": 0.05,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:25Z"
+  "fetched_at": "2026-05-28T14:22:08Z"
 }

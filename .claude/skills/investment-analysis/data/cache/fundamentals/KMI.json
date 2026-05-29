@@ -1,7 +1,7 @@
 {
   "symbol": "KMI",
   "financial_health": {
-    "altman_z": 1.34,
+    "altman_z": 1.29,
     "altman_zone": "distress",
     "piotroski": 6,
     "piotroski_strength": "neutral"
@@ -9,5 +9,5 @@
   "beat_streak": 3,
   "last_surprise_pct": 0.01,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:27Z"
+  "fetched_at": "2026-05-28T14:22:13Z"
 }

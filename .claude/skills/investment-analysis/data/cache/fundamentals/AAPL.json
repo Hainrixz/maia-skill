@@ -1,13 +1,13 @@
 {
   "symbol": "AAPL",
   "financial_health": {
-    "altman_z": 11.8,
-    "altman_zone": "safe",
+    "altman_z": 2.31,
+    "altman_zone": "gray",
     "piotroski": 8,
     "piotroski_strength": "strong"
   },
   "beat_streak": 4,
   "last_surprise_pct": 0.1,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:24Z"
+  "fetched_at": "2026-05-28T14:22:00Z"
 }

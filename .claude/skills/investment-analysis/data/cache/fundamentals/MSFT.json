@@ -1,7 +1,7 @@
 {
   "symbol": "MSFT",
   "financial_health": {
-    "altman_z": 8.53,
+    "altman_z": 4.46,
     "altman_zone": "safe",
     "piotroski": 5,
     "piotroski_strength": "neutral"
@@ -9,5 +9,5 @@
   "beat_streak": 4,
   "last_surprise_pct": 0.08,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:29Z"
+  "fetched_at": "2026-05-28T14:22:17Z"
 }

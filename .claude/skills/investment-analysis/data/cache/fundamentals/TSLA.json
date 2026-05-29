@@ -1,7 +1,7 @@
 {
   "symbol": "TSLA",
   "financial_health": {
-    "altman_z": 19.01,
+    "altman_z": 4.54,
     "altman_zone": "safe",
     "piotroski": 5,
     "piotroski_strength": "neutral"
@@ -9,5 +9,5 @@
   "beat_streak": 2,
   "last_surprise_pct": -0.01,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:31Z"
+  "fetched_at": "2026-05-28T14:22:28Z"
 }

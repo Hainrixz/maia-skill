@@ -1,7 +1,7 @@
 {
   "symbol": "PLTR",
   "financial_health": {
-    "altman_z": 140.84,
+    "altman_z": 10.62,
     "altman_zone": "safe",
     "piotroski": 7,
     "piotroski_strength": "strong"
@@ -9,5 +9,5 @@
   "beat_streak": 4,
   "last_surprise_pct": 0.16,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:29Z"
+  "fetched_at": "2026-05-28T14:22:22Z"
 }

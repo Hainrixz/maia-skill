@@ -1,53 +1,22 @@
 {
-  "generated_at": "2026-05-23T05:21:29Z",
+  "generated_at": "2026-05-28T14:23:12Z",
   "source": "SEC EDGAR",
-  "top": 15,
+  "top": 12,
   "symbols": [
-    "PYPL",
-    "PLTR",
     "NEM",
     "REGN",
+    "PYPL",
+    "PEP",
     "TSM",
-    "AVGO",
     "GILD",
-    "GOOGL",
-    "MA",
-    "AMZN",
-    "CRM",
-    "XOM",
-    "ASML",
     "DIS",
-    "MSFT"
+    "AVGO",
+    "NFLX",
+    "COST",
+    "WMT",
+    "MA"
   ],
   "results": [
-    {
-      "symbol": "PYPL",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-02-03",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001633917/000163391726000024/pypl-20251231.htm",
-      "risk_factors": [
-        "We do not intend, and undertake no obligation except as required by law, to update any of our forward-looking statements after the date of this report to reflect actual results, new information, or future events or circumstances.",
-        "Given these risks and uncertainties, readers are cautioned not to place undue reliance on such forward-looking statements.",
-        "You should read the information in this report in conjunction with the audited consolidated financial statements and the related notes that appear in this report.",
-        "BUSINESS OVERVIEW At PayPal Holdings, Inc., our mission is to revolutionize commerce globally."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "PLTR",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2025-02-18",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001321655/000132165525000022/pltr-20241231.htm",
-      "risk_factors": [
-        "You should carefully consider the risks and uncertainties described below, together with all of the other information in this Annual Report on Form 10-K, including the section titled “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and our consolidated financial statements and...",
-        "Our business, financial condition, results of operations, or prospects could also be harmed by risks and uncertainties not currently known to us or that we currently do not believe are material.",
-        "If any of the risks actually occur, our business, financial condition, results of operations, and prospects could be adversely affected.",
-        "In that event, the trading price of our Class A common stock could decline, and you could lose part or all of your investment."
-      ],
-      "error": null
-    },
     {
       "symbol": "NEM",
       "cik": null,
@@ -77,25 +46,44 @@
       "error": null
     },
     {
-      "symbol": "TSM",
-      "cik": null,
-      "form": null,
-      "filing_date": null,
-      "source_url": null,
-      "risk_factors": [],
-      "error": "no_annual_filing_found"
-    },
-    {
-      "symbol": "AVGO",
+      "symbol": "PYPL",
       "cik": null,
       "form": "10-K",
-      "filing_date": "2025-12-18",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001730168/000173016825000121/avgo-20251102.htm",
+      "filing_date": "2026-02-03",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001633917/000163391726000024/pypl-20251231.htm",
       "risk_factors": [
-        "At the “Investor Center” page on this website, we promptly make available free of charge the reports we file or furnish pursuant to Section 13(a) or 15(d) of the Securities Exchange Act of 1934 (the “Exchange Act”) with the Securities and Exchange Commission (the “SEC”), as well as our proxy statements.",
-        "Such periodic reports, proxy statements and other information are also available at the SEC’s website at www.sec.gov.",
-        "The information posted on our website is not incorporated into this Annual Report on Form 10-K.",
-        "Information About Our Executive Officers The following table provides information regarding our executive officers as of December 18, 2025: Name and Title Age Position and Offices Hock E."
+        "We do not intend, and undertake no obligation except as required by law, to update any of our forward-looking statements after the date of this report to reflect actual results, new information, or future events or circumstances.",
+        "Given these risks and uncertainties, readers are cautioned not to place undue reliance on such forward-looking statements.",
+        "You should read the information in this report in conjunction with the audited consolidated financial statements and the related notes that appear in this report.",
+        "BUSINESS OVERVIEW At PayPal Holdings, Inc., our mission is to revolutionize commerce globally."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "PEP",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2025-02-04",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000077476/000007747625000007/pep-20241228.htm",
+      "risk_factors": [
+        "Management’s Discussion and Analysis of Financial Condition and Results of Operations – Our Business – Our Business Risks.” Investors are cautioned not to place undue reliance on any such forward-looking statements, which speak only as of the date they are made.",
+        "We undertake no obligation to update any forward-looking statement, whether as a result of new information, future events or otherwise.",
+        "The discussion of risks in this report is by no means all-inclusive but is designed to highlight what we believe are important factors to consider when evaluating our future performance.",
+        "When used in this report, the terms “we,” “us,” “our,” “PepsiCo” and the “Company” mean PepsiCo, Inc."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "TSM",
+      "cik": null,
+      "form": "20-F",
+      "filing_date": "2025-04-17",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001046179/000119312525083423/d896993d20f.htm",
+      "risk_factors": [
+        "As used in this annual report, all references to “we,” “us,” the “Company” and “TSMC” are to Taiwan Semiconductor Manufacturing Company Limited and its consolidated subsidiaries.",
+        "EXCHANGE RATES We publish our financial statements in New Taiwan dollars, the lawful currency of the R.O.C.",
+        "dollars” mean United States dollars, the lawful currency of the United States, and “NT$” and “NT dollars” mean New Taiwan dollars.",
+        "dollars in this annual report were made at NT$32.79 to US$1.00, the exchange rate set forth in the H.10 statistical release of the Federal Reserve Board on December 31, 2024."
       ],
       "error": null
     },
@@ -114,85 +102,6 @@
       "error": null
     },
     {
-      "symbol": "GOOGL",
-      "cik": null,
-      "form": null,
-      "filing_date": null,
-      "source_url": null,
-      "risk_factors": [],
-      "error": "no_annual_filing_found"
-    },
-    {
-      "symbol": "MA",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2025-02-12",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001141391/000114139125000011/ma-20241231.htm",
-      "risk_factors": [
-        "We face competition in the ACH and real-time account-based payments space from providers of infrastructure, applications and services.",
-        "As these real-time account-based propositions mature, we face a possible increase in competition for our existing domestic person-to-merchant (“P2M”) and person-to-person (“P2P”) transaction market share.",
-        "Similarly, as interlinking of these infrastructures is further explored, they could disrupt our existing cross-border P2M and P2P market share.",
-        "Also, several industry initiatives are experimenting with the concept of account-based global schemes, which could lead to a disruption of the clearing and settlement options utilized in various currencies."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "AMZN",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-02-06",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231.htm",
-      "risk_factors": [
-        "We are guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking.",
-        "In each of our segments, we serve our primary customer sets, consisting of consumers, sellers, developers, enterprises, content creators, advertisers, and employees.",
-        "We have organized our operations into three segments: North America, International, and Amazon Web Services (“AWS”).",
-        "These segments reflect the way the Company evaluates its business performance and manages its operations."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "CRM",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2026-03-02",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001108524/000110852426000060/crm-20260131.htm",
-      "risk_factors": [
-        "A manifestation of any of the following risks and uncertainties could, in circumstances we may or may not be able to accurately predict, materially and adversely affect our business and operations, growth, reputation, prospects, operating and financial results, financial condition, cash flows, liquidity and stock pr...",
-        "Some of the factors, events and contingencies discussed below may have occurred in the past, but the disclosures below are not representations as to whether or not the factors, events or contingencies have occurred in the past and instead reflect our beliefs and opinions as to the factors, events or contingencies th...",
-        "Other events, factors or uncertainties that we do not currently anticipate or that we currently deem immaterial also may affect our business, financial condition, results of operations, cash flows, other key metrics and the trading price of our common stock.",
-        "Therefore, you should not consider the following risks to be a complete statement of all the potential risks or uncertainties that we face."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "XOM",
-      "cik": null,
-      "form": "10-K",
-      "filing_date": "2025-02-19",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000034088/000003408825000010/xom-20241231.htm",
-      "risk_factors": [
-        "This means ExxonMobil’s operations and earnings may be significantly affected by changes in oil, gas, and petrochemical prices and by changes in margins on refined products.",
-        "Oil, gas, petrochemical, and product prices and margins in turn depend on local, regional, and global events or conditions that affect supply and demand for the relevant commodity or product.",
-        "Any material decline in oil or natural gas prices could have a material adverse effect on the Company’s operations, financial condition, and proved reserves, especially in the Upstream segment.",
-        "On the other hand, a material increase in oil or natural gas prices could have a material adverse effect on the Company’s operations, especially in the Energy Products, Chemical Products, and Specialty Products segments."
-      ],
-      "error": null
-    },
-    {
-      "symbol": "ASML",
-      "cik": null,
-      "form": "20-F",
-      "filing_date": "2026-02-25",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000937966/000162828026011378/asml-20251231.htm",
-      "risk_factors": [
-        "Corporate governance Corporate governance 76 Corporate governance at a glance 78 Board of Management 80 Supervisory Board 83 Other Board-related matters 85 AGM and share capital 88 Financial reporting and audit 90 Compliance with corporate governance requirements Supervisory Board report 91 In conversation with the...",
-        "Sustainability statements 139 Limited assurance report of the independent auditors on the Sustainability statements General disclosures 142 Basis for preparation 144 ESG sustainability governance 146 ESG sustainability at a glance 147 Value chain and ecosystem overview 148 Environmental and human rights due diligenc...",
-        "Financial statements Consolidated financial statements 274 Reports of independent registered public accounting firms 277 Consolidated statements of operations 278 Consolidated statements of comprehensive income 279 Consolidated balance sheets 280 Consolidated statements of shareholders’ equity 282 Consolidated state...",
-        "This report comprises regulated information within the meaning of articles 1:1 and 5:25c of the Dutch Financial Markets Supervision Act (Wet op het Financieel Toezicht)."
-      ],
-      "error": null
-    },
-    {
       "symbol": "DIS",
       "cik": null,
       "form": "10-K",
@@ -207,18 +116,69 @@
       "error": null
     },
     {
-      "symbol": "MSFT",
+      "symbol": "AVGO",
       "cik": null,
       "form": "10-K",
-      "filing_date": "2024-07-30",
-      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000789019/000095017024087843/msft-20240630.htm",
+      "filing_date": "2025-12-18",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001730168/000173016825000121/avgo-20251102.htm",
       "risk_factors": [
-        "These forward-looking statements generally are identified by the words “believe,” “project,” “expect,” “anticipate,” “estimate,” “intend,” “strategy,” “future,” “opportunity,” “plan,” “may,” “should,” “will,” “would,” “will be,” “will continue,” “will likely result,” and similar expressions.",
-        "Forward-looking statements are based on current expectations and assumptions that are subject to risks and uncertainties that may cause actual results to differ materially.",
-        "Readers are cautioned not to place undue reliance on forward-looking statements, which speak only as of the date they are made.",
-        "We undertake no obligation to update or revise publicly any forward-looking statements, whether because of new information, future events, or otherwise."
+        "At the “Investor Center” page on this website, we promptly make available free of charge the reports we file or furnish pursuant to Section 13(a) or 15(d) of the Securities Exchange Act of 1934 (the “Exchange Act”) with the Securities and Exchange Commission (the “SEC”), as well as our proxy statements.",
+        "Such periodic reports, proxy statements and other information are also available at the SEC’s website at www.sec.gov.",
+        "The information posted on our website is not incorporated into this Annual Report on Form 10-K.",
+        "Information About Our Executive Officers The following table provides information regarding our executive officers as of December 18, 2025: Name and Title Age Position and Offices Hock E."
       ],
       "error": null
+    },
+    {
+      "symbol": "NFLX",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2026-01-23",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0001065280/000106528026000034/nflx-20251231.htm",
+      "risk_factors": [
+        "All forward-looking statements included in this document are based on information available to us on the date hereof, and we assume no obligation to revise or publicly release any revision to any such forward-looking statement, except as may otherwise be required by law.",
+        "(“Netflix”, the “Company”, “registrant”, “we”, or “us”) is one of the world’s leading entertainment services offering TV series, films, games and live programming across a wide variety of genres and languages.",
+        "Members can play, pause and resume watching as much as they want, anytime, anywhere, and can change their plans at any time.",
+        "Our core strategy is to grow our business globally within the parameters of our operating margin target."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "COST",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2025-10-08",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000909832/000090983225000101/cost-20250831.htm",
+      "risk_factors": [
+        "Forward-looking statements speak only as of the date they are made, and we do not undertake to update these statements, except as required by law.",
+        "PART I Item 1—Business Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington.",
+        "We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand.",
+        "Costco operated 914, 890, and 861 warehouses worldwide at August 31, 2025, September 1, 2024, and September 3, 2023."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "WMT",
+      "cik": null,
+      "form": "10-K",
+      "filing_date": "2025-03-14",
+      "source_url": "https://cdn.yahoofinance.com/prod/sec-filings/0000104169/000010416925000021/wmt-20250131.htm",
+      "risk_factors": [
+        "We believe that addressing their needs builds the value of our business, including by enhancing trust, creating new business opportunities, managing cost and risk, building capabilities for future advantage and strengthening the underlying systems on which we rely.",
+        "We prioritize issues that offer the greatest potential for Walmart to create long-term shared value: Issues that rank high in relevance to our business, importance to building and maintaining stakeholder trust and in which Walmart has the ability to be an effective actor.",
+        "Our current priorities are categorized into four broad themes: opportunity, sustainability, community and ethics and integrity.",
+        "We believe that promoting economic opportunity helps Walmart attract and retain the talent we need to run our business, respond to customer needs, and promote economic resilience in the places where we operate."
+      ],
+      "error": null
+    },
+    {
+      "symbol": "MA",
+      "cik": null,
+      "form": null,
+      "filing_date": null,
+      "source_url": null,
+      "risk_factors": [],
+      "error": "no_annual_filing_found"
     }
   ]
 }

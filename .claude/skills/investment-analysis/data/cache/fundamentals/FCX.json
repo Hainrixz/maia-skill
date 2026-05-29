@@ -1,13 +1,13 @@
 {
   "symbol": "FCX",
   "financial_health": {
-    "altman_z": 2.97,
-    "altman_zone": "gray",
+    "altman_z": 3.02,
+    "altman_zone": "safe",
     "piotroski": 5,
     "piotroski_strength": "neutral"
   },
   "beat_streak": 4,
   "last_surprise_pct": 0.22,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:26Z"
+  "fetched_at": "2026-05-28T14:22:08Z"
 }

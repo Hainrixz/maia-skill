@@ -1,663 +1,1478 @@
 {
   "brand": "Tododeia",
   "creator": "@quebert",
-  "generated_at": "2026-05-22T23:39:31",
+  "generated_at": "2026-05-28T14:32:24Z",
   "risk_profile": "moderate",
-  "executive_summary": "In a mixed regime with SPY overbought (RSI=71.1) and Fear&Greed at 28, the optimal posture is selective quality accumulation in oversold catalysts (PYPL, REGN), AI infrastructure leaders (AVGO, TSM, PLTR), defensive FCF compounders (GILD, NEM, XOM), and streaming recovery (DIS), while aggressively pruning distressed balance sheets (SOFI, RIVN, BIDU, AAL) and overbought positions (FTNT). Portfolio concentration at 15% cash buffer and strict correlation limits provides downside protection if SPY mean-reverts.",
+  "executive_summary": "Fear & Greed Index has crashed from 34→25→22 over 3 consecutive days into Extreme Fear while SPY RSI approaches overbought at 69.3, demanding maximum defensive positioning with elevated cash. Key actions today: execute mandatory FTNT trim (RSI=87 Day 3 overbought), initiate TSM ADD as semiconductor rotation replacing AVGO’s primary slot, and maintain 38% cash. With 1-day accuracy at 0% and a declining 42→25→0 accuracy trend, this strategy tilts toward proven defensives (WMT, PEP, GILD) and gold hedge (NEM) while limiting new capital deployment to one high-conviction ADD.",
   "macro_environment": {
-    "summary": "Mixed regime with SPY RSI=71.1 signaling near-term overbought conditions; Fear&Greed=28 creates selective entry opportunities in quality names while elevated 10y yield (4.558, rising) pressures long-duration growth multiples.",
-    "interest_rate_outlook": "rising",
-    "inflation_outlook": "falling",
+    "summary": "Fallback macro view: MIXED regime, SPY at 7537.44 if available, RSI 69.3 and VIX 16.2 favor a selective approach.",
+    "interest_rate_outlook": "stable",
+    "inflation_outlook": "stable",
     "geopolitical_risk": "medium",
     "key_factors": [
-      "VIX=16.7 complacent but Fear&Greed=28 divergence suggests rotation not collapse",
-      "10y yield 4.558 rising — penalizes high-PEG growth, rewards FCF compounders and dividend growers",
-      "AI infrastructure spend (AVGO, TSM, PLTR) accelerating despite macro uncertainty",
-      "Gold spot ~$3,200+ supports NEM; FDA HDV approval is binary GILD catalyst",
-      "SPY RSI=71.1 warrants elevated cash buffer and tight stop discipline"
+      "Regime=MIXED",
+      "SPY RSI=69.3",
+      "VIX=16.18"
     ]
   },
   "portfolio_allocation": {
-    "stocks": 72,
-    "materials": 13,
-    "cash": 15
+    "stocks": 58,
+    "materials": 4,
+    "cash": 38
   },
   "cross_sector_insights": [
     {
-      "insight": "AI ASIC + semiconductor cycle re-accelerating driven by NVIDIA Q1 beat and hyperscaler capex guidance",
-      "implication": "Overweight TSM and AVGO; correlation limit (max 2 semis) already hit — no new semis beyond these two"
-    },
-    {
-      "insight": "Rising 10y yield (4.558) compresses high-PEG multiples but rewards low-PEG FCF names",
-      "implication": "PYPL (PEG 0.80), AVGO (PEG 0.90), REGN (PEG 1.11) are structurally advantaged; CRM and DIS need multiple re-rating to work"
-    },
-    {
-      "insight": "Gold spot >$3,200 + NEM buybacks provide non-correlated portfolio hedge against yield/geopolitical volatility",
-      "implication": "NEM serves dual role: alpha via FCF strength and macro hedge; size at 6% within materials allocation"
-    },
-    {
-      "insight": "Fear&Greed=28 historically precedes mean-reversion rallies within 30-60 days in non-recessionary regimes",
-      "implication": "Oversold entries (PYPL RSI=12, REGN RSI=31) offer asymmetric upside if sentiment normalizes toward 50"
+      "insight": "Fallback synthesis: the market is in a mixed regime and the strategy agent output was unavailable.",
+      "implication": "Use the deterministic sector ranking and keep allocations conservative until a fresh strategy pass is available."
     }
   ],
   "risk_adjusted_picks": [
     {
       "rank": 1,
-      "name": "Gilead Sciences",
-      "symbol": "GILD",
-      "sector": "Biotechnology",
-      "confidence": 8.5,
-      "risk_score": 2.5,
-      "risk_adjusted_score": 7.9,
-      "recommendation": "add",
-      "reasoning": "FDA accelerated approval of HDV treatment is a near-term binary catalyst with limited downside given existing HIV franchise FCF and low PEG=2.14 relative to biotech peers.",
-      "position_size": "7%",
-      "entry_price": 134.36,
-      "stop_loss": 120.9,
-      "target_12m": 168.0,
-      "risk_reward_ratio": 2.49,
-      "thesis": "FDA HDV approval expands TAM beyond core HIV while Lenacapavir long-acting injectable pipeline sustains multi-year growth; valuation at FPE=14.0 is undemanding for a catalyst-rich franchise.",
+      "name": "Alphabet",
+      "symbol": "GOOGL",
+      "sector": "Technology / Internet & Search",
+      "confidence": 7.2,
+      "risk_score": 3.5,
+      "risk_adjusted_score": 6.2,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "6%",
+      "entry_price": 389.45,
+      "stop_loss": 370.88,
+      "target_12m": 486.81,
+      "risk_reward_ratio": 5.24,
+      "thesis": "Big tech anchor with stable thesis supported by Cloud and Search monetization with incremental AI integration revenue. HOLD maintains allocation without adding risk in Extreme Fear regime; +0.1% 1-day confirms thesis intact.",
       "thesis_invalidators": [
-        "FDA rejection or clinical hold on HDV",
-        "HIV pricing legislation (IRA expansion)",
-        "Pipeline safety signal on Lenacapavir"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "active — FDA approval confirmed, catalyst intact",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 3.8,
-        "altman_zone": "safe",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Strong FCF generation, low leverage, Piotroski=8 signals improving fundamentals"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "No additional headlines available",
+        "No additional headlines available"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "uptrend",
+        "rsi": 43.0,
+        "macd": "N/A",
+        "key_support": 205.43,
+        "key_resistance": 573.47,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 26.9041,
+        "peg": 1.5309,
+        "ev_ebitda": null,
+        "verdict": "PEG=1.53"
+      },
+      "fundamentals": {
+        "revenue_growth": "21.8%",
+        "gross_margin": "N/A",
+        "fcf_margin": "6.6%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$389.45",
+      "watchlist": "big_tech",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 2,
-      "name": "PayPal Holdings",
-      "symbol": "PYPL",
-      "sector": "Fintech / Payments",
-      "confidence": 8.2,
-      "risk_score": 3.0,
-      "risk_adjusted_score": 7.7,
-      "recommendation": "buy",
-      "reasoning": "RSI=12 and FPE=7.7 with PEG=0.80 represent extreme technical and fundamental undervaluation; deep mean-reversion trade with defined risk above $40 support.",
-      "position_size": "6%",
-      "entry_price": 44.23,
-      "stop_loss": 39.8,
-      "target_12m": 62.0,
-      "risk_reward_ratio": 3.93,
-      "thesis": "PYPL trades at a 55% discount to fintech peer group on PEG basis; branded checkout monetization recovery and Venmo monetization represent underappreciated earnings drivers into 2027.",
+      "name": "WMT",
+      "symbol": "WMT",
+      "sector": "Consumer Staples / Discount Retail",
+      "confidence": 7.0,
+      "risk_score": 2.5,
+      "risk_adjusted_score": 6.2,
+      "recommendation": "hold",
+      "reasoning": "oversold — verify fundamentals",
+      "position_size": "4%",
+      "entry_price": 118.86,
+      "stop_loss": 113.72,
+      "target_12m": 148.57,
+      "risk_reward_ratio": 5.78,
+      "thesis": "Bearish news flag DISMISSED — Jim Cramer bullish, strong-buy analyst consensus intact, discount-retail defensiveness rewarded in Extreme Fear environments; RSI=30 at oversold support with 16.1% upside. +0.3% 1-day holding ground during fear selloff confirms thesis.",
       "thesis_invalidators": [
-        "Accelerating market share loss to Apple Pay / Google Pay",
-        "Regulatory action on BNPL expansion",
-        "CFO-level guidance cut below consensus"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "active — no new negative catalysts; excl-oversold entry confirmed",
+      "thesis_status": "active",
       "financial_health": {
         "altman_z": null,
-        "altman_zone": "N/A (financial sector model)",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Financial sector Z-score not applicable; Piotroski=8 indicates healthy cash flow and balance sheet metrics"
-      }
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "How a 2006 Walmart receipt illustrates today's consumer headaches",
+        "Micron replaces mighty Walmart in the $1 trillion club"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: oversold — verify fundamentals"
+      ],
+      "technicals": {
+        "trend": "mixed",
+        "rsi": 30.1,
+        "macd": "N/A",
+        "key_support": 81.84,
+        "key_resistance": 155.88,
+        "entry_quality": "oversold — verify fundamentals"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 36.1405,
+        "peg": 4.6662,
+        "ev_ebitda": null,
+        "verdict": "PEG=4.67"
+      },
+      "fundamentals": {
+        "revenue_growth": "7.3%",
+        "gross_margin": "N/A",
+        "fcf_margin": "1.0%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$118.86",
+      "watchlist": "staples",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 3,
-      "name": "Broadcom Inc.",
-      "symbol": "AVGO",
-      "sector": "Semiconductors",
-      "confidence": 8.2,
-      "risk_score": 2.8,
-      "risk_adjusted_score": 7.7,
-      "recommendation": "buy",
-      "reasoning": "AI ASIC revenues accelerating with hyperscaler custom silicon deals provides multi-year visibility; PEG=0.90 is remarkably low for a secular AI beneficiary.",
-      "position_size": "7%",
-      "entry_price": 414.14,
-      "stop_loss": 364.0,
-      "target_12m": 520.0,
-      "risk_reward_ratio": 2.12,
-      "thesis": "AVGO is the dominant merchant AI ASIC designer for Google TPU and Meta MTIA — custom silicon is a $60B+ TAM growing >40% YoY; VMware integration margin expansion provides earnings floor.",
+      "name": "Amazon",
+      "symbol": "AMZN",
+      "sector": "Consumer Discretionary / E-Commerce & Cloud",
+      "confidence": 7.0,
+      "risk_score": 3.5,
+      "risk_adjusted_score": 6.0,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "5%",
+      "entry_price": 269.3,
+      "stop_loss": 256.92,
+      "target_12m": 336.62,
+      "risk_reward_ratio": 5.44,
+      "thesis": "AWS cloud growth and advertising revenue diversification provide dual growth engines supporting 11.4% upside; +0.4% 1-day confirms stable demand thesis. Completes big_tech pair at 2-group maximum.",
       "thesis_invalidators": [
-        "Hyperscaler in-house ASIC builds reducing AVGO share",
-        "VMware integration costs exceed guidance",
-        "Export control expansion to key Asian customers"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "new — AI ASIC revenue acceleration confirmed Q1",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 3.5,
-        "altman_zone": "safe",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Post-VMware leverage normalizing; FCF yield remains strong at >8%"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "No additional headlines available",
+        "No additional headlines available"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "uptrend",
+        "rsi": 48.0,
+        "macd": "N/A",
+        "key_support": 144.75,
+        "key_resistance": 393.85,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 27.3146,
+        "peg": 1.8344,
+        "ev_ebitda": null,
+        "verdict": "PEG=1.83"
+      },
+      "fundamentals": {
+        "revenue_growth": "16.6%",
+        "gross_margin": "N/A",
+        "fcf_margin": "1.3%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$269.30",
+      "watchlist": "big_tech",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 4,
-      "name": "Regeneron Pharmaceuticals",
-      "symbol": "REGN",
-      "sector": "Biotechnology",
-      "confidence": 8.0,
-      "risk_score": 3.0,
-      "risk_adjusted_score": 7.4,
-      "recommendation": "buy",
-      "reasoning": "RSI=31 oversold + FPE=11.9 / PEG=1.11 is historically undervalued for a best-in-class dupilumab/oncology platform; Dupixent pipeline expansions in COPD and alopecia areata provide 2026-27 growth catalysts.",
-      "position_size": "5%",
-      "entry_price": 638.88,
-      "stop_loss": 575.0,
-      "target_12m": 800.0,
-      "risk_reward_ratio": 2.52,
-      "thesis": "Dupixent approaching $15B annualized revenue with 8+ new indications in late-stage trials; VEGF bispecific antibody Eylea HD lifecycle extension and oncology pipeline (Libtayo) provide diversified growth optionality.",
+      "name": "PEP",
+      "symbol": "PEP",
+      "sector": "Consumer Staples / Beverages & Snacks",
+      "confidence": 6.8,
+      "risk_score": 2.5,
+      "risk_adjusted_score": 6.0,
+      "recommendation": "hold",
+      "reasoning": "oversold — verify fundamentals",
+      "position_size": "3%",
+      "entry_price": 147.34,
+      "stop_loss": 141.17,
+      "target_12m": 184.18,
+      "risk_reward_ratio": 5.97,
+      "thesis": "RSI=32 oversold in a highly defensive staple with 16.1% upside; PepsiCo diversified snack and beverage portfolio provides recession-resistant revenue. Completes staples pair with WMT at 2-group maximum for maximum defensive allocation.",
       "thesis_invalidators": [
-        "IRA drug price negotiation targeting Dupixent (post-2028 risk)",
-        "FDA rejection of COPD indication",
-        "Biosimilar Eylea erosion faster than modeled"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "updated — excl-oversold entry; oncology thesis intact",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 4.2,
-        "altman_zone": "safe",
-        "piotroski": 4,
-        "piotroski_strength": "moderate",
-        "health_note": "Piotroski=4 reflects R&D spend drag on near-term ROA metrics; balance sheet remains net-cash"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "Couple who sold to Pepsi for $2 billion says going into business with your roman",
+        "As Amazon And Others Turn To AI Hiring Tools, PepsiCo Doubles Down On 'Hustle' A"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: oversold — verify fundamentals"
+      ],
+      "technicals": {
+        "trend": "downtrend",
+        "rsi": 32.0,
+        "macd": "N/A",
+        "key_support": 109.47,
+        "key_resistance": 185.21,
+        "entry_quality": "oversold — verify fundamentals"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 16.1061,
+        "peg": 1.5907,
+        "ev_ebitda": null,
+        "verdict": "PEG=1.59"
+      },
+      "fundamentals": {
+        "revenue_growth": "8.5%",
+        "gross_margin": "N/A",
+        "fcf_margin": "9.2%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$147.34",
+      "watchlist": "staples",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 5,
-      "name": "Taiwan Semiconductor",
-      "symbol": "TSM",
-      "sector": "Semiconductors",
-      "confidence": 7.8,
-      "risk_score": 3.5,
-      "risk_adjusted_score": 7.1,
-      "recommendation": "add",
-      "reasoning": "NVIDIA Q1 record earnings and semicap ETF surge confirm N3/N2 demand acceleration; geopolitical tail risk is the primary discount not a near-term catalyst.",
-      "position_size": "6%",
-      "entry_price": 404.52,
-      "stop_loss": 356.0,
-      "target_12m": 500.0,
-      "risk_reward_ratio": 1.98,
-      "thesis": "TSM's N2 node ramp in 2026 drives ASP expansion and share gains from Intel/Samsung; Arizona fab operationalization reduces geopolitical discount over 18-24 months.",
+      "name": "Newmont",
+      "symbol": "NEM",
+      "sector": "Materials / Gold Mining",
+      "confidence": 6.8,
+      "risk_score": 4.0,
+      "risk_adjusted_score": 5.6,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "4%",
+      "entry_price": 106.03,
+      "stop_loss": 101.65,
+      "target_12m": 132.54,
+      "risk_reward_ratio": 6.05,
+      "thesis": "Highest screened score at 59 with RSI=40 neutral and bullish news flow; gold miners provide a direct portfolio hedge against deepening Extreme Fear with 34.9% upside. The -2.6% 1-day move is macro noise during a fear cascade — gold thesis strengthens as F&G declines.",
       "thesis_invalidators": [
-        "Taiwan Strait military escalation",
-        "NVIDIA/AMD major capacity shift to Samsung",
-        "US CHIPS Act compliance issues at Arizona fab"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "new — NVIDIA record Q1 confirms demand thesis",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 4.1,
-        "altman_zone": "safe",
-        "piotroski": 9,
-        "piotroski_strength": "very strong",
-        "health_note": "Exceptional Piotroski=9; world-class capex efficiency and ROIC>25%"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "Newmont vs. SSR Mining: Which Gold Stock Is a Better Buy in 2026?",
+        "AEM vs. NEM: Which Gold Mining Giant Should You Invest in Now?"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "mixed",
+        "rsi": 40.4,
+        "macd": "N/A",
+        "key_support": 69.93,
+        "key_resistance": 142.13,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 9.2665,
+        "peg": 2.7807,
+        "ev_ebitda": null,
+        "verdict": "PEG=2.78"
+      },
+      "fundamentals": {
+        "revenue_growth": "45.8%",
+        "gross_margin": "N/A",
+        "fcf_margin": "39.3%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$106.03",
+      "watchlist": "precious_metals",
+      "social_sentiment": "bullish",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 6,
-      "name": "Newmont Corporation",
-      "symbol": "NEM",
-      "sector": "Gold Mining / Materials",
-      "confidence": 7.8,
-      "risk_score": 3.2,
-      "risk_adjusted_score": 7.0,
-      "recommendation": "buy",
-      "reasoning": "Gold spot >$3,200 with rising geopolitical risk and yield uncertainty provides strong realized price tailwind; FPE=9.4 and active buyback program at this gold price is deeply discounted to NAV.",
-      "position_size": "6%",
-      "entry_price": 107.64,
-      "stop_loss": 96.9,
-      "target_12m": 138.0,
-      "risk_reward_ratio": 2.83,
-      "thesis": "NEM trades at a 35-40% discount to NAV at $3,200 gold with FCF yield >7%; buyback acceleration signals management confidence in cost structure normalization post-Newcrest integration.",
+      "name": "GILD",
+      "symbol": "GILD",
+      "sector": "Healthcare / Biopharmaceuticals",
+      "confidence": 6.5,
+      "risk_score": 3.0,
+      "risk_adjusted_score": 5.6,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "2%",
+      "entry_price": 134.55,
+      "stop_loss": 128.6,
+      "target_12m": 168.19,
+      "risk_reward_ratio": 5.65,
+      "thesis": "Healthcare defensive with RSI=51 neutral and pending FDA milestone as near-term binary catalyst; Gilead HIV and oncology pipeline provides stable recurring revenue with upside optionality. 17.4% upside with low defensive risk appropriate for Extreme Fear regime.",
       "thesis_invalidators": [
-        "Gold spot drops below $2,800 on USD strength/Fed pivot",
-        "Operational disruptions at Tanami or Peñasquito mines",
-        "Cost inflation re-acceleration exceeding gold price gains"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "new — gold momentum intact, buyback confirms thesis",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 3.6,
-        "altman_zone": "safe",
-        "piotroski": 9,
-        "piotroski_strength": "very strong",
-        "health_note": "Piotroski=9 top-tier; FCF positive at current gold prices, improving balance sheet post-acquisition"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "FDA accelerated approval of Hepcludex significant milestone for US HDV market",
+        "3 Stocks Estimated To Be Trading Up To 44.8% Below Intrinsic Value"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "mixed",
+        "rsi": 51.3,
+        "macd": "N/A",
+        "key_support": 94.12,
+        "key_resistance": 174.98,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 14.0306,
+        "peg": 2.1441,
+        "ev_ebitda": null,
+        "verdict": "PEG=2.14"
+      },
+      "fundamentals": {
+        "revenue_growth": "4.4%",
+        "gross_margin": "N/A",
+        "fcf_margin": "26.7%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$134.55",
+      "watchlist": "healthcare",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 7,
-      "name": "Palantir Technologies",
-      "symbol": "PLTR",
-      "sector": "AI / Defense Technology",
-      "confidence": 7.5,
-      "risk_score": 4.5,
-      "risk_adjusted_score": 6.7,
+      "name": "TSM",
+      "symbol": "TSM",
+      "sector": "Technology / Semiconductors",
+      "confidence": 6.8,
+      "risk_score": 5.5,
+      "risk_adjusted_score": 5.2,
       "recommendation": "add",
-      "reasoning": "Trump endorsement and record AI government contract wins validate the AIP commercial + gov dual-track thesis; RSI=36 offers rare pullback entry in a momentum name.",
+      "reasoning": "fair",
       "position_size": "6%",
-      "entry_price": 136.88,
-      "stop_loss": 109.5,
-      "target_12m": 175.0,
-      "risk_reward_ratio": 1.39,
-      "thesis": "PLTR AIP platform is entrenching in both US DoD (Maven Smart System) and enterprise Fortune 500 — government contract backlog provides earnings visibility while commercial ARR is accelerating >40% YoY.",
+      "entry_price": 419.3,
+      "stop_loss": 206.41,
+      "target_12m": 524.12,
+      "risk_reward_ratio": 0.49,
+      "thesis": "Taiwan Semiconductor re-enters screen with score 54 and RSI=52, offering neutral technicals with bullish AI chip demand tailwind as Intel/AMD comparative analysis drives wafer order upgrades. Correlation engine now ranks TSM over AVGO as preferred semiconductor pair alongside NVDA; geopolitical risk is known and priced.",
       "thesis_invalidators": [
-        "Administration defense spending cuts or PLTR contract deselection",
-        "Commercial AIP churn exceeds 15% annually",
-        "PEG=1.97 compression if revenue growth decelerates below 30%"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "active — gov contract momentum confirmed, RSI pullback creates add opportunity",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 3.9,
-        "altman_zone": "safe",
-        "piotroski": 7,
-        "piotroski_strength": "strong",
-        "health_note": "Net cash balance sheet, no debt; Piotroski=7 reflects positive operating leverage trajectory"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "Intel vs AMD: The Ideal Long-Term Investment",
+        "Taiwan Semiconductor Stock Nearing 52-Week High: Buy, Sell or Hold?"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "uptrend",
+        "rsi": 52.5,
+        "macd": "N/A",
+        "key_support": 212.79,
+        "key_resistance": 625.81,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 21.4877,
+        "peg": 1.313,
+        "ev_ebitda": null,
+        "verdict": "PEG=1.31"
+      },
+      "fundamentals": {
+        "revenue_growth": "35.1%",
+        "gross_margin": "N/A",
+        "fcf_margin": "17.5%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$419.30",
+      "watchlist": "semiconductors",
+      "social_sentiment": "bullish",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 8,
-      "name": "Walt Disney Company",
-      "symbol": "DIS",
-      "sector": "Entertainment / Media",
-      "confidence": 7.2,
-      "risk_score": 3.8,
-      "risk_adjusted_score": 6.6,
-      "recommendation": "add",
-      "reasoning": "Streaming profitability inflection with Disney+ reaching EBITDA positive + parks resilience make FPE=13.7 reasonable; Canada content rules are manageable near-term.",
-      "position_size": "5%",
-      "entry_price": 103.0,
-      "stop_loss": 92.7,
-      "target_12m": 128.0,
-      "risk_reward_ratio": 2.43,
-      "thesis": "DIS is in early innings of a streaming monetization cycle — ad-tier subscriber mix shift and password-sharing enforcement drive ARPU expansion; ESPN direct-to-consumer launch in 2025-26 is a significant underappreciated catalyst.",
-      "thesis_invalidators": [
-        "Streaming ARPU growth stalls amid competition from Netflix/Amazon",
-        "Parks attendance decline in macro slowdown",
-        "Canada content regulation materially restricts Disney+ catalog"
-      ],
-      "thesis_status": "new — streaming recovery thesis intact; Canada rules manageable",
-      "financial_health": {
-        "altman_z": 2.1,
-        "altman_zone": "gray",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Gray zone Z reflects legacy media debt load from Fox acquisition; Piotroski=8 shows operational improvement — monitor debt reduction cadence"
-      }
-    },
-    {
-      "rank": 9,
-      "name": "Amazon.com",
-      "symbol": "AMZN",
-      "sector": "E-Commerce / Cloud",
-      "confidence": 7.0,
-      "risk_score": 3.2,
-      "risk_adjusted_score": 6.5,
-      "recommendation": "hold",
-      "reasoning": "AWS reacceleration and advertising segment margin expansion support FPE=27 at current growth rates; no near-term catalyst to add aggressively but thesis intact.",
-      "position_size": "5%",
-      "entry_price": 266.32,
-      "stop_loss": 234.0,
-      "target_12m": 325.0,
-      "risk_reward_ratio": 1.82,
-      "thesis": "AMZN is a 3-engine compounder (AWS, Ads, Retail margin) with Project Kuiper optionality; AI inference workloads on AWS Trainium2 create a competitive moat against Azure/GCP.",
-      "thesis_invalidators": [
-        "AWS growth decelerates below 15% YoY",
-        "Antitrust breakup of marketplace/logistics",
-        "Retail margin contraction from Temu/Shein competition"
-      ],
-      "thesis_status": "new — AWS + ads thesis active; no invalidators triggered",
-      "financial_health": {
-        "altman_z": 3.7,
-        "altman_zone": "safe",
-        "piotroski": 5,
-        "piotroski_strength": "moderate",
-        "health_note": "Piotroski=5 reflects heavy capex cycle; FCF trajectory strongly positive on AWS margin expansion"
-      }
-    },
-    {
-      "rank": 10,
-      "name": "Exxon Mobil",
-      "symbol": "XOM",
-      "sector": "Energy",
-      "confidence": 6.8,
-      "risk_score": 3.5,
-      "risk_adjusted_score": 6.1,
-      "recommendation": "hold",
-      "reasoning": "Brent elevated and Permian/Guyana volume growth support FPE=14.9; natural gas LNG export capacity coming online in 2026-27 provides medium-term upside.",
-      "position_size": "4%",
-      "entry_price": 154.92,
-      "stop_loss": 139.4,
-      "target_12m": 178.0,
-      "risk_reward_ratio": 1.49,
-      "thesis": "XOM's Pioneer acquisition fully integrated and synergy realization on track; LNG Canada and Golden Pass LNG provide 2026-28 volume/earnings step-up while $35/bbl breakeven provides downside protection.",
-      "thesis_invalidators": [
-        "Brent drops below $65/bbl on demand destruction",
-        "Pioneer integration cost overruns",
-        "Accelerated energy transition policy (carbon tax)"
-      ],
-      "thesis_status": "new — neutral news, energy thesis holds at current Brent levels",
-      "financial_health": {
-        "altman_z": 3.4,
-        "altman_zone": "safe",
-        "piotroski": 5,
-        "piotroski_strength": "moderate",
-        "health_note": "Strong FCF yield ~6%; Piotroski=5 reflects commodity cycle working capital volatility, not structural weakness"
-      }
-    },
-    {
-      "rank": 11,
-      "name": "Mastercard",
-      "symbol": "MA",
-      "sector": "Payments Network",
+      "name": "PayPal Holdings",
+      "symbol": "PYPL",
+      "sector": "Financials / Digital Payments",
       "confidence": 6.5,
-      "risk_score": 3.8,
-      "risk_adjusted_score": 5.9,
-      "recommendation": "hold",
-      "reasoning": "Network effects and cross-border volume recovery are durable but European/UK regulatory headwinds on interchange fees create near-term multiple compression risk — hold, do not add.",
-      "position_size": "4%",
-      "entry_price": 498.54,
-      "stop_loss": 448.0,
-      "target_12m": 580.0,
-      "risk_reward_ratio": 1.6,
-      "thesis": "MA's two-sided network is near-impossible to replicate; FX-neutral revenue growth ~14% driven by cross-border recovery and emerging market penetration; regulatory risk is manageable long-term but near-term overhang.",
-      "thesis_invalidators": [
-        "EU interchange fee cap expanded to Mastercard network",
-        "UK PSR interchange ruling adverse beyond estimates",
-        "Real-time payment rails (FedNow/Pix) accelerating displacement"
-      ],
-      "thesis_status": "active — regulatory headwinds bearish flag; downgrade from add to hold",
-      "financial_health": {
-        "altman_z": null,
-        "altman_zone": "N/A (financial sector model)",
-        "piotroski": 8,
-        "piotroski_strength": "strong",
-        "health_note": "Financial sector Z not applicable; Piotroski=8, asset-light model with 45%+ net margins"
-      }
-    },
-    {
-      "rank": 12,
-      "name": "Salesforce",
-      "symbol": "CRM",
-      "sector": "Enterprise SaaS",
-      "confidence": 5.8,
       "risk_score": 4.5,
       "risk_adjusted_score": 5.2,
       "recommendation": "hold",
-      "reasoning": "pnl=-23.9% near stop but Agentforce early traction and FPE=12.0/PEG=0.98 argue against capitulating at the low — hold with tight stop, no new capital added.",
-      "position_size": "3%",
-      "entry_price": 180.07,
-      "stop_loss": 162.0,
-      "target_12m": 225.0,
-      "risk_reward_ratio": 2.49,
-      "thesis": "Agentforce AI agent platform represents a $50B+ TAM opportunity that could re-rate CRM from a mature SaaS multiple to AI-growth multiple; FPE=12 provides floor but AI rotation risk is real.",
+      "reasoning": "excellent — oversold",
+      "position_size": "4%",
+      "entry_price": 43.93,
+      "stop_loss": 42.21,
+      "target_12m": 54.91,
+      "risk_reward_ratio": 6.38,
+      "thesis": "RSI=24 extreme oversold with Tencent/WeChat regulatory approval confirmed as near-term catalyst unlocking Chinese market access, driving 20.7% upside to $53 target. Extreme Fear environments historically precede sharp reversals in oversold payments names.",
       "thesis_invalidators": [
-        "Agentforce adoption metrics miss at Dreamforce 2026",
-        "AI trade rotation accelerates outflows from legacy SaaS",
-        "pnl breaches -25% stop — execute stop-loss discipline"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "new — near stop; hold pending Agentforce adoption data; ALERT: stop at $162",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 2.4,
-        "altman_zone": "gray",
-        "piotroski": 7,
-        "piotroski_strength": "strong",
-        "health_note": "Gray zone Z reflects acquisition-heavy balance sheet (Slack, Tableau); Piotroski=7 shows solid operating metrics"
-      }
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "In a tourist-friendly move, China's Tencent to allow PayPal payments through its",
+        "Cash App Now Supports Stablecoins, Despite Bitcoin Maxi Jack Dorsey's 'Gatekeepe"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: excellent — oversold"
+      ],
+      "technicals": {
+        "trend": "downtrend",
+        "rsi": 24.3,
+        "macd": "N/A",
+        "key_support": 41.12,
+        "key_resistance": 46.74,
+        "entry_quality": "excellent — oversold"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 7.6046,
+        "peg": 0.7886,
+        "ev_ebitda": null,
+        "verdict": "PEG=0.79"
+      },
+      "fundamentals": {
+        "revenue_growth": "7.2%",
+        "gross_margin": "N/A",
+        "fcf_margin": "12.1%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$43.93",
+      "watchlist": "payments",
+      "social_sentiment": "bullish",
+      "social_buzz": "medium",
+      "source_agreement": "high"
+    },
+    {
+      "rank": 9,
+      "name": "Mastercard",
+      "symbol": "MA",
+      "sector": "Financials / Payments Network",
+      "confidence": 6.2,
+      "risk_score": 4.0,
+      "risk_adjusted_score": 5.0,
+      "recommendation": "hold",
+      "reasoning": "good — near support",
+      "position_size": "2%",
+      "entry_price": 492.56,
+      "stop_loss": 477.59,
+      "target_12m": 615.7,
+      "risk_reward_ratio": 8.23,
+      "thesis": "Mastercard global payments network provides structural growth through electronic payment adoption with RSI=42 offering technical room to run toward $647 target. Pairs with PYPL in payments group for balanced fintech exposure at 2-group maximum.",
+      "thesis_invalidators": [
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
+      ],
+      "thesis_status": "active",
+      "financial_health": {
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "IBM Red Hat Project Lightwell $5 billion open-source security",
+        "Paxos Wins SEC Clearing Agency Approval for Blockchain Settlement Business"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: good — near support"
+      ],
+      "technicals": {
+        "trend": "downtrend",
+        "rsi": 42.5,
+        "macd": "N/A",
+        "key_support": 472.61,
+        "key_resistance": 512.51,
+        "entry_quality": "good — near support"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 21.6232,
+        "peg": 1.58,
+        "ev_ebitda": null,
+        "verdict": "PEG=1.58"
+      },
+      "fundamentals": {
+        "revenue_growth": "15.8%",
+        "gross_margin": "N/A",
+        "fcf_margin": "47.6%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$492.56",
+      "watchlist": "payments",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
+    },
+    {
+      "rank": 10,
+      "name": "ConocoPhillips",
+      "symbol": "COP",
+      "sector": "Energy / Upstream Oil & Gas",
+      "confidence": 6.0,
+      "risk_score": 4.5,
+      "risk_adjusted_score": 4.7,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "1.0%",
+      "entry_price": 115.16,
+      "stop_loss": 109.13,
+      "target_12m": 143.95,
+      "risk_reward_ratio": 4.78,
+      "thesis": "ConocoPhillips entered as cleaner energy replacement with superior Altman Z-score versus XOM; upstream-only model limits refining margin volatility with 12.9% upside. HOLD as primary energy position completing energy group alongside residual XOM trim.",
+      "thesis_invalidators": [
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
+      ],
+      "thesis_status": "active",
+      "financial_health": {
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "No additional headlines available",
+        "No additional headlines available"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "mixed",
+        "rsi": 52.3,
+        "macd": "N/A",
+        "key_support": 77.56,
+        "key_resistance": 152.76,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 12.587,
+        "peg": 0.9762,
+        "ev_ebitda": null,
+        "verdict": "PEG=0.98"
+      },
+      "fundamentals": {
+        "revenue_growth": "-5.3%",
+        "gross_margin": "N/A",
+        "fcf_margin": "8.9%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$115.16",
+      "watchlist": "energy",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
+    },
+    {
+      "rank": 11,
+      "name": "DIS",
+      "symbol": "DIS",
+      "sector": "Communication Services / Entertainment",
+      "confidence": 5.8,
+      "risk_score": 5.0,
+      "risk_adjusted_score": 4.3,
+      "recommendation": "hold",
+      "reasoning": "good — near support",
+      "position_size": "2%",
+      "entry_price": 103.85,
+      "stop_loss": 99.55,
+      "target_12m": 129.81,
+      "risk_reward_ratio": 6.04,
+      "thesis": "RSI=36 mild oversold with strong-buy consensus targeting $129; Disney+ streaming profitability milestone and parks demand resilience support 24.2% upside. German regulatory risk manageable and already reflected in neutral news sentiment.",
+      "thesis_invalidators": [
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
+      ],
+      "thesis_status": "active",
+      "financial_health": {
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "Netflix's Ad Business Expansion Continues: More Upside Ahead?",
+        "Disney World will revamp one of Walt Disney's most beloved rides — what to expec"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: good — near support"
+      ],
+      "technicals": {
+        "trend": "mixed",
+        "rsi": 35.9,
+        "macd": "N/A",
+        "key_support": 84.53,
+        "key_resistance": 123.17,
+        "entry_quality": "good — near support"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 13.8565,
+        "peg": 2.6411,
+        "ev_ebitda": null,
+        "verdict": "PEG=2.64"
+      },
+      "fundamentals": {
+        "revenue_growth": "6.5%",
+        "gross_margin": "N/A",
+        "fcf_margin": "3.9%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$103.85",
+      "watchlist": "streaming",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
+    },
+    {
+      "rank": 12,
+      "name": "Broadcom",
+      "symbol": "AVGO",
+      "sector": "Technology / Semiconductors",
+      "confidence": 5.5,
+      "risk_score": 5.0,
+      "risk_adjusted_score": 4.0,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "1.0%",
+      "entry_price": 420.32,
+      "stop_loss": 394.76,
+      "target_12m": 525.4,
+      "risk_reward_ratio": 4.11,
+      "thesis": "HOLD existing position only — no new capital as correlation engine today selects NVDA+TSM as preferred semiconductor pair, displacing AVGO from active add slot. 14.2% upside to $480 remains but -1.6% 1-day underperformance and correlation displacement warrant zero new adds.",
+      "thesis_invalidators": [
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
+      ],
+      "thesis_status": "active",
+      "financial_health": {
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "SK Hynix and Micron lead AI boom, join trillion-dollar club",
+        "Microsoft’s AI Spending Won’t Derail Dividend Safety Inside Vanguard’s VIG"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "uptrend",
+        "rsi": 53.8,
+        "macd": "N/A",
+        "key_support": 230.34,
+        "key_resistance": 610.3,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 22.8498,
+        "peg": 0.9177,
+        "ev_ebitda": null,
+        "verdict": "PEG=0.92"
+      },
+      "fundamentals": {
+        "revenue_growth": "29.5%",
+        "gross_margin": "N/A",
+        "fcf_margin": "37.4%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$420.32",
+      "watchlist": "semiconductors",
+      "social_sentiment": "bullish",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
       "rank": 13,
-      "name": "Fortinet",
-      "symbol": "FTNT",
-      "sector": "Cybersecurity",
+      "name": "ExxonMobil",
+      "symbol": "XOM",
+      "sector": "Energy / Integrated Oil & Gas",
       "confidence": 5.0,
-      "risk_score": 5.5,
-      "risk_adjusted_score": 4.2,
+      "risk_score": 6.0,
+      "risk_adjusted_score": 3.2,
       "recommendation": "trim",
-      "reasoning": "RSI=87 is severely overbought — trim 30-40% of position to lock gains and reset entry for potential re-add on RSI normalization to 50-60.",
-      "position_size": "2%",
-      "entry_price": null,
-      "stop_loss": null,
-      "target_12m": null,
-      "risk_reward_ratio": null,
-      "thesis": "FTNT cybersecurity platform thesis remains intact long-term but technical exhaustion at RSI=87 historically precedes 10-15% mean-reversion pullbacks; reduce exposure and re-enter on weakness.",
+      "reasoning": "fair",
+      "position_size": "1.0%",
+      "entry_price": 148.24,
+      "stop_loss": 150.09,
+      "target_12m": 185.3,
+      "risk_reward_ratio": 2.0,
+      "thesis": "Residual TRIM — Altman Z=1.52 financial distress warrants continued reduction despite +0.9% 1-day. COP replaced XOM as primary energy holding; reduce to 0% or sub-0.5% residual on intraday strength above $148.50.",
       "thesis_invalidators": [
-        "Major cyber incident driving sector re-rating upward",
-        "Competitor breach validating FTNT moat"
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
       ],
-      "thesis_status": "active — overbought signal; trim action required",
+      "thesis_status": "active",
       "financial_health": {
-        "altman_z": 3.2,
-        "altman_zone": "safe",
-        "piotroski": 7,
-        "piotroski_strength": "strong",
-        "health_note": "Healthy FCF and strong retention metrics; trim is tactical not fundamental"
-      }
-    }
-  ],
-  "priority_attention": [
-    {
-      "symbol": "SOFI",
-      "reason": "Altman Z=0.34 deep distress zone + Piotroski=2 weak — dual confirmation of financial fragility",
-      "action": "SELL / exit position — distress signals confirmed, outside moderate risk mandate"
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "No additional headlines available",
+        "No additional headlines available"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "mixed",
+        "rsi": 53.7,
+        "macd": "N/A",
+        "key_support": 96.95,
+        "key_resistance": 199.53,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 14.1249,
+        "peg": 1.3659,
+        "ev_ebitda": null,
+        "verdict": "PEG=1.37"
+      },
+      "fundamentals": {
+        "revenue_growth": "2.6%",
+        "gross_margin": "N/A",
+        "fcf_margin": "3.6%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$148.24",
+      "watchlist": "energy",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     },
     {
-      "symbol": "BABA",
-      "reason": "Altman Z=1.79 distress + geopolitical ADR delisting risk + Chinese regulatory overhang",
-      "action": "TRIM or EXIT — reduce to 0-1% maximum; monitor delisting risk"
-    },
-    {
-      "symbol": "NU",
-      "reason": "Altman Z=0.82 distress + bearish news — Brazilian fintech faces credit cycle headwinds",
-      "action": "TRIM to minimal position — Z=0.82 distress; await credit quality improvement"
-    },
-    {
-      "symbol": "OXY",
-      "reason": "Altman Z=1.52 distress — CrownRock leverage elevated; Brent below $70 would stress FCF",
-      "action": "HOLD with STOP — exit if Brent drops below $70 sustained"
-    },
-    {
-      "symbol": "BA",
-      "reason": "Altman Z=1.56 distress — 737 MAX delays, DOJ compliance, negative FCF through 2026",
-      "action": "HOLD minimum position only — await FCF positive quarter"
-    },
-    {
-      "symbol": "RIVN",
-      "reason": "Altman Z=-1.51 deep distress (negative Z) — severe cash burn without profitability path",
-      "action": "EXIT — negative Z is critical flag; outside moderate risk mandate"
-    },
-    {
-      "symbol": "AAL",
-      "reason": "Altman Z=0.67 distress — post-COVID balance sheet stressed; fuel/labor headwinds",
-      "action": "EXIT or TRIM to 0% — no near-term catalyst; airline cycle risk elevated"
-    },
-    {
-      "symbol": "C",
-      "reason": "Altman Z=0.20 extreme distress — Citigroup transformation still in progress",
-      "action": "HOLD with caution — monitor Tier 1 capital ratio; no add"
-    },
-    {
-      "symbol": "BIDU",
-      "reason": "Altman Z=1.26 distress + Piotroski=2 weak + ADR geopolitical risk — triple flag",
-      "action": "EXIT — trifecta of distress+weak fundamentals+geopolitical exceeds moderate threshold"
-    },
-    {
-      "symbol": "NVO",
-      "reason": "pnl=-31.6% near stop + bearish news — GLP-1 competitive pressure eroding Ozempic/Wegovy moat",
-      "action": "EXECUTE STOP-LOSS — thesis broken by competitive pipeline; exit and reassess in 90 days"
-    },
-    {
-      "symbol": "CRM",
-      "reason": "pnl=-23.9% approaching -25% stop threshold — Agentforce ramp uncertainty",
-      "action": "STOP at $162 — pre-set stop-loss; if triggered, exit without hesitation"
-    },
-    {
+      "rank": 14,
+      "name": "FTNT",
       "symbol": "FTNT",
-      "reason": "RSI=87 severe overbought — technical exhaustion signal",
-      "action": "TRIM 30-40% immediately — lock partial gains; re-entry at RSI 50-60"
+      "sector": "Technology / Cybersecurity",
+      "confidence": 5.0,
+      "risk_score": 7.5,
+      "risk_adjusted_score": 2.8,
+      "recommendation": "trim",
+      "reasoning": "",
+      "position_size": "1.0%",
+      "entry_price": 172.5,
+      "stop_loss": 0.01,
+      "target_12m": 215.62,
+      "risk_reward_ratio": 0.25,
+      "thesis": "MANDATORY TRIM — RSI=87 Day 3 extreme overbought with +138.2% portfolio gain makes this highest-priority profit crystallization. Execute 40-50% position reduction at market today; each additional overbought day increases mean-reversion probability exponentially.",
+      "thesis_invalidators": [
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
+      ],
+      "thesis_status": "active",
+      "financial_health": {
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [],
+      "social_highlights": [],
+      "technicals": {},
+      "valuation": {},
+      "fundamentals": {},
+      "current_price": null,
+      "watchlist": null,
+      "social_sentiment": null,
+      "social_buzz": null,
+      "source_agreement": null
+    },
+    {
+      "rank": 15,
+      "name": "Salesforce",
+      "symbol": "CRM",
+      "sector": "Technology / Enterprise Software",
+      "confidence": 4.0,
+      "risk_score": 7.5,
+      "risk_adjusted_score": 1.8,
+      "recommendation": "hold",
+      "reasoning": "fair",
+      "position_size": "1.0%",
+      "entry_price": 180.53,
+      "stop_loss": 167.12,
+      "target_12m": 225.66,
+      "risk_reward_ratio": 3.37,
+      "thesis": "Minimal 1% position HOLD pending hard stop resolution at $160; -23.9% portfolio PnL is dominant risk with stop not yet triggered at current $180.53. Agentforce AI integration provides speculative upside but does not justify any capital addition.",
+      "thesis_invalidators": [
+        "Catalyst fails to materialize",
+        "Trend or valuation thesis breaks"
+      ],
+      "thesis_status": "active",
+      "financial_health": {
+        "altman_z": null,
+        "altman_zone": "N/A",
+        "piotroski": null,
+        "piotroski_strength": "N/A",
+        "health_note": "Financial health data carried through from pre-fetched context."
+      },
+      "key_news": [
+        "No additional headlines available",
+        "No additional headlines available"
+      ],
+      "social_highlights": [
+        "Pre-screened via yfinance universe",
+        "Entry quality: fair"
+      ],
+      "technicals": {
+        "trend": "downtrend",
+        "rsi": 43.9,
+        "macd": "N/A",
+        "key_support": 167.62,
+        "key_resistance": 193.44,
+        "entry_quality": "fair"
+      },
+      "valuation": {
+        "pe": null,
+        "forward_pe": 11.7916,
+        "peg": 0.9631,
+        "ev_ebitda": null,
+        "verdict": "PEG=0.96"
+      },
+      "fundamentals": {
+        "revenue_growth": "12.1%",
+        "gross_margin": "N/A",
+        "fcf_margin": "39.4%",
+        "debt_equity": null,
+        "verdict": "Pre-fetched from yfinance"
+      },
+      "current_price": "$180.53",
+      "watchlist": "saas",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "source_agreement": "high"
     }
   ],
   "historical_accuracy": {
     "window_1d": {
-      "source_date": "2026-05-20",
-      "calls_made": 4,
-      "calls_correct": 2,
-      "accuracy_pct": 50,
-      "beat_spy": 7,
-      "alpha_avg_pct": -4.9
+      "source_date": "2026-05-27",
+      "calls_made": 1,
+      "calls_correct": 0,
+      "accuracy_pct": 0,
+      "total_picks": 14,
+      "beat_spy": 3,
+      "beat_spy_pct": 21,
+      "alpha_avg_pct": -0.7,
+      "spy_return_pct": 0.25,
+      "best_pick": "XOM +0.9%",
+      "worst_pick": "NEM -2.6%",
+      "picks": [
+        {
+          "symbol": "PYPL",
+          "entry": 44.13,
+          "now": 43.93,
+          "return_pct": -0.5,
+          "alpha_pct": -0.7,
+          "rec": "add",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "WMT",
+          "entry": 118.56,
+          "now": 118.86,
+          "return_pct": 0.3,
+          "alpha_pct": 0.0,
+          "rec": "add",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "PEP",
+          "entry": 147.61,
+          "now": 147.34,
+          "return_pct": -0.2,
+          "alpha_pct": -0.4,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "AVGO",
+          "entry": 427.0,
+          "now": 420.32,
+          "return_pct": -1.6,
+          "alpha_pct": -1.8,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "GOOGL",
+          "entry": 389.18,
+          "now": 389.45,
+          "return_pct": 0.1,
+          "alpha_pct": -0.2,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "AMZN",
+          "entry": 268.17,
+          "now": 269.3,
+          "return_pct": 0.4,
+          "alpha_pct": 0.2,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "NEM",
+          "entry": 108.81,
+          "now": 106.03,
+          "return_pct": -2.6,
+          "alpha_pct": -2.8,
+          "rec": "add",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "MA",
+          "entry": 494.63,
+          "now": 492.56,
+          "return_pct": -0.4,
+          "alpha_pct": -0.7,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "GILD",
+          "entry": 135.21,
+          "now": 134.55,
+          "return_pct": -0.5,
+          "alpha_pct": -0.7,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "COP",
+          "entry": 115.67,
+          "now": 115.16,
+          "return_pct": -0.4,
+          "alpha_pct": -0.7,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": false,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "DIS",
+          "entry": 104.23,
+          "now": 103.85,
+          "return_pct": -0.4,
+          "alpha_pct": -0.6,
+          "rec": "add",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "REGN",
+          "entry": 634.54,
+          "now": 623.91,
+          "return_pct": -1.7,
+          "alpha_pct": -1.9,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "CRM",
+          "entry": 181.44,
+          "now": 180.53,
+          "return_pct": -0.5,
+          "alpha_pct": -0.7,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "XOM",
+          "entry": 146.91,
+          "now": 148.24,
+          "return_pct": 0.9,
+          "alpha_pct": 0.7,
+          "rec": "trim",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        }
+      ]
     },
     "window_5d": {
-      "source_date": "2026-05-14",
-      "calls_made": 10,
-      "calls_correct": 7,
-      "accuracy_pct": 70,
-      "beat_spy": 7,
-      "alpha_avg_pct": 0.6
+      "source_date": "2026-05-21",
+      "calls_made": 4,
+      "calls_correct": 1,
+      "accuracy_pct": 25,
+      "total_picks": 13,
+      "beat_spy": 5,
+      "beat_spy_pct": 38,
+      "alpha_avg_pct": -1.5,
+      "spy_return_pct": 1.76,
+      "best_pick": "GILD +12.3%",
+      "worst_pick": "BX -13.9%",
+      "picks": [
+        {
+          "symbol": "PYPL",
+          "entry": 44.98,
+          "now": 43.93,
+          "return_pct": -2.3,
+          "alpha_pct": -4.1,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "MELI",
+          "entry": 1577.8,
+          "now": 1685.0,
+          "return_pct": 6.8,
+          "alpha_pct": 5.0,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "WFC",
+          "entry": 74.11,
+          "now": 76.7,
+          "return_pct": 3.5,
+          "alpha_pct": 1.7,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "PLTR",
+          "entry": 134.77,
+          "now": 138.09,
+          "return_pct": 2.5,
+          "alpha_pct": 0.7,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "MA",
+          "entry": 498.91,
+          "now": 492.56,
+          "return_pct": -1.3,
+          "alpha_pct": -3.0,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "BAC",
+          "entry": 50.43,
+          "now": 50.96,
+          "return_pct": 1.1,
+          "alpha_pct": -0.7,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "AMGN",
+          "entry": 324.05,
+          "now": 336.48,
+          "return_pct": 3.8,
+          "alpha_pct": 2.1,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": true,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "GILD",
+          "entry": 119.77,
+          "now": 134.55,
+          "return_pct": 12.3,
+          "alpha_pct": 10.6,
+          "rec": "buy",
+          "correct": true,
+          "beat_spy": true,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "NFLX",
+          "entry": 88.09,
+          "now": 86.65,
+          "return_pct": -1.6,
+          "alpha_pct": -3.4,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "BX",
+          "entry": 133.2,
+          "now": 114.71,
+          "return_pct": -13.9,
+          "alpha_pct": -15.6,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": false,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "GLD",
+          "entry": 418.47,
+          "now": 409.1,
+          "return_pct": -2.2,
+          "alpha_pct": -4.0,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "OXY",
+          "entry": 58.87,
+          "now": 57.43,
+          "return_pct": -2.4,
+          "alpha_pct": -4.2,
+          "rec": "hold",
+          "correct": null,
+          "beat_spy": false,
+          "thesis_status": "active"
+        },
+        {
+          "symbol": "REGN",
+          "entry": 645.58,
+          "now": 623.91,
+          "return_pct": -3.4,
+          "alpha_pct": -5.1,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": false,
+          "thesis_status": "updated"
+        }
+      ]
     },
     "window_30d": {
-      "source_date": "2026-04-17",
-      "calls_made": 5,
-      "calls_correct": 3,
-      "accuracy_pct": 60,
+      "source_date": "2026-04-29",
+      "calls_made": 12,
+      "calls_correct": 5,
+      "accuracy_pct": 42,
+      "total_picks": 12,
       "beat_spy": 0,
-      "alpha_avg_pct": null
+      "beat_spy_pct": 0,
+      "alpha_avg_pct": null,
+      "spy_return_pct": null,
+      "best_pick": "ABBV +10.9%",
+      "worst_pick": "ETH-USD -13.4%",
+      "picks": [
+        {
+          "symbol": "ABBV",
+          "entry": 197.13,
+          "now": 218.6,
+          "return_pct": 10.9,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": true,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "GILD",
+          "entry": 129.31,
+          "now": 134.55,
+          "return_pct": 4.1,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": true,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "JNJ",
+          "entry": 225.5,
+          "now": 231.49,
+          "return_pct": 2.7,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": true,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "GLD",
+          "entry": 414.44,
+          "now": 409.1,
+          "return_pct": -1.3,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "BAC",
+          "entry": 51.9,
+          "now": 50.96,
+          "return_pct": -1.8,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "REGN",
+          "entry": 694.4,
+          "now": 623.91,
+          "return_pct": -10.2,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "NFLX",
+          "entry": 91.8,
+          "now": 86.65,
+          "return_pct": -5.6,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "OXY",
+          "entry": 58.91,
+          "now": 57.43,
+          "return_pct": -2.5,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "GDX",
+          "entry": 86.86,
+          "now": 85.2,
+          "return_pct": -1.9,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "AMGN",
+          "entry": 335.69,
+          "now": 336.48,
+          "return_pct": 0.2,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": true,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "MRK",
+          "entry": 108.91,
+          "now": 120.7,
+          "return_pct": 10.8,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": true,
+          "beat_spy": null,
+          "thesis_status": "new"
+        },
+        {
+          "symbol": "ETH-USD",
+          "entry": 2295.24,
+          "now": 1987.21,
+          "return_pct": -13.4,
+          "alpha_pct": null,
+          "rec": "buy",
+          "correct": false,
+          "beat_spy": null,
+          "thesis_status": "new"
+        }
+      ]
     },
-    "notable": "1d:50%(7/11 beat SPY,2026-05-20)|5d:70%(7/11,2026-05-14)|30d:60%(0/12,2026-04-17). Phase 0: GILD FDA catalyst confirmed; PLTR gov contracts validated; NEM gold>$3,200 confirms timing; AVGO AI ASIC beat consensus; REGN oversold entry pending; PYPL RSI=12 extreme oversold; CRM near stop — thesis at risk; FTNT RSI=87 overbought — trim signal active. 30d all picks underperformed SPY — avoid momentum-chasing at SPY RSI>70."
+    "notable": "window_1d: 0% (3/14 beat SPY, from 2026-05-27) | window_5d: 25% (5/13 beat SPY, from 2026-05-21) | window_30d: 42% (0/12 beat SPY, from 2026-04-29) | Thesis status: GOOGL:active; WMT:active; AMZN:active; PEP:active; NEM:active",
+    "computed_at": "2026-05-28",
+    "today_spy": 7537.44
   },
   "warnings": [
-    "SOFI: Altman Z=0.34 deep distress + Piotroski=2 — dual confirmed distress; RECOMMENDED EXIT",
-    "BABA: Altman Z=1.79 distress + ADR delisting risk + Chinese regulatory overhang — TRIM/EXIT recommended",
-    "NU: Altman Z=0.82 distress + bearish news — Brazilian consumer credit cycle deteriorating; TRIM recommended",
-    "OXY: Altman Z=1.52 distress — CrownRock leverage elevated; FCF covenant stress if Brent <$70; HOLD with stop",
-    "BA: Altman Z=1.56 distress — 737 MAX delays + DOJ compliance + negative FCF; HOLD minimum only",
-    "RIVN: Altman Z=-1.51 CRITICAL distress (negative Z) — severe cash burn; EXIT recommended",
-    "AAL: Altman Z=0.67 distress — stressed balance sheet + fuel/labor headwinds; EXIT recommended",
-    "C: Altman Z=0.20 extreme distress (financial model) — monitor Tier 1 capital; HOLD with caution, no add",
-    "BIDU: Altman Z=1.26 distress + Piotroski=2 weak + ADR geopolitical — triple flag; EXIT recommended",
-    "NVO: pnl=-31.6% near stop + bearish competitive news (oral GLP-1 competition) — EXECUTE STOP-LOSS",
-    "FTNT: RSI=87 severe overbought — TRIM 30-40% immediately to lock gains",
-    "CRM: pnl=-23.9% approaching -25% stop — PRE-SET STOP at $162; Agentforce thesis uncertain",
-    "SPY RSI=71.1 OVERBOUGHT: Elevated cash buffer (15%) warranted; prioritize oversold quality entries (PYPL RSI=12, REGN RSI=31)",
-    "CORRELATION LIMITS ACTIVE: payments[PYPL+MA]=2/2 at limit; big_tech[PLTR+AMZN]=2/2 at limit; healthcare[REGN+GILD]=2/2 at limit; semis[TSM+AVGO]=2/2 at limit — NO additional names in any group"
+    "F&G=22 EXTREME FEAR accelerating: 3-day decline (34→25→22) not yet stabilized — avoid deploying cash beyond the single TSM ADD approved today",
+    "SPY RSI=69.3 approaching overbought while F&G=22 creates dangerous price-momentum vs. sentiment divergence; elevated tail risk for sharp correction",
+    "1-day accuracy at 0% (3 of 14 beat SPY) with declining trend 42→25→0 — model in active underperformance; reduce new-position conviction and prioritize stop execution",
+    "FTNT RSI=87 Day 3: mandatory trim execution required at market open — failure to execute is a risk management violation",
+    "NVO approaching -35% hard stop at -31.6% current pnl — prepare exit order and confirm exact stop price today",
+    "REGN institutional distribution ongoing ($18.1M outflow): RSI=24 does NOT override active institutional exit signal — no new capital",
+    "Semiconductor correlation limit reached (NVDA existing HOLD + TSM new ADD = 2-group max): AVGO is HOLD only, zero new capital in semiconductors",
+    "XOM Altman Z=1.52 financial distress is structural: trim is non-optional — do not hold full position on basis of +0.9% 1-day noise",
+    "Meta: strategy assembled from 8045 compressed characters."
   ],
   "sectors": {
     "stocks": {
       "sector": "stocks",
-      "timestamp": "2026-05-23T05:22:31Z",
-      "sector_summary": "US equities screened from the 31-candidate universe. Regime: MIXED. VIX=16.7, Fear&Greed=28 (Fear). SPY RSI=0 — oversold — index dip opportunity. Top entry opportunities by RSI oversold + fundamental quality shown below.",
+      "timestamp": "2026-05-28T14:23:14Z",
+      "sector_summary": "US equities screened from the 29-candidate universe. Regime: MIXED. VIX=16.2, Fear&Greed=22 (Extreme Fear). SPY RSI=0 — oversold — index dip opportunity. Top entry opportunities by RSI oversold + fundamental quality shown below.",
       "sector_outlook": "neutral",
-      "top_pick": "PYPL",
-      "top_pick_reasoning": "Highest ranked by entry quality in screened universe (RSI=12)",
+      "top_pick": "REGN",
+      "top_pick_reasoning": "Highest ranked by entry quality in screened universe (RSI=24)",
       "assets": [
-        {
-          "name": "PayPal Holdings",
-          "symbol": "PYPL",
-          "watchlist": "payments",
-          "current_price": "$44.23",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$47.24",
-          "week_52_low": "$41.22",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "American Express vs. PayPal: Which Fintech Stock Has More Upside?",
-            "Should You Forget PayPal and Buy Visa Instead?"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: excellent — oversold"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "excellent — oversold",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 11.5,
-            "macd": "N/A",
-            "key_support": 41.22,
-            "key_resistance": 47.24,
-            "entry_quality": "excellent — oversold"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 7.6565,
-            "peg": 0.7971,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.80"
-          },
-          "fundamentals": {
-            "revenue_growth": "7.2%",
-            "gross_margin": "N/A",
-            "fcf_margin": "12.1%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "PLTR",
-          "symbol": "PLTR",
-          "watchlist": "big_tech",
-          "current_price": "$136.88",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$150.16",
-          "week_52_low": "$123.60",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "Trump Praises Palantir (PLTR) on Truth Social after Buying the Company’s Stock, ",
-            "Palo Alto Networks Is Beating Palantir by 60% This Year. Is a Rebalancing Immine"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 35.7,
-            "macd": "N/A",
-            "key_support": 123.6,
-            "key_resistance": 150.16,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 65.9892,
-            "peg": 1.9696,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.97"
-          },
-          "fundamentals": {
-            "revenue_growth": "84.7%",
-            "gross_margin": "N/A",
-            "fcf_margin": "33.6%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
         {
           "name": "Regeneron",
           "symbol": "REGN",
           "watchlist": "healthcare",
-          "current_price": "$638.88",
+          "current_price": "$623.91",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$792.53",
-          "week_52_low": "$485.23",
+          "week_52_high": "$759.61",
+          "week_52_low": "$488.21",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -666,8 +1481,8 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Jim Cramer on Regeneron: “There Could Be Some More Downgrades”",
-            "ATS 2026: Mixed results for Sanofi/Regeneron’s itepekimab cloud COPD prospects"
+            "Why Apogee Slipped On Its Dupixent-Rivaling Eczema Results",
+            "Investment Firm Closes Out Entire $18.1 Million Position in Biotech Stock, Accor"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -677,18 +1492,18 @@
           "reasoning": "excellent — oversold",
           "technicals": {
             "trend": "downtrend",
-            "rsi": 30.9,
+            "rsi": 23.5,
             "macd": "N/A",
-            "key_support": 485.23,
-            "key_resistance": 792.53,
+            "key_support": 488.21,
+            "key_resistance": 759.61,
             "entry_quality": "excellent — oversold"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 11.8819,
-            "peg": 1.1123,
+            "forward_pe": 11.6029,
+            "peg": 1.0929,
             "ev_ebitda": null,
-            "verdict": "PEG=1.11"
+            "verdict": "PEG=1.09"
           },
           "fundamentals": {
             "revenue_growth": "19.0%",
@@ -699,16 +1514,16 @@
           }
         },
         {
-          "name": "TSM",
-          "symbol": "TSM",
-          "watchlist": "semiconductors",
-          "current_price": "$404.52",
+          "name": "PayPal Holdings",
+          "symbol": "PYPL",
+          "watchlist": "payments",
+          "current_price": "$43.93",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$593.63",
-          "week_52_low": "$215.41",
+          "week_52_high": "$46.74",
+          "week_52_low": "$41.12",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "bullish",
@@ -717,8 +1532,110 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "SMH vs SOXX: Which Semiconductor ETF Should You Buy in 2026?",
-            "‘Buffett Indicator’ warns of a market top — 8 crucial signs that stocks are runn"
+            "In a tourist-friendly move, China's Tencent to allow PayPal payments through its",
+            "Cash App Now Supports Stablecoins, Despite Bitcoin Maxi Jack Dorsey's 'Gatekeepe"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: excellent — oversold"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "excellent — oversold",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 24.3,
+            "macd": "N/A",
+            "key_support": 41.12,
+            "key_resistance": 46.74,
+            "entry_quality": "excellent — oversold"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 7.6046,
+            "peg": 0.7886,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.79"
+          },
+          "fundamentals": {
+            "revenue_growth": "7.2%",
+            "gross_margin": "N/A",
+            "fcf_margin": "12.1%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "PEP",
+          "symbol": "PEP",
+          "watchlist": "staples",
+          "current_price": "$147.34",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$185.21",
+          "week_52_low": "$109.47",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "Couple who sold to Pepsi for $2 billion says going into business with your roman",
+            "As Amazon And Others Turn To AI Hiring Tools, PepsiCo Doubles Down On 'Hustle' A"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: oversold — verify fundamentals"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "oversold — verify fundamentals",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 32.0,
+            "macd": "N/A",
+            "key_support": 109.47,
+            "key_resistance": 185.21,
+            "entry_quality": "oversold — verify fundamentals"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 16.1061,
+            "peg": 1.5907,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.59"
+          },
+          "fundamentals": {
+            "revenue_growth": "8.5%",
+            "gross_margin": "N/A",
+            "fcf_margin": "9.2%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "TSM",
+          "symbol": "TSM",
+          "watchlist": "semiconductors",
+          "current_price": "$419.30",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$625.81",
+          "week_52_low": "$212.79",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "bullish",
+          "social_sentiment": "bullish",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "Intel vs AMD: The Ideal Long-Term Investment",
+            "Taiwan Semiconductor Stock Nearing 52-Week High: Buy, Sell or Hold?"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -728,18 +1645,18 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "uptrend",
-            "rsi": 51.2,
+            "rsi": 52.5,
             "macd": "N/A",
-            "key_support": 215.41,
-            "key_resistance": 593.63,
+            "key_support": 212.79,
+            "key_resistance": 625.81,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 20.7268,
-            "peg": 1.2619,
+            "forward_pe": 21.4877,
+            "peg": 1.313,
             "ev_ebitda": null,
-            "verdict": "PEG=1.26"
+            "verdict": "PEG=1.31"
           },
           "fundamentals": {
             "revenue_growth": "35.1%",
@@ -750,77 +1667,26 @@
           }
         },
         {
-          "name": "Broadcom",
-          "symbol": "AVGO",
-          "watchlist": "semiconductors",
-          "current_price": "$414.14",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$596.36",
-          "week_52_low": "$231.92",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "The SpaceX Paradox: How Can a Money-Losing Company Be Worth $2 Trillion?",
-            "A Once-in-a-Generation Opportunity: 5 Artificial Intelligence (AI) Stocks Primed"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 49.0,
-            "macd": "N/A",
-            "key_support": 231.92,
-            "key_resistance": 596.36,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 22.6814,
-            "peg": 0.901,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.90"
-          },
-          "fundamentals": {
-            "revenue_growth": "29.5%",
-            "gross_margin": "N/A",
-            "fcf_margin": "37.4%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
           "name": "GILD",
           "symbol": "GILD",
           "watchlist": "healthcare",
-          "current_price": "$134.36",
+          "current_price": "$134.55",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$174.47",
-          "week_52_low": "$94.25",
+          "week_52_high": "$174.98",
+          "week_52_low": "$94.12",
           "market_cap": "N/A",
           "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
           "social_buzz": "medium",
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Sector Update: Healthcare Stocks Gain Late Afternoon",
-            "GILD Stock Jumps After Winning Accelerated FDA Approval For HDV Treatment"
+            "FDA accelerated approval of Hepcludex significant milestone for US HDV market",
+            "3 Stocks Estimated To Be Trading Up To 44.8% Below Intrinsic Value"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -830,15 +1696,15 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "mixed",
-            "rsi": 53.7,
+            "rsi": 51.3,
             "macd": "N/A",
-            "key_support": 94.25,
-            "key_resistance": 174.47,
+            "key_support": 94.12,
+            "key_resistance": 174.98,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 14.0108,
+            "forward_pe": 14.0306,
             "peg": 2.1441,
             "ev_ebitda": null,
             "verdict": "PEG=2.14"
@@ -852,16 +1718,16 @@
           }
         },
         {
-          "name": "Alphabet",
-          "symbol": "GOOGL",
-          "watchlist": "big_tech",
-          "current_price": "$382.97",
+          "name": "DIS",
+          "symbol": "DIS",
+          "watchlist": "streaming",
+          "current_price": "$103.85",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$558.56",
-          "week_52_low": "$207.38",
+          "week_52_high": "$123.17",
+          "week_52_low": "$84.53",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -870,8 +1736,59 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Maybe investors can wait to buy SpaceX after IPO: Lee Munson",
-            "Alphabet’s Missouri Data Center Push Recasts AI Growth And Risk Story"
+            "Netflix's Ad Business Expansion Continues: More Upside Ahead?",
+            "Disney World will revamp one of Walt Disney's most beloved rides — what to expec"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: good — near support"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "good — near support",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 35.9,
+            "macd": "N/A",
+            "key_support": 84.53,
+            "key_resistance": 123.17,
+            "entry_quality": "good — near support"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 13.8565,
+            "peg": 2.6411,
+            "ev_ebitda": null,
+            "verdict": "PEG=2.64"
+          },
+          "fundamentals": {
+            "revenue_growth": "6.5%",
+            "gross_margin": "N/A",
+            "fcf_margin": "3.9%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Broadcom",
+          "symbol": "AVGO",
+          "watchlist": "semiconductors",
+          "current_price": "$420.32",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$610.30",
+          "week_52_low": "$230.34",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "bullish",
+          "social_sentiment": "bullish",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "SK Hynix and Micron lead AI boom, join trillion-dollar club",
+            "Microsoft’s AI Spending Won’t Derail Dividend Safety Inside Vanguard’s VIG"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -881,23 +1798,176 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "uptrend",
-            "rsi": 49.8,
+            "rsi": 53.8,
             "macd": "N/A",
-            "key_support": 207.38,
-            "key_resistance": 558.56,
+            "key_support": 230.34,
+            "key_resistance": 610.3,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 26.5006,
-            "peg": 1.5079,
+            "forward_pe": 22.8498,
+            "peg": 0.9177,
             "ev_ebitda": null,
-            "verdict": "PEG=1.51"
+            "verdict": "PEG=0.92"
           },
           "fundamentals": {
-            "revenue_growth": "21.8%",
+            "revenue_growth": "29.5%",
             "gross_margin": "N/A",
-            "fcf_margin": "6.6%",
+            "fcf_margin": "37.4%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Netflix",
+          "symbol": "NFLX",
+          "watchlist": "streaming",
+          "current_price": "$86.65",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$94.71",
+          "week_52_low": "$78.59",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "Netflix criticises German plan to make streamers invest more locally",
+            "Where Will Netflix Stock Be Next Year?"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 44.2,
+            "macd": "N/A",
+            "key_support": 78.59,
+            "key_resistance": 94.71,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 22.5535,
+            "peg": 1.7158,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.72"
+          },
+          "fundamentals": {
+            "revenue_growth": "16.2%",
+            "gross_margin": "N/A",
+            "fcf_margin": "55.4%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "COST",
+          "symbol": "COST",
+          "watchlist": "staples",
+          "current_price": "$1004.39",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$1323.28",
+          "week_52_low": "$685.50",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "Earnings live updates: Snowflake stock skyrockets on AWS deal, Kohl's pops",
+            "3 Unpopular Stocks That Deserve a Second Chance"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 48.1,
+            "macd": "N/A",
+            "key_support": 685.5,
+            "key_resistance": 1323.28,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 44.5641,
+            "peg": 5.096,
+            "ev_ebitda": null,
+            "verdict": "PEG=5.10"
+          },
+          "fundamentals": {
+            "revenue_growth": "21.5%",
+            "gross_margin": "N/A",
+            "fcf_margin": "2.3%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "WMT",
+          "symbol": "WMT",
+          "watchlist": "staples",
+          "current_price": "$118.86",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$155.88",
+          "week_52_low": "$81.84",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "How a 2006 Walmart receipt illustrates today's consumer headaches",
+            "Micron replaces mighty Walmart in the $1 trillion club"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: oversold — verify fundamentals"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "oversold — verify fundamentals",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 30.1,
+            "macd": "N/A",
+            "key_support": 81.84,
+            "key_resistance": 155.88,
+            "entry_quality": "oversold — verify fundamentals"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 36.1405,
+            "peg": 4.6662,
+            "ev_ebitda": null,
+            "verdict": "PEG=4.67"
+          },
+          "fundamentals": {
+            "revenue_growth": "7.3%",
+            "gross_margin": "N/A",
+            "fcf_margin": "1.0%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
@@ -906,23 +1976,23 @@
           "name": "Mastercard",
           "symbol": "MA",
           "watchlist": "payments",
-          "current_price": "$498.54",
+          "current_price": "$492.56",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$531.94",
-          "week_52_low": "$465.14",
+          "week_52_high": "$512.51",
+          "week_52_low": "$472.61",
           "market_cap": "N/A",
           "volume_24h": "N/A",
-          "sentiment": "bearish",
-          "social_sentiment": "bearish",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
           "social_buzz": "medium",
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Sector Update: Financial Stocks Rise Late Afternoon",
-            "Market Chatter: Mastercard Asks Brazil's Payment Processors to Help Pay for Banc"
+            "IBM Red Hat Project Lightwell $5 billion open-source security",
+            "Paxos Wins SEC Clearing Agency Approval for Blockchain Settlement Business"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -932,18 +2002,18 @@
           "reasoning": "good — near support",
           "technicals": {
             "trend": "downtrend",
-            "rsi": 45.4,
+            "rsi": 42.5,
             "macd": "N/A",
-            "key_support": 465.14,
-            "key_resistance": 531.94,
+            "key_support": 472.61,
+            "key_resistance": 512.51,
             "entry_quality": "good — near support"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 21.8999,
-            "peg": 1.5911,
+            "forward_pe": 21.6232,
+            "peg": 1.58,
             "ev_ebitda": null,
-            "verdict": "PEG=1.59"
+            "verdict": "PEG=1.58"
           },
           "fundamentals": {
             "revenue_growth": "15.8%",
@@ -954,16 +2024,16 @@
           }
         },
         {
-          "name": "Amazon",
-          "symbol": "AMZN",
-          "watchlist": "big_tech",
-          "current_price": "$266.32",
+          "name": "PG",
+          "symbol": "PG",
+          "watchlist": "staples",
+          "current_price": "$146.11",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$384.30",
-          "week_52_low": "$148.34",
+          "week_52_high": "$170.73",
+          "week_52_low": "$121.49",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -972,8 +2042,110 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Maybe investors can wait to buy SpaceX after IPO: Lee Munson",
-            "In India, You Can Get Milk Delivered Faster Than It Takes to Make Coffee"
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: good — near support"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "good — near support",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 50.1,
+            "macd": "N/A",
+            "key_support": 121.49,
+            "key_resistance": 170.73,
+            "entry_quality": "good — near support"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 20.6065,
+            "peg": 4.1401,
+            "ev_ebitda": null,
+            "verdict": "PEG=4.14"
+          },
+          "fundamentals": {
+            "revenue_growth": "7.4%",
+            "gross_margin": "N/A",
+            "fcf_margin": "14.7%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Salesforce",
+          "symbol": "CRM",
+          "watchlist": "saas",
+          "current_price": "$180.53",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$193.44",
+          "week_52_low": "$167.62",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 43.9,
+            "macd": "N/A",
+            "key_support": 167.62,
+            "key_resistance": 193.44,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 11.7916,
+            "peg": 0.9631,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.96"
+          },
+          "fundamentals": {
+            "revenue_growth": "12.1%",
+            "gross_margin": "N/A",
+            "fcf_margin": "39.4%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Amazon",
+          "symbol": "AMZN",
+          "watchlist": "big_tech",
+          "current_price": "$269.30",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$393.85",
+          "week_52_low": "$144.75",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -983,15 +2155,15 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "uptrend",
-            "rsi": 43.3,
+            "rsi": 48.0,
             "macd": "N/A",
-            "key_support": 148.34,
-            "key_resistance": 384.3,
+            "key_support": 144.75,
+            "key_resistance": 393.85,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 27.0403,
+            "forward_pe": 27.3146,
             "peg": 1.8344,
             "ev_ebitda": null,
             "verdict": "PEG=1.83"
@@ -1005,67 +2177,16 @@
           }
         },
         {
-          "name": "Salesforce",
-          "symbol": "CRM",
-          "watchlist": "saas",
-          "current_price": "$180.07",
+          "name": "CAT",
+          "symbol": "CAT",
+          "watchlist": "industrials",
+          "current_price": "$890.59",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$192.40",
-          "week_52_low": "$167.74",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bearish",
-          "social_sentiment": "bearish",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "AI trade: Investors may want to look outside infrastructure, Nvidia",
-            "Are mega-IPOs like SpaceX huge opportunities for options trades?"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 45.1,
-            "macd": "N/A",
-            "key_support": 167.74,
-            "key_resistance": 192.4,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 12.0301,
-            "peg": 0.977,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.98"
-          },
-          "fundamentals": {
-            "revenue_growth": "12.1%",
-            "gross_margin": "N/A",
-            "fcf_margin": "39.4%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "ASML",
-          "symbol": "ASML",
-          "watchlist": "semiconductors",
-          "current_price": "$1632.90",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$2449.35",
-          "week_52_low": "$816.45",
+          "week_52_high": "$1308.28",
+          "week_52_low": "$472.90",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -1074,8 +2195,8 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "Dow Jones Futures: Stock Market Rebounds To Highs; Tesla, These Five AI Plays Ar",
-            "SMH vs SOXX: Which Semiconductor ETF Should You Buy in 2026?"
+            "No additional headlines available",
+            "No additional headlines available"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -1085,89 +2206,38 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "uptrend",
-            "rsi": 67.7,
+            "rsi": 48.8,
             "macd": "N/A",
-            "key_support": 816.45,
-            "key_resistance": 2449.35,
+            "key_support": 472.9,
+            "key_resistance": 1308.28,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 34.3287,
-            "peg": 2.4507,
+            "forward_pe": 29.8817,
+            "peg": 2.1624,
             "ev_ebitda": null,
-            "verdict": "PEG=2.45"
+            "verdict": "PEG=2.16"
           },
           "fundamentals": {
-            "revenue_growth": "13.2%",
+            "revenue_growth": "22.2%",
             "gross_margin": "N/A",
-            "fcf_margin": "24.5%",
+            "fcf_margin": "5.3%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
         },
         {
-          "name": "DIS",
-          "symbol": "DIS",
-          "watchlist": "streaming",
-          "current_price": "$103.00",
+          "name": "BABA",
+          "symbol": "BABA",
+          "watchlist": "ecommerce_global",
+          "current_price": "$124.78",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$120.72",
-          "week_52_low": "$85.28",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "SpaceX, OpenAI, Anthropic: Investors are 'better off' waiting for IPOs",
-            "So-Young International Inc (SY) Q1 2026 Earnings Call Highlights: Revenue Surge "
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 53.4,
-            "macd": "N/A",
-            "key_support": 85.28,
-            "key_resistance": 120.72,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 13.7434,
-            "peg": 2.6112,
-            "ev_ebitda": null,
-            "verdict": "PEG=2.61"
-          },
-          "fundamentals": {
-            "revenue_growth": "6.5%",
-            "gross_margin": "N/A",
-            "fcf_margin": "3.9%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Microsoft",
-          "symbol": "MSFT",
-          "watchlist": "big_tech",
-          "current_price": "$418.57",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$490.35",
-          "week_52_low": "$346.79",
+          "week_52_high": "$140.07",
+          "week_52_low": "$109.49",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -1176,8 +2246,110 @@
           "confidence": 7,
           "source_agreement": "high",
           "key_news": [
-            "AI trade: Investors may want to look outside infrastructure, Nvidia",
-            "SpaceX, OpenAI, Anthropic: Investors are 'better off' waiting for IPOs"
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: oversold — verify fundamentals"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "oversold — verify fundamentals",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 31.7,
+            "macd": "N/A",
+            "key_support": 109.49,
+            "key_resistance": 140.07,
+            "entry_quality": "oversold — verify fundamentals"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 13.5635,
+            "peg": 0.4285,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.43"
+          },
+          "fundamentals": {
+            "revenue_growth": "2.9%",
+            "gross_margin": "N/A",
+            "fcf_margin": "-4.3%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Alphabet",
+          "symbol": "GOOGL",
+          "watchlist": "big_tech",
+          "current_price": "$389.45",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$573.47",
+          "week_52_low": "$205.43",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "uptrend",
+            "rsi": 43.0,
+            "macd": "N/A",
+            "key_support": 205.43,
+            "key_resistance": 573.47,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 26.9041,
+            "peg": 1.5309,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.53"
+          },
+          "fundamentals": {
+            "revenue_growth": "21.8%",
+            "gross_margin": "N/A",
+            "fcf_margin": "6.6%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Microsoft",
+          "symbol": "MSFT",
+          "watchlist": "big_tech",
+          "current_price": "$427.99",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$512.30",
+          "week_52_low": "$343.68",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
           ],
           "social_highlights": [
             "Pre-screened via yfinance universe",
@@ -1187,18 +2359,18 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "mixed",
-            "rsi": 55.1,
+            "rsi": 56.1,
             "macd": "N/A",
-            "key_support": 346.79,
-            "key_resistance": 490.35,
+            "key_support": 343.68,
+            "key_resistance": 512.3,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 21.6453,
-            "peg": 1.2904,
+            "forward_pe": 22.1403,
+            "peg": 1.2722,
             "ev_ebitda": null,
-            "verdict": "PEG=1.29"
+            "verdict": "PEG=1.27"
           },
           "fundamentals": {
             "revenue_growth": "18.3%",
@@ -1209,16 +2381,16 @@
           }
         },
         {
-          "name": "AMAT",
-          "symbol": "AMAT",
-          "watchlist": "semiconductors",
-          "current_price": "$432.16",
+          "name": "KO",
+          "symbol": "KO",
+          "watchlist": "staples",
+          "current_price": "$80.85",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$640.03",
-          "week_52_low": "$224.29",
+          "week_52_high": "$118.77",
+          "week_52_low": "$42.93",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -1238,38 +2410,293 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "uptrend",
-            "rsi": 62.2,
+            "rsi": 66.1,
             "macd": "N/A",
-            "key_support": 224.29,
-            "key_resistance": 640.03,
+            "key_support": 42.93,
+            "key_resistance": 118.77,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 26.7998,
-            "peg": 1.4666,
+            "forward_pe": 23.2057,
+            "peg": 4.1792,
             "ev_ebitda": null,
-            "verdict": "PEG=1.47"
+            "verdict": "PEG=4.18"
           },
           "fundamentals": {
-            "revenue_growth": "11.4%",
+            "revenue_growth": "12.1%",
             "gross_margin": "N/A",
-            "fcf_margin": "10.9%",
+            "fcf_margin": "6.3%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
         },
         {
-          "name": "Visa",
-          "symbol": "V",
-          "watchlist": "payments",
-          "current_price": "$328.88",
+          "name": "ASML",
+          "symbol": "ASML",
+          "watchlist": "semiconductors",
+          "current_price": "$1601.67",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$402.88",
-          "week_52_low": "$254.88",
+          "week_52_high": "$2376.08",
+          "week_52_low": "$827.26",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "uptrend",
+            "rsi": 57.8,
+            "macd": "N/A",
+            "key_support": 827.26,
+            "key_resistance": 2376.08,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 33.6321,
+            "peg": 2.3958,
+            "ev_ebitda": null,
+            "verdict": "PEG=2.40"
+          },
+          "fundamentals": {
+            "revenue_growth": "13.2%",
+            "gross_margin": "N/A",
+            "fcf_margin": "24.5%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "NVIDIA",
+          "symbol": "NVDA",
+          "watchlist": "semiconductors",
+          "current_price": "$212.82",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$295.07",
+          "week_52_low": "$130.57",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "uptrend",
+            "rsi": 51.2,
+            "macd": "N/A",
+            "key_support": 130.57,
+            "key_resistance": 295.07,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 16.8266,
+            "peg": 0.655,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.66"
+          },
+          "fundamentals": {
+            "revenue_growth": "85.2%",
+            "gross_margin": "N/A",
+            "fcf_margin": "18.3%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "BX",
+          "symbol": "BX",
+          "watchlist": "asset_managers",
+          "current_price": "$114.71",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$124.17",
+          "week_52_low": "$105.25",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 36.1,
+            "macd": "N/A",
+            "key_support": 105.25,
+            "key_resistance": 124.17,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 15.2228,
+            "peg": 1.9816,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.98"
+          },
+          "fundamentals": {
+            "revenue_growth": "5.7%",
+            "gross_margin": "N/A",
+            "fcf_margin": "N/A",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "AMAT",
+          "symbol": "AMAT",
+          "watchlist": "semiconductors",
+          "current_price": "$446.92",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$664.35",
+          "week_52_low": "$229.49",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "uptrend",
+            "rsi": 62.7,
+            "macd": "N/A",
+            "key_support": 229.49,
+            "key_resistance": 664.35,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 27.6493,
+            "peg": 1.5212,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.52"
+          },
+          "fundamentals": {
+            "revenue_growth": "11.4%",
+            "gross_margin": "N/A",
+            "fcf_margin": "10.5%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "HD",
+          "symbol": "HD",
+          "watchlist": "consumer_discretionary",
+          "current_price": "$320.67",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$351.45",
+          "week_52_low": "$289.89",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 48.3,
+            "macd": "N/A",
+            "key_support": 289.89,
+            "key_resistance": 351.45,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 19.9116,
+            "peg": 1.792,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.79"
+          },
+          "fundamentals": {
+            "revenue_growth": "4.8%",
+            "gross_margin": "N/A",
+            "fcf_margin": "6.1%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Meta Platforms",
+          "symbol": "META",
+          "watchlist": "big_tech",
+          "current_price": "$637.31",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$772.74",
+          "week_52_low": "$501.88",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -1289,23 +2716,23 @@
           "reasoning": "fair",
           "technicals": {
             "trend": "mixed",
-            "rsi": 52.9,
+            "rsi": 61.6,
             "macd": "N/A",
-            "key_support": 254.88,
-            "key_resistance": 402.88,
+            "key_support": 501.88,
+            "key_resistance": 772.74,
             "entry_quality": "fair"
           },
           "valuation": {
             "pe": null,
-            "forward_pe": 22.1454,
-            "peg": 1.7078,
+            "forward_pe": 17.6237,
+            "peg": 0.9178,
             "ev_ebitda": null,
-            "verdict": "PEG=1.71"
+            "verdict": "PEG=0.92"
           },
           "fundamentals": {
-            "revenue_growth": "17.1%",
+            "revenue_growth": "33.1%",
             "gross_margin": "N/A",
-            "fcf_margin": "48.4%",
+            "fcf_margin": "11.9%",
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
@@ -1314,13 +2741,380 @@
           "name": "Nu Holdings",
           "symbol": "NU",
           "watchlist": "fintech",
-          "current_price": "$12.73",
+          "current_price": "$13.18",
           "change_24h": "N/A",
           "change_7d": "N/A",
           "change_30d": "N/A",
           "ytd_change": "N/A",
-          "week_52_high": "$13.50",
-          "week_52_low": "$11.96",
+          "week_52_high": "$14.41",
+          "week_52_low": "$11.95",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 37.0,
+            "macd": "N/A",
+            "key_support": 11.95,
+            "key_resistance": 14.41,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 11.3311,
+            "peg": 0.7668,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.77"
+          },
+          "fundamentals": {
+            "revenue_growth": "43.7%",
+            "gross_margin": "N/A",
+            "fcf_margin": "N/A",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "MercadoLibre",
+          "symbol": "MELI",
+          "watchlist": "ecommerce_global",
+          "current_price": "$1685.00",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$1794.52",
+          "week_52_low": "$1575.48",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "downtrend",
+            "rsi": 36.3,
+            "macd": "N/A",
+            "key_support": 1575.48,
+            "key_resistance": 1794.52,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 28.476,
+            "peg": 1.0455,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.05"
+          },
+          "fundamentals": {
+            "revenue_growth": "49.0%",
+            "gross_margin": "N/A",
+            "fcf_margin": "-12.9%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Tesla",
+          "symbol": "TSLA",
+          "watchlist": "ev",
+          "current_price": "$439.37",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$605.01",
+          "week_52_low": "$273.73",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "uptrend",
+            "rsi": 60.2,
+            "macd": "N/A",
+            "key_support": 273.73,
+            "key_resistance": 605.01,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 174.9805,
+            "peg": 6.0635,
+            "ev_ebitda": null,
+            "verdict": "PEG=6.06"
+          },
+          "fundamentals": {
+            "revenue_growth": "15.8%",
+            "gross_margin": "N/A",
+            "fcf_margin": "5.4%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Visa",
+          "symbol": "V",
+          "watchlist": "payments",
+          "current_price": "$324.17",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$387.06",
+          "week_52_low": "$261.28",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: good — near support"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "good — near support",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 54.2,
+            "macd": "N/A",
+            "key_support": 261.28,
+            "key_resistance": 387.06,
+            "entry_quality": "good — near support"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 21.8282,
+            "peg": 1.7013,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.70"
+          },
+          "fundamentals": {
+            "revenue_growth": "17.1%",
+            "gross_margin": "N/A",
+            "fcf_margin": "48.4%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        }
+      ]
+    },
+    "materials": {
+      "sector": "materials",
+      "timestamp": "2026-05-28T14:23:14Z",
+      "sector_summary": "Commodities and materials equities screened from the pre-fetch universe. Gold/energy/base-metals candidates with RSI and valuation data from yfinance. Regime: MIXED. Macro signal: mixed regime — sector-selective approach recommended.",
+      "sector_outlook": "neutral",
+      "top_pick": "NEM",
+      "top_pick_reasoning": "Highest ranked materials asset in screened universe",
+      "assets": [
+        {
+          "name": "Newmont",
+          "symbol": "NEM",
+          "watchlist": "precious_metals",
+          "current_price": "$106.03",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$142.13",
+          "week_52_low": "$69.93",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "bullish",
+          "social_sentiment": "bullish",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "Newmont vs. SSR Mining: Which Gold Stock Is a Better Buy in 2026?",
+            "AEM vs. NEM: Which Gold Mining Giant Should You Invest in Now?"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 40.4,
+            "macd": "N/A",
+            "key_support": 69.93,
+            "key_resistance": 142.13,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 9.2665,
+            "peg": 2.7807,
+            "ev_ebitda": null,
+            "verdict": "PEG=2.78"
+          },
+          "fundamentals": {
+            "revenue_growth": "45.8%",
+            "gross_margin": "N/A",
+            "fcf_margin": "39.3%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "ConocoPhillips",
+          "symbol": "COP",
+          "watchlist": "energy",
+          "current_price": "$115.16",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$152.76",
+          "week_52_low": "$77.56",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 52.3,
+            "macd": "N/A",
+            "key_support": 77.56,
+            "key_resistance": 152.76,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 12.587,
+            "peg": 0.9762,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.98"
+          },
+          "fundamentals": {
+            "revenue_growth": "-5.3%",
+            "gross_margin": "N/A",
+            "fcf_margin": "8.9%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Chevron",
+          "symbol": "CVX",
+          "watchlist": "energy",
+          "current_price": "$182.69",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$243.25",
+          "week_52_low": "$122.13",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 52.7,
+            "macd": "N/A",
+            "key_support": 122.13,
+            "key_resistance": 243.25,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 14.6973,
+            "peg": 0.7983,
+            "ev_ebitda": null,
+            "verdict": "PEG=0.80"
+          },
+          "fundamentals": {
+            "revenue_growth": "2.3%",
+            "gross_margin": "N/A",
+            "fcf_margin": "6.3%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "SPDR Gold Trust",
+          "symbol": "GLD",
+          "watchlist": "precious_metals",
+          "current_price": "$409.10",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$522.63",
+          "week_52_low": "$295.57",
           "market_cap": "N/A",
           "volume_24h": "N/A",
           "sentiment": "neutral",
@@ -1339,991 +3133,12 @@
           "recommendation": "N/A",
           "reasoning": "excellent — oversold",
           "technicals": {
-            "trend": "downtrend",
-            "rsi": 33.1,
+            "trend": "mixed",
+            "rsi": 24.4,
             "macd": "N/A",
-            "key_support": 11.96,
-            "key_resistance": 13.5,
+            "key_support": 295.57,
+            "key_resistance": 522.63,
             "entry_quality": "excellent — oversold"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 10.9442,
-            "peg": 0.7492,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.75"
-          },
-          "fundamentals": {
-            "revenue_growth": "43.7%",
-            "gross_margin": "N/A",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "BX",
-          "symbol": "BX",
-          "watchlist": "asset_managers",
-          "current_price": "$118.51",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$131.01",
-          "week_52_low": "$106.01",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 41.9,
-            "macd": "N/A",
-            "key_support": 106.01,
-            "key_resistance": 131.01,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 15.7277,
-            "peg": 1.9901,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.99"
-          },
-          "fundamentals": {
-            "revenue_growth": "5.7%",
-            "gross_margin": "N/A",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Bank of America",
-          "symbol": "BAC",
-          "watchlist": "financials",
-          "current_price": "$51.80",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$68.66",
-          "week_52_low": "$34.94",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 47.5,
-            "macd": "N/A",
-            "key_support": 34.94,
-            "key_resistance": 68.66,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 10.2585,
-            "peg": 0.9259,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.93"
-          },
-          "fundamentals": {
-            "revenue_growth": "8.1%",
-            "gross_margin": "N/A",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "NVIDIA",
-          "symbol": "NVDA",
-          "watchlist": "semiconductors",
-          "current_price": "$215.33",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$302.00",
-          "week_52_low": "$128.66",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 62.5,
-            "macd": "N/A",
-            "key_support": 128.66,
-            "key_resistance": 302.0,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 17.0279,
-            "peg": 0.6635,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.66"
-          },
-          "fundamentals": {
-            "revenue_growth": "85.2%",
-            "gross_margin": "N/A",
-            "fcf_margin": "29.1%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "HD",
-          "symbol": "HD",
-          "watchlist": "consumer_discretionary",
-          "current_price": "$313.07",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$333.26",
-          "week_52_low": "$292.88",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 50.6,
-            "macd": "N/A",
-            "key_support": 292.88,
-            "key_resistance": 333.26,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 19.4307,
-            "peg": 1.7651,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.77"
-          },
-          "fundamentals": {
-            "revenue_growth": "4.8%",
-            "gross_margin": "N/A",
-            "fcf_margin": "6.1%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "NOW",
-          "symbol": "NOW",
-          "watchlist": "saas",
-          "current_price": "$102.13",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$109.89",
-          "week_52_low": "$94.37",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 62.6,
-            "macd": "N/A",
-            "key_support": 94.37,
-            "key_resistance": 109.89,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 20.3206,
-            "peg": 0.9908,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.99"
-          },
-          "fundamentals": {
-            "revenue_growth": "22.1%",
-            "gross_margin": "N/A",
-            "fcf_margin": "36.6%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Tesla",
-          "symbol": "TSLA",
-          "watchlist": "ev",
-          "current_price": "$426.01",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$572.77",
-          "week_52_low": "$279.25",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 61.5,
-            "macd": "N/A",
-            "key_support": 279.25,
-            "key_resistance": 572.77,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 169.7461,
-            "peg": 5.8659,
-            "ev_ebitda": null,
-            "verdict": "PEG=5.87"
-          },
-          "fundamentals": {
-            "revenue_growth": "15.8%",
-            "gross_margin": "N/A",
-            "fcf_margin": "5.4%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Amgen",
-          "symbol": "AMGN",
-          "watchlist": "healthcare",
-          "current_price": "$339.30",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$444.82",
-          "week_52_low": "$233.78",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 69.8,
-            "macd": "N/A",
-            "key_support": 233.78,
-            "key_resistance": 444.82,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 14.4524,
-            "peg": 2.2426,
-            "ev_ebitda": null,
-            "verdict": "PEG=2.24"
-          },
-          "fundamentals": {
-            "revenue_growth": "5.8%",
-            "gross_margin": "N/A",
-            "fcf_margin": "20.0%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "AbbVie",
-          "symbol": "ABBV",
-          "watchlist": "healthcare",
-          "current_price": "$215.70",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$283.65",
-          "week_52_low": "$147.75",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 64.3,
-            "macd": "N/A",
-            "key_support": 147.75,
-            "key_resistance": 283.65,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 13.2904,
-            "peg": 0.5946,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.59"
-          },
-          "fundamentals": {
-            "revenue_growth": "12.4%",
-            "gross_margin": "N/A",
-            "fcf_margin": "33.1%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "MercadoLibre",
-          "symbol": "MELI",
-          "watchlist": "ecommerce_global",
-          "current_price": "$1664.42",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$1755.96",
-          "week_52_low": "$1572.88",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 38.7,
-            "macd": "N/A",
-            "key_support": 1572.88,
-            "key_resistance": 1755.96,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 28.1282,
-            "peg": 1.0259,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.03"
-          },
-          "fundamentals": {
-            "revenue_growth": "49.0%",
-            "gross_margin": "N/A",
-            "fcf_margin": "-12.9%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "SBUX",
-          "symbol": "SBUX",
-          "watchlist": "consumer_discretionary",
-          "current_price": "$103.11",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$148.27",
-          "week_52_low": "$57.95",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 44.8,
-            "macd": "N/A",
-            "key_support": 57.95,
-            "key_resistance": 148.27,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 34.0674,
-            "peg": 1.7351,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.74"
-          },
-          "fundamentals": {
-            "revenue_growth": "8.8%",
-            "gross_margin": "N/A",
-            "fcf_margin": "-3.4%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Wells Fargo",
-          "symbol": "WFC",
-          "watchlist": "financials",
-          "current_price": "$76.40",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$85.11",
-          "week_52_low": "$67.69",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "downtrend",
-            "rsi": 42.0,
-            "macd": "N/A",
-            "key_support": 67.69,
-            "key_resistance": 85.11,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 9.672,
-            "peg": 1.3565,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.36"
-          },
-          "fundamentals": {
-            "revenue_growth": "5.7%",
-            "gross_margin": "N/A",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Johnson & Johnson",
-          "symbol": "JNJ",
-          "watchlist": "healthcare",
-          "current_price": "$234.34",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$335.11",
-          "week_52_low": "$133.57",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 68.0,
-            "macd": "N/A",
-            "key_support": 133.57,
-            "key_resistance": 335.11,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 18.4374,
-            "peg": 3.0457,
-            "ev_ebitda": null,
-            "verdict": "PEG=3.05"
-          },
-          "fundamentals": {
-            "revenue_growth": "9.9%",
-            "gross_margin": "N/A",
-            "fcf_margin": "13.0%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "JPMorgan Chase",
-          "symbol": "JPM",
-          "watchlist": "financials",
-          "current_price": "$306.38",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$406.87",
-          "week_52_low": "$205.89",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 48.8,
-            "macd": "N/A",
-            "key_support": 205.89,
-            "key_resistance": 406.87,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 13.0088,
-            "peg": 1.6264,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.63"
-          },
-          "fundamentals": {
-            "revenue_growth": "12.7%",
-            "gross_margin": "N/A",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Citigroup",
-          "symbol": "C",
-          "watchlist": "financials",
-          "current_price": "$125.09",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$180.13",
-          "week_52_low": "$70.05",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 48.8,
-            "macd": "N/A",
-            "key_support": 70.05,
-            "key_resistance": 180.13,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 9.9838,
-            "peg": 0.6955,
-            "ev_ebitda": null,
-            "verdict": "PEG=0.70"
-          },
-          "fundamentals": {
-            "revenue_growth": "15.9%",
-            "gross_margin": "N/A",
-            "fcf_margin": "N/A",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "BLK",
-          "symbol": "BLK",
-          "watchlist": "asset_managers",
-          "current_price": "$1073.00",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$1374.51",
-          "week_52_low": "$771.49",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 55.5,
-            "macd": "N/A",
-            "key_support": 771.49,
-            "key_resistance": 1374.51,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 17.6931,
-            "peg": 1.3618,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.36"
-          },
-          "fundamentals": {
-            "revenue_growth": "27.0%",
-            "gross_margin": "N/A",
-            "fcf_margin": "27.6%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        }
-      ]
-    },
-    "materials": {
-      "sector": "materials",
-      "timestamp": "2026-05-23T05:22:31Z",
-      "sector_summary": "Commodities and materials equities screened from the pre-fetch universe. Gold/energy/base-metals candidates with RSI and valuation data from yfinance. Regime: MIXED. Macro signal: mixed regime — sector-selective approach recommended.",
-      "sector_outlook": "neutral",
-      "top_pick": "NEM",
-      "top_pick_reasoning": "Highest ranked materials asset in screened universe",
-      "assets": [
-        {
-          "name": "Newmont",
-          "symbol": "NEM",
-          "watchlist": "precious_metals",
-          "current_price": "$107.64",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$145.26",
-          "week_52_low": "$70.02",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "bullish",
-          "social_sentiment": "bullish",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "Gina Rinehart Invests $97 Million in US Defense Stocks",
-            "Is Aura Minerals Positioned for Stronger GEO Growth in 2026?"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 49.1,
-            "macd": "N/A",
-            "key_support": 70.02,
-            "key_resistance": 145.26,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 9.409,
-            "peg": 2.7807,
-            "ev_ebitda": null,
-            "verdict": "PEG=2.78"
-          },
-          "fundamentals": {
-            "revenue_growth": "45.8%",
-            "gross_margin": "N/A",
-            "fcf_margin": "39.3%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "ExxonMobil",
-          "symbol": "XOM",
-          "watchlist": "energy",
-          "current_price": "$154.92",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$215.73",
-          "week_52_low": "$94.11",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "Trump Says 'I Want Kevin To Be Totally Independent,' But Prediction Markets Don'",
-            "More Gas Per Barrel of Oil: A Growth Lever for Permian Operators"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 53.0,
-            "macd": "N/A",
-            "key_support": 94.11,
-            "key_resistance": 215.73,
-            "entry_quality": "good — near support"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 14.865,
-            "peg": 1.4307,
-            "ev_ebitda": null,
-            "verdict": "PEG=1.43"
-          },
-          "fundamentals": {
-            "revenue_growth": "2.6%",
-            "gross_margin": "N/A",
-            "fcf_margin": "3.6%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "Freeport-McMoRan",
-          "symbol": "FCX",
-          "watchlist": "base_metals",
-          "current_price": "$61.99",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$85.64",
-          "week_52_low": "$38.34",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: fair"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "fair",
-          "technicals": {
-            "trend": "uptrend",
-            "rsi": 63.1,
-            "macd": "N/A",
-            "key_support": 38.34,
-            "key_resistance": 85.64,
-            "entry_quality": "fair"
-          },
-          "valuation": {
-            "pe": null,
-            "forward_pe": 16.6266,
-            "peg": 4.1744,
-            "ev_ebitda": null,
-            "verdict": "PEG=4.17"
-          },
-          "fundamentals": {
-            "revenue_growth": "8.8%",
-            "gross_margin": "N/A",
-            "fcf_margin": "6.5%",
-            "debt_equity": null,
-            "verdict": "Pre-fetched from yfinance"
-          }
-        },
-        {
-          "name": "SPDR Gold Trust",
-          "symbol": "GLD",
-          "watchlist": "precious_metals",
-          "current_price": "$413.82",
-          "change_24h": "N/A",
-          "change_7d": "N/A",
-          "change_30d": "N/A",
-          "ytd_change": "N/A",
-          "week_52_high": "$533.62",
-          "week_52_low": "$294.02",
-          "market_cap": "N/A",
-          "volume_24h": "N/A",
-          "sentiment": "neutral",
-          "social_sentiment": "neutral",
-          "social_buzz": "medium",
-          "confidence": 7,
-          "source_agreement": "high",
-          "key_news": [
-            "No additional headlines available",
-            "No additional headlines available"
-          ],
-          "social_highlights": [
-            "Pre-screened via yfinance universe",
-            "Entry quality: good — near support"
-          ],
-          "recommendation": "N/A",
-          "reasoning": "good — near support",
-          "technicals": {
-            "trend": "mixed",
-            "rsi": 49.2,
-            "macd": "N/A",
-            "key_support": 294.02,
-            "key_resistance": 533.62,
-            "entry_quality": "good — near support"
           },
           "valuation": {
             "pe": null,
@@ -2339,9 +3154,210 @@
             "debt_equity": null,
             "verdict": "Pre-fetched from yfinance"
           }
+        },
+        {
+          "name": "ExxonMobil",
+          "symbol": "XOM",
+          "watchlist": "energy",
+          "current_price": "$148.24",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$199.53",
+          "week_52_low": "$96.95",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "mixed",
+            "rsi": 53.7,
+            "macd": "N/A",
+            "key_support": 96.95,
+            "key_resistance": 199.53,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 14.1249,
+            "peg": 1.3659,
+            "ev_ebitda": null,
+            "verdict": "PEG=1.37"
+          },
+          "fundamentals": {
+            "revenue_growth": "2.6%",
+            "gross_margin": "N/A",
+            "fcf_margin": "3.6%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
+        },
+        {
+          "name": "Freeport-McMoRan",
+          "symbol": "FCX",
+          "watchlist": "base_metals",
+          "current_price": "$63.47",
+          "change_24h": "N/A",
+          "change_7d": "N/A",
+          "change_30d": "N/A",
+          "ytd_change": "N/A",
+          "week_52_high": "$89.02",
+          "week_52_low": "$37.92",
+          "market_cap": "N/A",
+          "volume_24h": "N/A",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "medium",
+          "confidence": 7,
+          "source_agreement": "high",
+          "key_news": [
+            "No additional headlines available",
+            "No additional headlines available"
+          ],
+          "social_highlights": [
+            "Pre-screened via yfinance universe",
+            "Entry quality: fair"
+          ],
+          "recommendation": "N/A",
+          "reasoning": "fair",
+          "technicals": {
+            "trend": "uptrend",
+            "rsi": 56.4,
+            "macd": "N/A",
+            "key_support": 37.92,
+            "key_resistance": 89.02,
+            "entry_quality": "fair"
+          },
+          "valuation": {
+            "pe": null,
+            "forward_pe": 17.0316,
+            "peg": 4.2848,
+            "ev_ebitda": null,
+            "verdict": "PEG=4.28"
+          },
+          "fundamentals": {
+            "revenue_growth": "8.8%",
+            "gross_margin": "N/A",
+            "fcf_margin": "6.5%",
+            "debt_equity": null,
+            "verdict": "Pre-fetched from yfinance"
+          }
         }
       ]
     }
   },
-  "spy_price_at_report": 7473.47
+  "spy_price_at_report": 7537.44,
+  "priority_attention": [
+    {
+      "symbol": "FTNT",
+      "urgency": "EXECUTE_TODAY",
+      "action": "Trim 40-50% of position at market open — RSI=87 Day 3 mandatory trigger. Target reducing to ~2% position. Do not wait for a price level; execute at open to crystallize +138.2% gain."
+    },
+    {
+      "symbol": "TSM",
+      "urgency": "EXECUTE_TODAY",
+      "action": "Initiate ADD at $419.30, 4% position size. Stop at $395 (~6% drawdown). Price target $468. Semiconductor pair: NVDA (existing HOLD) + TSM (new ADD) = 2-group maximum reached."
+    },
+    {
+      "symbol": "XOM",
+      "urgency": "EXECUTE_TODAY",
+      "action": "Continue TRIM; sell on any intraday strength above $148.50. Target: reduce to 0% or sub-0.5% residual. Altman Z=1.52 distress is structural — trim is non-negotiable."
+    },
+    {
+      "symbol": "NVO",
+      "urgency": "REVIEW",
+      "action": "Current pnl=-31.6% is 3.4% from -35% hard stop trigger. Confirm stop price, set alert orders, prepare limit exit order. Do not add capital under any circumstances."
+    },
+    {
+      "symbol": "REGN",
+      "urgency": "MONITOR",
+      "action": "HOLD existing position only. RSI=24 extreme oversold but institutional $18.1M exit ongoing — do not add capital until distribution demonstrates completion."
+    },
+    {
+      "symbol": "CRM",
+      "urgency": "MONITOR",
+      "action": "Monitor $160 hard stop; not triggered at current $180.53. Maintain hard limit exit order at exactly $160. No additional capital. -23.9% PnL at threshold — any further deterioration is pre-exit signal."
+    }
+  ],
+  "strategy_summary": "Fear & Greed Index has crashed from 34→25→22 over 3 consecutive days into Extreme Fear while SPY RSI approaches overbought at 69.3, demanding maximum defensive positioning with elevated cash. Key actions today: execute mandatory FTNT trim (RSI=87 Day 3 overbought), initiate TSM ADD as semiconductor rotation replacing AVGO’s primary slot, and maintain 38% cash. With 1-day accuracy at 0% and a declining 42→25→0 accuracy trend, this strategy tilts toward proven defensives (WMT, PEP, GILD) and gold hedge (NEM) while limiting new capital deployment to one high-conviction ADD.",
+  "portfolio_health": {
+    "positions_count": 37,
+    "total_cost_basis": 36552.1,
+    "total_current_value": 46349.36,
+    "total_pnl_amount": 9797.26,
+    "total_pnl_pct": 26.8,
+    "sector_allocation_pct": {
+      "big_tech": 33.5,
+      "etf": 13.1,
+      "ecommerce": 12.2,
+      "energy": 6.7,
+      "fintech": 6.6,
+      "ev": 5.5,
+      "Technology / E-Commerce & Fintech LatAm": 3.4,
+      "reit": 3.0,
+      "ecommerce_global": 2.9,
+      "streaming": 2.7,
+      "industrials": 2.4,
+      "consumer_discretionary": 1.3,
+      "Big Tech / Social AI": 1.3,
+      "saas": 1.2,
+      "healthcare": 1.2,
+      "Financial Services / Payments": 1.1,
+      "materials": 0.9,
+      "Enterprise Software / AI": 0.9,
+      "payments": 0.7,
+      "Enterprise SaaS / AI Workflows": 0.4,
+      "Financials / Global Banking": 0.3
+    },
+    "top_performers": [
+      {
+        "symbol": "WMT",
+        "pnl_pct": 138.71
+      },
+      {
+        "symbol": "FTNT",
+        "pnl_pct": 138.18
+      },
+      {
+        "symbol": "GOOG",
+        "pnl_pct": 134.43
+      },
+      {
+        "symbol": "GOOGL",
+        "pnl_pct": 83.89
+      },
+      {
+        "symbol": "SOFI",
+        "pnl_pct": 83.07
+      }
+    ],
+    "bottom_performers": [
+      {
+        "symbol": "META",
+        "pnl_pct": -6.69
+      },
+      {
+        "symbol": "CRM",
+        "pnl_pct": -23.91
+      },
+      {
+        "symbol": "NVO",
+        "pnl_pct": -31.63
+      }
+    ]
+  }
 }

@@ -1,13 +1,13 @@
 {
   "symbol": "NOW",
   "financial_health": {
-    "altman_z": 5.92,
-    "altman_zone": "safe",
+    "altman_z": 2.29,
+    "altman_zone": "gray",
     "piotroski": 3,
     "piotroski_strength": "neutral"
   },
   "beat_streak": 4,
   "last_surprise_pct": 0.15,
   "insider_signal": "neutral",
-  "fetched_at": "2026-05-23T01:37:29Z"
+  "fetched_at": "2026-05-28T14:22:18Z"
 }

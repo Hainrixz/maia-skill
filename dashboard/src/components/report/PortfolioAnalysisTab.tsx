@@ -285,7 +285,7 @@ function PositionsTable({ positions }: { positions: PortfolioPosition[] }) {
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-[#E6E6E4] bg-[#F7F7F5]">
-            {["Asset", "P&L", "Action", "Altman Z", "Piotroski", "Stop Loss", "Take Profit", "Urgency", "Thesis", "Sentiment"].map((h) => (
+            {["Asset", "Current Price", "P&L", "Action", "Altman Z", "Piotroski", "Stop Loss", "Take Profit", "Urgency", "Thesis", "Sentiment"].map((h) => (
               <th key={h} className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-wider text-[#8B8B85] whitespace-nowrap">
                 {h}
               </th>
@@ -308,6 +308,9 @@ function PositionsTable({ positions }: { positions: PortfolioPosition[] }) {
                       <p className="text-[10px] text-[#8B8B85] truncate max-w-[100px]">{pos.name}</p>
                     </div>
                   </div>
+                </td>
+                <td className="px-3 py-3 font-semibold text-[#252420]">
+                  {pos.current_price != null ? fmt(pos.current_price) : "—"}
                 </td>
                 <td className={`px-3 py-3 font-semibold ${pnlPos ? "text-green-600" : "text-red-600"}`}>
                   {pos.pnl_pct != null ? `${pnlPos ? "+" : ""}${pos.pnl_pct.toFixed(2)}%` : "—"}

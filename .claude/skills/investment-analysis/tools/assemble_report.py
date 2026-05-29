@@ -392,7 +392,15 @@ def normalize_picks(
             stop_loss = max(stop_loss or -float("inf"), trailing_stop)
         if stop_loss is None:
             support = parse_number((asset.get("technicals") or {}).get("key_support"))
-            if entry_price is not None and support is not None and support < entry_price:
+            # Only use key_support as a stop if it's within 20% of entry — otherwise it's
+            # a historical long-term support (e.g. 52-week low) that produces an absurdly
+            # wide stop and a garbage risk/reward ratio.
+            if (
+                entry_price is not None
+                and support is not None
+                and support < entry_price
+                and support >= entry_price * 0.80
+            ):
                 stop_loss = round(support * 0.97, 2)
             elif entry_price is not None:
                 stop_loss = round(entry_price * 0.92, 2)

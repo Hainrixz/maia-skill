@@ -97,7 +97,7 @@
     "name": "Alphabet Inc (GOOGL)",
     "sector": "big_tech",
     "buyPrice": 210.32,
-    "quantity": 7,
+    "quantity": 5,
     "buyDate": "2024-01-01T00:00:00.000Z",
     "currentPrice": 400.8,
     "pnlPct": 90.57,
@@ -235,7 +235,7 @@
     "name": "ExxonMobil Corp",
     "sector": "energy",
     "buyPrice": 109.32,
-    "quantity": 10,
+    "quantity": 7,
     "buyDate": "2024-01-01T00:00:00.000Z",
     "currentPrice": 144.57,
     "pnlPct": 32.24,
@@ -792,5 +792,50 @@
     "buyPrice": 51.99,
     "quantity": 5,
     "buyDate": "2026-05-22T16:54:32.214Z"
+  },
+  {
+    "id": "AMZN-1779808901818",
+    "symbol": "AMZN",
+    "name": "Amazon.com Inc.",
+    "sector": "Big Tech",
+    "buyPrice": 264.24,
+    "quantity": 1,
+    "buyDate": "2026-05-26T15:21:41.818Z"
+  },
+  {
+    "id": "AVGO-1779808973117",
+    "symbol": "AVGO",
+    "name": "Broadcom Inc.",
+    "sector": "Semiconductors",
+    "buyPrice": 427.17,
+    "quantity": 1,
+    "buyDate": "2026-05-26T15:22:53.117Z"
+  },
+  {
+    "id": "WMT-1779809164484",
+    "symbol": "WMT",
+    "name": "Walmart Inc.",
+    "sector": "Consumer Staples",
+    "buyPrice": 119.02,
+    "quantity": 1,
+    "buyDate": "2026-05-26T15:26:04.484Z"
+  },
+  {
+    "id": "PYPL-1779938241317",
+    "symbol": "PYPL",
+    "name": "PayPal Holdings Inc.",
+    "sector": "Financials / Payments",
+    "buyPrice": 44.13,
+    "quantity": 4,
+    "buyDate": "2026-05-28T03:17:21.317Z"
+  },
+  {
+    "id": "TSM-1779978993817",
+    "symbol": "TSM",
+    "name": "TSM",
+    "sector": "Technology / Semiconductors",
+    "buyPrice": 419.3,
+    "quantity": 1,
+    "buyDate": "2026-05-28T14:36:33.817Z"
   }
 ]

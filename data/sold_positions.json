@@ -76,5 +76,57 @@
     "saleDate": "2026-05-18T14:58:11.787Z",
     "pnlAmount": -295.88,
     "pnlPct": -36.06
+  },
+  {
+    "id": "GOOGL-1005",
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc (GOOGL)",
+    "sector": "big_tech",
+    "buyPrice": 210.32,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 2,
+    "salePrice": 400.8,
+    "saleDate": "2026-05-26T16:41:13.597Z",
+    "pnlAmount": 380.96,
+    "pnlPct": 90.57
+  },
+  {
+    "id": "GOOGL-1005",
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc (GOOGL)",
+    "sector": "big_tech",
+    "buyPrice": 210.32,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 2,
+    "salePrice": 400.8,
+    "saleDate": "2026-05-26T16:41:13.598Z",
+    "pnlAmount": 380.96,
+    "pnlPct": 90.57
+  },
+  {
+    "id": "XOM-1013",
+    "symbol": "XOM",
+    "name": "ExxonMobil Corp",
+    "sector": "energy",
+    "buyPrice": 109.32,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 3,
+    "salePrice": 144.57,
+    "saleDate": "2026-05-28T14:36:48.766Z",
+    "pnlAmount": 105.75,
+    "pnlPct": 32.24
+  },
+  {
+    "id": "XOM-1013",
+    "symbol": "XOM",
+    "name": "ExxonMobil Corp",
+    "sector": "energy",
+    "buyPrice": 109.32,
+    "buyDate": "2024-01-01T00:00:00.000Z",
+    "quantity": 3,
+    "salePrice": 144.57,
+    "saleDate": "2026-05-28T14:36:48.768Z",
+    "pnlAmount": 105.75,
+    "pnlPct": 32.24
   }
 ]

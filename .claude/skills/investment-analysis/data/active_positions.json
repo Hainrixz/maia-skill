@@ -1,0 +1,292 @@
+{
+  "PYPL": {
+    "symbol": "PYPL",
+    "name": "PayPal Holdings",
+    "entry_price": 43.93,
+    "stop_loss": 42.21,
+    "target_12m": 54.91,
+    "thesis": "RSI=24 extreme oversold with Tencent/WeChat regulatory approval confirmed as near-term catalyst unlocking Chinese market access, driving 20.7% upside to $53 target. Extreme Fear environments historically precede sharp reversals in oversold payments names.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "4%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 8
+  },
+  "WMT": {
+    "symbol": "WMT",
+    "name": "WMT",
+    "entry_price": 118.86,
+    "stop_loss": 113.72,
+    "target_12m": 148.57,
+    "thesis": "Bearish news flag DISMISSED — Jim Cramer bullish, strong-buy analyst consensus intact, discount-retail defensiveness rewarded in Extreme Fear environments; RSI=30 at oversold support with 16.1% upside. +0.3% 1-day holding ground during fear selloff confirms thesis.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "4%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 2
+  },
+  "NEM": {
+    "symbol": "NEM",
+    "name": "Newmont",
+    "entry_price": 106.03,
+    "stop_loss": 101.65,
+    "target_12m": 132.54,
+    "thesis": "Highest screened score at 59 with RSI=40 neutral and bullish news flow; gold miners provide a direct portfolio hedge against deepening Extreme Fear with 34.9% upside. The -2.6% 1-day move is macro noise during a fear cascade — gold thesis strengthens as F&G declines.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "4%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 5
+  },
+  "PLTR": {
+    "symbol": "PLTR",
+    "name": "PLTR",
+    "entry_price": 132.36,
+    "stop_loss": 126.5,
+    "target_12m": 165.45,
+    "thesis": "fair",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Strategy analysis unavailable",
+      "New catalyst or thesis break not yet reassessed"
+    ],
+    "recommendation": "add",
+    "position_size": "2%",
+    "last_seen_date": "2026-05-27",
+    "last_rank": 8
+  },
+  "REGN": {
+    "symbol": "REGN",
+    "name": "Regeneron Pharmaceuticals Inc.",
+    "entry_price": 634.54,
+    "stop_loss": 594.04,
+    "target_12m": 793.17,
+    "thesis": "Dupixent franchise durability; RSI=23 extreme oversold suggests contrarian entry potential once institutional selling stabilizes",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Additional institutional exits exceeding $50M aggregate within 5 sessions",
+      "Third consecutive PT cut confirms structural thesis deterioration",
+      "Dupixent Medicare price negotiation materially worse than consensus"
+    ],
+    "recommendation": "hold",
+    "position_size": "1.0%",
+    "last_seen_date": "2026-05-27",
+    "last_rank": 12
+  },
+  "PEP": {
+    "symbol": "PEP",
+    "name": "PEP",
+    "entry_price": 147.34,
+    "stop_loss": 141.17,
+    "target_12m": 184.18,
+    "thesis": "RSI=32 oversold in a highly defensive staple with 16.1% upside; PepsiCo diversified snack and beverage portfolio provides recession-resistant revenue. Completes staples pair with WMT at 2-group maximum for maximum defensive allocation.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "3%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 4
+  },
+  "TSM": {
+    "symbol": "TSM",
+    "name": "TSM",
+    "entry_price": 419.3,
+    "stop_loss": 206.41,
+    "target_12m": 524.12,
+    "thesis": "Taiwan Semiconductor re-enters screen with score 54 and RSI=52, offering neutral technicals with bullish AI chip demand tailwind as Intel/AMD comparative analysis drives wafer order upgrades. Correlation engine now ranks TSM over AVGO as preferred semiconductor pair alongside NVDA; geopolitical risk is known and priced.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "add",
+    "position_size": "6%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 7
+  },
+  "GILD": {
+    "symbol": "GILD",
+    "name": "GILD",
+    "entry_price": 134.55,
+    "stop_loss": 128.6,
+    "target_12m": 168.19,
+    "thesis": "Healthcare defensive with RSI=51 neutral and pending FDA milestone as near-term binary catalyst; Gilead HIV and oncology pipeline provides stable recurring revenue with upside optionality. 17.4% upside with low defensive risk appropriate for Extreme Fear regime.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "2%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 6
+  },
+  "AVGO": {
+    "symbol": "AVGO",
+    "name": "Broadcom",
+    "entry_price": 420.32,
+    "stop_loss": 394.76,
+    "target_12m": 525.4,
+    "thesis": "HOLD existing position only — no new capital as correlation engine today selects NVDA+TSM as preferred semiconductor pair, displacing AVGO from active add slot. 14.2% upside to $480 remains but -1.6% 1-day underperformance and correlation displacement warrant zero new adds.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "1.0%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 12
+  },
+  "MA": {
+    "symbol": "MA",
+    "name": "Mastercard",
+    "entry_price": 492.56,
+    "stop_loss": 477.59,
+    "target_12m": 615.7,
+    "thesis": "Mastercard global payments network provides structural growth through electronic payment adoption with RSI=42 offering technical room to run toward $647 target. Pairs with PYPL in payments group for balanced fintech exposure at 2-group maximum.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "2%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 9
+  },
+  "XOM": {
+    "symbol": "XOM",
+    "name": "ExxonMobil",
+    "entry_price": 148.24,
+    "stop_loss": 150.09,
+    "target_12m": 185.3,
+    "thesis": "Residual TRIM — Altman Z=1.52 financial distress warrants continued reduction despite +0.9% 1-day. COP replaced XOM as primary energy holding; reduce to 0% or sub-0.5% residual on intraday strength above $148.50.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "trim",
+    "position_size": "1.0%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 13
+  },
+  "CRM": {
+    "symbol": "CRM",
+    "name": "Salesforce",
+    "entry_price": 180.53,
+    "stop_loss": 167.12,
+    "target_12m": 225.66,
+    "thesis": "Minimal 1% position HOLD pending hard stop resolution at $160; -23.9% portfolio PnL is dominant risk with stop not yet triggered at current $180.53. Agentforce AI integration provides speculative upside but does not justify any capital addition.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "1.0%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 15
+  },
+  "AMZN": {
+    "symbol": "AMZN",
+    "name": "Amazon",
+    "entry_price": 269.3,
+    "stop_loss": 256.92,
+    "target_12m": 336.62,
+    "thesis": "AWS cloud growth and advertising revenue diversification provide dual growth engines supporting 11.4% upside; +0.4% 1-day confirms stable demand thesis. Completes big_tech pair at 2-group maximum.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "5%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 3
+  },
+  "DIS": {
+    "symbol": "DIS",
+    "name": "DIS",
+    "entry_price": 103.85,
+    "stop_loss": 99.55,
+    "target_12m": 129.81,
+    "thesis": "RSI=36 mild oversold with strong-buy consensus targeting $129; Disney+ streaming profitability milestone and parks demand resilience support 24.2% upside. German regulatory risk manageable and already reflected in neutral news sentiment.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "2%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 11
+  },
+  "FTNT": {
+    "symbol": "FTNT",
+    "name": "FTNT",
+    "entry_price": 172.5,
+    "stop_loss": 0.01,
+    "target_12m": 215.62,
+    "thesis": "MANDATORY TRIM — RSI=87 Day 3 extreme overbought with +138.2% portfolio gain makes this highest-priority profit crystallization. Execute 40-50% position reduction at market today; each additional overbought day increases mean-reversion probability exponentially.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "trim",
+    "position_size": "1.0%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 14
+  },
+  "GOOGL": {
+    "symbol": "GOOGL",
+    "name": "Alphabet",
+    "entry_price": 389.45,
+    "stop_loss": 370.88,
+    "target_12m": 486.81,
+    "thesis": "Big tech anchor with stable thesis supported by Cloud and Search monetization with incremental AI integration revenue. HOLD maintains allocation without adding risk in Extreme Fear regime; +0.1% 1-day confirms thesis intact.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "6%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 1
+  },
+  "COP": {
+    "symbol": "COP",
+    "name": "ConocoPhillips",
+    "entry_price": 115.16,
+    "stop_loss": 109.13,
+    "target_12m": 143.95,
+    "thesis": "ConocoPhillips entered as cleaner energy replacement with superior Altman Z-score versus XOM; upstream-only model limits refining margin volatility with 12.9% upside. HOLD as primary energy position completing energy group alongside residual XOM trim.",
+    "thesis_status": "active",
+    "thesis_invalidators": [
+      "Catalyst fails to materialize",
+      "Trend or valuation thesis breaks"
+    ],
+    "recommendation": "hold",
+    "position_size": "1.0%",
+    "last_seen_date": "2026-05-28",
+    "last_rank": 10
+  }
+}
