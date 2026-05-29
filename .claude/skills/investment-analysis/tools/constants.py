@@ -36,7 +36,7 @@ WATCHLISTS: dict[str, list[str]] = {
     "tech": [
         "NVDA", "AMD", "TSM", "INTC", "QCOM", "ARM",
         "MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM",
-        "AVGO", "AMAT", "ASML", "ASLM",
+        "AVGO", "AMAT", "ASML",
         "PLTR", "SNOW", "CRM", "NOW", "PANW",
         "NFLX", "TSLA", "RIVN", "SONY",
     ],
@@ -89,10 +89,10 @@ WATCHLISTS: dict[str, list[str]] = {
     # Full extended: all of the above deduplicated (~65 tickers, ~3-4 min runtime)
     "all": sorted(set(
         _CORE +
-        ["INTC", "QCOM", "ARM", "AMAT", "ASML", "ASLM", "SNOW", "CRM", "NOW", "PANW"] +
+        ["INTC", "QCOM", "ARM", "AMAT", "ASML", "SNOW", "CRM", "NOW", "PANW"] +
         ["JPM", "BAC", "GS", "MS", "WFC", "C", "V", "MA", "PYPL", "BLK", "BX"] +
-        ["GLD", "SLV", "GDX", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
-        ["LLY", "UNH", "JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN"] +
+        ["GLD", "SLV", "GDX", "GDXJ", "XOM", "CVX", "COP", "OXY", "FCX", "NEM"] +
+        ["LLY", "UNH", "JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "MRNA", "PFE"] +
         # New additions (May 2026)
         ["SONY", "BABA", "RIVN", "MELI", "NU", "SOFI", "DIS", "HD", "SBUX", "IBM",
          "WMT", "COST", "PG", "KO", "PEP", "CAT", "HON", "UPS", "BA", "T", "VZ",
@@ -116,19 +116,19 @@ MACRO_TICKERS: list[str] = ["^VIX", "^TNX", "^GSPC", "^IRX"]
 # - FCX is "base_metals" not "precious_metals" (copper-driven, not gold).
 
 CORRELATION_GROUPS: dict[str, list[str]] = {
-    "precious_metals":        ["GLD", "SLV", "GDX", "NEM"],
+    "precious_metals":        ["GLD", "SLV", "GDX", "GDXJ", "NEM"],
     "semiconductors":         ["NVDA", "AMD", "INTC", "QCOM", "TSM", "ARM", "AMAT", "ASML", "AVGO"],
     "big_tech":               ["MSFT", "AAPL", "GOOGL", "META", "AMZN", "IBM", "PLTR", "SONY"],
     "financials":             ["JPM", "BAC", "GS", "MS", "WFC", "C"],
     "payments":               ["V", "MA", "PYPL"],
-    "healthcare":             ["JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "LLY", "UNH"],
+    "healthcare":             ["JNJ", "ABBV", "MRK", "AMGN", "GILD", "REGN", "LLY", "UNH", "MRNA", "PFE"],
     "staples":                ["WMT", "COST", "PG", "KO", "PEP"],
     "industrials":            ["CAT", "HON", "UPS", "BA"],
     "telecom":                ["T", "VZ"],
     "energy":                 ["XOM", "CVX", "COP", "OXY", "KMI"],
     "base_metals":            ["FCX"],
     "saas":                   ["CRM", "NOW", "SNOW", "PANW"],
-    "enterprise_software":    ["ORCL", "IBM"],
+    "enterprise_software":    ["ORCL"],
     "asset_managers":         ["BLK", "BX"],
     "ev":                     ["TSLA", "RIVN"],
     "streaming":              ["NFLX", "DIS"],
