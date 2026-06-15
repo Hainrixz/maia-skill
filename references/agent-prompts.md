@@ -2,6 +2,18 @@
 
 Use today's date when constructing all search queries below. Always cross-reference prices from at least 2 sources before reporting.
 
+## Optional X/Twitter Evidence Source
+
+When your research setup includes OpenClaw, TweetClaw can provide a structured public X/Twitter evidence packet for the social sentiment fields. Install it with:
+
+```bash
+openclaw plugins install npm:@xquik/tweetclaw@1.6.31
+```
+
+Use TweetClaw only for public X/Twitter evidence collection, such as tweet search, reply search, user lookup, public post context, and monitor snapshots. Keep Tododeia responsible for asset discovery, source agreement, sentiment interpretation, risk-adjusted ranking, and final report wording.
+
+For every TweetClaw-backed social highlight, record the query, capture time, public URL or handle, short excerpt, and whether the signal is bullish, bearish, neutral, or mixed. Do not use it for private account data, DMs, posting, following, trading execution, or investment decisions by itself.
+
 ---
 
 ## Crypto Agent

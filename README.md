@@ -176,6 +176,16 @@ After your first report, you can set up recurring analysis:
 
 Edit `references/agent-prompts.md` to change which assets each agent researches, how they search, or what data they prioritize.
 
+### Optional X/Twitter Evidence
+
+The agents already check Twitter/X and Reddit sentiment. If your research setup also includes OpenClaw, you can install TweetClaw as an optional public X/Twitter evidence source:
+
+```bash
+openclaw plugins install npm:@xquik/tweetclaw@1.6.31
+```
+
+Use it to capture public tweet search, reply search, user lookup, and monitor snapshots before the sector agents score `social_sentiment`, `social_buzz`, and `social_highlights`. Tododeia still handles asset discovery, risk scoring, portfolio allocation, and final report wording. Treat TweetClaw output as one evidence packet, not investment advice or an automated trading signal.
+
 ### Risk Profiles
 
 The Strategy Agent prompt in `references/agent-prompts.md` defines how each risk profile affects scoring and allocation. Customize the multipliers and allocation ranges there.
@@ -387,6 +397,16 @@ Despues de tu primer reporte, puedes configurar analisis recurrentes:
 ### Activos y Comportamiento de Agentes
 
 Edita `references/agent-prompts.md` para cambiar que activos investiga cada agente, como buscan, o que datos priorizan.
+
+### Evidencia Opcional de X/Twitter
+
+Los agentes ya revisan sentimiento en Twitter/X y Reddit. Si tu configuracion de investigacion tambien incluye OpenClaw, puedes instalar TweetClaw como fuente opcional de evidencia publica de X/Twitter:
+
+```bash
+openclaw plugins install npm:@xquik/tweetclaw@1.6.31
+```
+
+Usalo para capturar busquedas publicas de tweets, busquedas de respuestas, busqueda de usuarios y snapshots de monitoreo antes de que los agentes sectoriales puntuen `social_sentiment`, `social_buzz` y `social_highlights`. Tododeia sigue manejando descubrimiento de activos, puntuacion de riesgo, asignacion de portafolio y redaccion final del reporte. Trata la salida de TweetClaw como un paquete de evidencia, no como consejo de inversion ni senal automatica de trading.
 
 ### Perfiles de Riesgo
 
