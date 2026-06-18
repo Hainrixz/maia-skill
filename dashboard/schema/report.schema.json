@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tododeia REPORT_DATA",
+  "description": "Executable form of the data contract. Monetary/numeric fields are numbers or null; change_* are signed percent numbers.",
+  "type": "object",
+  "required": ["brand", "creator", "generated_at", "risk_profile", "executive_summary", "macro_environment", "portfolio_allocation", "cross_sector_insights", "risk_adjusted_picks", "historical_accuracy", "warnings", "sectors"],
+  "properties": {
+    "brand": { "type": "string" },
+    "creator": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "risk_profile": { "enum": ["conservative", "moderate", "aggressive"] },
+    "executive_summary": { "type": "string" },
+    "macro_environment": {
+      "type": "object",
+      "required": ["summary", "interest_rate_outlook", "inflation_outlook", "geopolitical_risk", "key_factors"],
+      "properties": {
+        "summary": { "type": "string" },
+        "interest_rate_outlook": { "enum": ["rising", "stable", "falling"] },
+        "inflation_outlook": { "enum": ["rising", "stable", "falling"] },
+        "geopolitical_risk": { "enum": ["high", "medium", "low"] },
+        "key_factors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "portfolio_allocation": { "type": "object", "additionalProperties": { "type": "number" } },
+    "cross_sector_insights": {
+      "type": "array",
+      "items": { "type": "object", "required": ["insight", "implication"], "properties": { "insight": { "type": "string" }, "implication": { "type": "string" } } }
+    },
+    "risk_adjusted_picks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rank", "name", "symbol", "sector", "confidence", "recommendation", "reasoning"],
+        "properties": {
+          "rank": { "type": "number" }, "name": { "type": "string" }, "symbol": { "type": "string" }, "sector": { "type": "string" },
+          "confidence": { "type": "number" }, "risk_score": { "type": ["number", "null"] }, "risk_adjusted_score": { "type": ["number", "null"] },
+          "recommendation": { "enum": ["buy", "hold", "sell"] }, "reasoning": { "type": "string" }, "position_size": { "type": "string" }
+        }
+      }
+    },
+    "historical_accuracy": {
+      "type": "object",
+      "required": ["calls_made", "calls_correct", "accuracy_pct"],
+      "properties": {
+        "previous_date": { "type": ["string", "null"] }, "calls_made": { "type": "number" }, "calls_correct": { "type": "number" },
+        "accuracy_pct": { "type": "number" }, "notable": { "type": "string" }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "sectors": { "type": "object", "additionalProperties": { "$ref": "#/definitions/sector" } }
+  },
+  "definitions": {
+    "sector": {
+      "type": "object",
+      "required": ["sector", "assets"],
+      "properties": {
+        "sector": { "type": "string" }, "timestamp": { "type": "string" },
+        "assets": { "type": "array", "items": { "$ref": "#/definitions/asset" } },
+        "sector_summary": { "type": "string" }, "sector_outlook": { "enum": ["bullish", "bearish", "neutral"] },
+        "top_pick": { "type": "string" }, "top_pick_reasoning": { "type": "string" }, "data_unavailable": { "type": "boolean" }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": ["name", "symbol", "current_price", "confidence", "recommendation"],
+      "properties": {
+        "name": { "type": "string" }, "symbol": { "type": "string" },
+        "current_price": { "type": ["number", "null"] }, "price_unit": { "type": "string" },
+        "change_24h": { "type": ["number", "null"] }, "change_7d": { "type": ["number", "null"] }, "change_30d": { "type": ["number", "null"] }, "ytd_change": { "type": ["number", "null"] },
+        "week_52_high": { "type": ["number", "null"] }, "week_52_low": { "type": ["number", "null"] },
+        "market_cap": { "type": ["number", "null"] }, "volume_24h": { "type": ["number", "null"] },
+        "sentiment": { "type": "string" }, "social_sentiment": { "type": "string" }, "social_buzz": { "type": "string" },
+        "confidence": { "type": "number" }, "source_agreement": { "type": "string" },
+        "data_source": { "enum": ["api", "api_alt", "websearch", "unavailable"] },
+        "sources_checked": { "type": "array", "items": { "type": "string" } },
+        "key_news": { "type": "array", "items": { "type": "string" } },
+        "social_highlights": { "type": "array", "items": { "type": "string" } },
+        "recommendation": { "enum": ["buy", "hold", "sell"] }, "reasoning": { "type": "string" }
+      }
+    }
+  }
+}

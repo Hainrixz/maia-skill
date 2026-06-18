@@ -2,3 +2,9 @@ output/
 .DS_Store
 dashboard/node_modules/
 dashboard/.next/
+dashboard/.turbo/
+.env*.local
+*.log
+
+# Runtime reports are written to ~/.claude/cache/tododeia (never the repo).
+# The dashboard/public/data/*.json files are committed demo fixtures.

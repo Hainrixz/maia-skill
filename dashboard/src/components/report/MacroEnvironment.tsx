@@ -24,7 +24,7 @@ export function MacroEnvironment({ macro }: { macro: MacroType }) {
         {indicators.map((ind) => (
           <div key={ind.label} className="flex flex-col items-center gap-1 rounded-lg bg-[#F7F7F5] px-5 py-2.5">
             <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8B8B85]">{ind.label}</span>
-            <span className={`text-sm font-bold capitalize ${valueColors[ind.value] ?? "text-[#4D4A44]"}`}>{ind.value || "N/A"}</span>
+            <span className={`text-sm font-bold ${valueColors[ind.value] ?? "text-[#4D4A44]"}`}>{ind.value ? t(`macro.${ind.value}`) : "N/A"}</span>
           </div>
         ))}
       </div>

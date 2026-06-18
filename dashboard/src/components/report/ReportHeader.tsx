@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
+import { localeFor } from "@/lib/utils"
 import type { ReportData } from "@/types/report"
 
 const profileStyles: Record<string, string> = {
@@ -9,10 +10,12 @@ const profileStyles: Record<string, string> = {
   moderate: "bg-amber-50 text-amber-700 border-amber-200",
   aggressive: "bg-red-50 text-red-700 border-red-200",
 }
+// Icon so the risk profile is not conveyed by color alone (WCAG 1.4.1).
+const profileGlyph: Record<string, string> = { conservative: "🛡", moderate: "⚖", aggressive: "🚀" }
 
 export function ReportHeader({ data }: { data: ReportData }) {
-  const { t } = useLanguage()
-  const date = new Date(data.generated_at).toLocaleDateString("en-US", {
+  const { t, lang } = useLanguage()
+  const date = new Date(data.generated_at).toLocaleDateString(localeFor(lang), {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -41,7 +44,7 @@ export function ReportHeader({ data }: { data: ReportData }) {
             {t("header.report")}
           </p>
           <span className={`mt-2 inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${profileStyles[data.risk_profile]}`}>
-            {data.risk_profile} {t("header.profile")}
+            <span aria-hidden="true">{profileGlyph[data.risk_profile] ?? ""}</span> {t(`profile.${data.risk_profile}`)} {t("header.profile")}
           </span>
         </div>
       </div>

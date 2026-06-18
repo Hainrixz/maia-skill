@@ -1,10 +1,30 @@
-# Tododeia — Multi-Agent Investment Analysis Skill
+<a id="top"></a>
 
-**by @soyenriquerocha**
+<p align="center">
+  <img src="docs/images/hero.png" alt="Tododeia — five AI research agents converging into a market analysis dashboard" width="100%">
+</p>
 
-A Claude Code skill that spawns 5 specialized AI research agents to analyze investment opportunities across crypto, stocks, forex, and commodities. Adapts to your risk profile, tracks historical accuracy, and generates an interactive Next.js dashboard with full Spanish/English support.
+<h1 align="center">tododeia.</h1>
 
-> **[Leer en Espanol](#espanol)**
+<p align="center">
+  <strong>Multi-agent AI investment analysis for Claude Code.</strong><br>
+  Five specialized agents research crypto, stocks, forex &amp; commodities in parallel, adapt to your risk profile, and render an interactive, bilingual dashboard — <em>educational analysis, not financial advice.</em>
+</p>
+
+<p align="center">
+  <img alt="version 2.1.0" src="https://img.shields.io/badge/version-2.1.0-3a8c1a">
+  <img alt="Claude Code skill" src="https://img.shields.io/badge/Claude%20Code-skill-3a8c1a">
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-111111">
+  <img alt="TypeScript strict" src="https://img.shields.io/badge/TypeScript-strict-111111">
+  <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-3a8c1a">
+  <img alt="EN / ES bilingual" src="https://img.shields.io/badge/EN%20%2F%20ES-bilingual-111111">
+</p>
+
+<p align="center"><strong><a href="#espanol">Leer en Español ↓</a></strong> · by <a href="https://github.com/Hainrixz">@soyenriquerocha</a></p>
+
+---
+
+> **What's new in v2.1** — hybrid **keyless** market-data APIs (CoinGecko · Yahoo Finance · Frankfurter) with optional premium keys, an educational acknowledgment gate, a security-hardened dashboard (CSP + XSS-safe HTML fallback), full accessibility (ARIA, keyboard nav, reduced-motion), a numeric data contract validated in CI, and portable runs from any directory. See the [CHANGELOG](CHANGELOG.md).
 
 ---
 
@@ -65,17 +85,23 @@ Tododeia is a **Claude Code skill** — a reusable prompt-and-tooling package th
 
 ## Features
 
-- **5 AI Agents**: 4 sector researchers + 1 strategy synthesizer, all running in parallel
-- **Dynamic Asset Discovery**: Agents don't follow a fixed list — they find the most relevant assets based on current market conditions
-- **Risk Profiles**: Conservative, moderate, or aggressive — recommendations, position sizes, and allocations adapt to you
-- **Social Sentiment**: Twitter/X and Reddit sentiment analysis per asset
-- **Source Verification**: Cross-references prices from 2+ sources with agreement scoring
-- **Historical Accuracy**: Compares past recommendations to actual outcomes over time
-- **Portfolio Allocation**: Suggested % allocation across sectors based on your risk profile
-- **Cross-Sector Insights**: Correlations and divergences that individual agents can't see
-- **Spanish/English**: Full bilingual support — UI chrome AND report data translate when you toggle
-- **Interactive Dashboard**: Charts, expandable sector analysis, top picks grid, risk warnings
-- **Scheduling**: Option to run daily or weekly with automatic reports
+<p align="center">
+  <img src="docs/images/dashboard.png" alt="The Tododeia dashboard: allocation donut, recommendation cards, performance and risk-analysis charts" width="100%">
+</p>
+
+- **5 AI agents** — 4 sector researchers + 1 strategy synthesizer, running in parallel
+- **Hybrid market data** — authoritative prices from free **keyless** APIs (CoinGecko, Yahoo Finance, Frankfurter) with a deterministic fallback ladder; WebSearch adds news & sentiment. Optional `FINNHUB_API_KEY` / `POLYGON_API_KEY` for premium stock data
+- **Dynamic asset discovery** — agents find the most relevant assets for current conditions instead of a fixed list
+- **Risk profiles** — conservative / moderate / aggressive reshape scoring, illustrative position sizes, and allocation
+- **Cross-sector strategy** — a synthesis agent surfaces correlations and divergences individual agents can't see
+- **Historical accuracy tracking** — compares prior signals to outcomes over time (a local heuristic, not an audited record)
+- **Interactive dashboard** — allocation donut, risk-vs-confidence and social-buzz charts, expandable per-asset tables, top-picks grid
+- **Fully bilingual (EN/ES)** — UI *and* report data translate on toggle; numbers, tickers and prices stay intact
+- **Educational-first compliance** — a one-time "not financial advice" gate before the report; analytical *Consider / Hold / Avoid* language instead of buy/sell
+- **Accessible** — ARIA-labeled charts, keyboard-navigable cards & sortable tables, focus-visible rings, `prefers-reduced-motion`
+- **Secure & private** — Content-Security-Policy + security headers; XSS-hardened HTML fallback; runs locally with data kept in `~/.claude/cache/tododeia`
+- **Portable** — resolves its own install directory and writes to a writable cache, so it works from any folder
+- **Scheduling** — optional daily or weekly recurring reports
 
 ## Sectors Covered
 
@@ -89,8 +115,9 @@ Tododeia is a **Claude Code skill** — a reusable prompt-and-tooling package th
 ## Requirements
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (CLI)
-- Node.js 18+ (for the dashboard)
-- Active internet connection (agents perform live web research)
+- Node.js 18+ for the interactive dashboard — **optional**; without it the skill renders a standalone HTML report (served with `python3`)
+- An internet connection (agents fetch live prices and do web research)
+- *Optional:* `FINNHUB_API_KEY` or `POLYGON_API_KEY` for premium stock data — free keyless sources are used by default
 
 ## Installation
 
@@ -134,11 +161,15 @@ In any Claude Code conversation:
 - "Give me a market report"
 - "Run tododeia"
 
-You'll be asked your risk profile (conservative, moderate, or aggressive), then the 5 agents go to work. The report opens at `http://localhost:3420`.
+You'll be asked your risk profile (conservative, moderate, or aggressive), then the 5 agents go to work. The report opens at `http://localhost:3420`. On first open you'll acknowledge a short *educational, not advice* notice and pick a language. Generated reports are written to `~/.claude/cache/tododeia` — not your current project folder.
 
 ### Language Toggle
 
-When you first open the dashboard, you'll be asked to pick English or Spanish. All report content — summaries, reasoning, news headlines, insights, warnings — translates to your chosen language. Numbers, prices, tickers, and percentages stay as-is.
+<p align="center">
+  <img src="docs/images/bilingual.png" alt="Full English / Spanish bilingual support" width="46%">
+</p>
+
+When you first open the dashboard, you'll be asked to pick English or Spanish. All report content — summaries, reasoning, news headlines, insights, warnings — translates to your chosen language. Numbers, prices, tickers, and percentages stay as-is. If a Spanish report isn't available yet, the dashboard shows English with a small notice instead of failing.
 
 You can switch languages anytime from the toolbar.
 
@@ -167,7 +198,8 @@ After your first report, you can set up recurring analysis:
       hooks/            # Language + data hooks
       lib/              # Translations, constants
       types/            # TypeScript types
-    public/data/        # Generated report JSON (created at runtime)
+    public/data/        # Sample report JSON (demo fixtures; live runs write to ~/.claude/cache/tododeia)
+    schema/             # JSON Schema for the report data contract (CI-validated)
 ```
 
 ## Customization
@@ -202,23 +234,44 @@ Add or modify UI translations in `dashboard/src/lib/translations.ts`. Report dat
 
 ## Fallback Mode
 
-If Node.js is not available, the skill falls back to generating a standalone `output/report.html` file using the HTML template in `assets/`. This is served via Python's built-in HTTP server on port 8420.
+If Node.js is not available, the skill falls back to a standalone `report.html` (in `~/.claude/cache/tododeia/output`) built from the template in `assets/`, served via Python's built-in HTTP server on port 8420 (`python3`, falling back to `python`). Report data is embedded as an inert JSON island and every web-sourced string is HTML-escaped, so untrusted headlines or posts can't inject scripts.
 
-## Disclaimer
+## Educational Use & Disclaimer
 
-This tool is for **informational and educational purposes only**. It does not constitute financial advice, investment recommendations, or solicitation to buy or sell any securities, cryptocurrencies, or commodities. AI-generated analysis may contain errors and should not be relied upon for investment decisions. Always consult a qualified financial advisor before making investment decisions. Past performance is not indicative of future results. Tododeia and its creators assume no liability for investment losses.
+<p align="center">
+  <img src="docs/images/educational.png" alt="Educational analysis, not financial advice — transparent, AI-assisted research" width="70%">
+</p>
+
+Before the report renders, the dashboard shows a one-time acknowledgment ("this is educational, not financial advice") and the disclaimer stays visible at the top. Signals are phrased analytically (*Consider / Hold / Avoid*), never as buy/sell instructions.
+
+**This is educational analysis, not financial advice.** Tododeia's signals and allocations are AI-generated opinions derived from public data — they may be wrong, out of date, or incomplete, and are not a recommendation or solicitation to buy or sell any asset. AI analysis can contain errors. Always do your own research and consult a licensed financial advisor before investing. Past performance is not indicative of future results. **You assume all investment risk.**
+
+**Data & limitations.** Prices come from free public APIs (CoinGecko, Yahoo Finance, Frankfurter) with a web-search fallback, so they may lag the market and some instruments fall back to search estimates. The "historical accuracy" metric is a local heuristic, not an audited track record. Set `FINNHUB_API_KEY` or `POLYGON_API_KEY` for higher-quality stock data (free keyless sources are used otherwise).
+
+**Privacy.** Reports are generated and served on your machine only — runtime data is written to `~/.claude/cache/tododeia`, never committed to the repo. Do **not** expose the dashboard to the public internet; it has no authentication.
 
 ---
 
 <a id="espanol"></a>
 
-# Tododeia — Skill de Analisis de Inversiones Multi-Agente
+<p align="center">
+  <img src="docs/images/hero.png" alt="Tododeia — cinco agentes de IA convergiendo en un dashboard de analisis de mercado" width="100%">
+</p>
 
-**por @soyenriquerocha**
+<h1 align="center">tododeia.</h1>
 
-Un skill de Claude Code que lanza 5 agentes de investigacion especializados para analizar oportunidades de inversion en crypto, acciones, forex y materias primas. Se adapta a tu perfil de riesgo, rastrea la precision historica y genera un dashboard interactivo en Next.js con soporte completo en espanol e ingles.
+<p align="center">
+  <strong>Analisis de inversion multi-agente con IA para Claude Code.</strong><br>
+  Cinco agentes especializados investigan crypto, acciones, forex y materias primas en paralelo, se adaptan a tu perfil de riesgo y renderizan un dashboard interactivo y bilingue — <em>analisis educativo, no asesoria financiera.</em>
+</p>
 
-> **[Read in English](#tododeia--multi-agent-investment-analysis-skill)**
+<p align="center"><strong><a href="#top">Read in English ↑</a></strong> · por <a href="https://github.com/Hainrixz">@soyenriquerocha</a></p>
+
+---
+
+> **Novedades v2.1** — APIs de mercado **sin clave** (CoinGecko · Yahoo Finance · Frankfurter) con claves premium opcionales, gate de reconocimiento educativo, dashboard endurecido (CSP + HTML de respaldo a prueba de XSS), accesibilidad completa (ARIA, teclado, movimiento reducido), contrato de datos numerico validado en CI, y ejecucion portatil desde cualquier carpeta. Ver el [CHANGELOG](CHANGELOG.md).
+
+---
 
 ## Que es esto?
 
@@ -277,17 +330,23 @@ Tododeia es un **skill de Claude Code** — un paquete reutilizable de prompts y
 
 ## Caracteristicas
 
-- **5 Agentes IA**: 4 investigadores sectoriales + 1 sintetizador de estrategia, todos en paralelo
-- **Descubrimiento Dinamico**: Los agentes no siguen una lista fija — encuentran los activos mas relevantes segun las condiciones actuales del mercado
-- **Perfiles de Riesgo**: Conservador, moderado o agresivo — las recomendaciones, tamanos de posicion y asignaciones se adaptan a ti
-- **Sentimiento Social**: Analisis de sentimiento en Twitter/X y Reddit por activo
-- **Verificacion de Fuentes**: Cruza precios de 2+ fuentes con puntuacion de concordancia
-- **Precision Historica**: Compara recomendaciones pasadas con resultados reales
-- **Asignacion de Portafolio**: % sugerido por sector segun tu perfil de riesgo
-- **Insights Inter-Sectoriales**: Correlaciones y divergencias que los agentes individuales no pueden ver
-- **Espanol/Ingles**: Soporte bilingue completo — interfaz Y datos del reporte se traducen al cambiar idioma
-- **Dashboard Interactivo**: Graficos, analisis sectorial expandible, top picks, alertas de riesgo
-- **Programacion**: Opcion de ejecutar diario o semanal con reportes automaticos
+<p align="center">
+  <img src="docs/images/dashboard.png" alt="El dashboard de Tododeia: dona de asignacion, tarjetas de recomendacion, graficos de rendimiento y riesgo" width="100%">
+</p>
+
+- **5 agentes IA** — 4 investigadores sectoriales + 1 sintetizador de estrategia, en paralelo
+- **Datos de mercado hibridos** — precios autoritativos desde APIs **sin clave** (CoinGecko, Yahoo Finance, Frankfurter) con escalera de respaldo determinista; WebSearch aporta noticias y sentimiento. Claves opcionales `FINNHUB_API_KEY` / `POLYGON_API_KEY` para datos premium de acciones
+- **Descubrimiento dinamico** — encuentran los activos mas relevantes segun las condiciones actuales, no una lista fija
+- **Perfiles de riesgo** — conservador / moderado / agresivo reconfiguran el scoring, los tamanos ilustrativos de posicion y la asignacion
+- **Estrategia inter-sectorial** — un agente sintetizador revela correlaciones y divergencias que los agentes individuales no ven
+- **Seguimiento de precision historica** — compara senales previas con resultados (heuristica local, no un historial auditado)
+- **Dashboard interactivo** — dona de asignacion, graficos de riesgo y actividad social, tablas por activo expandibles, grid de top picks
+- **Totalmente bilingue (EN/ES)** — interfaz *y* datos del reporte se traducen al cambiar idioma; numeros, tickers y precios intactos
+- **Cumplimiento educativo primero** — gate de "no es asesoria financiera" antes del reporte; lenguaje analitico *Considerar / Mantener / Evitar* en vez de comprar/vender
+- **Accesible** — graficos con ARIA, tarjetas y tablas operables por teclado, anillos de foco visibles, `prefers-reduced-motion`
+- **Seguro y privado** — Content-Security-Policy + headers de seguridad; HTML de respaldo a prueba de XSS; corre localmente y los datos quedan en `~/.claude/cache/tododeia`
+- **Portatil** — resuelve su propio directorio de instalacion y escribe en un cache, asi funciona desde cualquier carpeta
+- **Programacion** — reportes recurrentes diarios o semanales opcionales
 
 ## Sectores Cubiertos
 
@@ -301,8 +360,9 @@ Tododeia es un **skill de Claude Code** — un paquete reutilizable de prompts y
 ## Requisitos
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (CLI)
-- Node.js 18+ (para el dashboard)
-- Conexion a internet activa (los agentes investigan en vivo)
+- Node.js 18+ para el dashboard interactivo — **opcional**; sin el, el skill genera un reporte HTML independiente (servido con `python3`)
+- Conexion a internet (los agentes traen precios en vivo e investigan en la web)
+- *Opcional:* `FINNHUB_API_KEY` o `POLYGON_API_KEY` para datos premium de acciones — por defecto se usan fuentes gratuitas sin clave
 
 ## Instalacion
 
@@ -346,11 +406,15 @@ En cualquier conversacion de Claude Code:
 - "Dame un reporte de mercado"
 - "Corre tododeia"
 
-Se te preguntara tu perfil de riesgo (conservador, moderado o agresivo), luego los 5 agentes se ponen a trabajar. El reporte se abre en `http://localhost:3420`.
+Se te preguntara tu perfil de riesgo (conservador, moderado o agresivo), luego los 5 agentes se ponen a trabajar. El reporte se abre en `http://localhost:3420`. Al abrirlo por primera vez reconoceras un breve aviso *educativo, no asesoria* y elegiras idioma. Los reportes generados se escriben en `~/.claude/cache/tododeia` — no en la carpeta de tu proyecto.
 
 ### Cambio de Idioma
 
-Cuando abras el dashboard por primera vez, se te pedira elegir ingles o espanol. Todo el contenido del reporte — resumenes, razonamientos, titulares, insights, advertencias — se traduce al idioma elegido. Los numeros, precios, tickers y porcentajes se mantienen igual.
+<p align="center">
+  <img src="docs/images/bilingual.png" alt="Soporte bilingue completo ingles / espanol" width="46%">
+</p>
+
+Cuando abras el dashboard por primera vez, se te pedira elegir ingles o espanol. Todo el contenido del reporte — resumenes, razonamientos, titulares, insights, advertencias — se traduce al idioma elegido. Los numeros, precios, tickers y porcentajes se mantienen igual. Si aun no hay reporte en espanol, el dashboard muestra ingles con un aviso en vez de fallar.
 
 Puedes cambiar de idioma en cualquier momento desde la barra de herramientas.
 
@@ -414,11 +478,21 @@ Agrega o modifica traducciones de la interfaz en `dashboard/src/lib/translations
 
 ## Modo de Respaldo
 
-Si Node.js no esta disponible, el skill genera un archivo `output/report.html` independiente usando la plantilla HTML en `assets/`. Se sirve a traves del servidor HTTP integrado de Python en el puerto 8420.
+Si Node.js no esta disponible, el skill genera un `report.html` independiente (en `~/.claude/cache/tododeia/output`) usando la plantilla en `assets/`, servido por el servidor HTTP de Python en el puerto 8420 (`python3`, con respaldo a `python`). Los datos del reporte se incrustan como un bloque JSON inerte y cada texto traido de la web se escapa, asi que titulares o publicaciones no confiables no pueden inyectar scripts.
 
-## Aviso Legal
+## Uso Educativo y Aviso Legal
 
-Esta herramienta es **solo para fines informativos y educativos**. No constituye asesoramiento financiero, recomendaciones de inversion ni solicitud para comprar o vender valores, criptomonedas o materias primas. El analisis generado por IA puede contener errores y no debe utilizarse como base para decisiones de inversion. Siempre consulta a un asesor financiero calificado antes de tomar decisiones de inversion. El rendimiento pasado no es indicativo de resultados futuros. Tododeia y sus creadores no asumen responsabilidad por perdidas de inversion.
+<p align="center">
+  <img src="docs/images/educational.png" alt="Analisis educativo, no asesoria financiera — investigacion transparente asistida por IA" width="70%">
+</p>
+
+Antes de renderizar el reporte, el dashboard muestra un reconocimiento unico ("esto es educativo, no asesoria financiera") y el aviso permanece visible arriba. Las senales se expresan de forma analitica (*Considerar / Mantener / Evitar*), nunca como instrucciones de comprar/vender.
+
+**Esto es analisis educativo, no asesoria financiera.** Las senales y asignaciones de Tododeia son opiniones generadas por IA a partir de datos publicos — pueden estar equivocadas, desactualizadas o incompletas, y no son una recomendacion ni solicitud para comprar o vender ningun activo. El analisis con IA puede contener errores. Haz siempre tu propia investigacion y consulta a un asesor financiero licenciado antes de invertir. El rendimiento pasado no es indicativo de resultados futuros. **Asumes todo el riesgo de inversion.**
+
+**Datos y limitaciones.** Los precios provienen de APIs publicas gratuitas (CoinGecko, Yahoo Finance, Frankfurter) con respaldo de busqueda web, por lo que pueden ir por detras del mercado y algunos instrumentos recurren a estimaciones de busqueda. La "precision historica" es una heuristica local, no un historial auditado. Define `FINNHUB_API_KEY` o `POLYGON_API_KEY` para mejores datos de acciones (por defecto se usan fuentes gratuitas sin clave).
+
+**Privacidad.** Los reportes se generan y sirven solo en tu maquina — los datos de ejecucion se escriben en `~/.claude/cache/tododeia`, nunca en el repo. **No** expongas el dashboard a internet publico; no tiene autenticacion.
 
 ## Licencia
 

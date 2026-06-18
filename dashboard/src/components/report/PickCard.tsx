@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
 import type { RiskAdjustedPick, SectorData } from "@/types/report"
 import { SECTOR_COLORS } from "@/lib/constants"
+import { formatPrice } from "@/lib/utils"
 
 interface PickCardProps { pick: RiskAdjustedPick; sectors: Record<string, SectorData> }
 
@@ -14,14 +15,14 @@ const recStyles: Record<string, string> = {
 }
 
 export function PickCard({ pick, sectors }: PickCardProps) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const score = pick.risk_adjusted_score ?? pick.confidence
   const scorePercent = Math.min(score * 10, 100)
   const scoreColor = score >= 7 ? "#00c853" : score >= 4 ? "#ffc107" : "#e94560"
   const confLabel = pick.risk_adjusted_score ? t("picks.riskAdj") : t("picks.confidence")
   const sectorData = sectors[pick.sector]
   const asset = sectorData?.assets?.find((a) => a.symbol === pick.symbol)
-  const price = asset?.current_price ?? ""
+  const price = formatPrice(asset?.current_price ?? null, asset?.price_unit, lang)
 
   return (
     <motion.div layout initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.97 }} transition={{ duration: 0.2 }} className="group relative rounded-xl border border-[#E6E6E4] bg-[#FCFCFB] p-5 transition-all hover:border-[#D0D0CE] hover:shadow-md">
@@ -31,9 +32,9 @@ export function PickCard({ pick, sectors }: PickCardProps) {
       </span>
       <div className="text-lg font-bold text-[#252420]">{pick.name}</div>
       <div className="mb-2 text-sm text-[#8B8B85]">{pick.symbol}</div>
-      {price && <div className="mb-2 text-2xl font-bold text-[#252420]">{price}</div>}
+      {asset?.current_price != null && <div className="mb-2 text-2xl font-bold text-[#252420]">{price}</div>}
       <div className="mb-3 flex flex-wrap gap-1.5">
-        <span className={`inline-block rounded-full border px-3 py-0.5 text-xs font-semibold uppercase ${recStyles[pick.recommendation]}`}>{pick.recommendation}</span>
+        <span className={`inline-block rounded-full border px-3 py-0.5 text-xs font-semibold uppercase ${recStyles[pick.recommendation]}`}>{t(`rec.${pick.recommendation}`)}</span>
         {pick.risk_score != null && <span className="inline-block rounded-full border border-[#E6E6E4] bg-[#F7F7F5] px-3 py-0.5 text-xs text-[#8B8B85]">{t("picks.risk")} {pick.risk_score}/10</span>}
         {pick.position_size && <span className="inline-block rounded-full border border-blue-200 bg-blue-50 px-3 py-0.5 text-xs text-blue-700">{pick.position_size}</span>}
       </div>

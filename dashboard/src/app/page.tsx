@@ -16,13 +16,15 @@ import { DetailedAnalysis } from "@/components/report/DetailedAnalysis"
 import { HistoricalAccuracy } from "@/components/report/HistoricalAccuracy"
 import { ChartsSection } from "@/components/report/ChartsSection"
 import { Disclaimer } from "@/components/report/Disclaimer"
+import { AcknowledgmentGate } from "@/components/report/AcknowledgmentGate"
 import { Footer } from "@/components/report/Footer"
 import { LoadingSkeleton } from "@/components/report/LoadingSkeleton"
 
 function ReportContent() {
-  const { lang } = useLanguage()
-  const { data, loading, error } = useReportData(lang)
+  const { lang, t } = useLanguage()
+  const { data, loading, error, usedFallback } = useReportData(lang)
   const [openSectors, setOpenSectors] = useState<string[]>([])
+  const [fbDismissed, setFbDismissed] = useState(false)
 
   const handleSectorClick = useCallback((sector: string) => {
     setOpenSectors((prev) =>
@@ -49,7 +51,7 @@ function ReportContent() {
             tododeia.
           </h1>
           <p className="mt-3 text-sm text-[#8B8B85]">
-            {error ?? "No report data found."}
+            {error ?? t("error.noData")}
           </p>
         </div>
       </div>
@@ -63,7 +65,17 @@ function ReportContent() {
         aria-hidden="true"
       />
       <LanguagePicker />
+      <AcknowledgmentGate />
       <main id="main-content" className="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-10">
+        <div className="pt-6">
+          <Disclaimer variant="banner" />
+        </div>
+        {usedFallback && !fbDismissed && (
+          <div role="status" className="mt-3 flex items-center justify-between gap-3 rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-800">
+            <span>{t("report.esFallback")}</span>
+            <button type="button" onClick={() => setFbDismissed(true)} aria-label="Dismiss" className="font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400">×</button>
+          </div>
+        )}
         <ReportHeader data={data} />
         <div className="mt-6 space-y-8">
           <ExecutiveSummary summary={data.executive_summary} />

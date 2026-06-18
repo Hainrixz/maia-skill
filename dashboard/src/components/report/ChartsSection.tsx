@@ -14,7 +14,7 @@ interface ChartsSectionProps { sectors: Record<string, SectorData>; picks: RiskA
 
 function ConfidenceRadar({ sectors }: { sectors: Record<string, SectorData> }) {
   const { t } = useLanguage()
-  const data = SECTORS.map(key => { const s = sectors[key]; if (!s?.assets) return { sector: t(`sector.${key}`), confidence: 0 }; return { sector: t(`sector.${key}`), confidence: Math.round(s.assets.reduce((sum, a) => sum + a.confidence, 0) / s.assets.length * 10) / 10 } })
+  const data = SECTORS.map(key => { const s = sectors[key]; if (!s?.assets || s.assets.length === 0) return { sector: t(`sector.${key}`), confidence: 0 }; return { sector: t(`sector.${key}`), confidence: Math.round(s.assets.reduce((sum, a) => sum + a.confidence, 0) / s.assets.length * 10) / 10 } })
   return <ResponsiveContainer width="100%" height={260}><RadarChart data={data}><PolarGrid stroke="#E6E6E4" /><PolarAngleAxis dataKey="sector" tick={{ fill: "#4D4A44", fontSize: 11 }} /><PolarRadiusAxis domain={[0, 10]} tickCount={6} tick={{ fill: "#8B8B85", fontSize: 10 }} axisLine={false} /><Radar dataKey="confidence" stroke="#fa8625" fill="#fa8625" fillOpacity={0.15} strokeWidth={2} dot={{ r: 5, fill: "#fa8625" }} /></RadarChart></ResponsiveContainer>
 }
 
@@ -43,8 +43,8 @@ function AllocationDoughnut({ allocation }: { allocation: PortfolioAllocation })
 
 function SocialBuzzBar({ sectors }: { sectors: Record<string, SectorData> }) {
   const { t } = useLanguage()
-  const buzzMap: Record<string, number> = { high: 3, medium: 2, low: 1 }
-  const data = SECTORS.map(key => { const s = sectors[key]; if (!s?.assets) return { sector: t(`sector.${key}.short`), buzz: 0, fill: SECTOR_COLORS[key] }; return { sector: t(`sector.${key}.short`), buzz: Math.round(s.assets.reduce((sum, a) => sum + (buzzMap[(a.social_buzz || "low").toLowerCase()] || 1), 0) / s.assets.length * 10) / 10, fill: SECTOR_COLORS[key] } })
+  const buzzScore = (raw: string | null | undefined): number => { const v = (raw || "").toLowerCase(); if (v.includes("high")) return 3; if (v.includes("med")) return 2; if (v.includes("low")) return 1; return 1 }
+  const data = SECTORS.map(key => { const s = sectors[key]; if (!s?.assets || s.assets.length === 0) return { sector: t(`sector.${key}.short`), buzz: 0, fill: SECTOR_COLORS[key] }; return { sector: t(`sector.${key}.short`), buzz: Math.round(s.assets.reduce((sum, a) => sum + buzzScore(a.social_buzz), 0) / s.assets.length * 10) / 10, fill: SECTOR_COLORS[key] } })
   return (
     <ResponsiveContainer width="100%" height={260}>
       <BarChart data={data} margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
@@ -61,10 +61,10 @@ function SocialBuzzBar({ sectors }: { sectors: Record<string, SectorData> }) {
 export function ChartsSection({ sectors, picks, allocation }: ChartsSectionProps) {
   const { t } = useLanguage()
   const charts = [
-    { title: t("charts.confidence"), chart: <ConfidenceRadar sectors={sectors} /> },
-    { title: t("charts.risk"), chart: <RiskBubbleChart picks={picks} /> },
-    { title: t("charts.allocation"), chart: <AllocationDoughnut allocation={allocation} /> },
-    { title: t("charts.buzz"), chart: <SocialBuzzBar sectors={sectors} /> },
+    { title: t("charts.confidence"), aria: t("charts.aria.confidence"), chart: <ConfidenceRadar sectors={sectors} /> },
+    { title: t("charts.risk"), aria: t("charts.aria.risk"), chart: <RiskBubbleChart picks={picks} /> },
+    { title: t("charts.allocation"), aria: t("charts.aria.allocation"), chart: <AllocationDoughnut allocation={allocation} /> },
+    { title: t("charts.buzz"), aria: t("charts.aria.buzz"), chart: <SocialBuzzBar sectors={sectors} /> },
   ]
   return (
     <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.65 }} className="print-break-before">
@@ -74,7 +74,7 @@ export function ChartsSection({ sectors, picks, allocation }: ChartsSectionProps
         {charts.map((c, i) => (
           <motion.div key={c.title} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 + i * 0.04 }} className="rounded-xl border border-[#E6E6E4] bg-[#FCFCFB] p-5">
             <h3 className="mb-3 text-sm font-semibold text-[#252420]">{c.title}</h3>
-            <div className="h-[260px]">{c.chart}</div>
+            <div className="h-[260px]" role="img" aria-label={c.aria}>{c.chart}</div>
           </motion.div>
         ))}
       </div>
