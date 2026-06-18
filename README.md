@@ -1,14 +1,14 @@
 <a id="top"></a>
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="Tododeia — five AI research agents converging into a market analysis dashboard" width="100%">
+  <img src="docs/images/hero.png" alt="MAIA — five AI research agents converging into a market analysis dashboard" width="100%">
 </p>
 
-<h1 align="center">tododeia.</h1>
+<h1 align="center">MAIA System</h1>
 
 <p align="center">
-  <strong>Multi-agent AI investment analysis for Claude Code.</strong><br>
-  Five specialized agents research crypto, stocks, forex &amp; commodities in parallel, adapt to your risk profile, and render an interactive, bilingual dashboard — <em>educational analysis, not financial advice.</em>
+  <strong>M</strong>ulti-<strong>A</strong>gent <strong>I</strong>nvestment <strong>A</strong>nalysis — for Claude Code<br>
+  Five specialized AI agents research crypto, stocks, forex &amp; commodities in parallel, adapt to your risk profile, and render an interactive, bilingual dashboard — <em>educational analysis, not financial advice.</em>
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
   <img alt="EN / ES bilingual" src="https://img.shields.io/badge/EN%20%2F%20ES-bilingual-111111">
 </p>
 
-<p align="center"><strong><a href="#espanol">Leer en Español ↓</a></strong> · by <a href="https://github.com/Hainrixz">@soyenriquerocha</a></p>
+<p align="center"><strong><a href="#espanol">Leer en Español ↓</a></strong> · by tododeia · <a href="https://github.com/Hainrixz">@soyenriquerocha</a></p>
 
 ---
 
@@ -30,7 +30,7 @@
 
 ## What Is This?
 
-Tododeia is a **Claude Code skill** — a reusable prompt-and-tooling package that extends what Claude can do. When installed, Claude gains the ability to run a full multi-agent investment research workflow: 4 sector analysts research in parallel, a strategy agent synthesizes everything, and the result is served as an interactive dashboard in your browser.
+MAIA is a **Claude Code skill** — a reusable prompt-and-tooling package that extends what Claude can do. When installed, Claude gains the ability to run a full multi-agent investment research workflow: 4 sector analysts research in parallel, a strategy agent synthesizes everything, and the result is served as an interactive dashboard in your browser.
 
 ## How It Works
 
@@ -86,7 +86,7 @@ Tododeia is a **Claude Code skill** — a reusable prompt-and-tooling package th
 ## Features
 
 <p align="center">
-  <img src="docs/images/dashboard.png" alt="The Tododeia dashboard: allocation donut, recommendation cards, performance and risk-analysis charts" width="100%">
+  <img src="docs/images/dashboard.png" alt="The MAIA dashboard: allocation donut, recommendation cards, performance and risk-analysis charts" width="100%">
 </p>
 
 - **5 AI agents** — 4 sector researchers + 1 strategy synthesizer, running in parallel
@@ -244,7 +244,7 @@ If Node.js is not available, the skill falls back to a standalone `report.html` 
 
 Before the report renders, the dashboard shows a one-time acknowledgment ("this is educational, not financial advice") and the disclaimer stays visible at the top. Signals are phrased analytically (*Consider / Hold / Avoid*), never as buy/sell instructions.
 
-**This is educational analysis, not financial advice.** Tododeia's signals and allocations are AI-generated opinions derived from public data — they may be wrong, out of date, or incomplete, and are not a recommendation or solicitation to buy or sell any asset. AI analysis can contain errors. Always do your own research and consult a licensed financial advisor before investing. Past performance is not indicative of future results. **You assume all investment risk.**
+**This is educational analysis, not financial advice.** MAIA's signals and allocations are AI-generated opinions derived from public data — they may be wrong, out of date, or incomplete, and are not a recommendation or solicitation to buy or sell any asset. AI analysis can contain errors. Always do your own research and consult a licensed financial advisor before investing. Past performance is not indicative of future results. **You assume all investment risk.**
 
 **Data & limitations.** Prices come from free public APIs (CoinGecko, Yahoo Finance, Frankfurter) with a web-search fallback, so they may lag the market and some instruments fall back to search estimates. The "historical accuracy" metric is a local heuristic, not an audited track record. Set `FINNHUB_API_KEY` or `POLYGON_API_KEY` for higher-quality stock data (free keyless sources are used otherwise).
 
@@ -255,17 +255,17 @@ Before the report renders, the dashboard shows a one-time acknowledgment ("this 
 <a id="espanol"></a>
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="Tododeia — cinco agentes de IA convergiendo en un dashboard de analisis de mercado" width="100%">
+  <img src="docs/images/hero.png" alt="MAIA — cinco agentes de IA convergiendo en un dashboard de analisis de mercado" width="100%">
 </p>
 
-<h1 align="center">tododeia.</h1>
+<h1 align="center">MAIA System</h1>
 
 <p align="center">
-  <strong>Analisis de inversion multi-agente con IA para Claude Code.</strong><br>
-  Cinco agentes especializados investigan crypto, acciones, forex y materias primas en paralelo, se adaptan a tu perfil de riesgo y renderizan un dashboard interactivo y bilingue — <em>analisis educativo, no asesoria financiera.</em>
+  <strong>M</strong>ulti-<strong>A</strong>gent <strong>I</strong>nvestment <strong>A</strong>nalysis — para Claude Code<br>
+  Cinco agentes de IA especializados investigan crypto, acciones, forex y materias primas en paralelo, se adaptan a tu perfil de riesgo y renderizan un dashboard interactivo y bilingue — <em>analisis educativo, no asesoria financiera.</em>
 </p>
 
-<p align="center"><strong><a href="#top">Read in English ↑</a></strong> · por <a href="https://github.com/Hainrixz">@soyenriquerocha</a></p>
+<p align="center"><strong><a href="#top">Read in English ↑</a></strong> · por tododeia · <a href="https://github.com/Hainrixz">@soyenriquerocha</a></p>
 
 ---
 
@@ -275,7 +275,7 @@ Before the report renders, the dashboard shows a one-time acknowledgment ("this 
 
 ## Que es esto?
 
-Tododeia es un **skill de Claude Code** — un paquete reutilizable de prompts y herramientas que extiende lo que Claude puede hacer. Una vez instalado, Claude puede ejecutar un flujo completo de investigacion de inversiones con multiples agentes: 4 analistas sectoriales investigan en paralelo, un agente estrategico sintetiza todo, y el resultado se sirve como un dashboard interactivo en tu navegador.
+MAIA es un **skill de Claude Code** — un paquete reutilizable de prompts y herramientas que extiende lo que Claude puede hacer. Una vez instalado, Claude puede ejecutar un flujo completo de investigacion de inversiones con multiples agentes: 4 analistas sectoriales investigan en paralelo, un agente estrategico sintetiza todo, y el resultado se sirve como un dashboard interactivo en tu navegador.
 
 ## Como funciona
 
@@ -331,7 +331,7 @@ Tododeia es un **skill de Claude Code** — un paquete reutilizable de prompts y
 ## Caracteristicas
 
 <p align="center">
-  <img src="docs/images/dashboard.png" alt="El dashboard de Tododeia: dona de asignacion, tarjetas de recomendacion, graficos de rendimiento y riesgo" width="100%">
+  <img src="docs/images/dashboard.png" alt="El dashboard de MAIA: dona de asignacion, tarjetas de recomendacion, graficos de rendimiento y riesgo" width="100%">
 </p>
 
 - **5 agentes IA** — 4 investigadores sectoriales + 1 sintetizador de estrategia, en paralelo
@@ -488,7 +488,7 @@ Si Node.js no esta disponible, el skill genera un `report.html` independiente (e
 
 Antes de renderizar el reporte, el dashboard muestra un reconocimiento unico ("esto es educativo, no asesoria financiera") y el aviso permanece visible arriba. Las senales se expresan de forma analitica (*Considerar / Mantener / Evitar*), nunca como instrucciones de comprar/vender.
 
-**Esto es analisis educativo, no asesoria financiera.** Las senales y asignaciones de Tododeia son opiniones generadas por IA a partir de datos publicos — pueden estar equivocadas, desactualizadas o incompletas, y no son una recomendacion ni solicitud para comprar o vender ningun activo. El analisis con IA puede contener errores. Haz siempre tu propia investigacion y consulta a un asesor financiero licenciado antes de invertir. El rendimiento pasado no es indicativo de resultados futuros. **Asumes todo el riesgo de inversion.**
+**Esto es analisis educativo, no asesoria financiera.** Las senales y asignaciones de MAIA son opiniones generadas por IA a partir de datos publicos — pueden estar equivocadas, desactualizadas o incompletas, y no son una recomendacion ni solicitud para comprar o vender ningun activo. El analisis con IA puede contener errores. Haz siempre tu propia investigacion y consulta a un asesor financiero licenciado antes de invertir. El rendimiento pasado no es indicativo de resultados futuros. **Asumes todo el riesgo de inversion.**
 
 **Datos y limitaciones.** Los precios provienen de APIs publicas gratuitas (CoinGecko, Yahoo Finance, Frankfurter) con respaldo de busqueda web, por lo que pueden ir por detras del mercado y algunos instrumentos recurren a estimaciones de busqueda. La "precision historica" es una heuristica local, no un historial auditado. Define `FINNHUB_API_KEY` o `POLYGON_API_KEY` para mejores datos de acciones (por defecto se usan fuentes gratuitas sin clave).
 
