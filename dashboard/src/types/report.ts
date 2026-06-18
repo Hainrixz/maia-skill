@@ -60,26 +60,33 @@ export interface SectorData {
   data_unavailable?: boolean
 }
 
+// Data Contract: monetary/numeric fields are numbers (or null when genuinely
+// unavailable). Formatting ($, %, separators) happens only at render time via
+// lib/utils formatters. change_* / ytd_change are signed percent numbers (2.3 = +2.3%).
 export interface Asset {
   name: string
   symbol: string
-  current_price: string
-  change_24h: string
-  change_7d: string
-  change_30d: string
-  ytd_change: string
-  week_52_high: string
-  week_52_low: string
-  market_cap: string
-  volume_24h: string
-  sentiment: "bullish" | "bearish" | "neutral"
-  social_sentiment: "bullish" | "bearish" | "neutral" | "mixed"
-  social_buzz: "high" | "medium" | "low"
+  current_price: number | null
+  price_unit?: string // "USD" | "USD/oz" | "USD/bbl" | "rate" | "index"
+  change_24h: number | null
+  change_7d: number | null
+  change_30d: number | null
+  ytd_change: number | null
+  week_52_high: number | null
+  week_52_low: number | null
+  market_cap: number | null
+  volume_24h: number | null
+  // Freeform: real agent output exceeds simple enums (e.g. "cautiously optimistic").
+  sentiment: string
+  social_sentiment: string
+  social_buzz: string
   confidence: number
-  source_agreement: "high" | "medium" | "low"
+  source_agreement: string
+  data_source?: "api" | "api_alt" | "websearch" | "unavailable"
   sources_checked: string[]
   key_news: string[]
   social_highlights: string[]
+  // Kept as an enum for internal sorting/filtering; relabeled analytically at render.
   recommendation: "buy" | "hold" | "sell"
   reasoning: string
 }

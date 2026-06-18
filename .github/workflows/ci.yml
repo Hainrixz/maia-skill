@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+
+      - name: Install dashboard dependencies
+        run: npm ci --prefix dashboard
+
+      - name: Lint
+        run: npm run lint --prefix dashboard
+
+      - name: Build
+        run: npm run build --prefix dashboard
+
+      - name: Validate sample reports against the data contract
+        run: |
+          npx --yes ajv-cli@5 validate -s dashboard/schema/report.schema.json -d dashboard/public/data/report.json
+          npx --yes ajv-cli@5 validate -s dashboard/schema/report.schema.json -d dashboard/public/data/report-es.json
+
+      - name: Version parity (plugin.json == SKILL.md)
+        run: |
+          PLUGIN_V=$(node -p "require('./.claude-plugin/plugin.json').version")
+          SKILL_V=$(grep -m1 '^version:' SKILL.md | sed 's/version:[[:space:]]*//')
+          echo "plugin.json=$PLUGIN_V  SKILL.md=$SKILL_V"
+          test "$PLUGIN_V" = "$SKILL_V"
+
+      - name: Syntax-check the installer
+        run: bash -n install.sh
