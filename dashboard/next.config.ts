@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
-// Dev needs 'unsafe-eval' + ws: for React Refresh / Turbopack HMR; production locks them down.
+// Dev needs 'unsafe-eval' + 'unsafe-inline' + ws: for React Refresh / Turbopack HMR
+// (Next 16 + Turbopack inject inline bootstrap scripts, e.g. self.__next_r); production locks them down.
 const isDev = process.env.NODE_ENV !== "production";
 
 const csp = [
   "default-src 'self'",
-  `script-src 'self'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self'${isDev ? " 'unsafe-eval' 'unsafe-inline'" : ""}`,
   "style-src 'self' 'unsafe-inline'", // inline style={{}} (sector colors) + framer-motion
   "img-src 'self' data:",
   "font-src 'self' data:", // next/font self-hosts Geist; no external CDN
