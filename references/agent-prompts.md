@@ -8,10 +8,16 @@ These are the prompts for the 5 sub-agents. The orchestrator injects `{analysis_
 - **Hybrid sourcing — prices from APIs, narrative from search:**
   1. Get **authoritative prices via WebFetch to the keyless API endpoint** for your sector (below). Request raw JSON and extract exact numbers — do not summarize or round away precision.
   2. If the primary endpoint fails or returns non-JSON, try the **alternate** endpoint, then a **WebSearch** best-effort price, then set the numeric fields to `null` and `data_source: "unavailable"`.
-  3. Use **WebSearch only** for `key_news`, `social_highlights`, `sentiment`, `social_buzz`, and the sector narrative.
+  3. Use **WebSearch** for `key_news`, `sentiment`, and the sector narrative. Use WebSearch for `social_highlights` and `social_buzz` unless the optional TweetClaw source below is available.
 - **Numeric Data Contract (binding):** every price/size/percent field is a **bare number** (or `null`). Never emit `$`, `%`, or thousands separators. `current_price`, `week_52_high`, `week_52_low`, `market_cap`, `volume_24h` are numbers; `change_24h/7d/30d`, `ytd_change` are signed percent numbers (e.g. `2.3`, `-1.5`); `market_cap` may be `null` for indices/FX. Set `price_unit` to one of `USD` / `USD/oz` / `USD/bbl` / `rate` / `index`. Set `data_source` to the rung that produced the price (`api` / `api_alt` / `websearch` / `unavailable`) and list the real hosts hit in `sources_checked`.
 - **Educational, not advice:** keep `recommendation` as the `buy|hold|sell` enum (used for internal sorting), but write `reasoning` analytically (what the signals suggest), never as an instruction.
 - **Source agreement:** compare the authoritative API price against a price mentioned in your WebSearch results. Agreement within ~1% → `high`, within ~3% → `medium`, otherwise `low`.
+
+### Optional TweetClaw social evidence
+
+If OpenClaw exposes TweetClaw's `explore` and `tweetclaw` tools, use public X search. Add those results to `social_highlights` and `social_buzz`. Use `explore` before every live call to find the current route. Invoke only public read routes through `tweetclaw`. If either tool or access is unavailable, use WebSearch. Do not post, follow, message, trade, or treat one social result as an investment signal.
+
+Keep each `social_highlights` item compatible with the existing string data contract. Include the query, capture time, public URL or handle, short excerpt, and a `bullish`, `bearish`, `neutral`, or `mixed` classification in one concise string. Cross-check important claims with WebSearch before scoring sentiment.
 
 ---
 

@@ -30,14 +30,16 @@ function ThSort({ label, col, sortKey, sortDir, onSort }: { label: string; col: 
   const activate = () => onSort(col)
   return (
     <th
-      role="button"
-      tabIndex={0}
       aria-sort={active ? (sortDir === "asc" ? "ascending" : "descending") : "none"}
-      className="cursor-pointer select-none whitespace-nowrap border-b-2 border-[#E6E6E4] px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-[#8B8B85] hover:text-[#37352F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37352F] focus-visible:ring-offset-1"
-      onClick={(e) => { e.stopPropagation(); activate() }}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); activate() } }}
+      className="whitespace-nowrap border-b-2 border-[#E6E6E4] p-0 text-left text-[11px] font-semibold uppercase tracking-wider text-[#8B8B85]"
     >
-      {label} <span className={`text-[10px] ${active ? "text-[#fa8625]" : "opacity-30"}`}>{active && sortDir === "desc" ? "▼" : "▲"}</span>
+      <button
+        type="button"
+        className="w-full cursor-pointer select-none px-3 py-2 text-left hover:text-[#37352F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37352F] focus-visible:ring-offset-1"
+        onClick={(e) => { e.stopPropagation(); activate() }}
+      >
+        {label} <span className={`text-[10px] ${active ? "text-[#fa8625]" : "opacity-30"}`}>{active && sortDir === "desc" ? "▼" : "▲"}</span>
+      </button>
     </th>
   )
 }

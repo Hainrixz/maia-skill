@@ -208,6 +208,21 @@ After your first report, you can set up recurring analysis:
 
 Edit `references/agent-prompts.md` to change which assets each agent researches, how they search, or what data they prioritize.
 
+### Optional X/Twitter Evidence
+
+If your research setup includes OpenClaw, install TweetClaw as an optional public X/Twitter evidence source:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw config set tools.alsoAllow '["explore", "tweetclaw"]'
+```
+
+TweetClaw needs configured Xquik access for live reads. Follow the [current setup guide](https://github.com/Xquik-dev/tweetclaw#configure).
+
+MAIA uses `explore` before `tweetclaw` and permits public reads only. It can enrich `social_sentiment`, `social_buzz`, and `social_highlights`. MAIA still handles source agreement, interpretation, risk scoring, allocation, and report wording. Cross-check important claims. Never treat one social result as investment advice or a trading signal.
+
+TweetClaw is MIT-licensed. Xquik is a closed-source hosted service. Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
+
 ### Risk Profiles
 
 The Strategy Agent prompt in `references/agent-prompts.md` defines how each risk profile affects scoring and allocation. Customize the multipliers and allocation ranges there.
@@ -451,6 +466,21 @@ Despues de tu primer reporte, puedes configurar analisis recurrentes:
 ### Activos y Comportamiento de Agentes
 
 Edita `references/agent-prompts.md` para cambiar que activos investiga cada agente, como buscan, o que datos priorizan.
+
+### Evidencia Opcional de X/Twitter
+
+Si tu entorno de investigacion incluye OpenClaw, instala TweetClaw como fuente opcional de evidencia publica de X/Twitter:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw config set tools.alsoAllow '["explore", "tweetclaw"]'
+```
+
+TweetClaw necesita acceso configurado a Xquik para realizar lecturas en vivo. Consulta la [guia de configuracion actual](https://github.com/Xquik-dev/tweetclaw#configure).
+
+MAIA usa `explore` antes de `tweetclaw` y permite solo lecturas publicas. Puede enriquecer `social_sentiment`, `social_buzz` y `social_highlights`. MAIA mantiene la concordancia de fuentes, interpretacion, puntuacion de riesgo, asignacion y redaccion del reporte. Verifica las afirmaciones importantes. Nunca trates un solo resultado social como asesoria de inversion o senal de trading.
+
+TweetClaw tiene licencia MIT. Xquik es un servicio alojado de codigo cerrado. Xquik es un servicio independiente de terceros. No esta afiliado con X Corp. "Twitter" y "X" son marcas comerciales de X Corp.
 
 ### Perfiles de Riesgo
 
