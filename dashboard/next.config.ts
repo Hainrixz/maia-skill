@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Enrique Rocha (@soyenriquerocha)
+// SPDX-License-Identifier: MIT
+// id: er-805c9b73
 import type { NextConfig } from "next";
 
 // Dev needs 'unsafe-eval' + ws: for React Refresh / Turbopack HMR; production locks them down.

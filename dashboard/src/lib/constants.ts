@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Enrique Rocha (@soyenriquerocha)
+// SPDX-License-Identifier: MIT
+// id: er-805c9b73
 export const SECTOR_COLORS: Record<string, string> = {
   crypto: "#f7931a",
   stocks: "#00c853",

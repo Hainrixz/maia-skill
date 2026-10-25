@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Enrique Rocha (@soyenriquerocha)
+// SPDX-License-Identifier: MIT
+// id: er-805c9b73
 "use client"
 
 import { Button as ButtonPrimitive } from "@base-ui/react/button"

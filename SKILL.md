@@ -14,6 +14,7 @@ description: |
   "analizar mercados", "reporte de mercado", "oportunidades de inversión".
 user_invocable: true
 ---
+<!-- Copyright (c) 2026 Enrique Rocha (@soyenriquerocha) · tododeia.com · id er-805c9b73 -->
 
 # Tododeia Investment Analysis — Multi-Agent System v2
 

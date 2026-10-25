@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright (c) 2026 Enrique Rocha (@soyenriquerocha)
+# SPDX-License-Identifier: MIT
+# id: er-805c9b73
 # Tododeia / MAIA Skill — Installer
 # Usage: curl -sL https://raw.githubusercontent.com/Hainrixz/maia-skill/main/install.sh | bash
 
